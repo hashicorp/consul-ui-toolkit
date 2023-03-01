@@ -1,0 +1,26 @@
+{
+  "name": "consul-ui-toolkit",
+  "version": "0.0.0",
+  "private": true,
+  "repository": "",
+  "license": "MIT",
+  "author": "",
+  "scripts": {
+    "build": "yarn workspace consul-ui-toolkit run build",
+    "lint": "yarn workspaces run lint",
+    "lint:fix": "yarn workspaces run lint:fix",
+    "prepare": "yarn build",
+    "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
+    "start:addon": "yarn workspace consul-ui-toolkit run start",
+    "start:test-app": "yarn workspace test-app run start",
+    "test": "yarn workspaces run test"
+  },
+  "devDependencies": {
+    "concurrently": "^7.2.1",
+    "prettier": "^2.5.1"
+  },
+  "workspaces": [
+    "consul-ui-toolkit",
+    "test-app"
+  ]
+}
