@@ -12,7 +12,7 @@
     "prepare": "yarn build",
     "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
     "start:addon": "yarn workspace consul-ui-toolkit run start",
-    "start:test-app": "yarn workspace test-app run start",
+    "start:documentation": "yarn workspace documentation run start",
     "test": "yarn workspaces run test"
   },
   "devDependencies": {
@@ -21,6 +21,6 @@
   },
   "workspaces": [
     "consul-ui-toolkit",
-    "test-app"
+    "documentation"
   ]
 }
