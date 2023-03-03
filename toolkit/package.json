@@ -1,5 +1,5 @@
 {
-  "name": "consul-ui-toolkit",
+  "name": "@hashicorp/consul-ui-toolkit",
   "version": "0.0.0",
   "description": "The default blueprint for Embroider v2 addons.",
   "keywords": [
