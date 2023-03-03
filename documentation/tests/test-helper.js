@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
 import Application from 'documentation/app';
 import config from 'documentation/config/environment';
 import * as QUnit from 'qunit';

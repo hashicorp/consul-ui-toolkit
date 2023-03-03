@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
 import {
   setupApplicationTest as upstreamSetupApplicationTest,
   setupRenderingTest as upstreamSetupRenderingTest,

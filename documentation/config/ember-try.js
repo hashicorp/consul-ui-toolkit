@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
 'use strict';
 
 const getChannelURL = require('ember-source-channel-url');

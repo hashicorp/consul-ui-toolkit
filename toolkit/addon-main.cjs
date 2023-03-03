@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
 'use strict';
 
 const { addonV1Shim } = require('@embroider/addon-shim');

@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
 import EmberRouter from '@ember/routing/router';
 import config from 'documentation/config/environment';
 
