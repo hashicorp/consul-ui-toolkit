@@ -2,7 +2,7 @@
 
 ## Installation
 
-- `git clone <repository-url>`
+- `git clone git@github.com:hashicorp/consul-ui-toolkit.git`
 - `cd consul-ui-toolkit`
 - `yarn install`
 
@@ -13,7 +13,7 @@
 
 ## Building the addon
 
-- `cd consul-ui-toolkit`
+- `cd toolkit`
 - `yarn build`
 
 ## Running tests
