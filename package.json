@@ -2,7 +2,7 @@
   "version": "0.0.0",
   "private": true,
   "repository": "",
-  "license": "MIT",
+  "license": "MPL-2.0",
   "author": "",
   "scripts": {
     "build": "yarn workspace @hashicorp/consul-ui-toolkit run build",
