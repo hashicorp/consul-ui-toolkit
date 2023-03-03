@@ -1,6 +1,6 @@
 # @hashicorp/consul-ui-toolkit
 
-[Short description of the addon.]
+`@hashicorp/consul-ui-toolkit` is a collection of presentational components and utilities specifically meant to be shared across the different Consul applications.
 
 ## Compatibility
 
