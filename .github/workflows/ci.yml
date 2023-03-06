@@ -12,6 +12,18 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  license:
+    name: 'License Checks'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+      - name: Install copywrite
+        uses: hashicorp/setup-copywrite@v1.0.0
+      - name: Validate Header Compliance
+        run: copywrite headers --plan
+
   test:
     name: 'Tests'
     runs-on: ubuntu-latest
