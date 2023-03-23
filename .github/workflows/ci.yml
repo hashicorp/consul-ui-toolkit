@@ -30,6 +30,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
       - name: Check if changeset is required and present
         run: yarn changeset status
 
