@@ -24,6 +24,15 @@ jobs:
       - name: Validate Header Compliance
         run: copywrite headers --plan
 
+  changelog-checker:
+    if: "!contains(github.event.pull_request.labels.*.name, 'pr/no-changeset')"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Check if changeset is required and present
+        run: yarn changeset status
+
   test:
     name: 'Tests'
     runs-on: ubuntu-latest
