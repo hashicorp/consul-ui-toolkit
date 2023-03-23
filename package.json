@@ -6,9 +6,12 @@
   "author": "",
   "scripts": {
     "build": "yarn workspace @hashicorp/consul-ui-toolkit run build",
+    "changeset": "changeset",
     "lint": "yarn workspaces run lint",
     "lint:fix": "yarn workspaces run lint:fix",
     "prepare": "yarn build",
+    "prerelease": "yarn prepare",
+    "release": "changeset publish",
     "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
     "start:addon": "yarn workspace @hashicorp/consul-ui-toolkit run start",
     "start:documentation": "yarn workspace documentation run start",
@@ -21,5 +24,8 @@
   "workspaces": [
     "toolkit",
     "documentation"
-  ]
+  ],
+  "dependencies": {
+    "@changesets/cli": "^2.26.0"
+  }
 }
