@@ -30,15 +30,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Install Node
-        uses: actions/setup-node@v3
+        # referencing issue: https://github.com/changesets/changesets/issues/517#issuecomment-1182094769
         with:
-          node-version: 14.x
-          cache: yarn
-      - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+          ref: ${{github.event.pull_request.head.sha}}
+          fetch-depth: 0
       - name: Check if changeset is required and present
-        run: yarn changeset status
+        run: npx changeset status --since origin/main
 
   test:
     name: 'Tests'
