@@ -27,8 +27,6 @@ jobs:
 
       - name: Create Release Pull Request
         uses: changesets/action@v1
-        with:
-          version: yarn version
         env:
           # Token setup in consul-ui-services' account
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN}}
