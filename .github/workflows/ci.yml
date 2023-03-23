@@ -34,8 +34,10 @@ jobs:
         with:
           ref: ${{github.event.pull_request.head.sha}}
           fetch-depth: 0
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
       - name: Check if changeset is required and present
-        run: npx changeset status --since origin/main
+        run: yarn changeset status --since origin/main
 
   test:
     name: 'Tests'
