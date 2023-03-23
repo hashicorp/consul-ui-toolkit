@@ -29,9 +29,6 @@ jobs:
         uses: changesets/action@v1
         with:
           version: yarn version
-          publish: yarn release
         env:
           # Token setup in consul-ui-services' account
-          GITHUB_TOKEN: ${{ secrets.CONSUL_UI_SERVICES_GH_PAT_TOKEN }}
-          # Token setup in consul-ui-services' account
-          NPM_TOKEN: ${{ secrets.CONSUL_UI_SERVICES_NPM_PAT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN}}
