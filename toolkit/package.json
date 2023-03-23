@@ -60,7 +60,9 @@
     "version": 2,
     "type": "addon",
     "main": "addon-main.cjs",
-    "app-js": {}
+    "app-js": {
+      "./components/cut/fake-component.js": "./dist/_app_/components/cut/fake-component.js"
+    }
   },
   "exports": {
     ".": "./dist/index.js",
