@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - master
   pull_request: {}
 
 concurrency:
@@ -23,21 +22,6 @@ jobs:
         uses: hashicorp/setup-copywrite@v1.0.0
       - name: Validate Header Compliance
         run: copywrite headers --plan
-
-  changelog-checker:
-    if: "!contains(github.event.pull_request.labels.*.name, 'pr/no-changeset')"
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-        # referencing issue: https://github.com/changesets/changesets/issues/517#issuecomment-1182094769
-        with:
-          ref: ${{github.event.pull_request.head.sha}}
-          fetch-depth: 0
-      - name: Install Dependencies
-        run: yarn install --frozen-lockfile
-      - name: Check if changeset is required and present
-        run: yarn changeset status --since origin/main
 
   test:
     name: 'Tests'
