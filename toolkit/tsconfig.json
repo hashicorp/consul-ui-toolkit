@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "es2015",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "strict": true,
+    "declaration": true
+  },
+  "include": [
+    "src/**/*",
+    "types/**/*"
+  ]
+}
