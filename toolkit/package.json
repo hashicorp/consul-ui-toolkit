@@ -62,10 +62,7 @@
   "ember-addon": {
     "version": 2,
     "type": "addon",
-    "main": "addon-main.cjs",
-    "app-js": {
-      "./components/cut/fake-component.js": "./dist/_app_/components/cut/fake-component.js"
-    }
+    "main": "addon-main.cjs"
   },
   "exports": {
     ".": "./dist/index.js",
