@@ -8,7 +8,7 @@
     "build": "yarn workspace @hashicorp/consul-ui-toolkit run build",
     "changeset": "changeset",
     "lint": "yarn workspaces run lint",
-    "glint": "yarn toolkit run glint",
+    "glint": "yarn workspaces run glint",
     "lint:fix": "yarn workspaces run lint:fix",
     "prepare": "yarn build",
     "prerelease": "yarn prepare",
