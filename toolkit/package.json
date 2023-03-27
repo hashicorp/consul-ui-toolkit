@@ -40,10 +40,11 @@
     "@babel/plugin-syntax-decorators": "^7.17.0",
     "@babel/preset-typescript": "^7.21.0",
     "@embroider/addon-dev": "^3.0.0",
-    "@glint/environment-ember-loose": "^0.9.7",
     "@glint/core": "^0.9.7",
+    "@glint/environment-ember-loose": "^0.9.7",
     "@glint/template": "^0.9.7",
     "@rollup/plugin-babel": "^5.3.0",
+    "@types/ember": "^4.0.3",
     "@typescript-eslint/eslint-plugin": "^5.2.0",
     "@typescript-eslint/parser": "^5.2.0",
     "concurrently": "^7.2.1",
@@ -69,7 +70,9 @@
     "version": 2,
     "type": "addon",
     "main": "addon-main.cjs",
-    "app-js": {}
+    "app-js": {
+      "./components/cut/consul-cards-why-consul-component/index.js": "./dist/_app_/components/cut/consul-cards-why-consul-component/index.js"
+    }
   },
   "exports": {
     ".": "./dist/index.js",
