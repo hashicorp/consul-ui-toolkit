@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
 import { ComponentLike, HelperLike } from '@glint/template';
 
 declare module '@glint/environment-ember-loose/registry' {
