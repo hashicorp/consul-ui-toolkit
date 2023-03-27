@@ -9,6 +9,7 @@
     "changeset": "changeset",
     "lint": "yarn workspaces run lint",
     "lint:fix": "yarn workspaces run lint:fix",
+    "lint:types": "yarn workspaces run lint:types",
     "prepare": "yarn build",
     "prerelease": "yarn prepare",
     "release": "changeset publish",

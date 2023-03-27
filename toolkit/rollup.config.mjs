@@ -2,7 +2,7 @@
  * Copyright (c) HashiCorp, Inc.
  */
 
-import { babel } from '@rollup/plugin-babel';
+import typescript from 'rollup-plugin-ts';
 import copy from 'rollup-plugin-copy';
 import { Addon } from '@embroider/addon-dev/rollup';
 
@@ -19,7 +19,7 @@ export default {
   plugins: [
     // These are the modules that users should be able to import from your
     // addon. Anything not listed here may get optimized away.
-    addon.publicEntrypoints(['components/**/*.js', 'index.js']),
+    addon.publicEntrypoints(['**/*.ts']),
 
     // These are the modules that should get reexported into the traditional
     // "app" tree. Things in here should also be in publicEntrypoints above, but
@@ -37,8 +37,10 @@ export default {
     //
     // By default, this will load the actual babel config from the file
     // babel.config.json.
-    babel({
-      babelHelpers: 'bundled',
+    typescript({
+      transpiler: 'babel',
+      browserslist: false,
+      transpileOnly: false,
     }),
 
     // Ensure that standalone .hbs files are properly integrated as Javascript.
