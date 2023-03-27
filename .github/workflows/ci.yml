@@ -40,7 +40,7 @@ jobs:
       - name: Lint
         run: yarn lint
       - name: Glint
-        run: yarn glint
+        run: yarn lint:types
       - name: Run Tests
         run: yarn test
 

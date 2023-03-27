@@ -21,7 +21,15 @@
   "experimentalDecorators": true,
   "skipLibCheck": true,
   "compilerOptions": {
-
+    "target": "ESNext",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "strict": true,
+    "declaration": true,
     // The combination of `baseUrl` with `paths` allows Ember's classic package
     // layout, which is not resolvable with the Node resolution algorithm, to
     // work with TypeScript.
@@ -42,5 +50,8 @@
     "app/**/*",
     "tests/**/*",
     "types/**/*"
-  ]
+  ],
+  "glint": {
+    "environment": "ember-loose"
+  }
 }
