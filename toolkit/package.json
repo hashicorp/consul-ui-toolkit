@@ -25,6 +25,8 @@
     "lint:hbs:fix": "ember-template-lint . --fix --no-error-on-unmatched-pattern",
     "lint:js:fix": "eslint . --fix",
     "lint:types": "glint",
+    "toolkit:publish": "yalc publish --content",
+    "toolkit:cleanup": "yalc installations clean @hashicorp/consul-ui-toolkit",
     "start": "rollup --config --watch",
     "test": "echo 'A v2 addon does not have tests, run tests in documentation'",
     "prepack": "rollup --config"
