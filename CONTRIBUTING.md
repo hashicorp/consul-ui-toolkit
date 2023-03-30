@@ -32,13 +32,13 @@ Some addons, which don't have the helpers and components registered, might be ad
 ## Testing in dependent projects 
 
 ### Publishing toolkit locally
-- `cd toolkit`
-- `yarn toolkit:publish` – Publishing `@hashocorp/consul-ui-toolkit` to local `.yalc` store
+- from root `publish:local:toolkit`
+- or `cd toolkit` and `yarn publish:local` – Publishing `@hashocorp/consul-ui-toolkit` to local `.yalc` store
 - from the dependent project `yalc link @hashocorp/consul-ui-toolkit`
 
 ### Remove toolkit package from local .yalc store
-- `cd toolkit`
-- `yarn toolkit:clenup` – Removing `@hashocorp/consul-ui-toolkit` from local `.yalc` store
+- from root `clenup:local:toolkit`
+- or `cd toolkit` and `yarn cleanup:local` – Removing `@hashocorp/consul-ui-toolkit` from local `.yalc` store
 - 
 ## Running the test application
 

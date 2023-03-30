@@ -7,11 +7,13 @@
   "scripts": {
     "build": "yarn workspace @hashicorp/consul-ui-toolkit run build",
     "changeset": "changeset",
+    "clenup:local:toolkit": "yarn workspace @hashicorp/consul-ui-toolkit run cleanup:local",
     "lint": "yarn workspaces run lint",
     "lint:fix": "yarn workspaces run lint:fix",
     "lint:types": "yarn workspaces run lint:types",
     "prepare": "yarn build",
     "prerelease": "yarn prepare",
+    "publish:local:toolkit": "yarn workspace @hashicorp/consul-ui-toolkit run publish:local",
     "release": "changeset publish",
     "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
     "start:addon": "yarn workspace @hashicorp/consul-ui-toolkit run start",
