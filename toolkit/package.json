@@ -18,6 +18,7 @@
   ],
   "scripts": {
     "build": "rollup --config",
+    "cleanup:local": "yalc installations clean @hashicorp/consul-ui-toolkit",
     "lint": "concurrently 'npm:lint:*(!fix)' --names 'lint:'",
     "lint:fix": "concurrently 'npm:lint:*:fix' --names 'fix:'",
     "lint:hbs": "ember-template-lint . --no-error-on-unmatched-pattern",
@@ -27,7 +28,8 @@
     "lint:types": "glint",
     "start": "rollup --config --watch",
     "test": "echo 'A v2 addon does not have tests, run tests in documentation'",
-    "prepack": "rollup --config"
+    "prepack": "rollup --config",
+    "publish:local": "yalc publish --content"
   },
   "dependencies": {
     "@embroider/addon-shim": "^1.0.0"
@@ -70,9 +72,7 @@
     "version": 2,
     "type": "addon",
     "main": "addon-main.cjs",
-    "app-js": {
-      "./components/cut/consul-cards-why-consul-component/index.js": "./dist/_app_/components/cut/consul-cards-why-consul-component/index.js"
-    }
+    "app-js": {}
   },
   "exports": {
     ".": "./dist/index.js",

@@ -28,7 +28,18 @@ Some addons, which don't have the helpers and components registered, might be ad
 - `cd documentation`
 - `yarn test` – Runs the test suite on the current Ember version
 - `yarn test:watch` – Runs the test suite in "watch mode"
+- 
+## Testing in dependent projects 
 
+### Publishing toolkit locally
+- from root `publish:local:toolkit`
+- or `cd toolkit` and `yarn publish:local` – Publishing `@hashocorp/consul-ui-toolkit` to local `.yalc` store
+- from the dependent project `yalc link @hashocorp/consul-ui-toolkit`
+
+### Remove toolkit package from local .yalc store
+- from root `cleanup:local:toolkit`
+- or `cd toolkit` and `yarn cleanup:local` – Removing `@hashocorp/consul-ui-toolkit` from local `.yalc` store
+- 
 ## Running the test application
 
 - `cd documentation`
