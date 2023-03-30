@@ -7,7 +7,7 @@
   "scripts": {
     "build": "yarn workspace @hashicorp/consul-ui-toolkit run build",
     "changeset": "changeset",
-    "clenup:local:toolkit": "yarn workspace @hashicorp/consul-ui-toolkit run cleanup:local",
+    "cleanup:local:toolkit": "yarn workspace @hashicorp/consul-ui-toolkit run cleanup:local",
     "lint": "yarn workspaces run lint",
     "lint:fix": "yarn workspaces run lint:fix",
     "lint:types": "yarn workspaces run lint:types",

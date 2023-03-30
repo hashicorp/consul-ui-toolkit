@@ -37,7 +37,7 @@ Some addons, which don't have the helpers and components registered, might be ad
 - from the dependent project `yalc link @hashocorp/consul-ui-toolkit`
 
 ### Remove toolkit package from local .yalc store
-- from root `clenup:local:toolkit`
+- from root `cleanup:local:toolkit`
 - or `cd toolkit` and `yarn cleanup:local` – Removing `@hashocorp/consul-ui-toolkit` from local `.yalc` store
 - 
 ## Running the test application
