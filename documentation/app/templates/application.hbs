@@ -5,5 +5,31 @@
 {{page-title "TestApp"}}
 
 <h2 id="title">Welcome to Ember</h2>
-
+<Cut::ListItem as |L|>
+  <L.Content>1111</L.Content>
+  <L.Action as |A|>
+    <A.Dropdown as |dd|>
+      <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} />
+      <dd.Interactive
+        @icon='edit'
+        @text='Edit'
+      />
+    </A.Dropdown>
+  </L.Action>
+</Cut::ListItem>
+<Cut::ListItem as |L|>
+  <L.Content>2222</L.Content>
+  <L.Action as |A|>
+    <A.Button @text='Invalidate'></A.Button>
+  </L.Action>
+</Cut::ListItem>
+<Cut::ListItem as |L|>
+  <L.Content>3333</L.Content>
+  <L.Action as |A|>
+    <A.Generic></A.Generic>
+  </L.Action>
+</Cut::ListItem>
+<Cut::ListItem as |L|>
+  <L.Content>4444</L.Content>
+</Cut::ListItem>
 {{outlet}}

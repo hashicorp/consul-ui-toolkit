@@ -1,0 +1,15 @@
+.cut-list-item {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 0;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-radius: 6px;
+  gap: 8px;
+  box-shadow: 0px 0px 0px 1px rgba(101, 106, 118, 0.15), 0px 2px 3px rgba(101, 106, 118, 0.1), 0px 8px 16px -10px rgba(101, 106, 118, 0.2);
+}
+
+.cut-list-item__content {
+  flex: 1;
+}

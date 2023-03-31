@@ -3,6 +3,7 @@
  */
 
 import typescript from 'rollup-plugin-ts';
+import scss from 'rollup-plugin-scss'
 import copy from 'rollup-plugin-copy';
 import { Addon } from '@embroider/addon-dev/rollup';
 
@@ -46,9 +47,14 @@ export default {
     // Ensure that standalone .hbs files are properly integrated as Javascript.
     addon.hbs(),
 
+    scss({
+      output: "./build/css/style.css",
+      failOnError: true,
+    }),
+
     // addons are allowed to contain imports of .css files, which we want rollup
     // to leave alone and keep in the published output.
-    addon.keepAssets(['**/*.css']),
+    addon.keepAssets(['*.scss', '**/*.scss', '**/**/*.scss']),
 
     // Remove leftover build artifacts when starting a new build.
     addon.clean(),
