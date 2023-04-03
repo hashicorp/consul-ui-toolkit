@@ -1,0 +1,30 @@
+.doc-PageHeader {
+  max-width: 1080px;
+  width: 100%;
+
+  .doc-PageHeader-title {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    > h1 {
+      margin: 0.5rem 0;
+    }
+  }
+
+  .doc-PageHeader-badge {
+    flex-grow: 1;
+  }
+
+  .doc-PageHeader-links {
+    display: flex;
+    gap: 13px;
+  }
+
+  .doc-PageHeader-description {
+    max-width: 880px;
+    margin-top: 0;
+  }
+}

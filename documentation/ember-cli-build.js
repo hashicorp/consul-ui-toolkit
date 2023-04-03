@@ -19,6 +19,22 @@ module.exports = function (defaults) {
     autoImport: {
       watchDependencies: ['consul-ui-toolkit'],
     },
+    sassOptions: {
+      precision: 4,
+      includePaths: [
+        '../node_modules/@hashicorp/design-system-tokens/dist/products/css',
+      ],
+    },
+    minifyCSS: {
+      options: {
+        advanced: false,
+      },
+    },
+    'ember-prism': {
+      theme: 'tomorrow',
+      components: ['javascript', 'markup'], //needs to be an array, or undefined.
+      plugins: ['line-highlight', 'line-numbers'],
+    },
   });
 
   const { maybeEmbroider } = require('@embroider/test-setup');

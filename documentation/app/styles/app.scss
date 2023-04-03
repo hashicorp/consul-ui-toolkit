@@ -1,29 +1,144 @@
 /**
-* Copyright (c) HashiCorp, Inc.
-*/
-
+ * Copyright (c) HashiCorp, Inc.
+ */
 @import "@hashicorp/design-system-components";
 @import "@hashicorp/consul-ui-toolkit";
+@import "@hashicorp/design-system-tokens/dist/products/css/tokens.css";
+@import "./components/page-header";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  font-family: var(--token-typography-font-stack-text);
+  color: var(--token-color-foreground-strong);
+  text-rendering: optimizeLegibility;
+  text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
 
 body {
-  padding: 10px 40px;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
-/**
-* the styles to be removed once documentation setup is merged
- */
-pre, code {
-  border-radius: 6px;
-  background-color: black;
-  color: white;
+h1 {
+  font-size: 30px;
+  line-height: 38px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+strong {
+  font-weight: 600;
+}
+
+small {
+  font-weight: 400;
   font-size: 14px;
-  width: fit-content;
-  padding-right: 20px;
+  line-height: 20px;
+  color: var(--token-color-foreground-faint);
+
+  strong {
+    font-size: 14px;
+    font-weight: 600;
+  }
 }
 
-.doc-list-container {
+code,
+pre {
+  font-family: var(--token-typography-font-stack-code);
+}
+
+.application {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 280px auto;
+  grid-template-areas:
+    "nav container"
+    "nav footer";
+  grid-template-rows: 1fr auto;
+
+  > .hds-side-nav__wrapper {
+    grid-area: nav;
+  }
+
+  > main {
+    grid-area: container;
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 2.5rem 2.5rem;
+    align-items: start;
+    max-width: 1162px;
+
+    > .hds-tabs {
+      width: 100%;
+    }
+
+    .content,
+    .hds-tabs__panel {
+      margin-top: 2rem;
+      max-width: 800px;
+    }
+  }
+
+  > footer {
+    grid-area: footer;
+
+    > nav {
+      display: flex;
+      padding: 1rem 2.5rem;
+      height: 60px;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+
+      > ul {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        list-style: none;
+
+        a {
+          color: var(--token-color-foreground-faint);
+          font-size: 15px;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.listitem-elevations {
+  display: flex;
+  flex-direction: row;
+}
+
+.preview-block {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding-bottom: 12px;
+  gap: 1rem;
+  margin-bottom: 3rem;
 }
