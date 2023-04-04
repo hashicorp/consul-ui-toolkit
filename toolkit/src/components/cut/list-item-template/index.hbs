@@ -1,1 +1,7 @@
-<div></div>
+<div class="cut-list-item-template">
+  <div class="title-row">
+    {{yield (hash Icon=(component 'flight-icon'))}}
+    {{yield (hash Title=(component 'cut/list-item-template/title'))}}
+  </div>
+  {{yield (hash Metadata=(component 'cut/list-item-template/metadata'))}}
+</div>

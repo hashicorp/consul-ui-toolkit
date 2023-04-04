@@ -34,7 +34,8 @@
     "@glint/environment-ember-loose": "^0.9.7",
     "@glint/template": "^0.9.7",
     "@hashicorp/consul-ui-toolkit": "^0.0.0",
-    "@hashicorp/design-system-components": "^2.0.0",
+    "@hashicorp/design-system-components": "^1.6.0",
+    "@hashicorp/design-system-tokens": "^1.0.0",
     "@hashicorp/ember-flight-icons": "^3.0.2",
     "@typescript-eslint/eslint-plugin": "^5.2.0",
     "@typescript-eslint/parser": "^5.2.0",
@@ -85,7 +86,7 @@
     "edition": "octane"
   },
   "dependencies": {
-    "@hashicorp/design-system-tokens": "^1.4.1",
-    "tailwindcss": "^3.3.1"
+    "ember-cli-node-assets": "^0.2.2",
+    "simple-css-reset": "^3.0.0"
   }
 }
