@@ -1,0 +1,48 @@
+@import '@hashicorp/design-system-components';
+
+%cut-list-item {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 0;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-radius: 6px;
+  gap: 8px;
+}
+
+.cut-list-item {
+  @extend .hds-surface-mid;
+  @extend .hds-elevation-mid;
+  @extend %cut-list-item;
+}
+
+.cut-list-item:focus,
+a.cut-list-item:focus,
+.cut-list-item:focus-visible,
+a.cut-list-item:focus-visible
+{
+  text-decoration: none;
+  outline: 3px solid var(--token-color-focus-action-external);
+  outline-offset: 1px;
+}
+
+a.cut-list-item {
+  text-decoration: none;
+  color: inherit;
+}
+
+.cut-list-item:hover {
+  @extend .hds-surface-high;
+  @extend .hds-elevation-high;
+}
+
+.cut-list-item--static {
+  @extend .hds-surface-base;
+  @extend .hds-elevation-low;
+  @extend %cut-list-item;
+}
+
+.cut-list-item__content {
+  flex: 1;
+}

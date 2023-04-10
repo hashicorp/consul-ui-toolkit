@@ -1,0 +1,28 @@
+/**
+* Copyright (c) HashiCorp, Inc.
+*/
+
+@import "@hashicorp/consul-ui-toolkit";
+@import "@hashicorp/design-system-components";
+
+/**
+* the styles to be removed once documentation setup is merged
+ */
+pre, code {
+  border-radius: 6px;
+  background-color: black;
+  color: white;
+  font-size: 14px;
+  width: fit-content;
+  padding-right: 20px;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 12px;
+}
+body {
+  padding: 10px 40px;
+}

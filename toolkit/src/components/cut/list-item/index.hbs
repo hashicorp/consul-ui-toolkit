@@ -1,0 +1,29 @@
+<div ...attributes>
+  {{#if (or @href @route)}}
+    <Hds::Interactive
+      class="cut-list-item"
+      @href={{@href}}
+      @isRouteExternal={{@isRouteExternal}}
+      @route={{@route}}
+      @isHrefExternal={{@isHrefExternal}}
+      @query={{@query}}
+      @replace={{@replace}}
+      {{on 'click' this.onClick}}
+    >
+      {{yield (hash Content=(component "cut/list-item/content"))}}
+      {{yield (hash Action=(component "cut/list-item/action"))}}
+    </Hds::Interactive>
+  {{else}}
+    {{#if @onClick}}
+      <div class="cut-list-item" tabindex="0" {{on 'click' this.onClick}}>
+        {{yield (hash Content=(component "cut/list-item/content"))}}
+        {{yield (hash Action=(component "cut/list-item/action"))}}
+      </div>
+    {{else}}
+      <div class="cut-list-item--static">
+        {{yield (hash Content=(component "cut/list-item/content"))}}
+        {{yield (hash Action=(component "cut/list-item/action"))}}
+      </div>
+    {{/if}}
+  {{/if}}
+</div>
