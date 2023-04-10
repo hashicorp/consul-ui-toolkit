@@ -50,3 +50,7 @@ a.cut-list-item {
 .cut-list-item__content {
   flex: 1;
 }
+
+.cut-list-item .cut-list-item__content {
+  cursor: pointer;
+}
