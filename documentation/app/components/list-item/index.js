@@ -1,7 +1,11 @@
-import Controller from '@ember/controller';
-import { action } from '@ember/object';
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
 
-export default class ListItemController extends Controller {
+import { action } from '@ember/object';
+import Component from '@glimmer/component';
+
+export default class ListItemComponent extends Component {
   onItemClicked() {
     console.log('clicked');
   }

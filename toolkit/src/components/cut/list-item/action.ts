@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
