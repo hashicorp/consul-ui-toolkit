@@ -8,4 +8,4 @@ export interface DivSignature {
   };
 }
 
-export default class ListItemComponent extends Component<DivSignature> {}
+export default class TextWithIconComponent extends Component<DivSignature> {}

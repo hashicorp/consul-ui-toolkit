@@ -1,4 +1,4 @@
-<div>
+<div {{on 'click' this.onActionClick}}>
   {{yield
     (hash Button=(component 'hds/button' size='small')
       Dropdown=(component "hds/dropdown")
