@@ -39,6 +39,8 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Lint
         run: yarn lint
+      - name: Glint
+        run: yarn lint:types
       - name: Run Tests
         run: yarn test
 
