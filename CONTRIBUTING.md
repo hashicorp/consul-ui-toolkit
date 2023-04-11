@@ -11,13 +11,6 @@
 - `yarn lint`
 - `yarn lint:fix`
 
-### Glinting
-- `yarn lint:types` to run linter for templates to check the types
-
-Newly added components and helpers have to be registered in `@glint/environment-ember-loose/registry`, see details in: [Template registry](https://typed-ember.gitbook.io/glint/using-glint/ember/template-registry#components)
-Some addons, which don't have the helpers and components registered, might be added to the project registry( see `types/*` folder).
-[Addon dependencies](https://typed-ember.gitbook.io/glint/using-glint/ember/using-addons#typing-your-dependencies)
-
 ## Building the addon
 
 - `cd toolkit`
