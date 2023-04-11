@@ -15,9 +15,9 @@
   gap: 8px;
 }
 
-.cut-list-item.active:focus,
+button.cut-list-item.active:focus,
 a.cut-list-item.active:focus,
-.cut-list-item.active:focus-visible,
+button.cut-list-item.active:focus-visible,
 a.cut-list-item.active:focus-visible
 {
   text-decoration: none;
@@ -30,11 +30,22 @@ a.cut-list-item {
   color: inherit;
 }
 
+button.cut-list-item {
+  background-color: unset;
+  width: 100%;
+  border: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
 .cut-list-item.active:hover {
   box-shadow: var(--token-surface-high-box-shadow);
 }
 
 .cut-list-item__content {
+  display: flex;
+  justify-content: start;
   flex: 1;
 }
 

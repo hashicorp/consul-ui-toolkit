@@ -38,6 +38,19 @@
   </Cut::ListItem>
   <Cut::ListItem @onClick={{this.onItemClicked}} as |L|>
     <L.Content>Element with onClick</L.Content>
+    <L.Action as |A|>
+      <A.Dropdown as |dd|>
+        <dd.ToggleIcon
+          @icon='more-horizontal'
+          @text='Menu'
+          @hasChevron={{false}}
+        />
+        <dd.Interactive
+          @icon='edit'
+          @text='Edit'
+        />
+      </A.Dropdown>
+    </L.Action>
   </Cut::ListItem>
 </div>
 <h3>Static</h3>
