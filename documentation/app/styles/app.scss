@@ -2,8 +2,12 @@
 * Copyright (c) HashiCorp, Inc.
 */
 
-@import "@hashicorp/consul-ui-toolkit";
 @import "@hashicorp/design-system-components";
+@import "@hashicorp/consul-ui-toolkit";
+
+body {
+  padding: 10px 40px;
+}
 
 /**
 * the styles to be removed once documentation setup is merged
@@ -17,12 +21,9 @@ pre, code {
   padding-right: 20px;
 }
 
-.list-container {
+.doc-list-container {
   display: flex;
   flex-direction: column;
   gap: 12px;
   padding-bottom: 12px;
-}
-body {
-  padding: 10px 40px;
 }

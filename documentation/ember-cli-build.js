@@ -11,9 +11,9 @@ module.exports = function (defaults) {
     sassOptions: {
       extension: 'scss',
       includePaths: [
+        '../node_modules/@hashicorp/design-system-tokens/dist/products/css',
         '../node_modules/@hashicorp/design-system-components/app/styles',
         '../node_modules/@hashicorp/consul-ui-toolkit/dist/styles',
-        '../node_modules/@hashicorp/design-system-tokens/dist/products/css',
       ],
     },
     autoImport: {
