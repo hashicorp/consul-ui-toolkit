@@ -2,7 +2,7 @@
   Copyright (c) HashiCorp, Inc.
 }}
 
-<div class="cut-list-item-template">
+<div class="cut-list-item-template" ...attributes>
   {{yield (hash Label=(component 'cut/list-item/label'))}}
   <div>{{yield (hash
                  Badge=(component 'hds/badge' size='small')
