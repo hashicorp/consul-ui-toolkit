@@ -15,7 +15,7 @@ export interface DivSignature {
     isRouteExternal?: boolean;
     query?: object;
     replace?: string;
-    onClick?: any;
+    onClick(): void;
   };
 }
 
@@ -46,7 +46,7 @@ export default class ListItemComponent extends Component<DivSignature> {
   }
 
   @action
-  onClick() {
-    this.onClick?.();
+  onClickAction() {
+    this.args.onClick?.();
   }
 }
