@@ -6,8 +6,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 
-export interface DivSignature {
-  Element: HTMLDivElement;
+export interface ComponentSignature {
   Args: {
     href?: string;
     isHrefExternal?: boolean;
@@ -19,7 +18,7 @@ export interface DivSignature {
   };
 }
 
-export default class ListItemComponent extends Component<DivSignature> {
+export default class ListItemComponent extends Component<ComponentSignature> {
   get route() {
     const { onClick, route, href } = this.args;
 

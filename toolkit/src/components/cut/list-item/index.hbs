@@ -1,32 +1,30 @@
 {{!
   Copyright (c) HashiCorp, Inc.
 }}
-
-<div ...attributes>
-  {{#if (or this.href this.route)}}
-    <Hds::Interactive
-      class="cut-list-item active hds-surface-mid"
-      @href={{this.href}}
-      @isRouteExternal={{@isRouteExternal}}
-      @route={{this.route}}
-      @isHrefExternal={{@isHrefExternal}}
-      @query={{@query}}
-      @replace={{@replace}}
-    >
+{{#if (or this.href this.route)}}
+  <Hds::Interactive
+    class="cut-list-item active hds-surface-mid"
+    @href={{this.href}}
+    @isRouteExternal={{@isRouteExternal}}
+    @route={{this.route}}
+    @isHrefExternal={{@isHrefExternal}}
+    @query={{@query}}
+    @replace={{@replace}}
+    ...attributes
+  >
+    {{yield (hash Content=(component "cut/list-item/content"))}}
+    {{yield (hash Action=(component "cut/list-item/action"))}}
+  </Hds::Interactive>
+{{else}}
+  {{#if @onClick}}
+    <button type="button" class="cut-list-item active hds-surface-mid" {{on 'click' this.onClickAction}} ...attributes>
       {{yield (hash Content=(component "cut/list-item/content"))}}
       {{yield (hash Action=(component "cut/list-item/action"))}}
-    </Hds::Interactive>
+    </button>
   {{else}}
-    {{#if @onClick}}
-      <button type="button" class="cut-list-item active hds-surface-mid" {{on 'click' this.onClickAction}}>
-        {{yield (hash Content=(component "cut/list-item/content"))}}
-        {{yield (hash Action=(component "cut/list-item/action"))}}
-      </button>
-    {{else}}
-      <div class="cut-list-item hds-surface-base">
-        {{yield (hash Content=(component "cut/list-item/content"))}}
-        {{yield (hash Action=(component "cut/list-item/action"))}}
-      </div>
-    {{/if}}
+    <div class="cut-list-item hds-surface-base" ...attributes>
+      {{yield (hash Content=(component "cut/list-item/content"))}}
+      {{yield (hash Action=(component "cut/list-item/action"))}}
+    </div>
   {{/if}}
-</div>
+{{/if}}
