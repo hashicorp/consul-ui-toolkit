@@ -10,7 +10,6 @@
     "cleanup:local:toolkit": "yarn workspace @hashicorp/consul-ui-toolkit run cleanup:local",
     "lint": "yarn workspaces run lint",
     "lint:fix": "yarn workspaces run lint:fix",
-    "lint:types": "yarn workspaces run lint:types",
     "prepare": "yarn build",
     "prerelease": "yarn prepare",
     "publish:local:toolkit": "yarn workspace @hashicorp/consul-ui-toolkit run publish:local",

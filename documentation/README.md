@@ -48,10 +48,6 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 Specify what it takes to deploy your app.
 
-### Glinting 
-- `yarn lint:types` to run linter for templates to check the types
-[Addon dependencies](https://typed-ember.gitbook.io/glint/using-glint/ember/using-addons#typing-your-dependencies) might need to be added to registry
-
 ## Further Reading / Useful Links
 
 - [ember.js](https://emberjs.com/)
