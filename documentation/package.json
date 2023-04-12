@@ -18,7 +18,6 @@
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
-    "lint:types": "glint",
     "start": "ember serve --port=4201",
     "test": "concurrently \"npm:lint\" \"npm:test:*\" --names \"lint,test:\"",
     "test:ember": "ember test"
@@ -30,9 +29,6 @@
     "@embroider/test-setup": "^1.7.1",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
-    "@glint/environment-ember-loose": "^0.9.7",
-    "@glint/core": "^0.9.7",
-    "@glint/template": "^0.9.7",
     "@hashicorp/consul-ui-toolkit": "^0.0.0",
     "@hashicorp/design-system-components": "^2.0.0",
     "@hashicorp/design-system-tokens": "^1.0.0",
