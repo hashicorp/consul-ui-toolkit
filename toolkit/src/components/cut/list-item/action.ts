@@ -11,7 +11,7 @@ export interface DivSignature {
 
 export default class ListItemActionComponent extends Component<DivSignature> {
   @action
-  onActionClick(event: Event) {
+  onClickStopPropagation(event: Event) {
     event.preventDefault();
     event.stopPropagation();
   }

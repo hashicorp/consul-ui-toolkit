@@ -2,7 +2,7 @@
   Copyright (c) HashiCorp, Inc.
 }}
 
-<div {{on 'click' this.onActionClick}}>
+<div {{on 'click' this.onClickStopPropagation}}>
   {{yield
     (hash Button=(component "hds/button" size="small")
       Dropdown=(component "hds/dropdown")
