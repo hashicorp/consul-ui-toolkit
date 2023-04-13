@@ -1,5 +1,5 @@
 ---
-'@hashicorp/consul-ui-toolkit': patch
+'@hashicorp/consul-ui-toolkit': minor
 ---
 
 Add List item template component
