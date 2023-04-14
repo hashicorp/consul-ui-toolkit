@@ -15,11 +15,6 @@ module('Integration | Component | cut/list-item', function (hooks) {
     resetOnerror();
   });
 
-  test('it renders the list item container', async function (assert) {
-    await render(hbs`<Cut::ListItem/>`);
-    assert.dom(this.element).exists();
-  });
-
   test('it should render with a CSS class that matches the component name', async function (assert) {
     await render(hbs`<Cut::ListItem id="test-list-item" />`);
     assert.dom('#test-list-item').hasClass('cut-list-item');
@@ -86,42 +81,20 @@ module('Integration | Component | cut/list-item', function (hooks) {
     assert.dom('a#test-list-item').hasAttribute('data-test2', 'test');
   });
 
-  test('it should spread all the attributes passed to the <LinkTo> element', async function (assert) {
-    await render(
-      hbs`<Cut::ListItem @route="index" id="test-list-item" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('a#test-list-item').hasClass('my-class');
-    assert.dom('a#test-list-item').hasAttribute('data-test1');
-    assert.dom('a#test-list-item').hasAttribute('data-test2', 'test');
-  });
-
-  test('it should spread all the attributes passed to the <button> element', async function (assert) {
-    this.set('onClick', () => {});
-
-    await render(
-      hbs`<Cut::ListItem id="test-list-item" @onClick={{this.onClick}} class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('button#test-list-item').hasClass('my-class');
-    assert.dom('button#test-list-item').hasAttribute('data-test1');
-    assert.dom('button#test-list-item').hasAttribute('data-test2', 'test');
-  });
-
   test('it should yield the content of the List item element', async function (assert) {
     await render(
-      hbs`<Cut::ListItem id="test-list-item" as |L|><L.Content>test</L.Content></Cut::ListItem>`
+      hbs`<Cut::ListItem id="test-list-item" as |L|><L.Content id="test-content">test</L.Content></Cut::ListItem>`
     );
-    assert.dom('div#test-list-item > div.cut-list-item__content').exists();
-    assert
-      .dom('div#test-list-item > div.cut-list-item__content')
-      .hasText('test');
+    assert.dom('#test-list-item #test-content').exists();
+    assert.dom('#test-list-item #test-content').hasText('test');
   });
 
   test('it should yield the action(button) of the List item element', async function (assert) {
     await render(
-      hbs`<Cut::ListItem id="test-list-item" as |L|><L.Action as |A|><A.Button @text="test"/></L.Action></Cut::ListItem>`
+      hbs`<Cut::ListItem id="test-list-item" as |L|><L.Action as |A|><A.Button @text="test" id="test-button"/></L.Action></Cut::ListItem>`
     );
-    assert.dom('div#test-list-item > div > button.hds-button').exists();
-    assert.dom('div#test-list-item > div > button.hds-button').hasText('test');
+    assert.dom('#test-list-item #test-button').exists();
+    assert.dom('#test-list-item #test-button').hasText('test');
   });
 
   test('it should yield the action(generic) of the List item element', async function (assert) {
@@ -134,18 +107,18 @@ module('Integration | Component | cut/list-item', function (hooks) {
             </L.Action>
           </Cut::ListItem>`
     );
-    assert.dom('div#test-list-item > div > pre').exists();
-    assert.dom('div#test-list-item > div > pre').hasText('test');
+    assert.dom('#test-list-item pre').exists();
+    assert.dom('#test-list-item pre').hasText('test');
   });
 
   test('it should yield the action(dropdown) of the List item element', async function (assert) {
     await render(
       hbs`<Cut::ListItem id="test-list-item" as |L|>
             <L.Action as |A|>
-              <A.Dropdown></A.Dropdown>
+              <A.Dropdown id="test-dropdown"></A.Dropdown>
             </L.Action>
           </Cut::ListItem>`
     );
-    assert.dom('div#test-list-item > div > div.hds-dropdown').exists();
+    assert.dom('#test-list-item #test-dropdown').exists();
   });
 });

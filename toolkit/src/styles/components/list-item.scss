@@ -2,27 +2,24 @@
 * Copyright (c) HashiCorp, Inc.
 */
 
-@import '@hashicorp/design-system-components';
-
 .cut-list-item {
   display: flex;
   flex-direction: row;
-  flex-grow: 0;
   justify-content: space-between;
   align-items: center;
   padding: 12px;
   border-radius: 6px;
   gap: 8px;
-}
 
-button.cut-list-item.active:focus,
-a.cut-list-item.active:focus,
-button.cut-list-item.active:focus-visible,
-a.cut-list-item.active:focus-visible
-{
-  text-decoration: none;
-  outline: 3px solid var(--token-color-focus-action-external);
-  outline-offset: 1px;
+  &.active:focus-visible,
+  &.active:focus {
+    outline: 3px solid var(--token-color-focus-action-external);
+    outline-offset: 1px;
+  }
+
+  &.active:hover {
+    box-shadow: var(--token-surface-high-box-shadow);
+  }
 }
 
 a.cut-list-item {
@@ -39,16 +36,8 @@ button.cut-list-item {
   color: inherit;
 }
 
-.cut-list-item.active:hover {
-  box-shadow: var(--token-surface-high-box-shadow);
-}
-
 .cut-list-item__content {
   display: flex;
   justify-content: start;
   flex: 1;
-}
-
-.cut-list-item.active .cut-list-item__content {
-  cursor: pointer;
 }
