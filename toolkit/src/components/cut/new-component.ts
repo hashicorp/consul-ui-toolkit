@@ -6,7 +6,7 @@ interface Args {
 }
 
 export default class ConsulCardsWhyConsulComponent extends Component<Args> {
-  @tracked count: number = 0;
+  @tracked count = 0;
 
   get text(): string {
     return `${this.args.name} has clicked the button ${this.count} times`;
