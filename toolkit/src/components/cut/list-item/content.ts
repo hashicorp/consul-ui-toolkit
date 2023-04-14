@@ -46,6 +46,7 @@ export default class ListItemComponent extends Component<ComponentSignature> {
 
   @action
   onClickAction() {
+    // action handles case when no @onClick handler passed to the component
     this.args.onClick?.();
   }
 }

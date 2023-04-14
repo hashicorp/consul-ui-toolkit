@@ -2,6 +2,22 @@
   Copyright (c) HashiCorp, Inc.
 }}
 
-<div class="cut-list-item__content" ...attributes>
-  {{yield}}
-</div>
+{{#if (or this.href this.route @onClick)}}
+  <Hds::Interactive
+    class="cut-list-item__content active"
+    @href={{this.href}}
+    @isRouteExternal={{@isRouteExternal}}
+    @route={{this.route}}
+    @isHrefExternal={{@isHrefExternal}}
+    @query={{@query}}
+    @replace={{@replace}}
+    {{on 'click' this.onClickAction}}
+    ...attributes
+  >
+    {{yield}}
+  </Hds::Interactive>
+{{else}}
+  <div class="cut-list-item__content" ...attributes>
+    {{yield}}
+  </div>
+{{/if}}

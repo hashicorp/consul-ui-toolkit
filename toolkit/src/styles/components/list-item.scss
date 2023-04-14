@@ -3,6 +3,8 @@
 */
 
 .cut-list-item {
+  position: relative;
+  isolation: isolate;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -10,34 +12,54 @@
   padding: 12px;
   border-radius: 6px;
   gap: 8px;
-
-  &.active:focus-visible,
-  &.active:focus {
-    outline: 3px solid var(--token-color-focus-action-external);
-    outline-offset: 1px;
-  }
-
-  &.active:hover {
-    box-shadow: var(--token-surface-high-box-shadow);
-  }
 }
 
-a.cut-list-item {
+a.cut-list-item__content {
   text-decoration: none;
   color: inherit;
+
+  &:focus-visible {
+    outline: none;
+  }
 }
 
-button.cut-list-item {
+button.cut-list-item__content {
   background-color: unset;
   width: 100%;
   border: inherit;
   font-family: inherit;
   font-size: inherit;
   color: inherit;
+
+  &:focus-visible {
+    outline: none;
+  }
 }
 
 .cut-list-item__content {
   display: flex;
   justify-content: start;
   flex: 1;
+
+  &.active:before {
+    position: absolute;
+    inset: 0;
+    border-radius: 6px;
+    content: "";
+    z-index: -1;
+  }
+  &.active:focus-visible,
+  &.active:focus {
+    &:before{
+      outline: 3px solid var(--token-color-focus-action-external);
+      outline-offset: 1px;
+    }
+  }
+
+  &.active:hover {
+    cursor: pointer;
+    &:before {
+      box-shadow: var(--token-surface-high-box-shadow);
+    }
+  }
 }
