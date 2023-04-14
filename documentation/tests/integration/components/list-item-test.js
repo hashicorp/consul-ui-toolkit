@@ -28,15 +28,15 @@ module('Integration | Component | cut/list-item', function (hooks) {
 
   // Dynamic
   test('it should render a <a> link if @href is passed', async function (assert) {
-    await render(hbs`<Cut::ListItem id="test-list-item" @href="#"/>`);
-    assert.dom('#test-list-item').hasTagName('a');
-    assert.dom('#test-list-item').hasAttribute('href', '#');
+    await render(hbs`<Cut::ListItem id="test-list-item" @href="#" />`);
+    assert.dom('#test-list-item .active').hasTagName('a');
+    assert.dom('#test-list-item .active').hasAttribute('href', '#');
   });
 
   test('it should render a <a> link if @route is passed', async function (assert) {
     await render(hbs`<Cut::ListItem id="test-list-item" @route="dummy"/>`);
-    assert.dom('#test-list-item').hasTagName('a');
-    assert.dom('#test-list-item').hasAttribute('href', '/dummy');
+    assert.dom('#test-list-item .active').hasTagName('a');
+    assert.dom('#test-list-item .active').hasAttribute('href', '/dummy');
   });
 
   test('it should render a <button> if @onClick is passed', async function (assert) {
@@ -44,23 +44,23 @@ module('Integration | Component | cut/list-item', function (hooks) {
     await render(hbs`
       <Cut::ListItem id="test-list-item" @onClick={{this.onClick}} />
     `);
-    assert.dom('#test-list-item').hasTagName('button');
+    assert.dom('#test-list-item .active').hasTagName('button');
   });
 
   test('it should render a <a> link with custom "target" and "rel" attributes if they are passed as attributes', async function (assert) {
     await render(
       hbs`<Cut::ListItem id="test-list-item" @href="#" target="test-target" rel="test-rel" />`
     );
-    assert.dom('#test-list-item').hasAttribute('target', 'test-target');
-    assert.dom('#test-list-item').hasAttribute('rel', 'test-rel');
+    assert.dom('#test-list-item .active').hasAttribute('target', 'test-target');
+    assert.dom('#test-list-item .active').hasAttribute('rel', 'test-rel');
   });
 
   test('it should render a <a> link withhout "target" and "rel" attributes if @isHrefExternal is false', async function (assert) {
     await render(
       hbs`<Cut::ListItem id="test-list-item" @href="#" @isHrefExternal={{false}} />`
     );
-    assert.dom('#test-list-item').doesNotHaveAttribute('target');
-    assert.dom('#test-list-item').doesNotHaveAttribute('rel');
+    assert.dom('#test-list-item .active').doesNotHaveAttribute('target');
+    assert.dom('#test-list-item .active').doesNotHaveAttribute('rel');
   });
 
   test('it should spread all the attributes passed to the <div> element', async function (assert) {
@@ -70,15 +70,6 @@ module('Integration | Component | cut/list-item', function (hooks) {
     assert.dom('div#test-list-item').hasClass('my-class');
     assert.dom('div#test-list-item').hasAttribute('data-test1');
     assert.dom('div#test-list-item').hasAttribute('data-test2', 'test');
-  });
-
-  test('it should spread all the attributes passed to the <a> element', async function (assert) {
-    await render(
-      hbs`<Cut::ListItem id="test-list-item" @href="#" class="my-class" data-test1 data-test2="test" />`
-    );
-    assert.dom('a#test-list-item').hasClass('my-class');
-    assert.dom('a#test-list-item').hasAttribute('data-test1');
-    assert.dom('a#test-list-item').hasAttribute('data-test2', 'test');
   });
 
   test('it should yield the content of the List item element', async function (assert) {
@@ -91,7 +82,7 @@ module('Integration | Component | cut/list-item', function (hooks) {
 
   test('it should yield the action(button) of the List item element', async function (assert) {
     await render(
-      hbs`<Cut::ListItem id="test-list-item" as |L|><L.Action as |A|><A.Button @text="test" id="test-button"/></L.Action></Cut::ListItem>`
+      hbs`<Cut::ListItem id="test-list-item" as |L|><L.ActionButton @text="test" id="test-button"/></Cut::ListItem>`
     );
     assert.dom('#test-list-item #test-button').exists();
     assert.dom('#test-list-item #test-button').hasText('test');
@@ -100,11 +91,9 @@ module('Integration | Component | cut/list-item', function (hooks) {
   test('it should yield the action(generic) of the List item element', async function (assert) {
     await render(
       hbs`<Cut::ListItem id="test-list-item" as |L|>
-            <L.Action as |A|>
-              <A.Generic>
-                <pre>test</pre>
-              </A.Generic>
-            </L.Action>
+            <L.ActionGeneric>
+               <pre>test</pre>
+            </L.ActionGeneric>
           </Cut::ListItem>`
     );
     assert.dom('#test-list-item pre').exists();
@@ -114,9 +103,7 @@ module('Integration | Component | cut/list-item', function (hooks) {
   test('it should yield the action(dropdown) of the List item element', async function (assert) {
     await render(
       hbs`<Cut::ListItem id="test-list-item" as |L|>
-            <L.Action as |A|>
-              <A.Dropdown id="test-dropdown"></A.Dropdown>
-            </L.Action>
+            <L.ActionDropdown id="test-dropdown"/>
           </Cut::ListItem>`
     );
     assert.dom('#test-list-item #test-dropdown').exists();

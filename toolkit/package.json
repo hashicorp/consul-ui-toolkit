@@ -74,7 +74,6 @@
     "main": "addon-main.cjs",
     "app-js": {
       "./components/cut/list-item/action-generic.js": "./dist/_app_/components/cut/list-item/action-generic.js",
-      "./components/cut/list-item/action.js": "./dist/_app_/components/cut/list-item/action.js",
       "./components/cut/list-item/content.js": "./dist/_app_/components/cut/list-item/content.js",
       "./components/cut/list-item/index.js": "./dist/_app_/components/cut/list-item/index.js"
     }

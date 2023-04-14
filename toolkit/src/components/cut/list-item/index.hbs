@@ -2,20 +2,28 @@
   Copyright (c) HashiCorp, Inc.
 }}
 <div class="cut-list-item {{if (or @route @href @onClick) 'hds-surface-mid' 'hds-surface-base'}}" ...attributes>
-  {{yield (hash Content=(component "cut/list-item/content"
-    href=@href
-    isRouteExternal=@isRouteExternal
-    route=@route
-    isHrefExternal=@isHrefExternal
-    query=@query
-    replace=@replace
-    onClick=@onClick))}}
-  {{yield (hash Action=(component "cut/list-item/action"))}}
-  <div>
-    {{yield
-      (hash ActionButton=(component "hds/button" size="small")
-        ActionDropdown=(component "hds/dropdown")
-        ActionGeneric=(component "cut/list-item/action-generic")
-      )}}
-  </div>
+  {{#if (or @route @href @onClick)}}
+  <Hds::Interactive
+    class="cut-list-item__content active"
+    @href={{this.href}}
+    @isRouteExternal={{@isRouteExternal}}
+    @route={{this.route}}
+    @isHrefExternal={{@isHrefExternal}}
+    @query={{@query}}
+    @replace={{@replace}}
+  {{on 'click' this.onClickAction}}
+    ...attributes
+  >
+    {{yield (hash Content=(component "cut/list-item/content"))}}
+  </Hds::Interactive>
+
+  {{else}}
+    {{yield (hash Content=(component "cut/list-item/content"))}}
+  {{/if}}
+
+  {{yield
+    (hash ActionButton=(component "hds/button" size="small")
+      ActionDropdown=(component "hds/dropdown")
+      ActionGeneric=(component "cut/list-item/action-generic")
+    )}}
 </div>
