@@ -62,3 +62,39 @@ button.cut-list-item__content-container {
     }
   }
 }
+
+.cut-list-item-template {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.cut-list-item-label {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .title-row {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+  }
+}
+
+.cut-list-item-label--title {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cut-list-item-label--metadata {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+
+  color: var(--token-color-palette-neutral-500);
+}
