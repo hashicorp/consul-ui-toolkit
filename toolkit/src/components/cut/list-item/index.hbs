@@ -3,19 +3,19 @@
 }}
 <div class="cut-list-item {{if (or @route @href @onClick) 'hds-surface-mid' 'hds-surface-base'}}" ...attributes>
   {{#if (or @route @href @onClick)}}
-  <Hds::Interactive
-    class="cut-list-item__content active"
-    @href={{this.href}}
-    @isRouteExternal={{@isRouteExternal}}
-    @route={{this.route}}
-    @isHrefExternal={{@isHrefExternal}}
-    @query={{@query}}
-    @replace={{@replace}}
-  {{on 'click' this.onClickAction}}
-    ...attributes
-  >
-    {{yield (hash Content=(component "cut/list-item/content"))}}
-  </Hds::Interactive>
+    <Hds::Interactive
+      class="cut-list-item__content-container active"
+      @href={{this.href}}
+      @isRouteExternal={{@isRouteExternal}}
+      @route={{this.route}}
+      @isHrefExternal={{@isHrefExternal}}
+      @query={{@query}}
+      @replace={{@replace}}
+      {{on 'click' this.onClickAction}}
+      ...attributes
+    >
+      {{yield (hash Content=(component "cut/list-item/content"))}}
+    </Hds::Interactive>
 
   {{else}}
     {{yield (hash Content=(component "cut/list-item/content"))}}
