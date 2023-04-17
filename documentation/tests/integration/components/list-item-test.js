@@ -122,11 +122,11 @@ module('Integration | Component | cut/list-item', function (hooks) {
     await render(
       hbs`
         <Cut::ListItem::Template id="test-list-item-template" as |T|>
-          <T.Label></T.Label>
+          <T.Label id="test-list-item-template-label"></T.Label>
         </Cut::ListItem::Template>`
     );
     assert
-      .dom('div#test-list-item-template > div.cut-list-item-label')
+      .dom('#test-list-item-template #test-list-item-template-label')
       .exists();
   });
 
@@ -137,32 +137,34 @@ module('Integration | Component | cut/list-item', function (hooks) {
           <T.Icon @name="network"></T.Icon>
         </Cut::ListItem::Template>`
     );
-    assert.dom('div#test-list-item-template svg.flight-icon').exists();
+    assert.dom('#test-list-item-template svg').exists();
   });
 
   test('it should have Cut::ListItem::Template with yielded Badge component', async function (assert) {
     await render(
       hbs`
         <Cut::ListItem::Template id="test-list-item-template" as |T|>
-          <T.Badge @text="test"></T.Badge>
+          <T.Badge id="test-list-item-template-badge" @text="test"></T.Badge>
         </Cut::ListItem::Template>`
     );
-    assert.dom('div#test-list-item-template div.hds-badge').exists();
-    assert.dom('div#test-list-item-template div.hds-badge').hasText('test');
+    assert
+      .dom('#test-list-item-template #test-list-item-template-badge')
+      .exists();
+    assert
+      .dom('#test-list-item-template #test-list-item-template-badge')
+      .hasText('test');
   });
 
   test('it should have Cut::ListItem::Label with yielded Title component', async function (assert) {
     await render(
       hbs`
         <Cut::ListItem::Label id="test-list-item-label" as |L|>
-          <L.Title>test</L.Title>
+          <L.Title id="test-list-item-label-title">test</L.Title>
         </Cut::ListItem::Label>`
     );
+    assert.dom('#test-list-item-label #test-list-item-label-title').exists();
     assert
-      .dom('div#test-list-item-label div.cut-list-item-label--title')
-      .exists();
-    assert
-      .dom('div#test-list-item-label div.cut-list-item-label--title')
+      .dom('#test-list-item-label #test-list-item-label-title')
       .hasText('test');
   });
 
@@ -170,14 +172,12 @@ module('Integration | Component | cut/list-item', function (hooks) {
     await render(
       hbs`
         <Cut::ListItem::Label id="test-list-item-label" as |L|>
-          <L.Metadata>test</L.Metadata>
+          <L.Metadata id="test-list-item-label-metadata">test</L.Metadata>
         </Cut::ListItem::Label>`
     );
+    assert.dom('#test-list-item-label #test-list-item-label-metadata').exists();
     assert
-      .dom('div#test-list-item-label div.cut-list-item-label--metadata')
-      .exists();
-    assert
-      .dom('div#test-list-item-label div.cut-list-item-label--metadata')
+      .dom('#test-list-item-label #test-list-item-label-metadata')
       .hasText('test');
   });
 });
