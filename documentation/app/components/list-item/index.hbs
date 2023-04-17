@@ -275,19 +275,17 @@
         </T.Label>
       </Cut::ListItem::Template>
     </L.Content>
-    <L.Action as |A|>
-      <A.Dropdown as |dd|>
-        <dd.ToggleIcon
-          @icon='more-horizontal'
-          @text='Menu'
-          @hasChevron={{false}}
-        />
-        <dd.Interactive
-          @icon='edit'
-          @text='Edit'
-        />
-      </A.Dropdown>
-    </L.Action>
+    <L.ActionDropdown as |dd|>
+      <dd.ToggleIcon
+        @icon='more-horizontal'
+        @text='Menu'
+        @hasChevron={{false}}
+      />
+      <dd.Interactive
+        @icon='edit'
+        @text='Edit'
+      />
+    </L.ActionDropdown>
   </Cut::ListItem>
   <pre><code>
       &lt;Cut::ListItem as |L|&gt;
@@ -314,7 +312,7 @@
        &lt;/L.Content&gt;
      &lt;/Cut::ListItem&gt;
   </code></pre>
-  <Cut::ListItem {{on 'click' this.onItemClick}} as |L|>
+  <Cut::ListItem as |L|>
     <L.Content>
       <Cut::ListItem::Template as |T|>
         <T.Label as |LB|>
@@ -334,19 +332,17 @@
         </T.Label2>
       </Cut::ListItem::Template>
     </L.Content>
-    <L.Action as |A|>
-      <A.Dropdown as |dd|>
-        <dd.ToggleIcon
-          @icon='more-horizontal'
-          @text='Menu'
-          @hasChevron={{false}}
-        />
-        <dd.Interactive
-          @icon='edit'
-          @text='Edit'
-        />
-      </A.Dropdown>
-    </L.Action>
+    <L.ActionDropdown as |dd|>
+      <dd.ToggleIcon
+        @icon='more-horizontal'
+        @text='Menu'
+        @hasChevron={{false}}
+      />
+      <dd.Interactive
+        @icon='edit'
+        @text='Edit'
+      />
+    </L.ActionDropdown>
   </Cut::ListItem>
   <Cut::ListItem as |L|>
     <L.Content>
@@ -363,19 +359,17 @@
         </T.Label>
       </Cut::ListItem::Template>
     </L.Content>
-    <L.Action as |A|>
-      <A.Dropdown as |dd|>
-        <dd.ToggleIcon
-          @icon='more-horizontal'
-          @text='Menu'
-          @hasChevron={{false}}
-        />
-        <dd.Interactive
-          @icon='edit'
-          @text='Edit'
-        />
-      </A.Dropdown>
-    </L.Action>
+    <L.ActionDropdown as |dd|>
+      <dd.ToggleIcon
+        @icon='more-horizontal'
+        @text='Menu'
+        @hasChevron={{false}}
+      />
+      <dd.Interactive
+        @icon='edit'
+        @text='Edit'
+      />
+    </L.ActionDropdown>
   </Cut::ListItem>
   <Cut::ListItem as |L|>
     <L.Content>
@@ -390,18 +384,16 @@
         </T.Label>
       </Cut::ListItem::Template>
     </L.Content>
-    <L.Action as |A|>
-      <A.Dropdown as |dd|>
-        <dd.ToggleIcon
-          @icon='more-horizontal'
-          @text='Menu'
-          @hasChevron={{false}}
-        />
-        <dd.Interactive
-          @icon='edit'
-          @text='Edit'
-        />
-      </A.Dropdown>
-    </L.Action>
+    <L.ActionDropdown as |dd|>
+      <dd.ToggleIcon
+        @icon='more-horizontal'
+        @text='Menu'
+        @hasChevron={{false}}
+      />
+      <dd.Interactive
+        @icon='edit'
+        @text='Edit'
+      />
+    </L.ActionDropdown>
   </Cut::ListItem>
 </div>
