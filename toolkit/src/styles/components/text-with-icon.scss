@@ -2,12 +2,12 @@
 * Copyright (c) HashiCorp, Inc.
 */
 
-.text-with-icon-container {
+.cut-text-with-icon {
   display: flex;
   align-items: center;
   gap: 4px;
 }
 
-.text-with-icon--connection {
+.cut-text-with-icon__connection {
   padding-left: 4px;
 }

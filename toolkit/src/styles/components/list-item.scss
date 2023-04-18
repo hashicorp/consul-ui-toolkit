@@ -74,7 +74,8 @@ button.cut-list-item__content-container {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  .title-row {
+
+  &__title-row {
     display: flex;
     flex-direction: row;
     gap: 8px;
@@ -82,14 +83,14 @@ button.cut-list-item__content-container {
   }
 }
 
-.cut-list-item-label--title {
+.cut-list-item-label__title {
   display: flex;
   gap: 8px;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.cut-list-item-label--metadata {
+.cut-list-item-label__metadata {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

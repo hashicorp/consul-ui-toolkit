@@ -2,10 +2,10 @@
   Copyright (c) HashiCorp, Inc.
 }}
 
-<div class="text-with-icon-container">
+<div class="cut-text-with-icon">
   <FlightIcon @name={{@icon}} @size="16"/>
   <div>{{@text}}</div>
   {{#if @connection}}
-    <div class="text-with-icon--connection">{{@connection}}</div>
+    <div class="cut-text-with-icon__connection">{{@connection}}</div>
   {{/if}}
 </div>

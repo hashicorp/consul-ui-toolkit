@@ -4,10 +4,12 @@
 
 <div class="cut-list-item-template" ...attributes>
   {{yield (hash Label=(component 'cut/list-item/label'))}}
-  <div>{{yield (hash
-                 Badge=(component 'hds/badge' size='small')
-                 Icon=(component "flight-icon" size=16)
-               )}}
+  <div>
+    {{yield (hash
+              Badge=(component 'hds/badge' size='small')
+              Icon=(component "flight-icon" size=16)
+            )
+    }}
   </div>
   {{yield (hash Label2=(component 'cut/list-item/label'))}}
 </div>
