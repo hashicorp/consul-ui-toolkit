@@ -108,4 +108,76 @@ module('Integration | Component | cut/list-item', function (hooks) {
     );
     assert.dom('#test-list-item #test-dropdown').exists();
   });
+
+  test('it should render Cut::ListItem::Template and has a element class', async function (assert) {
+    await render(
+      hbs`<Cut::ListItem::Template id="test-list-item-template"></Cut::ListItem::Template>`
+    );
+    assert
+      .dom('div#test-list-item-template')
+      .hasClass('cut-list-item-template');
+  });
+
+  test('it should have Cut::ListItem::Template with yielded Label component', async function (assert) {
+    await render(
+      hbs`
+        <Cut::ListItem::Template id="test-list-item-template" as |T|>
+          <T.Label id="test-list-item-template-label"></T.Label>
+        </Cut::ListItem::Template>`
+    );
+    assert
+      .dom('#test-list-item-template #test-list-item-template-label')
+      .exists();
+  });
+
+  test('it should have Cut::ListItem::Template with yielded Icon component', async function (assert) {
+    await render(
+      hbs`
+        <Cut::ListItem::Template id="test-list-item-template" as |T|>
+          <T.Icon @name="network"></T.Icon>
+        </Cut::ListItem::Template>`
+    );
+    assert.dom('#test-list-item-template svg').exists();
+  });
+
+  test('it should have Cut::ListItem::Template with yielded Badge component', async function (assert) {
+    await render(
+      hbs`
+        <Cut::ListItem::Template id="test-list-item-template" as |T|>
+          <T.Badge id="test-list-item-template-badge" @text="test"></T.Badge>
+        </Cut::ListItem::Template>`
+    );
+    assert
+      .dom('#test-list-item-template #test-list-item-template-badge')
+      .exists();
+    assert
+      .dom('#test-list-item-template #test-list-item-template-badge')
+      .hasText('test');
+  });
+
+  test('it should have Cut::ListItem::Label with yielded Title component', async function (assert) {
+    await render(
+      hbs`
+        <Cut::ListItem::Label id="test-list-item-label" as |L|>
+          <L.Title id="test-list-item-label-title">test</L.Title>
+        </Cut::ListItem::Label>`
+    );
+    assert.dom('#test-list-item-label #test-list-item-label-title').exists();
+    assert
+      .dom('#test-list-item-label #test-list-item-label-title')
+      .hasText('test');
+  });
+
+  test('it should have Cut::ListItem::Label with yielded Metadata component', async function (assert) {
+    await render(
+      hbs`
+        <Cut::ListItem::Label id="test-list-item-label" as |L|>
+          <L.Metadata id="test-list-item-label-metadata">test</L.Metadata>
+        </Cut::ListItem::Label>`
+    );
+    assert.dom('#test-list-item-label #test-list-item-label-metadata').exists();
+    assert
+      .dom('#test-list-item-label #test-list-item-label-metadata')
+      .hasText('test');
+  });
 });
