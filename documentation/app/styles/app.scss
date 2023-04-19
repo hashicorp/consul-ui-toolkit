@@ -4,6 +4,7 @@
 @import "@hashicorp/design-system-components";
 @import "@hashicorp/consul-ui-toolkit";
 @import "./components/page-header";
+@import "./components/preview-block.scss";
 
 *,
 *::before,
@@ -132,31 +133,5 @@ pre {
         }
       }
     }
-  }
-}
-
-.listitem-elevations {
-  display: flex;
-  flex-direction: row;
-}
-
-.doc-PreviewBlock {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 3rem;
-  border: 1px solid var(--token-color-foreground-faint);
-
-  > .doc-PreviewBlock-content {
-    padding: 2rem;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 2'%3E%3Cpath d='M1 2V0h1v1H0v1z' fill-opacity='.05'/%3E%3C/svg%3E");
-    background-size: 16px 16px;
-    max-height: 500px;
-    overflow: scroll;
-  }
-
-  > pre {
-    margin: 0;
-    max-height: 500px;
-    overflow: scroll;
   }
 }
