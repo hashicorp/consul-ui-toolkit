@@ -10,6 +10,7 @@ module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
     sassOptions: {
       extension: 'scss',
+      precision: 4,
       includePaths: [
         '../node_modules/@hashicorp/design-system-tokens/dist/products/css',
         '../node_modules/@hashicorp/design-system-components/app/styles',
@@ -18,13 +19,6 @@ module.exports = function (defaults) {
     },
     autoImport: {
       watchDependencies: ['consul-ui-toolkit'],
-    },
-    sassOptions: {
-      precision: 4,
-      includePaths: [
-        '../node_modules/@hashicorp/design-system-tokens/dist/products/css',
-        '../node_modules/@hashicorp/design-system-components/app/styles',
-      ],
     },
     minifyCSS: {
       options: {
