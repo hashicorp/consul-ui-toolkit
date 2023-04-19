@@ -82,13 +82,17 @@ pre {
 
   > .hds-side-nav__wrapper {
     grid-area: nav;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
   }
 
   > main {
     grid-area: container;
     display: flex;
     flex-direction: column;
-    padding: 4rem 2.5rem 2.5rem;
+    padding: 2.5rem 2.5rem;
     align-items: start;
     max-width: 1162px;
 

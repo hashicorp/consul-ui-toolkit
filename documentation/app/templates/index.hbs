@@ -33,11 +33,11 @@
     <CodeBlock @code="ember install @hashicorp/consul-ui-toolkit" />
   </T.Panel>
   <T.Panel>
-    <Hds::Alert @type="inline" as |A|>
-      <A.Description>
+    <Hds::Alert @type="inline" @color="highlight" as |A|>
+      <A.Title>
         Many resources and links on this page are only available to HashiCorp
         employees.
-      </A.Description>
+      </A.Title>
     </Hds::Alert>
 
     <p>We’re happy to provide support to HashiCorp product teams that use Consul
@@ -60,11 +60,11 @@
       >File an issue in our GitHub repository</Hds::Link::Inline></p>
   </T.Panel>
   <T.Panel>
-    <Hds::Alert @type="inline" as |A|>
-      <A.Description>At this time we are not accepting external contributions
-        from non-HashiCorp employees. Many resources and links on this page are
-        only available to HashiCorp employees.
-      </A.Description>
+    <Hds::Alert @type="inline" @color="highlight" as |A|>
+      <A.Title>At this time we are not accepting external contributions from
+        non-HashiCorp employees. Many resources and links on this page are only
+        available to HashiCorp employees.
+      </A.Title>
     </Hds::Alert>
     <h2>Types of contribution</h2>
     <p>At this time we are not accepting contributions of new components from
