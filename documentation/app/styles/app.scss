@@ -16,9 +16,9 @@ html {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
+  font-size: var(--token-typography-display-200-font-size);
+  font-weight: var(--token-typography-font-weight-regular);
+  line-height: var(--token-typography-display-200-line-height);
   font-family: var(--token-typography-font-stack-text);
   color: var(--token-color-foreground-strong);
   text-rendering: optimizeLegibility;
@@ -34,36 +34,36 @@ body {
 }
 
 h1 {
-  font-size: 30px;
-  line-height: 38px;
-  font-weight: 700;
+  font-size: var(--token-typography-display-500-font-size);
+  line-height: var(--token-typography-display-500-line-height);
+  font-weight: var(--token-typography-font-weight-bold);
 }
 
 h2 {
-  font-size: 28px;
-  line-height: 32px;
-  font-weight: 700;
+  font-size: var(--token-typography-display-400-font-size);
+  line-height: var(--token-typography-display-400-line-height);
+  font-weight: var(--token-typography-font-weight-bold);
 }
 
 h3 {
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 24px;
+  font-size: var(--token-typography-display-300-font-size);
+  font-weight: var(--token-typography-font-weight-bold);
+  line-height: var(--token-typography-display-300-line-height);
 }
 
 strong {
-  font-weight: 600;
+  font-weight: var(--token-typography-font-weight-semibold);
 }
 
 small {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
+  font-weight: var(--token-typography-font-weight-regular);
+  font-size: var(--token-typography-display-100-font-size);
+  line-height: var(--token-typography-display-100-line-height);
   color: var(--token-color-foreground-faint);
 
   strong {
-    font-size: 14px;
-    font-weight: 600;
+    font-size: var(--token-typography-display-100-font-size);
+    font-weight: var(--token-typography-font-weight-semibold);
   }
 }
 
@@ -119,11 +119,12 @@ pre {
         display: flex;
         flex-direction: row;
         gap: 1rem;
+        padding: 0;
         list-style: none;
 
         a {
           color: var(--token-color-foreground-faint);
-          font-size: 15px;
+          font-size: var(--token-typography-display-100-font-size);
           text-decoration: none;
         }
       }
@@ -136,7 +137,7 @@ pre {
   flex-direction: row;
 }
 
-.preview-block {
+.doc-PreviewBlock {
   display: flex;
   flex-direction: column;
   gap: 1rem;
