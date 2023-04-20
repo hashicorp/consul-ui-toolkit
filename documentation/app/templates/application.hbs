@@ -2,8 +2,70 @@
   Copyright (c) HashiCorp, Inc.
 }}
 
-{{page-title "TestApp"}}
+{{page-title "Consul UI Toolkit"}}
 
-<h2 id="title">Welcome to Ember</h2>
+<div class="application">
+  <Hds::SideNav::Wrapper>
+    <:header>
+      <Hds::SideNav::Header>
+        <:logo>
+          <Hds::SideNav::HomeLink
+            @icon="consul"
+            @ariaLabel="Consul UI Toolkit"
+            @route="index"
+          />
+        </:logo>
+      </Hds::SideNav::Header>
+    </:header>
+    <:body>
+      <Hds::SideNav::List as |S|>
+        <S.Link @icon="dashboard" @text="Overview" @route="index" />
 
-{{outlet}}
+        <S.Title>Components</S.Title>
+        <S.Link @text="List Item" @route="components.list-item" />
+      </Hds::SideNav::List>
+    </:body>
+  </Hds::SideNav::Wrapper>
+
+  <main class="line-numbers">
+    {{outlet}}
+  </main>
+  <footer>
+    <nav>
+      <ul>
+        <li><a
+            href="https://github.com/hashicorp/consul-ui-toolkit"
+            target="_blank"
+            rel="noopener noreferrer"
+          >GitHub</a></li>
+        <li><a
+            href="https://github.com/hashicorp/consul-ui-toolkit/blob/main/contributing.md"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Contribute</a></li>
+        <li><a
+            href="https://github.com/hashicorp/consul-ui-toolkit/blob/main/LICENSE"
+            target="_blank"
+            rel="noopener noreferrer"
+          >License</a></li>
+        <li><a
+            href="https://www.hashicorp.com/security"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Security</a></li>
+        <li><a
+            href="https://www.hashicorp.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Privacy</a></li>
+      </ul>
+      <a
+        href="https://www.hashicorp.com/products/consul"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src="/images/consul-logo-with-text.svg" alt="HashiCorp Consul" />
+      </a>
+    </nav>
+  </footer>
+</div>

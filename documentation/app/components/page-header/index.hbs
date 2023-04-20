@@ -1,0 +1,45 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
+{{page-title @title}}
+
+<header class="doc-PageHeader">
+  <div class="doc-PageHeader-title">
+    <h1>{{@title}}</h1>
+    {{#if this.badge}}
+      <div class="doc-PageHeader-badge">
+        <Hds::Badge
+          @text={{this.badge.text}}
+          @color={{this.badge.color}}
+          @icon={{this.badge.icon}}
+        />
+      </div>
+    {{/if}}
+    {{#if (or @figma @github)}}
+      <div class="doc-PageHeader-links">
+        {{#if @figma}}
+          <Hds::Link::Standalone
+            @icon="figma-color"
+            @text="Figma"
+            @href={{@figma}}
+            @color="secondary"
+          />
+        {{/if}}
+
+        {{#if @github}}
+          <Hds::Link::Standalone
+            @icon="github-color"
+            @text="GitHub"
+            @href={{@github}}
+            @color="secondary"
+          />
+        {{/if}}
+      </div>
+    {{/if}}
+  </div>
+  {{! yield the description max width 880}}
+  <p class="doc-PageHeader-description">
+    {{yield}}
+  </p>
+</header>

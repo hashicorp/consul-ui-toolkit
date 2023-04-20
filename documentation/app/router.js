@@ -11,6 +11,12 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function () {
-  this.route('list-item', { path: '/' });
+  // NOTE: to be removed in https://hashicorp.atlassian.net/browse/CC-4504.
+  this.route('list-item');
   this.route('dummy');
+
+  this.route('index', { path: '/' });
+  this.route('components', function () {
+    this.route('list-item');
+  });
 });

@@ -1,0 +1,48 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
+.doc-PreviewBlock {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3rem;
+
+  > .doc-PreviewBlock-content {
+    padding: 2rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 2'%3E%3Cpath d='M1 2V0h1v1H0v1z' fill-opacity='.05'/%3E%3C/svg%3E");
+    background-size: 16px 16px;
+    max-height: 500px;
+    overflow: scroll;
+    border-radius: var(--token-form-control-border-radius);
+    border-top: var(--token-form-control-border-width) solid
+      var(--token-color-border-primary);
+    border-left: var(--token-form-control-border-width) solid
+      var(--token-color-border-primary);
+    border-right: var(--token-form-control-border-width) solid
+      var(--token-color-border-primary);
+  }
+
+  > pre {
+    margin: 0;
+    max-height: 500px;
+    overflow: scroll;
+  }
+
+  > .code-toolbar > .toolbar > .toolbar-item > .copy-to-clipboard-button {
+    border: 1px solid transparent;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    color: var(--token-color-foreground-high-contrast);
+    padding: 1px 7px;
+    background-color: var(--token-color-foreground-action);
+    border-radius: var(--token-form-control-border-radius);
+    font-size: var(--token-typography-display-200-font-size);
+    font-weight: var(--token-typography-font-weight-regular);
+    line-height: var(--token-typography-display-200-line-height);
+    font-family: var(--token-typography-font-stack-text);
+
+    &:hover {
+      background-color: var(--token-color-foreground-action-hover);
+    }
+  }
+}

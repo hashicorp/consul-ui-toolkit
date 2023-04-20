@@ -10,6 +10,7 @@ module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
     sassOptions: {
       extension: 'scss',
+      precision: 4,
       includePaths: [
         '../node_modules/@hashicorp/design-system-tokens/dist/products/css',
         '../node_modules/@hashicorp/design-system-components/app/styles',
@@ -18,6 +19,21 @@ module.exports = function (defaults) {
     },
     autoImport: {
       watchDependencies: ['consul-ui-toolkit'],
+    },
+    minifyCSS: {
+      options: {
+        advanced: false,
+      },
+    },
+    'ember-prism': {
+      theme: 'tomorrow',
+      components: ['javascript', 'markup'], //needs to be an array, or undefined.
+      plugins: [
+        'line-highlight',
+        'line-numbers',
+        'toolbar',
+        'copy-to-clipboard',
+      ],
     },
   });
 

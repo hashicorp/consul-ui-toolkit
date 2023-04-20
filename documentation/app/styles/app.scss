@@ -1,29 +1,137 @@
 /**
-* Copyright (c) HashiCorp, Inc.
-*/
-
+ * Copyright (c) HashiCorp, Inc.
+ */
 @import "@hashicorp/design-system-components";
 @import "@hashicorp/consul-ui-toolkit";
+@import "./components/page-header";
+@import "./components/preview-block.scss";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: var(--token-typography-display-200-font-size);
+  font-weight: var(--token-typography-font-weight-regular);
+  line-height: var(--token-typography-display-200-line-height);
+  font-family: var(--token-typography-font-stack-text);
+  color: var(--token-color-foreground-strong);
+  text-rendering: optimizeLegibility;
+  text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
 
 body {
-  padding: 10px 40px;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
-/**
-* the styles to be removed once documentation setup is merged
- */
-pre, code {
-  border-radius: 6px;
-  background-color: black;
-  color: white;
-  font-size: 14px;
-  width: fit-content;
-  padding-right: 20px;
+h1 {
+  font-size: var(--token-typography-display-500-font-size);
+  line-height: var(--token-typography-display-500-line-height);
+  font-weight: var(--token-typography-font-weight-bold);
 }
 
-.doc-list-container {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding-bottom: 12px;
+h2 {
+  font-size: var(--token-typography-display-400-font-size);
+  line-height: var(--token-typography-display-400-line-height);
+  font-weight: var(--token-typography-font-weight-bold);
+}
+
+h3 {
+  font-size: var(--token-typography-display-300-font-size);
+  font-weight: var(--token-typography-font-weight-bold);
+  line-height: var(--token-typography-display-300-line-height);
+}
+
+strong {
+  font-weight: var(--token-typography-font-weight-semibold);
+}
+
+small {
+  font-weight: var(--token-typography-font-weight-regular);
+  font-size: var(--token-typography-display-100-font-size);
+  line-height: var(--token-typography-display-100-line-height);
+  color: var(--token-color-foreground-faint);
+
+  strong {
+    font-size: var(--token-typography-display-100-font-size);
+    font-weight: var(--token-typography-font-weight-semibold);
+  }
+}
+
+code,
+pre {
+  font-family: var(--token-typography-font-stack-code);
+}
+
+.application {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 280px auto;
+  grid-template-areas:
+    "nav container"
+    "nav footer";
+  grid-template-rows: 1fr auto;
+
+  > .hds-side-nav__wrapper {
+    grid-area: nav;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+  }
+
+  > main {
+    grid-area: container;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 2.5rem;
+    align-items: start;
+    max-width: 1162px;
+
+    > .hds-tabs {
+      width: 100%;
+    }
+
+    .content,
+    .hds-tabs__panel {
+      margin-top: 2rem;
+      max-width: 800px;
+    }
+  }
+
+  > footer {
+    grid-area: footer;
+
+    > nav {
+      display: flex;
+      padding: 1rem 2.5rem;
+      height: 60px;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+
+      > ul {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        padding: 0;
+        list-style: none;
+
+        a {
+          color: var(--token-color-foreground-faint);
+          font-size: var(--token-typography-display-100-font-size);
+          text-decoration: none;
+        }
+      }
+    }
+  }
 }

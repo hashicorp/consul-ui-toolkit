@@ -1,0 +1,228 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
+<PageHeader
+  @title="List Item"
+  @figma="https://www.google.ca"
+  @github="https://github.com"
+  @status="development"
+>
+  A list item is used to list information that is often interactive and when
+  selected navigates the user to a details page to view additional information
+  about the item listed. A list item is best used to display information that is
+  dynamic in nature or information that must be shared within the same line item
+  in order to provide the proper context. List items are also helpful when the
+  data needing to be displayed is dense and unable to fit within a standard
+  table cell.
+</PageHeader>
+
+<Hds::Tabs as |T|>
+  <T.Tab>Guidelines</T.Tab>
+  <T.Tab>Code</T.Tab>
+
+  <T.Panel>
+    <h2>Usage</h2>
+    <h3>When to use</h3>
+    <ul>
+      <li>A list item should be used to contain any information or data that may
+        not be suitable for a standard table. A list can handle displaying more
+        dynamic content since it is never paired with a list header to determine
+        the content within (like a table).</li>
+    </ul>
+    <h3>When not to use</h3>
+    <ul>
+      <li>
+        When your content within is more than 3 lines tall, consider a card
+        instead.
+      </li>
+      <li>
+        If the content you wish to display is consistent for every instance,
+        consider using an HDS table instead.
+      </li>
+      <li>
+        If you are displaying data that requires no action, consider an HDS
+        table instead.
+      </li>
+    </ul>
+
+    <h2>Interactivity & Actions</h2>
+    <h3>Interactive List Item</h3>
+    <p>The entirety of List Item can be actionable (ie. it can be hovered,
+      clicked, and focused), this is the most common behavior. Ensure the list
+      item “state” =“default” in order to have interactivity within prototypes
+      and code.</p>
+
+    <h3>Static List Item</h3>
+    <p>
+      You can use the list item “state” = “static” to make a list item
+      non-interactive (this will apply the “base” elevation / drop-shadow). The
+      list item may have interactive elements within them, but are not
+      themselves actionable or interactive.
+    </p>
+  </T.Panel>
+  <T.Panel>
+    <h2>How to use this component</h2>
+    <p>
+      The most basic invocation requires the
+      <CodeInline @code="type" />
+      argument to be passed, along with the
+      <CodeInline @code="title" />
+      and/or
+      <CodeInline @code="description" />
+      content. By default, a neutral
+      <CodeInline @code="alert" />
+      is generated.
+    </p>
+
+    <PreviewBlock as |P|>
+      <P.Preview>
+        <Hds::Alert @type="inline" as |A|>
+          <A.Title>Title here</A.Title>
+          <A.Description>Description here</A.Description>
+        </Hds::Alert>
+      </P.Preview>
+      <P.Code
+        @code={{{"
+          <Hds::Alert @type='inline' as |A|>
+            <A.Title>Title here</A.Title>
+            <A.Description>Description here</A.Description>
+          </Hds::Alert>
+        "}}}
+        @language="handlebars"
+      />
+    </PreviewBlock>
+
+    <h3>Type</h3>
+    <p>A different type of alert can be invoked using the
+      <CodeInline @code="type" />
+      argument</p>
+
+    <PreviewBlock as |P|>
+      <P.Preview>
+        <Hds::Alert @type="page" as |A|>
+          <A.Title>Title here</A.Title>
+          <A.Description>Description here</A.Description>
+        </Hds::Alert>
+      </P.Preview>
+      <P.Code
+        @code={{{"
+          <Hds::Alert @type='page' as |A|>
+            <A.Title>Title here</A.Title>
+            <A.Description>Description here</A.Description>
+          </Hds::Alert>
+        "}}}
+        @language="handlebars"
+      />
+    </PreviewBlock>
+
+    <PreviewBlock as |P|>
+      <P.Preview>
+        <Hds::Alert @type="inline" as |A|>
+          <A.Title>Title here</A.Title>
+          <A.Description>Description here</A.Description>
+        </Hds::Alert>
+        <Hds::Alert @type="inline" as |A|>
+          <A.Title>Title here</A.Title>
+          <A.Description>Description here</A.Description>
+        </Hds::Alert>
+        <Hds::Alert @type="inline" as |A|>
+          <A.Title>Title here</A.Title>
+          <A.Description>Description here</A.Description>
+        </Hds::Alert>
+        <Hds::Alert @type="inline" as |A|>
+          <A.Title>Title here</A.Title>
+          <A.Description>Description here</A.Description>
+        </Hds::Alert>
+        <Hds::Alert @type="inline" as |A|>
+          <A.Title>Title here</A.Title>
+          <A.Description>Description here</A.Description>
+        </Hds::Alert>
+        <Hds::Alert @type="inline" as |A|>
+          <A.Title>Title here</A.Title>
+          <A.Description>Description here</A.Description>
+        </Hds::Alert>
+        <Hds::Alert @type="inline" as |A|>
+          <A.Title>Title here</A.Title>
+          <A.Description>Description here</A.Description>
+        </Hds::Alert>
+        <Hds::Alert @type="inline" as |A|>
+          <A.Title>Title here</A.Title>
+          <A.Description>Description here</A.Description>
+        </Hds::Alert>
+        <Hds::Alert @type="inline" as |A|>
+          <A.Title>Title here</A.Title>
+          <A.Description>Description here</A.Description>
+        </Hds::Alert>
+        <Hds::Alert @type="inline" as |A|>
+          <A.Title>Title here</A.Title>
+          <A.Description>Description here</A.Description>
+        </Hds::Alert>
+      </P.Preview>
+      <P.Code
+        @code={{{"
+          <Hds::Alert @type='inline' as |A|>
+            <A.Title>Title here</A.Title>
+            <A.Description>Description here</A.Description>
+          </Hds::Alert>
+          <Hds::Alert @type='inline' as |A|>
+            <A.Title>Title here</A.Title>
+            <A.Description>Description here</A.Description>
+          </Hds::Alert>
+          <Hds::Alert @type='inline' as |A|>
+            <A.Title>Title here</A.Title>
+            <A.Description>Description here</A.Description>
+          </Hds::Alert>
+          <Hds::Alert @type='inline' as |A|>
+            <A.Title>Title here</A.Title>
+            <A.Description>Description here</A.Description>
+          </Hds::Alert>
+          <Hds::Alert @type='inline' as |A|>
+            <A.Title>Title here</A.Title>
+            <A.Description>Description here</A.Description>
+          </Hds::Alert>
+          <Hds::Alert @type='inline' as |A|>
+            <A.Title>Title here</A.Title>
+            <A.Description>Description here</A.Description>
+          </Hds::Alert>
+          <Hds::Alert @type='inline' as |A|>
+            <A.Title>Title here</A.Title>
+            <A.Description>Description here</A.Description>
+          </Hds::Alert>
+          <Hds::Alert @type='inline' as |A|>
+            <A.Title>Title here</A.Title>
+            <A.Description>Example of a very long description to show that it scrolls both ways and all is good in the world.</A.Description>
+          </Hds::Alert>
+          <Hds::Alert @type='inline' as |A|>
+            <A.Title>Title here</A.Title>
+            <A.Description>Description here</A.Description>
+          </Hds::Alert>
+          <Hds::Alert @type='inline' as |A|>
+            <A.Title>Title here</A.Title>
+            <A.Description>Description here</A.Description>
+          </Hds::Alert>
+        "}}}
+        @language="handlebars"
+      />
+    </PreviewBlock>
+
+    <PreviewBlock as |P|>
+      <P.Preview>
+        <Hds::Alert @type="compact" as |A|>
+          <A.Title>Title here</A.Title>
+          <A.Description>Description here</A.Description>
+        </Hds::Alert>
+      </P.Preview>
+
+      <P.Code
+        @code={{{"
+            <Hds::Alert @type='compact' as |A|>
+              <A.Title>Title here</A.Title>
+              <A.Description>Description here</A.Description>
+            </Hds::Alert>
+          "}}}
+        @language="handlebars"
+      />
+    </PreviewBlock>
+  </T.Panel>
+</Hds::Tabs>

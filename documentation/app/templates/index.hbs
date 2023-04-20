@@ -1,0 +1,96 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
+<PageHeader @title="Overview" />
+
+<Hds::Tabs as |T|>
+  <T.Tab>About</T.Tab>
+  <T.Tab>Support</T.Tab>
+  <T.Tab>Contributing</T.Tab>
+  <T.Panel>
+    <p>Consul UI Toolkit is a collection of presentational components and
+      utilities specifically meant to be shared across the different Consul
+      applications. The toolkit contains generic components that you may have
+      come to expect from a component library, as well as very feature specific
+      components meant for the Consul apps</p>
+
+    <p>While the toolkit is an open-source project, it is intentionally built
+      for Consul products. However, it may be used outside of them. Please refer
+      to the
+      <Hds::Link::Inline
+        @href="https://github.com/hashicorp/consul-ui-toolkit/blob/main/LICENSE"
+      >License</Hds::Link::Inline>
+      before using the toolkit in your own projects.</p>
+
+    <h2>Compatibility</h2>
+    <ul>
+      <li>Ember.js v3.28 or above</li>
+      <li>Embroider or ember-auto-import v2</li>
+    </ul>
+
+    <h2>Installation</h2>
+    <CodeBlock @code="ember install @hashicorp/consul-ui-toolkit" />
+  </T.Panel>
+  <T.Panel>
+    <Hds::Alert @type="inline" @color="highlight" as |A|>
+      <A.Title>
+        Many resources and links on this page are only available to HashiCorp
+        employees.
+      </A.Title>
+    </Hds::Alert>
+
+    <p>We’re happy to provide support to HashiCorp product teams that use Consul
+      UI Toolkit. Use these resources to get help.</p>
+
+    <h2>Live Support</h2>
+    <p>Join the
+      <Hds::Link::Inline
+        @href="https://hashicorp.slack.com/archives/C9X0VGJNL/p1681481135411859"
+      >#team-consul-ui</Hds::Link::Inline>
+      Slack channel to ask questions, request and provide feedback, or start a
+      conversation with our team. As a globally-distributed team, there may be a
+      slight delay in answering some questions, but we’re committed to
+      responding in a timely manner.</p>
+
+    <h2>File an Issue</h2>
+    <p>Find a bug? Want to report a security issue?
+      <Hds::Link::Inline
+        @href="https://github.com/hashicorp/consul-ui-toolkit/issues/new"
+      >File an issue in our GitHub repository</Hds::Link::Inline></p>
+  </T.Panel>
+  <T.Panel>
+    <Hds::Alert @type="inline" @color="highlight" as |A|>
+      <A.Title>At this time we are not accepting external contributions from
+        non-HashiCorp employees. Many resources and links on this page are only
+        available to HashiCorp employees.
+      </A.Title>
+    </Hds::Alert>
+    <h2>Types of contribution</h2>
+    <p>At this time we are not accepting contributions of new components from
+      outside of the Consul team. We do welcome contributions in the following
+      forms:</p>
+    <ul>
+      <li><Hds::Link::Inline
+          @href="https://github.com/hashicorp/consul-ui-toolkit/issues/new"
+        >Reporting</Hds::Link::Inline>
+        and
+        <Hds::Link::Inline
+          @href="https://github.com/hashicorp/consul-ui-toolkit/compare"
+        >fixing</Hds::Link::Inline>
+        bugs</li>
+      <li>Improving documentation</li>
+      <li>Participating in discussions in our
+        <Hds::Link::Inline
+          @href="https://hashicorp.slack.com/archives/C9X0VGJNL/p1681481135411859"
+        >team slack channel</Hds::Link::Inline></li>
+    </ul>
+
+    <h2>Code contributions</h2>
+    <p>For contributions to either the toolkit or documentation, consult the
+      <Hds::Link::Inline
+        @href="https://github.com/hashicorp/consul-ui-toolkit/blob/main/CONTRIBUTING.md"
+      >CONTRIBUTING.md</Hds::Link::Inline>
+      file.</p>
+  </T.Panel>
+</Hds::Tabs>
