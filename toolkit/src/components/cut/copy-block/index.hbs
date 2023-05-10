@@ -1,0 +1,10 @@
+<div class="cut-copy-block" ...attributes>
+  <div data-test-copy-block-content>{{yield}}</div>
+  <div class="cut-copy-block__copy-button">
+    <CopyButton @clipboardText={{@clipboardText}}
+                @success={{perform this.copied}}
+                class={{if this.isSuccessfullyCopied 'cut-copy-block__copy-button--checked' ''}}>
+      <FlightIcon @name={{if this.isSuccessfullyCopied 'clipboard-checked' 'clipboard-copy'}} @size="16"/>
+    </CopyButton>
+  </div>
+</div>

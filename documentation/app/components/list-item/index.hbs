@@ -82,10 +82,10 @@
   </code></pre>
 <div class="doc-list-container">
   <Cut::ListItem as |L|>
-    <L.Content>Service a</L.Content>
+    <L.Content><div {{hds-tooltip 'hello'}}>Service a</div></L.Content>
   </Cut::ListItem>
   <Cut::ListItem as |L|>
-    <L.Content>Service b</L.Content>
+    <L.Content><Cut::CopyBlock @clipboardText="Service b">Service b</Cut::CopyBlock></L.Content>
     <L.ActionDropdown as |dd|>
       <dd.ToggleIcon
         @icon='more-horizontal'
@@ -260,7 +260,7 @@
        &lt;/L.Content&gt;
      &lt;/Cut::ListItem&gt;
   </code></pre>
-  <Cut::ListItem @onClick={{this.onItemClicked}} as |L|>
+  <Cut::ListItem as |L|>
     <L.Content>
       <Cut::ListItem::Template as |T|>
         <T.Label as |LB|>
@@ -269,7 +269,7 @@
           <LB.Metadata>
             <Hds::Badge @text="Registered via Vault" @icon="vault" @size="small"/>
             <div>12 instances</div>
-            <Cut::TextWithIcon @text="in service mesh with proxy" @icon="mesh"/>
+            <Cut::CopyBlock @clipboardText="in service mesh with proxy"><Cut::TextWithIcon @text="in service mesh with proxy" @icon="mesh"/></Cut::CopyBlock>
             <Cut::TextWithIcon @text="kubernetes-api, dev, kube-dev-2" @icon="tag"/>
           </LB.Metadata>
         </T.Label>

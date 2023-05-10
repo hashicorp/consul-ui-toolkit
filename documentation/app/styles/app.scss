@@ -81,7 +81,7 @@ pre {
     "nav footer";
   grid-template-rows: 1fr auto;
 
-  > .hds-side-nav__wrapper {
+  > .hds-side-nav {
     grid-area: nav;
     position: fixed;
     top: 0;
