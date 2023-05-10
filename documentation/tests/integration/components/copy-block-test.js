@@ -5,17 +5,13 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, triggerEvent, resetOnerror } from '@ember/test-helpers';
+import { render, triggerEvent } from '@ember/test-helpers';
 import { triggerCopySuccess } from 'ember-cli-clipboard/test-support';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 
 module('Integration | Component | CopyBlock', function (hooks) {
   setupRenderingTest(hooks);
-
-  hooks.afterEach(() => {
-    resetOnerror();
-  });
 
   test('it renders copy button on mouse over', async function (assert) {
     await render(hbs`<Cut::CopyBlock id="test-copy-block"/>`);
