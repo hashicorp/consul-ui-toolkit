@@ -20,46 +20,53 @@
 <Hds::Tabs as |T|>
   <T.Tab>Guidelines</T.Tab>
   <T.Tab>Code</T.Tab>
-
   <T.Panel>
-    <h2>Usage</h2>
-    <h3>When to use</h3>
-    <ul>
-      <li>A list item should be used to contain any information or data that may
-        not be suitable for a standard table. A list can handle displaying more
-        dynamic content since it is never paired with a list header to determine
-        the content within (like a table).</li>
-    </ul>
-    <h3>When not to use</h3>
-    <ul>
-      <li>
-        When your content within is more than 3 lines tall, consider a card
-        instead.
-      </li>
-      <li>
-        If the content you wish to display is consistent for every instance,
-        consider using an HDS table instead.
-      </li>
-      <li>
-        If you are displaying data that requires no action, consider an HDS
-        table instead.
-      </li>
-    </ul>
+    <div class="docs-Page">
+      <div class="docs-Page-content">
+        <h2>Usage</h2>
+        <h3 id="when-to-use">When to use</h3>
+        <ul>
+          <li>A list item should be used to contain any information or data that
+            may not be suitable for a standard table. A list can handle
+            displaying more dynamic content since it is never paired with a list
+            header to determine the content within (like a table).</li>
+        </ul>
+        <h3>When not to use</h3>
+        <ul>
+          <li>
+            When your content within is more than 3 lines tall, consider a card
+            instead.
+          </li>
+          <li>
+            If the content you wish to display is consistent for every instance,
+            consider using an HDS table instead.
+          </li>
+          <li>
+            If you are displaying data that requires no action, consider an HDS
+            table instead.
+          </li>
+        </ul>
 
-    <h2>Interactivity & Actions</h2>
-    <h3>Interactive List Item</h3>
-    <p>The entirety of List Item can be actionable (ie. it can be hovered,
-      clicked, and focused), this is the most common behavior. Ensure the list
-      item “state” =“default” in order to have interactivity within prototypes
-      and code.</p>
+        <h2>Interactivity & Actions</h2>
+        <h3>Interactive List Item</h3>
+        <p>The entirety of List Item can be actionable (ie. it can be hovered,
+          clicked, and focused), this is the most common behavior. Ensure the
+          list item “state” =“default” in order to have interactivity within
+          prototypes and code.</p>
 
-    <h3>Static List Item</h3>
-    <p>
-      You can use the list item “state” = “static” to make a list item
-      non-interactive (this will apply the “base” elevation / drop-shadow). The
-      list item may have interactive elements within them, but are not
-      themselves actionable or interactive.
-    </p>
+        <h3>Static List Item</h3>
+        <p>
+          You can use the list item “state” = “static” to make a list item
+          non-interactive (this will apply the “base” elevation / drop-shadow).
+          The list item may have interactive elements within them, but are not
+          themselves actionable or interactive.
+        </p>
+      </div>
+
+      <InPageNav as |I|>
+        <I.Link @section="#code" @depth={{2}}>Code</I.Link>
+      </InPageNav>
+    </div>
   </T.Panel>
   <T.Panel>
     <h2>How to use this component</h2>

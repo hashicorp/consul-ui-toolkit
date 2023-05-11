@@ -5,6 +5,7 @@
 @import "@hashicorp/consul-ui-toolkit";
 @import "./components/page-header";
 @import "./components/preview-block.scss";
+@import "./components/in-page-nav.scss";
 
 *,
 *::before,
@@ -49,6 +50,12 @@ h3 {
   font-size: var(--token-typography-display-300-font-size);
   font-weight: var(--token-typography-font-weight-bold);
   line-height: var(--token-typography-display-300-line-height);
+}
+
+h4 {
+  font-size: var(--token-typography-body-200-font-size);
+  font-weight: var(--token-typography-font-weight-semibold);
+  line-height: var(--token-typography-code-300-line-height);
 }
 
 strong {
@@ -104,7 +111,6 @@ pre {
     .content,
     .hds-tabs__panel {
       margin-top: 2rem;
-      max-width: 800px;
     }
   }
 
@@ -132,6 +138,15 @@ pre {
           text-decoration: none;
         }
       }
+    }
+  }
+
+  .docs-Page {
+    display: flex;
+    justify-content: space-between;
+
+    .docs-Page-content {
+      max-width: 800px;
     }
   }
 }
