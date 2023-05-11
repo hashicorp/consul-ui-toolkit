@@ -5,11 +5,11 @@
 {{page-title "Consul UI Toolkit"}}
 
 <div class="application">
-  <Hds::SideNav::Wrapper>
+  <Hds::SideNav>
     <:header>
       <Hds::SideNav::Header>
         <:logo>
-          <Hds::SideNav::HomeLink
+          <Hds::SideNav::Header::HomeLink
             @icon="consul"
             @ariaLabel="Consul UI Toolkit"
             @route="index"
@@ -25,7 +25,7 @@
         <S.Link @text="List Item" @route="components.list-item" />
       </Hds::SideNav::List>
     </:body>
-  </Hds::SideNav::Wrapper>
+  </Hds::SideNav>
 
   <main class="line-numbers">
     {{outlet}}

@@ -1,0 +1,46 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
+.cut-copy-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2px;
+  padding-left: 4px;
+  margin-left: -4px;
+
+  .cut-copy-block__copy-button {
+    opacity: 0;
+    & > .copy-btn {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &:hover {
+    background-color: var(--token-color-surface-interactive-hover);
+    border-radius: 4px;
+
+    .cut-copy-block__copy-button {
+      opacity: 1;
+
+      & > .copy-btn {
+        background-color: transparent;
+        border-color: transparent;
+        color: var(--token-color-foreground-action);
+
+        &:focus::before {
+          border: none;
+        }
+        &:focus-visible::before {
+          border: 2px solid var(--token-color-focus-action-external);
+        }
+      }
+
+      & > .copy-btn.cut-copy-block__copy-button--checked {
+        color: var(--token-color-foreground-success);
+      }
+    }
+  }
+}
