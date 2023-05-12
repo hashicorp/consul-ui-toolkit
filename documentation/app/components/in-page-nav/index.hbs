@@ -1,26 +1,7 @@
 <aside class="docs-InPageNav">
-  <h4 class="docs-InPageNav-label">On this page:</h4>
+  <h4 class="docs-InPageNav-label">On this page</h4>
   <nav>
     <ul>
-      <li class="doc-InPageNav-label--depth-1">
-        <Hds::Link::Inline
-          @color="secondary"
-          @href="#when-to-use"
-          @isHrefExternal={{false}}
-        >Read tutorial</Hds::Link::Inline>
-      </li>
-      <li class="doc-InPageNav-label--depth-1">
-        <a href="#code">Code</a>
-      </li>
-      <li class="doc-InPageNav-label--depth-2">
-        <a href="#api">API</a>
-      </li>
-      <li class="doc-InPageNav-label--depth-2">
-        <a href="#styles">Styles</a>
-      </li>
-      <li class="doc-InPageNav-label--depth-1">
-        <a href="#contact">Contact</a>
-      </li>
       {{yield (hash Link=(component "in-page-nav/link"))}}
     </ul>
   </nav>
