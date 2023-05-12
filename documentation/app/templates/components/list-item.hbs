@@ -240,10 +240,14 @@
             @language="handlebars"
           />
         </PreviewBlock>
+        <h2 id="example-section">Example Section</h2>
+        <p>This section is below the fold so I can demo the link to hash working
+          properly</p>
       </div>
       <InPageNav as |I|>
         <I.Link @section="#how-to-use" @depth={{1}}>How to usue this component</I.Link>
         <I.Link @section="#type" @depth={{2}}>type</I.Link>
+        <I.Link @section="#example-section" @depth={{2}}>Example section</I.Link>
       </InPageNav>
     </div>
   </T.Panel>
