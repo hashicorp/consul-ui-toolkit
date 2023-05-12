@@ -3,26 +3,27 @@
   width: 240px;
 
   .docs-InPageNav-label {
-    margin-bottom: 17.5px;
+    margin-bottom: 1.09rem;
   }
 
   > nav > ul {
     list-style: none;
-    border-left: 1px solid var(--token-color-palette-neutral-300);
+    border-left: var(--token-form-checkbox-border-width) solid
+      var(--token-color-palette-neutral-300);
     padding: 0;
     margin-top: 0;
 
     li {
       border-left: 3px solid rgba(0, 0, 0, 0);
-      line-height: 20px;
-      margin-bottom: 8px;
+      line-height: var(--token-typography-display-500-line-height);
+      margin-bottom: 0.5rem;
 
       &.doc-InPageNav-label--depth-1 {
-        padding-left: 12px;
+        padding-left: 0.75rem;
       }
 
       &.doc-InPageNav-label--depth-2 {
-        padding-left: 24px;
+        padding-left: 1.5rem;
       }
 
       &:hover {
@@ -33,11 +34,13 @@
       a {
         color: var(--token-color-foreground-faint);
         text-decoration: none;
+        display: inline-block;
+        width: 100%;
       }
     }
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1500px) {
     display: flex;
     flex-direction: column;
   }
