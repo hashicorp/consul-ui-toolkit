@@ -2,6 +2,6 @@
   Copyright (c) HashiCorp, Inc.
 }}
 
-<li class="doc-InPageNav-label--depth-{{@depth}}">
-  <a href={{@section}}>{{yield}}</a>
+<li class="doc-InPageNav-link doc-InPageNav-link--depth-{{or @depth '1'}}">
+  <a href={{or @section "#"}}>{{yield}}</a>
 </li>

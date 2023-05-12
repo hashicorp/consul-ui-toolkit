@@ -22,17 +22,20 @@
       line-height: var(--token-typography-display-500-line-height);
       margin-bottom: 0.5rem;
 
-      &.doc-InPageNav-label--depth-1 {
+      &.doc-InPageNav-link--depth-1 {
         padding-left: 0.75rem;
       }
 
-      &.doc-InPageNav-label--depth-2 {
+      &.doc-InPageNav-link--depth-2 {
         padding-left: 1.5rem;
       }
 
       &:hover {
         border-left: 3px solid black;
-        color: black;
+
+        a {
+          color: black;
+        }
       }
 
       a {
