@@ -5,6 +5,9 @@
 .docs-InPageNav {
   display: none;
   width: 240px;
+  align-self: start;
+  position: sticky;
+  top: 3rem;
 
   .docs-InPageNav-label {
     margin-bottom: 1.09rem;
