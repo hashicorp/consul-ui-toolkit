@@ -22,27 +22,29 @@
       var(--token-color-border-primary);
   }
 
-  > pre {
-    margin: 0;
-    max-height: 500px;
-    overflow: scroll;
-  }
+  > .code-toolbar {
+    > pre {
+      margin: 0;
+      max-height: 500px;
+      overflow: scroll;
+    }
 
-  > .code-toolbar > .toolbar > .toolbar-item > .copy-to-clipboard-button {
-    border: 1px solid transparent;
-    margin-top: 1rem;
-    margin-right: 1rem;
-    color: var(--token-color-foreground-high-contrast);
-    padding: 1px 7px;
-    background-color: var(--token-color-foreground-action);
-    border-radius: var(--token-form-control-border-radius);
-    font-size: var(--token-typography-display-200-font-size);
-    font-weight: var(--token-typography-font-weight-regular);
-    line-height: var(--token-typography-display-200-line-height);
-    font-family: var(--token-typography-font-stack-text);
+    > .toolbar > .toolbar-item > .copy-to-clipboard-button {
+      border: 1px solid transparent;
+      margin-top: 1rem;
+      margin-right: 1rem;
+      color: var(--token-color-foreground-high-contrast);
+      padding: 1px 7px;
+      background-color: var(--token-color-foreground-action);
+      border-radius: var(--token-form-control-border-radius);
+      font-size: var(--token-typography-display-200-font-size);
+      font-weight: var(--token-typography-font-weight-regular);
+      line-height: var(--token-typography-display-200-line-height);
+      font-family: var(--token-typography-font-stack-text);
 
-    &:hover {
-      background-color: var(--token-color-foreground-action-hover);
+      &:hover {
+        background-color: var(--token-color-foreground-action-hover);
+      }
     }
   }
 }
