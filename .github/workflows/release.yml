@@ -28,7 +28,6 @@ jobs:
       - name: Create Release Pull Request
         uses: changesets/action@v1 # TSCCR: no entry for repository "changesets/action"
         with:
-          version: yarn version
           publish: yarn release
         env:
           # Token setup in consul-ui-services' account
