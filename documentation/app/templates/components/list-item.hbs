@@ -61,6 +61,88 @@
           The list item may have interactive elements within them, but are not
           themselves actionable or interactive.
         </p>
+
+        <h3 id="elevation-levels">Elevation Levels</h3>
+        <div class="flex-images">
+          <img
+            src="/images/list-item-elevation-base.svg"
+            alt="list item base elevation is only for static cards"
+          />
+          <img
+            src="/images/list-item-elevation-mid.svg"
+            alt="list item mid elevation is used for default state on interactive cards"
+          />
+          <img
+            src="/images/list-item-elevation-high.svg"
+            alt="list item high elevation is used for hovered state on interactive cards"
+          />
+        </div>
+
+        <h3 id="action-menu">Action Menu</h3>
+        <p>There is the option for an action menu. It has default options for a
+          standard HDS button (small), and HDS “toggle icon” to allow users to
+          open a dropdown to select common values (edit, delete, etc). You can
+          also add your own custom action if wanted, the most common use-case
+          being a flight icon (which is the default custom value). You can
+          however change this to any icon or component you would like. We
+          recommend only using one action per list item.
+        </p>
+        <img
+          src="/images/list-item-actions-menu.svg"
+          alt="action menu demonstration"
+        />
+
+        <h2 id="clip-content">Clip content</h2>
+        <p>To ensure the proper visual elevation is shown, make sure “Clip
+          Content” is checked on the “ListItem” component, this will be enabled
+          by default.</p>
+
+        <div class="flex-images">
+          <img
+            src="/images/list-item-clip-content-do.svg"
+            alt="List item clip content correct practices"
+          />
+          <img
+            src="/images/list-item-clip-content-dont.svg"
+            alt="List item clip content incorrect practices"
+          />
+        </div>
+
+        <h2 id="color">Color</h2>
+        <h3 id="surface-primary">surface-primary</h3>
+        <p>Use “surface primary” (which is the default value) for the background
+          color for the list item container. If you are planning to utilize a
+          different color ensure there is a good reason to do so.</p>
+
+        <h2 id="size">Size</h2>
+        <p>The internal padding should be 12px around all contents placed within
+          and 8px between content and action items.</p>
+        <img
+          src="/images/list-item-size.svg"
+          alt="list item sizing guidelines"
+        />
+
+        <h3 id="height">Height</h3>
+        <p>The height of the container is able to be dynamic based on the
+          content that is within as it is set to “hug”, however it is recommend
+          to be no taller than 80px.</p>
+        <h3 id="width">Width</h3>
+        <p>The width of the list item should “fill” the entire section that it
+          is placed within.</p>
+        <Hds::Alert @type="inline" @color="highlight" as |A|>
+          <A.Title>It is important to keep list items that are displayed on the
+            same page a consistent size (height and width)</A.Title>
+        </Hds::Alert>
+
+        <h2 id="spacing">Spacing</h2>
+        <p>When using a List Item you should leave 12px of spacing between each
+          item. If used on a main page, leave 24px of spacing above the first
+          List Item. The List Item should span (fill) the entire width of the
+          space that it occupies.</p>
+        <img
+          src="/images/list-item-spacing.svg"
+          alt="list item spacing guidelines"
+        />
       </div>
 
       <InPageNav as |I|>
@@ -72,6 +154,15 @@
         <I.Link @section="#interactive-list-item" @depth={{2}}>Interactive list
           item</I.Link>
         <I.Link @section="#static-list-item" @depth={{2}}>Static list item</I.Link>
+        <I.Link @section="#elevation-levels" @depth={{2}}>Elevation levels</I.Link>
+        <I.Link @section="#action-menu" @depth={{2}}>Action menu</I.Link>
+        <I.Link @section="#clip-content" @depth={{1}}>Clip content</I.Link>
+        <I.Link @section="#color" @depth={{1}}>Color</I.Link>
+        <I.Link @section="#surface-primary" @depth={{2}}>Surface primary</I.Link>
+        <I.Link @section="#size" @depth={{1}}>Size</I.Link>
+        <I.Link @section="#height" @depth={{2}}>Height</I.Link>
+        <I.Link @section="#width" @depth={{2}}>Width</I.Link>
+        <I.Link @section="#spacing" @depth={{1}}>Spacing</I.Link>
       </InPageNav>
     </div>
   </T.Panel>
