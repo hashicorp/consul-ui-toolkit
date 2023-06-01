@@ -18,11 +18,7 @@
   {{#if (and @default (not @values))}}
     <div class="doc-componentApi-default">
       <dt>Default</dt>
-      <dd><Hds::Badge
-          @text={{@default}}
-          @color="highlight"
-          @type="inverted"
-        /></dd>
+      <dd><Hds::Badge @text={{@default}} @type="inverted" /></dd>
     </div>
   {{/if}}
 
@@ -33,7 +29,6 @@
         {{#each @values as |value|}}
           <Hds::Badge
             @text={{value}}
-            @color="highlight"
             @type={{if (eq value @default) "inverted" "filled"}}
           />
         {{/each}}
