@@ -5,11 +5,7 @@
 .doc-componentApi {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    "name type"
-    "default default"
-    "values values"
-    "description description";
+  grid-template-areas: "name type";
   grid-auto-flow: row;
   gap: 1rem;
   padding: 1.5rem 1rem;
@@ -37,14 +33,14 @@
   }
 
   .doc-componentApi-default {
-    grid-area: default;
+    grid-column: 1/3;
   }
 
   .doc-componentApi-values {
-    grid-area: values;
+    grid-column: 1/3;
   }
 
   .doc-componentApi-description {
-    grid-area: description;
+    grid-column: 1/3;
   }
 }
