@@ -1,3 +1,7 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
 <dl class="doc-componentApi">
   <div class="doc-componentApi-name">
     <dt>Name</dt>
@@ -11,7 +15,7 @@
     </div>
   {{/if}}
 
-  {{#if @default}}
+  {{#if (and @default (not @values))}}
     <div class="doc-componentApi-default">
       <dt>Default</dt>
       <dd><Hds::Badge
