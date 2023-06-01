@@ -79,7 +79,44 @@
     <div class="docs-Page">
       <div class="docs-Page-content">
         <h2 id="how-to-use">How to use this component</h2>
-        <p>
+        <h3 id="href">Href</h3>
+        <h3 id="is-href-external">isHrefExternal</h3>
+        <h3 id="route">Route</h3>
+        <h3 id="is-route-external">isRouteExternal</h3>
+        <h3 id="query">Query</h3>
+        <h3 id="replace">Replace</h3>
+        <h3 id="onClick">OnClick</h3>
+
+        <ComponentApi
+          @name="href"
+          @type="string"
+          @default="apply"
+          @description="a href to somewhere far away"
+          @values={{array "help" "wanted" "please" "apply" "inside"}}
+        />
+        <ComponentApi
+          @name="href"
+          @type="string"
+          @default="apply"
+          @description="a href to somewhere far away"
+          @values={{array "help" "wanted" "please" "apply" "inside"}}
+        />
+        <ComponentApi
+          @name="href"
+          @type="string"
+          @default="apply"
+          @description="a href to somewhere far away"
+          @values={{array "help" "wanted" "please" "apply" "inside"}}
+        />
+        <ComponentApi
+          @name="href"
+          @type="string"
+          @default="apply"
+          @description="a href to somewhere far away"
+          @values={{array "help" "wanted" "please" "apply" "inside"}}
+        />
+
+        {{!-- <p>
           The most basic invocation requires the
           <CodeInline @code="type" />
           argument to be passed, along with the
@@ -242,7 +279,7 @@
         </PreviewBlock>
         <h2 id="example-section">Example Section</h2>
         <p>This section is below the fold so I can demo the link to hash working
-          properly</p>
+          properly</p> --}}
       </div>
       <InPageNav as |I|>
         <I.Link @section="#how-to-use" @depth={{1}}>How to usue this component</I.Link>

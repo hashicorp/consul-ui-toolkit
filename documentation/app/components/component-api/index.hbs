@@ -1,0 +1,46 @@
+<dl class="doc-componentApi">
+  <div class="doc-componentApi-name">
+    <dt>Name</dt>
+    <dd><Hds::Badge @text={{@name}} @type="inverted" /></dd>
+  </div>
+
+  {{#if @type}}
+    <div class="doc-componentApi-type">
+      <dt>Type</dt>
+      <dd class="hds-font-family-mono-code">{{@type}}</dd>
+    </div>
+  {{/if}}
+
+  {{#if @default}}
+    <div class="doc-componentApi-default">
+      <dt>Default</dt>
+      <dd><Hds::Badge
+          @text={{@default}}
+          @color="highlight"
+          @type="inverted"
+        /></dd>
+    </div>
+  {{/if}}
+
+  {{#if @values}}
+    <div class="doc-componentApi-values">
+      <dt>Values</dt>
+      <dd>
+        {{#each @values as |value|}}
+          <Hds::Badge
+            @text={{value}}
+            @color="highlight"
+            @type={{if (eq value @default) "inverted" "filled"}}
+          />
+        {{/each}}
+      </dd>
+    </div>
+  {{/if}}
+
+  {{#if @description}}
+    <div class="doc-componentApi-description">
+      <dt>Description</dt>
+      <dd>{{@description}}</dd>
+    </div>
+  {{/if}}
+</dl>
