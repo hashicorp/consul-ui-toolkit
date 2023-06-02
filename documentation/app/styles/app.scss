@@ -43,7 +43,7 @@ h1 {
 }
 
 h2 {
-  margin-top: 4rem;
+  margin-top: 3rem;
   font-size: var(--token-typography-display-400-font-size);
   line-height: var(--token-typography-display-400-line-height);
   font-weight: var(--token-typography-font-weight-bold);
@@ -80,6 +80,10 @@ small {
 code,
 pre {
   font-family: var(--token-typography-font-stack-code);
+}
+
+li {
+  line-height: var(--token-typography-display-200-line-height);
 }
 
 .application {
