@@ -63,19 +63,38 @@
         </p>
 
         <h3 id="elevation-levels">Elevation Levels</h3>
-        <div class="flex-images">
-          <img
-            src="/images/list-item-elevation-base.svg"
-            alt="list item base elevation is only for static cards"
-          />
-          <img
-            src="/images/list-item-elevation-mid.svg"
-            alt="list item mid elevation is used for default state on interactive cards"
-          />
-          <img
-            src="/images/list-item-elevation-high.svg"
-            alt="list item high elevation is used for hovered state on interactive cards"
-          />
+
+        <div class="flex-images hds-typography-display-100">
+          <div>
+            <Hds::Card::Container
+              @level="base"
+              @hasBorder={{true}}
+              class="list-item-elevation"
+            />
+            <p><strong>Base</strong></p>
+            <p class="hds-foreground-faint">Only use for
+              <strong>Static cards</strong></p>
+          </div>
+          <div>
+            <Hds::Card::Container
+              @level="mid"
+              @hasBorder={{true}}
+              class="list-item-elevation"
+            />
+            <p><strong>Mid</strong></p>
+            <p class="hds-foreground-faint">Only use for
+              <strong>Static cards</strong></p>
+          </div>
+          <div>
+            <Hds::Card::Container
+              @level="high"
+              @hasBorder={{true}}
+              class="list-item-elevation"
+            />
+            <p><strong>High</strong></p>
+            <p class="hds-foreground-faint">Only use for
+              <strong>Static cards</strong></p>
+          </div>
         </div>
 
         <h3 id="action-menu">Action Menu</h3>

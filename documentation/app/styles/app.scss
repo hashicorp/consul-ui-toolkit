@@ -164,8 +164,13 @@ pre {
         align-items: start;
         justify-content: stretch;
         flex-wrap: wrap;
-        gap: 1rem;
+        gap: 1.5rem;
       }
     }
   }
+}
+
+.list-item-elevation {
+  width: 184px;
+  height: 80px;
 }
