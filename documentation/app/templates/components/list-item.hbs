@@ -106,10 +106,45 @@
           however change this to any icon or component you would like. We
           recommend only using one action per list item.
         </p>
-        <img
-          src="/images/list-item-actions-menu.svg"
-          alt="action menu demonstration"
-        />
+
+        <div class="hds-typography-display-100">
+          <p><strong>Button</strong></p>
+          <Cut::ListItem class="doc-list-item" as |L|>
+            <L.Content class="doc-list-item-content-placeholder">
+              <p>content placeholder</p>
+            </L.Content>
+            <L.ActionButton @text="Button" />
+          </Cut::ListItem>
+          <p><strong>Dropdown</strong></p>
+          <Cut::ListItem class="doc-list-item" as |L|>
+            <L.Content class="doc-list-item-content-placeholder">
+              <p>content placeholder</p>
+            </L.Content>
+            <L.ActionDropdown as |A|>
+              <A.ToggleIcon
+                @icon="more-horizontal"
+                @text="Menu"
+                @hasChevron={{false}}
+              />
+              <A.Interactive @icon="edit" @text="Edit" />
+              <A.Interactive @icon="hexagon" @text="Delete" @color="critical" />
+            </L.ActionDropdown>
+          </Cut::ListItem>
+          <p><strong>Custom</strong></p>
+          <Cut::ListItem class="doc-list-item" as |L|>
+            <L.Content class="doc-list-item-content-placeholder">
+              <p>content placeholder</p>
+            </L.Content>
+            <L.ActionGeneric>
+              <FlightIcon
+                @name="hexagon"
+                @color="var(--token-color-foreground-action)"
+                @size="24"
+              />
+            </L.ActionGeneric>
+          </Cut::ListItem>
+
+        </div>
 
         <h2 id="clip-content">Clip content</h2>
         <p>To ensure the proper visual elevation is shown, make sure “Clip

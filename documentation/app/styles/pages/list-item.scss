@@ -1,0 +1,20 @@
+.list-item-elevation {
+  width: 184px;
+  height: 80px;
+}
+
+.doc-list-item {
+  max-width: 580px;
+}
+
+.doc-list-item-content-placeholder {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--token-color-palette-red-100);
+  border: 1px dashed var(--token-color-foreground-critical-on-surface);
+  border-radius: var(--token-form-radiocard-border-radius);
+  height: 52px;
+  color: var(--token-color-foreground-critical-on-surface);
+}
