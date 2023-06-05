@@ -219,7 +219,7 @@
 </div>
 
 <h3>Templates</h3>
-<div style="gap: 16px">
+<div>
   <Cut::ListItem @href="#" @isHrefExternal={{false}} as |L|>
     <L.Content>
       <Cut::ListItem::Template as |T|>
@@ -397,13 +397,31 @@
     </L.ActionDropdown>
   </Cut::ListItem>
 
-  {{#each this.serviceInstances as |item|}}
-    <Cut::ListItem::Service
-      @isHrefExternal={{false}}
-      @href='#'
-      @type="service-instance"
-      @service={{item}}
-    />
+  {{#each this.serviceListData as |item|}}
+    {{#if (eq item.type 'service')}}
+      <Cut::ListItem::Service
+        @isHrefExternal={{false}}
+        @href='#'
+        @service={{item}}
+      />
+    {{else if (eq item.type 'service-instance')}}
+      <Cut::ListItem::ServiceInstance
+        @isHrefExternal={{false}}
+        @href='#'
+        @service={{item}}
+      />
+    {{else if (eq item.type 'service-terminating-gateway')}}
+      <Cut::ListItem::ServiceTerminatingGateway
+        @isHrefExternal={{false}}
+        @href='#'
+        @service={{item}}
+      />
+    {{else if (eq item.type 'service-ingress-gateway')}}
+      <Cut::ListItem::ServiceIngressGateway
+        @isHrefExternal={{false}}
+        @href='#'
+        @service={{item}}
+      />
+    {{/if}}
   {{/each}}
-
 </div>

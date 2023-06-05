@@ -3,21 +3,23 @@
  */
 
 import Component from '@glimmer/component';
-import { HealthCheck } from '../../../../utils/service-list-item';
+import {
+  ExternalSource,
+  HealthCheck,
+} from '../../../../utils/service-list-item';
 
-export interface CutService {
+export interface CutServiceIngressGateway {
   name: string | undefined;
   metadata: {
     healthCheck: {
       instance: HealthCheck | undefined;
     };
+    tags: string[];
+    externalSource: ExternalSource | undefined;
     kindName: string | undefined;
-    instanceCount: number | undefined;
-    isImported: boolean | undefined;
-    isPermissiveMTls: boolean | undefined;
+    upstreamCount: number | undefined;
     connectedWithGateway: boolean | undefined;
     connectedWithProxy: boolean | undefined;
-    samenessGroup: string | undefined;
   };
 }
 
@@ -33,7 +35,7 @@ interface ComponentSignature {
     onClick(): void;
 
     // Service args
-    service: CutService;
+    service: CutServiceIngressGateway;
   };
 }
 

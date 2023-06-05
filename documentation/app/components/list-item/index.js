@@ -5,10 +5,11 @@
 import Component from '@glimmer/component';
 
 export default class ListItemComponent extends Component {
-  get serviceInstances() {
+  get serviceListData() {
     return [
       {
         name: 'Service instance: All Healthy',
+        type: 'service-instance',
         metadata: {
           healthCheck: {
             node: {
@@ -31,6 +32,7 @@ export default class ListItemComponent extends Component {
       },
       {
         name: 'Service instance: Failed checks, service socket, no tags, no node name',
+        type: 'service-instance',
         metadata: {
           healthCheck: {
             node: {
@@ -53,6 +55,7 @@ export default class ListItemComponent extends Component {
       },
       {
         name: 'Service: Failed checks, imported, with sameness group, permissive mTLS',
+        type: 'service',
         metadata: {
           healthCheck: {
             instance: {
@@ -70,6 +73,7 @@ export default class ListItemComponent extends Component {
       },
       {
         name: 'Service: Green checks, no imported, with sameness group, permissive mTLS, external source',
+        type: 'service',
         metadata: {
           healthCheck: {
             instance: {
@@ -88,6 +92,7 @@ export default class ListItemComponent extends Component {
       },
       {
         name: 'Service (Ingress Gateway): Green checks',
+        type: 'service-ingress-gateway',
         metadata: {
           healthCheck: {
             instance: {
@@ -100,10 +105,12 @@ export default class ListItemComponent extends Component {
           kindName: 'Ingress gateway',
           externalSource: 'nomad',
           upstreamCount: 5,
+          tags: ['monitor', 'array', 'monitor'],
         },
       },
       {
         name: 'Service (terminating gateway): Failed checks',
+        type: 'service-terminating-gateway',
         metadata: {
           healthCheck: {
             instance: {

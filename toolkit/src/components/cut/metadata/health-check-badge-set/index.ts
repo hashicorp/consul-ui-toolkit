@@ -13,16 +13,12 @@ interface ComponentSignature {
   };
 }
 
-export default class HealthCheckBadgeSetComponent extends Component<ComponentSignature> {
+export default class MetadataHealthCheckBadgeSetComponent extends Component<ComponentSignature> {
   get total() {
     return (
       (this.args.successCount || 0) +
       (this.args.criticalCount || 0) +
       (this.args.warningCount || 0)
     );
-  }
-
-  get isAllHealthy() {
-    return !this.args.criticalCount && !this.args.warningCount;
   }
 }

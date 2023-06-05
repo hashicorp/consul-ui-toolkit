@@ -35,40 +35,28 @@
               />
             {{/if}}
           {{/if}}
+
           {{#if @service.metadata.kindName}}
             <Cut::TextWithIcon @icon="gateway" @text={{@service.metadata.kindName}}
             />
           {{/if}}
-          {{#if (not-eq @service.metadata.instanceCount undefined)}}
-            <!-- TODO: add translate with pluralize(CC-5314) -->
-            <span data-test-associated-instance-count>{{@service.metadata.instanceCount}} instances</span>
+
+          {{#if (not-eq @service.metadata.upstreamCount undefined)}}
+            <!-- TODO: add translate with pluralize(CC-5314)-->
+            <span data-test-associated-service-count>{{@service.metadata.upstreamCount}} upstreams</span>
           {{/if}}
 
-          {{#if (and @service.metadata.connectedWithGateway @service.metadata.connectedWithProxy)}}
-            <!-- TODO: add translate(CC-5314) -->
-            <Cut::TextWithIcon @icon="mesh" @text='in service mesh with proxy and gateway' data-test-mesh />
+          <Cut::Metadata::InServiceMesh
+            @connectedWithGateway={{@service.metadata.connectedWithGateway}}
+            @connectedWithProxy={{@service.metadata.connectedWithProxy}}
+          />
 
-          {{else if @service.metadata.connectedWithProxy}}
-            <!-- TODO: add translate(CC-5314) -->
-            <Cut::TextWithIcon @icon="mesh" @text='in service mesh with proxy' data-test-mesh />
-
-          {{else if @service.metadata.connectedWithGateway}}
-            <!-- TODO: add translate(CC-5314) -->
-            <Cut::TextWithIcon @icon="mesh" @text='in service mesh with gateway' data-test-mesh />
+          {{#if @service.metadata.externalSource}}
+            <Cut::Metadata::ExternalSource @externalSource={{@service.metadata.externalSource}}/>
           {{/if}}
 
-          {{#if @service.metadata.isPermissiveMTls}}
-            <!-- TODO: add translate(CC-5314) -->
-            <Cut::TextWithIcon @icon="unlock" @text="permissive mTLS"/>
-          {{/if}}
-
-          {{#if @service.metadata.samenessGroup}}
-            <Cut::TextWithIcon @icon="collections" @text={{@service.metadata.samenessGroup}}/>
-          {{/if}}
-
-          {{#if @service.metadata.isImported}}
-            <!-- TODO: add translate(CC-5314) -->
-            <Cut::TextWithIcon @icon="upload" @text="Imported"/>
+          {{#if @service.metadata.tags.length}}
+            <Cut::Metadata::Tags @tags={{@service.metadata.tags}}/>
           {{/if}}
         </LB.Metadata>
       </T.Label>
