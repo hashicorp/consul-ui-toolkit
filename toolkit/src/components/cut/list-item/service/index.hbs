@@ -1,0 +1,130 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
+<Cut::ListItem
+  @href={{@href}}
+  @isRouteExternal={{@isRouteExternal}}
+  @route={{@route}}
+  @isHrefExternal={{@isHrefExternal}}
+  @query={{@query}}
+  @replace={{@replace}}
+  @onClick={{@onClick}}
+  as |L|>
+  <L.Content as |C|>
+    <Cut::ListItem::Template as |T|>
+      <T.Label as |LB|>
+        <LB.Title data-test-service-name>{{@service.name}}</LB.Title>
+        <LB.Metadata>
+          {{#if this.isAllHealthy}}
+            <Hds::Badge
+              @color='success'
+              @icon='check'
+              @text='Healthy'
+              @size="small"
+            />
+          {{else}}
+            <!--Service health check-->
+            {{#if @service.metadata.healthCheck.service}}
+              <Cut::ListItem::HealthCheckBadgeSet
+                @successCount={{@service.metadata.healthCheck.service.success}}
+                @warningCount={{@service.metadata.healthCheck.service.warning}}
+                @criticalCount={{@service.metadata.healthCheck.service.critical}}
+                @type="service"
+                data-test-service-health-checks
+              />
+            {{/if}}
+            <!--Node health check-->
+            {{#if @service.metadata.healthCheck.node}}
+              <Cut::ListItem::HealthCheckBadgeSet
+                @successCount={{@service.metadata.healthCheck.node.success}}
+                @warningCount={{@service.metadata.healthCheck.node.warning}}
+                @criticalCount={{@service.metadata.healthCheck.node.critical}}
+                @type="node"
+                data-test-node-health-checks
+              />
+            {{/if}}
+            <!--Instance health check-->
+            {{#if @service.metadata.healthCheck.instance}}
+              <Cut::ListItem::HealthCheckBadgeSet
+                @successCount={{@service.metadata.healthCheck.instance.success}}
+                @warningCount={{@service.metadata.healthCheck.instance.warning}}
+                @criticalCount={{@service.metadata.healthCheck.instance.critical}}
+                @type="instance"
+                data-test-instance-health-checks
+              />
+            {{/if}}
+          {{/if}}
+          {{#if @service.metadata.kindName}}
+            <Cut::TextWithIcon @icon="gateway" @text={{@service.metadata.kindName}}
+            />
+          {{/if}}
+          {{#if (not-eq @service.metadata.instanceCount undefined)}}
+            <!-- TODO: add translate with pluralize -->
+            <span data-test-associated-instance-count>{{@service.metadata.instanceCount}} instances</span>
+          {{/if}}
+          {{#if (not-eq @service.metadata.linkedServiceCount undefined)}}
+            <!-- TODO: add translate with pluralize -->
+            <span data-test-associated-service-count>{{@service.metadata.linkedServiceCount}} linked services</span>
+          {{/if}}
+          {{#if (not-eq @service.metadata.upstreamCount undefined)}}
+            <!-- TODO: add translate with pluralize-->
+            <span data-test-associated-service-count>{{@service.metadata.upstreamCount}} upstreams</span>
+          {{/if}}
+
+          {{#if (and @service.metadata.connectedWithGateway @service.metadata.connectedWithProxy)}}
+            <!-- TODO: add translate -->
+            <Cut::TextWithIcon @icon="mesh" @text='in service mesh with proxy and gateway' data-test-mesh />
+
+          {{else if @service.metadata.connectedWithProxy}}
+            <!-- TODO: add translate -->
+            <Cut::TextWithIcon @icon="mesh" @text='in service mesh with proxy' data-test-mesh />
+
+          {{else if @service.metadata.connectedWithGateway}}
+            <!-- TODO: add translate -->
+            <Cut::TextWithIcon @icon="mesh" @text='in service mesh with gateway' data-test-mesh />
+          {{/if}}
+
+          {{#if @service.metadata.externalSource}}
+            <!-- TODO: add translate -->
+            <Cut::TextWithIcon
+              @text={{concat "Registered via " @service.metadata.externalSource}}
+              @icon={{this.externalSourceIcon}}
+              @iconColor="var(--token-color-hashicorp-brand)"
+              data-test-external-source={{@service.metadata.externalSource}}
+            />
+          {{/if}}
+
+          {{#if @service.metadata.node}}
+            <Cut::TextWithIcon @icon="node" @text={{@service.metadata.node}} data-test-node-name/>
+          {{/if}}
+
+          {{#if @service.metadata.servicePortAddress}}
+            <Cut::TextWithIcon @icon="globe" @text={{@service.metadata.servicePortAddress}} data-test-address/>
+
+          {{else if @service.metadata.serviceSocketPath}}
+            <Cut::TextWithIcon @icon="socket" @text={{@service.metadata.serviceSocketPath}} data-test-socket />
+          {{/if}}
+
+          {{#if @service.metadata.isPermissiveMTls}}
+            <!-- TODO: add translate -->
+            <Cut::TextWithIcon @icon="unlock" @text="permissive mTLS"/>
+          {{/if}}
+
+          {{#if @service.metadata.samenessGroup}}
+            <Cut::TextWithIcon @icon="collections" @text={{@service.metadata.samenessGroup}}/>
+          {{/if}}
+
+          {{#if @service.metadata.isImported}}
+            <!-- TODO: add translate -->
+            <Cut::TextWithIcon @icon="upload" @text="Imported"/>
+          {{/if}}
+
+          {{#if @service.metadata.tags.length}}
+            <Cut::TextWithIcon @icon="tag" @text={{join ', ' @service.metadata.tags}} data-test-tags />
+          {{/if}}
+        </LB.Metadata>
+      </T.Label>
+    </Cut::ListItem::Template>
+  </L.Content>
+</Cut::ListItem>

@@ -9,7 +9,8 @@ export interface DivSignature {
   Args: {
     icon: string;
     text: string;
-    connection: string;
+    connection?: string | undefined;
+    iconColor?: string | undefined;
   };
 }
 

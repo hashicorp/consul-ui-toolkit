@@ -33,7 +33,8 @@
   "dependencies": {
     "@embroider/addon-shim": "^1.0.0",
     "ember-concurrency": "^2.3.7",
-    "ember-concurrency-decorators": "^2.0.3"
+    "ember-concurrency-decorators": "^2.0.3",
+    "ember-composable-helpers": "^5.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.0",
@@ -78,10 +79,12 @@
       "./components/cut/copy-block/index.js": "./dist/_app_/components/cut/copy-block/index.js",
       "./components/cut/list-item/action-generic.js": "./dist/_app_/components/cut/list-item/action-generic.js",
       "./components/cut/list-item/content.js": "./dist/_app_/components/cut/list-item/content.js",
+      "./components/cut/list-item/health-check-badge-set/index.js": "./dist/_app_/components/cut/list-item/health-check-badge-set/index.js",
       "./components/cut/list-item/index.js": "./dist/_app_/components/cut/list-item/index.js",
       "./components/cut/list-item/label/index.js": "./dist/_app_/components/cut/list-item/label/index.js",
       "./components/cut/list-item/label/metadata.js": "./dist/_app_/components/cut/list-item/label/metadata.js",
       "./components/cut/list-item/label/title.js": "./dist/_app_/components/cut/list-item/label/title.js",
+      "./components/cut/list-item/service/index.js": "./dist/_app_/components/cut/list-item/service/index.js",
       "./components/cut/list-item/template/index.js": "./dist/_app_/components/cut/list-item/template/index.js",
       "./components/cut/text-with-icon/index.js": "./dist/_app_/components/cut/text-with-icon/index.js"
     }

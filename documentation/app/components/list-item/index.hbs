@@ -219,7 +219,7 @@
 </div>
 
 <h3>Templates</h3>
-<div class="doc-list-container">
+<div style="gap: 16px">
   <Cut::ListItem @href="#" @isHrefExternal={{false}} as |L|>
     <L.Content>
       <Cut::ListItem::Template as |T|>
@@ -396,4 +396,14 @@
       />
     </L.ActionDropdown>
   </Cut::ListItem>
+
+  {{#each this.serviceInstances as |item|}}
+    <Cut::ListItem::Service
+      @isHrefExternal={{false}}
+      @href='#'
+      @type="service-instance"
+      @service={{item}}
+    />
+  {{/each}}
+
 </div>
