@@ -49,17 +49,28 @@
 
         <h2 id="interactivity-and-actions">Interactivity & Actions</h2>
         <h3 id="interactive-list-item">Interactive List Item</h3>
+        {{! template-lint-disable no-potential-path-strings }}
         <p>The entirety of List Item can be actionable (ie. it can be hovered,
           clicked, and focused), this is the most common behavior. Ensure the
-          list item “state” =“default” in order to have interactivity within
-          prototypes and code.</p>
+          list item
+          <CodeInline @code="“state” = “default”" />
+          in order to have interactivity within prototypes and use one of the
+          <CodeInline @code="@route" />,
+          <CodeInline @code="@href" />, or
+          <CodeInline @code="@onClick" />
+          arguments in code.</p>
 
         <h3 id="static-list-item">Static List Item</h3>
         <p>
-          You can use the list item “state” = “static” to make a list item
-          non-interactive (this will apply the “base” elevation / drop-shadow).
-          The list item may have interactive elements within them, but are not
-          themselves actionable or interactive.
+          You can use the list item
+          <CodeInline @code="“state” = “static”" />
+          to make a list item non-interactive (this will apply the “base”
+          elevation / drop-shadow) within prototypes and don't apply any of the
+          interactive arguments in code (<CodeInline @code="@route" />,
+          <CodeInline @code="@href" />, or
+          <CodeInline @code="@onClick" />). The list item may have interactive
+          elements within them, but are not themselves actionable or
+          interactive.
         </p>
 
         <h3 id="elevation-levels">Elevation Levels</h3>
@@ -478,6 +489,10 @@
 
         <h3 id="list-item">Cut::ListItem</h3>
 
+        <ComponentApi @name="onClick" @type="action">
+          Action that is called with the list item is interacted with. Adding
+          this argument enables the interactive state fro the list item.
+        </ComponentApi>
         <ComponentApi @name="href" @type="string">
           URL parameter that’s passed down to the
           <CodeInline @code="<a>" />
