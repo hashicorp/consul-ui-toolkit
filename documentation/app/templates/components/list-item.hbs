@@ -78,176 +78,30 @@
   <T.Panel>
     <div class="docs-Page">
       <div class="docs-Page-content">
-        <h2 id="how-to-use">How to use this component</h2>
-        <p>
-          The most basic invocation requires the
-          <CodeInline @code="type" />
-          argument to be passed, along with the
-          <CodeInline @code="title" />
-          and/or
-          <CodeInline @code="description" />
-          content. By default, a neutral
-          <CodeInline @code="alert" />
-          is generated.
-        </p>
+        <h2 id="component-api">Component API</h2>
 
-        <PreviewBlock as |P|>
-          <P.Preview>
-            <Hds::Alert @type="inline" as |A|>
-              <A.Title>Title here</A.Title>
-              <A.Description>Description here</A.Description>
-            </Hds::Alert>
-          </P.Preview>
-          <P.Code
-            @code={{{"
-            <Hds::Alert @type='inline' as |A|>
-              <A.Title>Title here</A.Title>
-              <A.Description>Description here</A.Description>
-            </Hds::Alert>
-          "}}}
-            @language="handlebars"
-          />
-        </PreviewBlock>
+        <ComponentApi
+          @name="href"
+          @type="string"
+          @description="a href to somewhere far away"
+        />
+        <ComponentApi
+          @name="type"
+          @type="string"
+          @default="neutral"
+          @description="Determines the color of the component"
+          @values={{array "success" "neutral" "warning" "critical"}}
+        />
+        <ComponentApi
+          @name="isHrefExternal"
+          @type="boolean"
+          @default="true"
+          @description="Determines if the anchor should open the link in a new tab or not"
+        />
 
-        <h3 id="type">Type</h3>
-        <p>A different type of alert can be invoked using the
-          <CodeInline @code="type" />
-          argument</p>
-
-        <PreviewBlock as |P|>
-          <P.Preview>
-            <Hds::Alert @type="page" as |A|>
-              <A.Title>Title here</A.Title>
-              <A.Description>Description here</A.Description>
-            </Hds::Alert>
-          </P.Preview>
-          <P.Code
-            @code={{{"
-            <Hds::Alert @type='page' as |A|>
-              <A.Title>Title here</A.Title>
-              <A.Description>Description here</A.Description>
-            </Hds::Alert>
-          "}}}
-            @language="handlebars"
-          />
-        </PreviewBlock>
-
-        <PreviewBlock as |P|>
-          <P.Preview>
-            <Hds::Alert @type="inline" as |A|>
-              <A.Title>Title here</A.Title>
-              <A.Description>Description here</A.Description>
-            </Hds::Alert>
-            <Hds::Alert @type="inline" as |A|>
-              <A.Title>Title here</A.Title>
-              <A.Description>Description here</A.Description>
-            </Hds::Alert>
-            <Hds::Alert @type="inline" as |A|>
-              <A.Title>Title here</A.Title>
-              <A.Description>Description here</A.Description>
-            </Hds::Alert>
-            <Hds::Alert @type="inline" as |A|>
-              <A.Title>Title here</A.Title>
-              <A.Description>Description here</A.Description>
-            </Hds::Alert>
-            <Hds::Alert @type="inline" as |A|>
-              <A.Title>Title here</A.Title>
-              <A.Description>Description here</A.Description>
-            </Hds::Alert>
-            <Hds::Alert @type="inline" as |A|>
-              <A.Title>Title here</A.Title>
-              <A.Description>Description here</A.Description>
-            </Hds::Alert>
-            <Hds::Alert @type="inline" as |A|>
-              <A.Title>Title here</A.Title>
-              <A.Description>Description here</A.Description>
-            </Hds::Alert>
-            <Hds::Alert @type="inline" as |A|>
-              <A.Title>Title here</A.Title>
-              <A.Description>Description here</A.Description>
-            </Hds::Alert>
-            <Hds::Alert @type="inline" as |A|>
-              <A.Title>Title here</A.Title>
-              <A.Description>Description here</A.Description>
-            </Hds::Alert>
-            <Hds::Alert @type="inline" as |A|>
-              <A.Title>Title here</A.Title>
-              <A.Description>Description here</A.Description>
-            </Hds::Alert>
-          </P.Preview>
-          <P.Code
-            @code={{{"
-            <Hds::Alert @type='inline' as |A|>
-              <A.Title>Title here</A.Title>
-              <A.Description>Description here</A.Description>
-            </Hds::Alert>
-            <Hds::Alert @type='inline' as |A|>
-              <A.Title>Title here</A.Title>
-              <A.Description>Description here</A.Description>
-            </Hds::Alert>
-            <Hds::Alert @type='inline' as |A|>
-              <A.Title>Title here</A.Title>
-              <A.Description>Description here</A.Description>
-            </Hds::Alert>
-            <Hds::Alert @type='inline' as |A|>
-              <A.Title>Title here</A.Title>
-              <A.Description>Description here</A.Description>
-            </Hds::Alert>
-            <Hds::Alert @type='inline' as |A|>
-              <A.Title>Title here</A.Title>
-              <A.Description>Description here</A.Description>
-            </Hds::Alert>
-            <Hds::Alert @type='inline' as |A|>
-              <A.Title>Title here</A.Title>
-              <A.Description>Description here</A.Description>
-            </Hds::Alert>
-            <Hds::Alert @type='inline' as |A|>
-              <A.Title>Title here</A.Title>
-              <A.Description>Description here</A.Description>
-            </Hds::Alert>
-            <Hds::Alert @type='inline' as |A|>
-              <A.Title>Title here</A.Title>
-              <A.Description>Example of a very long description to show that it scrolls both ways and all is good in the world.</A.Description>
-            </Hds::Alert>
-            <Hds::Alert @type='inline' as |A|>
-              <A.Title>Title here</A.Title>
-              <A.Description>Description here</A.Description>
-            </Hds::Alert>
-            <Hds::Alert @type='inline' as |A|>
-              <A.Title>Title here</A.Title>
-              <A.Description>Description here</A.Description>
-            </Hds::Alert>
-          "}}}
-            @language="handlebars"
-          />
-        </PreviewBlock>
-
-        <PreviewBlock as |P|>
-          <P.Preview>
-            <Hds::Alert @type="compact" as |A|>
-              <A.Title>Title here</A.Title>
-              <A.Description>Description here</A.Description>
-            </Hds::Alert>
-          </P.Preview>
-
-          <P.Code
-            @code={{{"
-              <Hds::Alert @type='compact' as |A|>
-                <A.Title>Title here</A.Title>
-                <A.Description>Description here</A.Description>
-              </Hds::Alert>
-            "}}}
-            @language="handlebars"
-          />
-        </PreviewBlock>
-        <h2 id="example-section">Example Section</h2>
-        <p>This section is below the fold so I can demo the link to hash working
-          properly</p>
       </div>
       <InPageNav as |I|>
-        <I.Link @section="#how-to-use" @depth={{1}}>How to usue this component</I.Link>
-        <I.Link @section="#type" @depth={{2}}>type</I.Link>
-        <I.Link @section="#example-section" @depth={{1}}>Example section</I.Link>
+        <I.Link @section="#component-api" @depth={{1}}>Component API</I.Link>
       </InPageNav>
     </div>
   </T.Panel>
