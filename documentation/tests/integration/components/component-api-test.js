@@ -14,9 +14,9 @@ module('Integration | Component | ComponentApi', function (hooks) {
     await render(hbs`
       <ComponentApi
         @name="text"
-        @type="string"
-        @description="The text that serves as the description" 
-      />
+        @type="string">
+        The text that serves as the description
+      </ComponentApi>
     `);
 
     assert.dom('.doc-componentApi-name dd').hasText('text');
