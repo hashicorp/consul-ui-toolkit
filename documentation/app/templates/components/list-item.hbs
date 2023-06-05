@@ -223,6 +223,244 @@
   <T.Panel>
     <div class="docs-Page">
       <div class="docs-Page-content">
+        <h2 id="how-to-use">How to use this component</h2>
+        <p>To make invocation more flexible, we provide contextual components
+          for content, and different optional actions. The most basic invocation
+          should make use of the
+          <CodeInline @code="Cut::ListItem::Content" />
+          contextual component.</p>
+        <PreviewBlock as |P|>
+          <P.Preview>
+            <Cut::ListItem as |L|>
+              <L.Content>
+                List Item Content
+              </L.Content>
+            </Cut::ListItem>
+          </P.Preview>
+          <P.Code
+            @code={{{"
+            <Cut::ListItem as |L|>
+              <L.Content>
+                List Item Content
+              </L.Content>
+            </Cut::ListItem>
+            "}}}
+          />
+        </PreviewBlock>
+
+        <h3 id="Interactions">Interactions</h3>
+
+        {{! template-lint-disable no-potential-path-strings }}
+        <p>Optionally, you can provide a
+          <CodeInline @code="@route" />,
+          <CodeInline @code="@href" />, or
+          <CodeInline @code="@onClick" />
+          argument to the List Item to have the entire list item become
+          interactive. It uses
+          <CodeInline @code="<Hds::Interactive />" />
+          under the hood. The design system has
+          <Hds::Link::Inline
+            @href="https://helios.hashicorp.design/components/dropdown?tab=code#listiteminteractive-1"
+          >great documentation on that component</Hds::Link::Inline>. The
+          abbreviated gist is that providing a
+          <CodeInline @code="@route" />
+          will use a
+          <CodeInline @code="<LinkTo />" />
+          or
+          <CodeInline @code="<LinkToExternal />" />
+          to link to an Ember route. Using
+          <CodeInline @code="@href" />
+          will use an
+          <CodeInline @code="<a />" />
+          tag. Finally, using a
+          <CodeInline @code="@onClick" />
+          will render the List Item with a
+          <CodeInline @code="<Button />" />.
+        </p>
+
+        <PreviewBlock as |P|>
+          <P.Preview>
+            <ul class="doc-list-items-demo">
+              <Cut::ListItem @route="components.list-item" as |L|>
+                <L.Content>
+                  List item that is using the
+                  <CodeInline @code="@route" />
+                  property
+                </L.Content>
+              </Cut::ListItem>
+              <Cut::ListItem
+                @href="https://www.github.com/hashicorp/consul-ui-toolkit"
+                @isHrefExternal={{true}}
+                as |L|
+              >
+                <L.Content>
+                  List item that is using the
+                  <CodeInline @code="@href" />
+                  property
+                </L.Content>
+              </Cut::ListItem>
+              <Cut::ListItem @onClick={{this.alertMe}} as |L|>
+                <L.Content>
+                  List item that is using the
+                  <CodeInline @code="@href" />
+                  property
+                </L.Content>
+              </Cut::ListItem>
+            </ul>
+          </P.Preview>
+          <P.Code
+            @code={{{'
+            <ul class="doc-list-items-demo">
+              <Cut::ListItem @route="components.list-item" as |L|>
+                <L.Content>
+                  List item that is using the
+                  <CodeInline @code="@route" />
+                  property
+                </L.Content>
+              </Cut::ListItem>
+
+              <Cut::ListItem
+                @href="https://www.github.com/hashicorp/consul-ui-toolkit"
+                @isHrefExternal={{true}}
+                as |L|
+              >
+                <L.Content>
+                  List item that is using the
+                  <CodeInline @code="@href" />
+                  property
+                </L.Content>
+              </Cut::ListItem>
+
+              <Cut::ListItem @onClick={{this.alertMe}} as |L|>
+                <L.Content>
+                  List item that is using the
+                  <CodeInline @code="@href" />
+                  property
+                </L.Content>
+              </Cut::ListItem>
+            </ul>
+            '}}}
+          />
+        </PreviewBlock>
+
+        <h3 id="actions">Actions</h3>
+        <p>In addition to having the entire list item component being
+          interactive, we provide 3 different contextual components for
+          interactions within the list item. The first being the
+          <CodeInline @code="<Cut::ListItem::ActionButton />" />, which will
+          render an
+          <CodeInline @code="<Hds::Button />" />. Reference the
+          <Hds::Link::Inline
+            @href="https://helios.hashicorp.design/components/button?tab=code#component-api"
+          >HDS documentation</Hds::Link::Inline>
+          for complete details on what arguments the button can receive.</p>
+
+        <PreviewBlock as |P|>
+          <P.Preview>
+            <Cut::ListItem as |L|>
+              <L.Content>List item with button</L.Content>
+              <L.ActionButton @text="Button" {{on "click" this.alertMe}} />
+            </Cut::ListItem>
+          </P.Preview>
+          <P.Code
+            @code={{{'
+            <Cut::ListItem as |L|>
+              <L.Content>List item with button</L.Content>
+              <L.ActionButton @text="Button" {{on "click" this.alertMe}} />
+            </Cut::ListItem>
+            '}}}
+          />
+        </PreviewBlock>
+
+        <p>
+          We also provide a
+          <CodeInline @code="<Cut::ListItem::ActionDropdown />" />
+          contextual component that renders a
+          <CodeInline @code="<Hds::Dropdown />" />. Reference the
+          <Hds::Link::Inline
+            @href="https://helios.hashicorp.design/components/dropdown?tab=code"
+          >HDS documentation</Hds::Link::Inline>
+          for complete details on how to use the dropdown.
+        </p>
+
+        <PreviewBlock as |P|>
+          <P.Preview>
+            <Cut::ListItem class="doc-list-item-demo-dropdown" as |L|>
+              <L.Content>List item with button</L.Content>
+              <L.ActionDropdown as |A|>
+                <A.ToggleIcon
+                  @icon="more-horizontal"
+                  @text="Menu"
+                  @hasChevron={{false}}
+                />
+                <A.Interactive @icon="edit" @text="Edit" />
+                <A.Interactive
+                  @icon="hexagon"
+                  @text="Delete"
+                  @color="critical"
+                />
+              </L.ActionDropdown>
+            </Cut::ListItem>
+          </P.Preview>
+          <P.Code
+            @code={{{'
+            <Cut::ListItem as |L|>
+              <L.Content>List item with button</L.Content>
+              <L.ActionDropdown as |A|>
+                <A.ToggleIcon
+                  @icon="more-horizontal"
+                  @text="Menu"
+                  @hasChevron={{false}}
+                />
+                <A.Interactive @icon="edit" @text="Edit" />
+                <A.Interactive
+                  @icon="hexagon"
+                  @text="Delete"
+                  @color="critical"
+                />
+              </L.ActionDropdown>
+            </Cut::ListItem>
+            '}}}
+          />
+        </PreviewBlock>
+
+        <p>Alternatively, there is also a contextual component for a generic
+          action section in which you can provide any custom content to fit your
+          needs.</p>
+
+        <PreviewBlock as |P|>
+          <P.Preview>
+            <Cut::ListItem as |L|>
+              <L.Content>
+                List Item with custom content using generic contextual component
+              </L.Content>
+              <L.ActionGeneric>
+                <FlightIcon
+                  @name="hexagon"
+                  @color="var(--token-color-foreground-action)"
+                  @size="24"
+                />
+              </L.ActionGeneric>
+            </Cut::ListItem>
+          </P.Preview>
+          <P.Code
+            @code={{{'
+            <Cut::ListItem as |L|>
+              <L.Content>
+                List Item with custom content using generic contextual component
+              </L.Content>
+              <L.ActionGeneric>
+                <FlightIcon
+                  @name="hexagon"
+                  @color="var(--token-color-foreground-action)"
+                  @size="24"
+                />
+              </L.ActionGeneric>
+            </Cut::ListItem>
+            '}}}
+          />
+        </PreviewBlock>
+
         <h2 id="component-api">Component API</h2>
 
         <ComponentApi
@@ -246,6 +484,9 @@
 
       </div>
       <InPageNav as |I|>
+        <I.Link @section="#how-to-use" @depth={{1}}>How to use this component</I.Link>
+        <I.Link @section="#interactions" @depth={{2}}>Interactions</I.Link>
+        <I.Link @section="#actions" @depth={{2}}>Actions</I.Link>
         <I.Link @section="#component-api" @depth={{1}}>Component API</I.Link>
       </InPageNav>
     </div>

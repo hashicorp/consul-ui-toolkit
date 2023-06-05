@@ -22,3 +22,15 @@
   height: 52px;
   color: var(--token-color-foreground-critical-on-surface);
 }
+
+.doc-list-items-demo {
+  padding: 0;
+
+  li {
+    margin-bottom: 0.75rem;
+  }
+}
+
+.doc-list-item-demo-dropdown {
+  margin-bottom: 4rem;
+}
