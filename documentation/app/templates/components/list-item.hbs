@@ -248,7 +248,7 @@
           />
         </PreviewBlock>
 
-        <h3 id="Interactions">Interactions</h3>
+        <h3 id="interactions">Interactions</h3>
 
         {{! template-lint-disable no-potential-path-strings }}
         <p>Optionally, you can provide a
@@ -462,25 +462,105 @@
         </PreviewBlock>
 
         <h2 id="component-api">Component API</h2>
+        <p>The List Item component is composed of different child components
+          each with their own APIs:</p>
+        <ul>
+          <li>The List Item component</li>
+          <li>Content component to display the main content of the list item</li>
+          <li>Action components to optionally add actionable content to the list
+            item</li>
+          <ul>
+            <li>ActionButton</li>
+            <li>ActionDropdown</li>
+            <li>ActionGeneric</li>
+          </ul>
+        </ul>
 
+        <h3 id="list-item">Cut::ListItem</h3>
+
+        <ComponentApi @name="href" @type="string">
+          URL parameter that’s passed down to the
+          <CodeInline @code="<a>" />
+          element.
+        </ComponentApi>
+        <ComponentApi @name="isHrefExternal" @type="boolean" @default="false">
+          Controls if the
+          <CodeInline @code="<a>" />
+          link is external. For security reasons, we add the
+          <CodeInline @code='target="_blank rel="noopener noreferrer"' />
+          attributes to it by default.'
+        </ComponentApi>
+        <ComponentApi @name="route" @type="string">Parameters that are passed
+          down as arguments to the
+          <CodeInline @code="<LinkTo>" />/<CodeInline
+            @code="<LinkToExternal>"
+          />
+          components.</ComponentApi>
         <ComponentApi
-          @name="href"
-          @type="string"
-          @description="a href to somewhere far away"
-        />
-        <ComponentApi
-          @name="type"
-          @type="string"
-          @default="neutral"
-          @description="Determines the color of the component"
-          @values={{array "success" "neutral" "warning" "critical"}}
-        />
-        <ComponentApi
-          @name="isHrefExternal"
+          @name="isRouteExternal"
           @type="boolean"
-          @default="true"
-          @description="Determines if the anchor should open the link in a new tab or not"
-        />
+          @default="false"
+        >Controls if the
+          <CodeInline @code="LinkTo" />
+          is external to the Ember engine, in which case it will use a
+          <CodeInline @code="<LinkToExternal>" />
+          for the
+          <CodeInline @code="@route" />.</ComponentApi>
+
+        <ComponentApi @name="query" @type="object">Key value pairs used to build
+          out the query parameters for the resulting url.</ComponentApi>
+        <ComponentApi @name="replace" @type="boolean" @default="false">
+          Replace the current entry in the browser's history indead of adding a
+          new entry to the existing history.</ComponentApi>
+        <ComponentApi @name="...attributes">
+          This component supports use of
+          <CodeInline @code="...attributes" />
+        </ComponentApi>
+
+        <h3 id="content">Cut::ListItem::Content</h3>
+        <ComponentApi @name="yield" @isRequired={{true}}>
+          Elements nested in this child component are yielded inside the
+          ListItem.
+        </ComponentApi>
+        <ComponentApi @name="...attributes">
+          This component supports use of
+          <CodeInline @code="...attributes" />
+        </ComponentApi>
+
+        <h3 id="action-button">Cut::ListItem::ActionButton</h3>
+        <p><CodeInline @code="<Cut::ListItem::ActionButton />" />
+          is a contextual component that uses
+          <CodeInline @code="<Hds::Button />" />
+          to render a button in the list items action slot. For full
+          documentation and guides around usage of the
+          <CodeInline @code="<Hds::Button />" />
+          view the
+          <Hds::Link::Inline
+            @href="https://helios.hashicorp.design/components/button?tab=code#component-api"
+          >design system documentation.</Hds::Link::Inline></p>
+
+        <h3 id="action-dropdown">Cut::ListItem::ActionDropdown</h3>
+        <p>Similar to the above,
+          <CodeInline @code="<Cut::ListItem::ActionDropdown />" />
+          renders a
+          <CodeInline @code="<Hds::Dropdown />" />
+          in the list item action slot. As such the best place to reference the
+          up-to-date component documentation is on the
+          <Hds::Link::Inline
+            @href="https://helios.hashicorp.design/components/dropdown?tab=code#component-api"
+          >design system documentation site.</Hds::Link::Inline></p>
+        <h3 id="action-generic">Cut::ListItem::ActionGeneric</h3>
+        <ComponentApi @name="yield">
+          Elements nested in this child component are yielded inside the List
+          Item's action slot. When using 'generic', the product team is
+          responsible for implementing the layout and accessibility of the
+          action section.
+        </ComponentApi>
+
+        <ComponentApi @name="...attributes">
+          This component supports use of
+          <CodeInline @code="...attributes" />
+        </ComponentApi>
 
       </div>
       <InPageNav as |I|>
@@ -488,6 +568,11 @@
         <I.Link @section="#interactions" @depth={{2}}>Interactions</I.Link>
         <I.Link @section="#actions" @depth={{2}}>Actions</I.Link>
         <I.Link @section="#component-api" @depth={{1}}>Component API</I.Link>
+        <I.Link @section="#list-item" @depth={{2}}>List item</I.Link>
+        <I.Link @section="#content" @depth={{2}}>Content</I.Link>
+        <I.Link @section="#action-button" @depth={{2}}>Action button</I.Link>
+        <I.Link @section="#action-dropdown" @depth={{2}}>Action dropdown</I.Link>
+        <I.Link @section="#action-generic" @depth={{2}}>Action generic</I.Link>
       </InPageNav>
     </div>
   </T.Panel>
