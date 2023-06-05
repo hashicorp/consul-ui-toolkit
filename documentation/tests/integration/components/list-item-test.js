@@ -21,9 +21,9 @@ module('Integration | Component | cut/list-item', function (hooks) {
   });
 
   // Static
-  test('it should render a <div> if no @href, @onClick or @route is passed (default)', async function (assert) {
+  test('it should render a <li> if no @href, @onClick or @route is passed (default)', async function (assert) {
     await render(hbs`<Cut::ListItem id="test-list-item" />`);
-    assert.dom('#test-list-item').hasTagName('div');
+    assert.dom('#test-list-item').hasTagName('li');
   });
 
   // Dynamic
@@ -63,13 +63,13 @@ module('Integration | Component | cut/list-item', function (hooks) {
     assert.dom('#test-list-item .active').doesNotHaveAttribute('rel');
   });
 
-  test('it should spread all the attributes passed to the <div> element', async function (assert) {
+  test('it should spread all the attributes passed to the <li> element', async function (assert) {
     await render(
       hbs`<Cut::ListItem id="test-list-item" class="my-class" data-test1 data-test2="test" />`
     );
-    assert.dom('div#test-list-item').hasClass('my-class');
-    assert.dom('div#test-list-item').hasAttribute('data-test1');
-    assert.dom('div#test-list-item').hasAttribute('data-test2', 'test');
+    assert.dom('li#test-list-item').hasClass('my-class');
+    assert.dom('li#test-list-item').hasAttribute('data-test1');
+    assert.dom('li#test-list-item').hasAttribute('data-test2', 'test');
   });
 
   test('it should yield the content of the List item element', async function (assert) {

@@ -1,10 +1,14 @@
 {{!
   Copyright (c) HashiCorp, Inc.
 }}
-<div class="cut-list-item {{if (or @route @href @onClick) 'hds-surface-mid' 'hds-surface-base'}}" ...attributes>
+<li
+  class='cut-list-item hds-surface-primary
+    {{if (or @route @href @onClick) "hds-surface-mid" "hds-surface-base"}}'
+  ...attributes
+>
   {{#if (or @route @href @onClick)}}
     <Hds::Interactive
-      class="cut-list-item__content-container active"
+      class='cut-list-item__content-container active'
       @href={{this.href}}
       @isRouteExternal={{@isRouteExternal}}
       @route={{this.route}}
@@ -14,16 +18,18 @@
       {{on 'click' this.onClickAction}}
       ...attributes
     >
-      {{yield (hash Content=(component "cut/list-item/content"))}}
+      {{yield (hash Content=(component 'cut/list-item/content'))}}
     </Hds::Interactive>
 
   {{else}}
-    {{yield (hash Content=(component "cut/list-item/content"))}}
+    {{yield (hash Content=(component 'cut/list-item/content'))}}
   {{/if}}
 
   {{yield
-    (hash ActionButton=(component "hds/button" size="small")
-      ActionDropdown=(component "hds/dropdown")
-      ActionGeneric=(component "cut/list-item/action-generic")
-    )}}
-</div>
+    (hash
+      ActionButton=(component 'hds/button' size='small')
+      ActionDropdown=(component 'hds/dropdown')
+      ActionGeneric=(component 'cut/list-item/action-generic')
+    )
+  }}
+</li>

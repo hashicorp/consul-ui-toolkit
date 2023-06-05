@@ -44,12 +44,12 @@ button.cut-list-item__content-container {
     position: absolute;
     inset: 0;
     border-radius: 6px;
-    content: "";
+    content: '';
     z-index: -1;
   }
   &.active:focus-visible,
   &.active:focus {
-    &:before{
+    &:before {
       outline: 3px solid var(--token-color-focus-action-external);
       outline-offset: 1px;
     }
