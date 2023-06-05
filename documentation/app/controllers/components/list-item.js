@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
