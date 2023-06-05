@@ -3,6 +3,7 @@
  */
 @import "@hashicorp/design-system-components";
 @import "@hashicorp/consul-ui-toolkit";
+@import "./components/component-api";
 @import "./components/page-header";
 @import "./components/preview-block.scss";
 @import "./components/in-page-nav.scss";
@@ -147,6 +148,7 @@ pre {
 
     .docs-Page-content {
       max-width: 800px;
+      flex-grow: 1;
     }
   }
 }

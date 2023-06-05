@@ -1,0 +1,46 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
+.doc-componentApi {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "name type";
+  grid-auto-flow: row;
+  gap: 1rem;
+  padding: 1.5rem 1rem;
+  margin: 0;
+  border-bottom: var(--token-form-control-border-width) solid
+    var(--token-color-border-primary);
+  width: 100%;
+
+  dt {
+    font-weight: var(--token-typography-display-100-font-size);
+    font-weight: var(--token-typography-font-weight-semibold);
+    margin-bottom: 0.5rem;
+  }
+
+  dd {
+    margin-left: 0;
+  }
+
+  .doc-componentApi-name {
+    grid-area: name;
+  }
+
+  .doc-componentApi-type {
+    grid-area: type;
+  }
+
+  .doc-componentApi-default {
+    grid-column: 1/3;
+  }
+
+  .doc-componentApi-values {
+    grid-column: 1/3;
+  }
+
+  .doc-componentApi-description {
+    grid-column: 1/3;
+  }
+}
