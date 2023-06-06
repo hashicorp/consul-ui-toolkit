@@ -9,6 +9,7 @@
       @icon='x'
       @text={{concat @criticalCount '/' this.total ' ' @type ' checks'}}
       @size="small"
+      data-test-health-check-critical={{@type}}
     />
   {{/if}}
 
@@ -18,6 +19,7 @@
       @icon='alert-triangle'
       @text={{concat @warningCount '/' this.total ' ' @type ' checks'}}
       @size="small"
+      data-test-health-check-warning={{@type}}
     />
   {{/if}}
 
@@ -27,6 +29,7 @@
       @icon='check'
       @text={{concat @successCount '/' this.total ' ' @type ' checks'}}
       @size="small"
+      data-test-health-check-success={{@type}}
     />
   {{/if}}
 {{/if}}

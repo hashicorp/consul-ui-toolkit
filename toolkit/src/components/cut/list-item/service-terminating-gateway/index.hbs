@@ -10,6 +10,7 @@
   @query={{@query}}
   @replace={{@replace}}
   @onClick={{@onClick}}
+  data-test-service-terminating-gateway-list-item
   as |L|>
   <L.Content as |C|>
     <Cut::ListItem::Template as |T|>
@@ -22,6 +23,7 @@
               @icon='check'
               @text='Healthy'
               @size="small"
+              data-test-health-check-all-healthy
             />
           {{else}}
             <!--Instance health check-->
@@ -31,13 +33,11 @@
                 @warningCount={{@service.metadata.healthCheck.instance.warning}}
                 @criticalCount={{@service.metadata.healthCheck.instance.critical}}
                 @type="instance"
-                data-test-instance-health-checks
               />
             {{/if}}
           {{/if}}
           {{#if @service.metadata.kindName}}
-            <Cut::TextWithIcon @icon="gateway" @text={{@service.metadata.kindName}}
-            />
+            <Cut::TextWithIcon @icon="gateway" @text={{@service.metadata.kindName}} data-test-service-kind />
           {{/if}}
 
           {{#if (not-eq @service.metadata.linkedServiceCount undefined)}}

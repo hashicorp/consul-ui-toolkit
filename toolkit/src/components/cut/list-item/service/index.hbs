@@ -10,6 +10,7 @@
   @query={{@query}}
   @replace={{@replace}}
   @onClick={{@onClick}}
+  data-test-service-list-item
   as |L|>
   <L.Content as |C|>
     <Cut::ListItem::Template as |T|>
@@ -22,6 +23,7 @@
               @icon='check'
               @text='Healthy'
               @size="small"
+              data-test-health-check-all-healthy
             />
           {{else}}
             <!--Instance health check-->
@@ -31,12 +33,12 @@
                 @warningCount={{@service.metadata.healthCheck.instance.warning}}
                 @criticalCount={{@service.metadata.healthCheck.instance.critical}}
                 @type="instance"
-                data-test-instance-health-checks
               />
             {{/if}}
           {{/if}}
           {{#if @service.metadata.kindName}}
             <Cut::TextWithIcon @icon="gateway" @text={{@service.metadata.kindName}}
+              data-test-service-kind
             />
           {{/if}}
           {{#if (not-eq @service.metadata.instanceCount undefined)}}
@@ -44,31 +46,23 @@
             <span data-test-associated-instance-count>{{@service.metadata.instanceCount}} instances</span>
           {{/if}}
 
-          {{#if (and @service.metadata.connectedWithGateway @service.metadata.connectedWithProxy)}}
-            <!-- TODO: add translate(CC-5314) -->
-            <Cut::TextWithIcon @icon="mesh" @text='in service mesh with proxy and gateway' data-test-mesh />
-
-          {{else if @service.metadata.connectedWithProxy}}
-            <!-- TODO: add translate(CC-5314) -->
-            <Cut::TextWithIcon @icon="mesh" @text='in service mesh with proxy' data-test-mesh />
-
-          {{else if @service.metadata.connectedWithGateway}}
-            <!-- TODO: add translate(CC-5314) -->
-            <Cut::TextWithIcon @icon="mesh" @text='in service mesh with gateway' data-test-mesh />
-          {{/if}}
+          <Cut::Metadata::InServiceMesh
+            @connectedWithGateway={{@service.metadata.connectedWithGateway}}
+            @connectedWithProxy={{@service.metadata.connectedWithProxy}}
+          />
 
           {{#if @service.metadata.isPermissiveMTls}}
             <!-- TODO: add translate(CC-5314) -->
-            <Cut::TextWithIcon @icon="unlock" @text="permissive mTLS"/>
+            <Cut::TextWithIcon @icon="unlock" @text="permissive mTLS" data-test-permissive-mtls/>
           {{/if}}
 
           {{#if @service.metadata.samenessGroup}}
-            <Cut::TextWithIcon @icon="collections" @text={{@service.metadata.samenessGroup}}/>
+            <Cut::TextWithIcon @icon="collections" @text={{@service.metadata.samenessGroup}} data-test-sameness-group/>
           {{/if}}
 
           {{#if @service.metadata.isImported}}
             <!-- TODO: add translate(CC-5314) -->
-            <Cut::TextWithIcon @icon="upload" @text="Imported"/>
+            <Cut::TextWithIcon @icon="upload" @text="Imported" data-test-imported/>
           {{/if}}
         </LB.Metadata>
       </T.Label>

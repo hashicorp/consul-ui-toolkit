@@ -10,6 +10,7 @@
   @query={{@query}}
   @replace={{@replace}}
   @onClick={{@onClick}}
+  data-test-service-instance-list-item
   as |L|>
   <L.Content as |C|>
     <Cut::ListItem::Template as |T|>
@@ -22,6 +23,7 @@
               @icon='check'
               @text='Healthy'
               @size="small"
+              data-test-health-check-all-healthy
             />
           {{else}}
             <!--Service health check-->
@@ -31,7 +33,6 @@
                 @warningCount={{@service.metadata.healthCheck.service.warning}}
                 @criticalCount={{@service.metadata.healthCheck.service.critical}}
                 @type="service"
-                data-test-service-health-checks
               />
             {{/if}}
             <!--Node health check-->
@@ -41,7 +42,6 @@
                 @warningCount={{@service.metadata.healthCheck.node.warning}}
                 @criticalCount={{@service.metadata.healthCheck.node.critical}}
                 @type="node"
-                data-test-node-health-checks
               />
             {{/if}}
           {{/if}}

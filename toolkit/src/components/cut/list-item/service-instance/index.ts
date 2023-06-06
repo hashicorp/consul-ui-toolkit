@@ -18,7 +18,7 @@ export interface CutServiceInstance {
     tags: string[];
     servicePortAddress: string | null;
     serviceSocketPath: string | undefined;
-    nodeName: string | undefined;
+    node: string | undefined;
     externalSource: ExternalSource | undefined;
     connectedWithProxy: boolean | undefined;
   };
