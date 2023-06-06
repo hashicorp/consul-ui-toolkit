@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import { create, isPresent, isVisible, text } from 'ember-cli-page-object';
 
 const listItemSelector = '[data-test-service-instance-list-item]';
