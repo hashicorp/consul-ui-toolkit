@@ -5,97 +5,84 @@
 <h2>List Item Type</h2>
 <h3>Dynamic</h3>
 <p>Any of
-  <Hds::Badge @text=' @onClick ' />
+  <Hds::Badge @text=" @onClick " />
   ,
-  <Hds::Badge @text=' @route ' />
+  <Hds::Badge @text=" @route " />
   or
-  <Hds::Badge @text=' @href ' />
+  <Hds::Badge @text=" @href " />
   param has to be added to
   <Hds::Badge @text="&lt;Cut::ListItem /&gt;" />
-  to make it dynamic type.
-  For interactive elements with
-  <Hds::Badge @text=' @route ' />
+  to make it dynamic type. For interactive elements with
+  <Hds::Badge @text=" @route " />
   or
-  <Hds::Badge @text=' @href ' />
+  <Hds::Badge @text=" @href " />
   , list item work similar as
-  <Hds::Badge @text='Hds::Interactive' />
-  element.
-  Actually
-  <Hds::Badge @text='Cut::ListItem' />
+  <Hds::Badge @text="Hds::Interactive" />
+  element. Actually
+  <Hds::Badge @text="Cut::ListItem" />
   uses the hds component as a wrapper for content and actions for the case.
 </p>
 <pre><code>
-    &lt;Cut::ListItem @route='dummy' as |L|&gt;
-      &lt;L.Content>Service a&lt;/L.Content&gt;
-    &lt;/Cut::ListItem&gt;
-    &lt;Cut::ListItem @href="#" @isHrefExternal={{false}} as |L|&gt;
-      &lt;L.Content>Service b&lt;/L.Content&gt;
-    &lt;/Cut::ListItem&gt;
+    &lt;Cut::ListItem @route='dummy' as |L|&gt; &lt;L.Content>Service
+    a&lt;/L.Content&gt; &lt;/Cut::ListItem&gt; &lt;Cut::ListItem @href="#"
+    @isHrefExternal={{false}}
+    as |L|&gt; &lt;L.Content>Service b&lt;/L.Content&gt; &lt;/Cut::ListItem&gt;
   </code></pre>
 <div class="doc-list-container">
-  <Cut::ListItem @route='dummy' as |L|>
+  <Cut::ListItem @route="dummy" as |L|>
     <L.Content>Element with route added</L.Content>
   </Cut::ListItem>
   <Cut::ListItem @href="#" @isHrefExternal={{false}} as |L|>
     <L.Content>Element with href and isHrefExternal set to false</L.Content>
     <L.ActionDropdown as |dd|>
       <dd.ToggleIcon
-        @icon='more-horizontal'
-        @text='Menu'
+        @icon="more-horizontal"
+        @text="Menu"
         @hasChevron={{false}}
       />
-      <dd.Interactive
-        @icon='edit'
-        @text='Edit'
-      />
+      <dd.Interactive @icon="edit" @text="Edit" />
     </L.ActionDropdown>
   </Cut::ListItem>
   <Cut::ListItem @onClick={{this.onItemClicked}} as |L|>
     <L.Content>Element with onClick</L.Content>
     <L.ActionDropdown as |dd|>
       <dd.ToggleIcon
-        @icon='more-horizontal'
-        @text='Menu'
+        @icon="more-horizontal"
+        @text="Menu"
         @hasChevron={{false}}
       />
-      <dd.Interactive
-        @icon='edit'
-        @text='Edit' />
+      <dd.Interactive @icon="edit" @text="Edit" />
     </L.ActionDropdown>
   </Cut::ListItem>
 </div>
 <h3>Static</h3>
 <p>Static type is default for
-  <Hds::Badge @text='Cut::ListItem' />
+  <Hds::Badge @text="Cut::ListItem" />
   , if none of the
-  <Hds::Badge @text=' @onClick ' />
+  <Hds::Badge @text=" @onClick " />
   ,
-  <Hds::Badge @text=' @route ' />
+  <Hds::Badge @text=" @route " />
   or
-  <Hds::Badge @text=' @href ' />
+  <Hds::Badge @text=" @href " />
   params is passed.
 </p>
 <pre><code>
-    &lt;Cut::ListItem as |L|&gt;
-      &lt;L.Content>Service a&lt;/L.Content&gt;
+    &lt;Cut::ListItem as |L|&gt; &lt;L.Content>Service a&lt;/L.Content&gt;
     &lt;/Cut::ListItem&gt;
   </code></pre>
 <div class="doc-list-container">
   <Cut::ListItem as |L|>
-    <L.Content><div {{hds-tooltip 'hello'}}>Service a</div></L.Content>
+    <L.Content><div {{hds-tooltip "hello"}}>Service a</div></L.Content>
   </Cut::ListItem>
   <Cut::ListItem as |L|>
     <L.Content><Cut::CopyBlock @clipboardText="Service b">Service b</Cut::CopyBlock></L.Content>
     <L.ActionDropdown as |dd|>
       <dd.ToggleIcon
-        @icon='more-horizontal'
-        @text='Menu'
+        @icon="more-horizontal"
+        @text="Menu"
         @hasChevron={{false}}
       />
-      <dd.Interactive
-        @icon='edit'
-        @text='Edit'
-      />
+      <dd.Interactive @icon="edit" @text="Edit" />
     </L.ActionDropdown>
   </Cut::ListItem>
   <Cut::ListItem as |L|>
@@ -105,12 +92,10 @@
 <h2>List Item with actions</h2>
 <h3>Menu</h3>
 <pre><code>
-    &lt;Cut::ListItem as |L|&gt;
-      &lt;L.Content>Service a&lt;/L.Content&gt;
-      &lt;L.ActionDropdown as |dd|&gt;
-         &lt;dd.ToggleIcon @icon='more-horizontal' @text='Menu' @hasChevron={{false}} /&gt;
-         &lt;dd.Interactive @icon='edit' @text='Edit' /&gt;
-      &lt;/L.Action&gt;
+    &lt;Cut::ListItem as |L|&gt; &lt;L.Content>Service a&lt;/L.Content&gt;
+    &lt;L.ActionDropdown as |dd|&gt; &lt;dd.ToggleIcon @icon='more-horizontal'
+    @text='Menu' @hasChevron={{false}}
+    /&gt; &lt;dd.Interactive @icon='edit' @text='Edit' /&gt; &lt;/L.Action&gt;
     &lt;/Cut::ListItem&gt;
   </code></pre>
 <div class="doc-list-container">
@@ -118,79 +103,71 @@
     <L.Content>Service a</L.Content>
     <L.ActionDropdown as |dd|>
       <dd.ToggleIcon
-        @icon='more-horizontal'
-        @text='Menu'
+        @icon="more-horizontal"
+        @text="Menu"
         @hasChevron={{false}}
       />
-      <dd.Interactive
-        @icon='edit'
-        @text='Edit'
-      />
+      <dd.Interactive @icon="edit" @text="Edit" />
     </L.ActionDropdown>
   </Cut::ListItem>
   <Cut::ListItem as |L|>
     <L.Content>Service b</L.Content>
     <L.ActionDropdown as |dd|>
       <dd.ToggleIcon
-        @icon='more-horizontal'
-        @text='Menu'
+        @icon="more-horizontal"
+        @text="Menu"
         @hasChevron={{false}}
       />
-      <dd.Interactive
-        @icon='edit'
-        @text='Edit'
-      />
+      <dd.Interactive @icon="edit" @text="Edit" />
     </L.ActionDropdown>
   </Cut::ListItem>
   <Cut::ListItem as |L|>
     <L.Content>Service c</L.Content>
     <L.ActionDropdown as |dd|>
       <dd.ToggleIcon
-        @icon='more-horizontal'
-        @text='Menu'
+        @icon="more-horizontal"
+        @text="Menu"
         @hasChevron={{false}}
       />
-      <dd.Interactive
-        @icon='edit'
-        @text='Edit'
-      />
+      <dd.Interactive @icon="edit" @text="Edit" />
     </L.ActionDropdown>
   </Cut::ListItem>
 </div>
 <h3>Button</h3>
 <pre><code>
-    &lt;Cut::ListItem as |L|&gt;
-      &lt;L.Content>Service a&lt;/L.Content&gt;
-      &lt;L.ActionButton @text='Delete' @color="critical" @icon="delete"/&gt;
+    &lt;Cut::ListItem as |L|&gt; &lt;L.Content>Service a&lt;/L.Content&gt;
+    &lt;L.ActionButton @text='Delete' @color="critical" @icon="delete"/&gt;
     &lt;/Cut::ListItem&gt;
   </code></pre>
 <div class="doc-list-container">
   <Cut::ListItem as |L|>
     <L.Content>Service a</L.Content>
-    <L.ActionButton @text='Invalidate' />
+    <L.ActionButton @text="Invalidate" />
   </Cut::ListItem>
   <Cut::ListItem as |L|>
     <L.Content>Service b</L.Content>
-    <L.ActionButton @text='Delete' @color="critical" @icon="delete" />
+    <L.ActionButton @text="Delete" @color="critical" @icon="delete" />
   </Cut::ListItem>
 </div>
 <h3>Generic</h3>
 <pre><code>
-    &lt;Cut::ListItem as |L|&gt;
-      &lt;L.Content>Service a&lt;/L.Content&gt;
-      &lt;L.ActionGeneric&gt;
-          &lt;Hds::Badge @text="2 permissions" @color='warning' @size="small"/&gt;
-          &lt;@text="3 errors" @type="outlined" @color='critical' @size="small"/&gt;
-          &lt;@text="Terraform" @icon="terraform" @size="small"/&gt;
-      &lt;/L.Action&gt;
-    &lt;/Cut::ListItem&gt;
+    &lt;Cut::ListItem as |L|&gt; &lt;L.Content>Service a&lt;/L.Content&gt;
+    &lt;L.ActionGeneric&gt; &lt;Hds::Badge @text="2 permissions"
+    @color='warning' @size="small"/&gt; &lt;@text="3 errors" @type="outlined"
+    @color='critical' @size="small"/&gt; &lt;@text="Terraform" @icon="terraform"
+    @size="small"/&gt; &lt;/L.Action&gt; &lt;/Cut::ListItem&gt;
   </code></pre>
 <div class="doc-list-container">
   <Cut::ListItem as |L|>
     <L.Content>Service a</L.Content>
     <L.ActionGeneric>
-      <Hds::Badge @text="2 permissions" @color='warning' @size="small" />
-      <Hds::Badge @text="3 errors" @type="outlined" @color='critical' @size="small" />
+      <Hds::Badge @text="2 permissions" @color="warning" @size="small" />
+      <Hds::Badge
+        @text="3 errors"
+        @type="outlined"
+        @color="critical"
+        @size="small"
+      />
       <Hds::Badge @text="Terraform" @icon="terraform" @size="small" />
     </L.ActionGeneric>
   </Cut::ListItem>
@@ -206,14 +183,15 @@
   <Cut::ListItem as |L|>
     <L.Content>Service c</L.Content>
     <L.ActionGeneric>
-      <Hds::Link::Standalone @href="#" @text="2 Permissions" @icon="docs-link" />
+      <Hds::Link::Standalone @href="#" @text="2 Permissions" @icon="doc-link" />
     </L.ActionGeneric>
   </Cut::ListItem>
   <Cut::ListItem as |L|>
     <L.Content>Service d</L.Content>
     <L.ActionGeneric>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris erat nulla, porttitor sed feugiat in, blandit
-        sit amet massa. Nulla fermentum vel erat sit amet convallis. Duis sit amet mi.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris erat
+        nulla, porttitor sed feugiat in, blandit sit amet massa. Nulla fermentum
+        vel erat sit amet convallis. Duis sit amet mi.</p>
     </L.ActionGeneric>
   </Cut::ListItem>
 </div>
@@ -225,17 +203,30 @@
       <Cut::ListItem::Template as |T|>
         <T.Label as |LB|>
           <LB.Title>
-            <Cut::TextWithIcon @text="auth-01" @icon="server-cluster" @connection="/"/>
-            <Cut::TextWithIcon @text="partition-1" @icon="users"/>
-            <span/>
-            <FlightIcon @name="network-alt" @size="16"/>
-            <span/>
-            <Cut::TextWithIcon @text="Web" @icon="server-cluster" @connection="/"/>
-            <Cut::TextWithIcon @text="default" @icon="users"/>
+            <Cut::TextWithIcon
+              @text="auth-01"
+              @icon="server-cluster"
+              @connection="/"
+            />
+            <Cut::TextWithIcon @text="partition-1" @icon="users" />
+            <span />
+            <FlightIcon @name="network-alt" @size="16" />
+            <span />
+            <Cut::TextWithIcon
+              @text="Web"
+              @icon="server-cluster"
+              @connection="/"
+            />
+            <Cut::TextWithIcon @text="default" @icon="users" />
           </LB.Title>
           <LB.Metadata>
-            <Hds::Badge @text="Allow" @color="success" @icon="arrow-right" @size="small"/>
-            <Cut::TextWithIcon @text="30 seconds ago" @icon="pipeline"/>
+            <Hds::Badge
+              @text="Allow"
+              @color="success"
+              @icon="arrow-right"
+              @size="small"
+            />
+            <Cut::TextWithIcon @text="30 seconds ago" @icon="pipeline" />
             <div>10 shared services</div>
           </LB.Metadata>
         </T.Label>
@@ -243,105 +234,100 @@
     </L.Content>
   </Cut::ListItem>
   <pre><code>
-      &lt;Cut::ListItem @onClick=this.onItemClicked as |L|&gt;
-        &lt;L.Content&gt;
-          &lt;Cut::ListItem::Template as |T|&gt;
-            &lt;T.Label as |LB&gt;
-              &lt;LB.Icon @name="check-circle" /&gt;
-              &lt;LB.Title>Service-name&lt;/LB.Title&gt;
-              &lt;LB.Metadata&gt;
-                &lt;Hds::Badge @text="Registered via Vault" @icon="vault" @size="small" /&gt;
-                &lt;div&gt;12 instances&lt;/div&gt;
-                &lt;Cut::TextWithIcon @text="in service mesh with proxy" @icon="mesh" /&gt;
-                &lt;Cut::TextWithIcon @text="kubernetes-api, dev, kube-dev-2" @icon="tag" /&gt;
-              &lt;/LB.Metadata&gt;
-            &lt;/T.Label&gt;
-         &lt;/Cut::ListItem::Template&gt;
-       &lt;/L.Content&gt;
-     &lt;/Cut::ListItem&gt;
-  </code></pre>
+      &lt;Cut::ListItem @onClick=this.onItemClicked as |L|&gt; &lt;L.Content&gt;
+      &lt;Cut::ListItem::Template as |T|&gt; &lt;T.Label as |LB&gt; &lt;LB.Icon
+      @name="check-circle" /&gt; &lt;LB.Title>Service-name&lt;/LB.Title&gt;
+      &lt;LB.Metadata&gt; &lt;Hds::Badge @text="Registered via Vault"
+      @icon="vault" @size="small" /&gt; &lt;div&gt;12 instances&lt;/div&gt;
+      &lt;Cut::TextWithIcon @text="in service mesh with proxy" @icon="mesh"
+      /&gt; &lt;Cut::TextWithIcon @text="kubernetes-api, dev, kube-dev-2"
+      @icon="tag" /&gt; &lt;/LB.Metadata&gt; &lt;/T.Label&gt;
+      &lt;/Cut::ListItem::Template&gt; &lt;/L.Content&gt; &lt;/Cut::ListItem&gt;
+    </code></pre>
   <Cut::ListItem as |L|>
     <L.Content>
       <Cut::ListItem::Template as |T|>
         <T.Label as |LB|>
-          <LB.Icon @name="check-circle"/>
+          <LB.Icon @name="check-circle" />
           <LB.Title>Service-name</LB.Title>
           <LB.Metadata>
-            <Hds::Badge @text="Registered via Vault" @icon="vault" @size="small"/>
+            <Hds::Badge
+              @text="Registered via Vault"
+              @icon="vault"
+              @size="small"
+            />
             <div>12 instances</div>
-            <Cut::CopyBlock @clipboardText="in service mesh with proxy"><Cut::TextWithIcon @text="in service mesh with proxy" @icon="mesh"/></Cut::CopyBlock>
-            <Cut::TextWithIcon @text="kubernetes-api, dev, kube-dev-2" @icon="tag"/>
+            <Cut::CopyBlock
+              @clipboardText="in service mesh with proxy"
+            ><Cut::TextWithIcon
+                @text="in service mesh with proxy"
+                @icon="mesh"
+              /></Cut::CopyBlock>
+            <Cut::TextWithIcon
+              @text="kubernetes-api, dev, kube-dev-2"
+              @icon="tag"
+            />
           </LB.Metadata>
         </T.Label>
       </Cut::ListItem::Template>
     </L.Content>
     <L.ActionDropdown as |dd|>
       <dd.ToggleIcon
-        @icon='more-horizontal'
-        @text='Menu'
+        @icon="more-horizontal"
+        @text="Menu"
         @hasChevron={{false}}
       />
-      <dd.Interactive
-        @icon='edit'
-        @text='Edit'
-      />
+      <dd.Interactive @icon="edit" @text="Edit" />
     </L.ActionDropdown>
   </Cut::ListItem>
   <pre><code>
-      &lt;Cut::ListItem as |L|&gt;
-        &lt;L.Content&gt;
-         &lt;Cut::ListItem::Template as |T|&gt;
-           &lt;T.Label as |LB|&gt;
-             &lt;LB.Title&gt;consul-da-server-client-development&lt;/LB.Title&gt;
-             &lt;LB.Metadata&gt;
-                &lt;Cut::TextWithIcon @icon="users" @text="billing"/&gt;
-                &lt;div&gt;/&lt;/div&gt;
-                &lt;Cut::TextWithIcon @icon="folder" @text="default"/&gt;
-             &lt;/LB.Metadata&gt;
-           &lt;/Cut::ListItem::Template&gt;
-           &lt;T.Badge @text="Allow" @color="success" @icon="arrow-right" @size="small"/&gt;
-           &lt;T.Label2 as |LB|&gt;
-             &lt;LB.Title&gt;consul-da-server-client-development&lt;/T.Title&gt;
-             &lt;LB.Metadata&gt;
-               &lt;Cut::TextWithIcon @icon="users" @text="billing"/&gt;
-               &lt;div&gt;/&lt;/div&gt;
-               &lt;Cut::TextWithIcon @icon="folder" @text="default"/&gt;
-             &lt;/LB.Metadata&gt;
-           &lt;/T.Label2&gt;
-        &lt;/Cut::ListItem::Template&gt;
-       &lt;/L.Content&gt;
-     &lt;/Cut::ListItem&gt;
-  </code></pre>
+      &lt;Cut::ListItem as |L|&gt; &lt;L.Content&gt; &lt;Cut::ListItem::Template
+      as |T|&gt; &lt;T.Label as |LB|&gt;
+      &lt;LB.Title&gt;consul-da-server-client-development&lt;/LB.Title&gt;
+      &lt;LB.Metadata&gt; &lt;Cut::TextWithIcon @icon="users"
+      @text="billing"/&gt; &lt;div&gt;/&lt;/div&gt; &lt;Cut::TextWithIcon
+      @icon="folder" @text="default"/&gt; &lt;/LB.Metadata&gt;
+      &lt;/Cut::ListItem::Template&gt; &lt;T.Badge @text="Allow"
+      @color="success" @icon="arrow-right" @size="small"/&gt; &lt;T.Label2 as
+      |LB|&gt;
+      &lt;LB.Title&gt;consul-da-server-client-development&lt;/T.Title&gt;
+      &lt;LB.Metadata&gt; &lt;Cut::TextWithIcon @icon="users"
+      @text="billing"/&gt; &lt;div&gt;/&lt;/div&gt; &lt;Cut::TextWithIcon
+      @icon="folder" @text="default"/&gt; &lt;/LB.Metadata&gt; &lt;/T.Label2&gt;
+      &lt;/Cut::ListItem::Template&gt; &lt;/L.Content&gt; &lt;/Cut::ListItem&gt;
+    </code></pre>
   <Cut::ListItem as |L|>
     <L.Content>
       <Cut::ListItem::Template as |T|>
         <T.Label as |LB|>
           <LB.Title>consul-da-server-client-development</LB.Title>
           <LB.Metadata>
-            <Cut::TextWithIcon @icon="users" @text="billing" @connection="/"/>
-            <Cut::TextWithIcon @icon="folder" @text="default"/>
+            <Cut::TextWithIcon @icon="users" @text="billing" @connection="/" />
+            <Cut::TextWithIcon @icon="folder" @text="default" />
           </LB.Metadata>
         </T.Label>
-        <T.Badge @text="Allow" @color="success" @icon="arrow-right" @size="small"/>
+        <T.Badge
+          @text="Allow"
+          @color="success"
+          @icon="arrow-right"
+          @size="small"
+        />
         <T.Label2 as |LB|>
           <LB.Title>consul-da-server-client-development</LB.Title>
           <LB.Metadata>
-            <Cut::TextWithIcon @icon="users" @text="billing" @connection="/"/>
-            <Cut::TextWithIcon @icon="folder" @text="default"/>
+            <Cut::TextWithIcon @icon="users" @text="billing" @connection="/" />
+            <Cut::TextWithIcon @icon="folder" @text="default" />
           </LB.Metadata>
         </T.Label2>
       </Cut::ListItem::Template>
     </L.Content>
     <L.ActionDropdown as |dd|>
       <dd.ToggleIcon
-        @icon='more-horizontal'
-        @text='Menu'
+        @icon="more-horizontal"
+        @text="Menu"
         @hasChevron={{false}}
       />
-      <dd.Interactive
-        @icon='edit'
-        @text='Edit'
-      />
+      <dd.Interactive @icon="edit" @text="Edit" />
     </L.ActionDropdown>
   </Cut::ListItem>
   <Cut::ListItem as |L|>
@@ -351,24 +337,21 @@
           <LB.Title>Namespace-name</LB.Title>
           <LB.Metadata>
             <div>namespace description</div>
-            <Cut::TextWithIcon @text="policy-1" @icon="file-text"/>
-            <Cut::TextWithIcon @text="policy-2" @icon="file-text"/>
-            <Cut::TextWithIcon @text="role-1" @icon="user"/>
-            <Cut::TextWithIcon @text="role-2" @icon="user"/>
+            <Cut::TextWithIcon @text="policy-1" @icon="file-text" />
+            <Cut::TextWithIcon @text="policy-2" @icon="file-text" />
+            <Cut::TextWithIcon @text="role-1" @icon="user" />
+            <Cut::TextWithIcon @text="role-2" @icon="user" />
           </LB.Metadata>
         </T.Label>
       </Cut::ListItem::Template>
     </L.Content>
     <L.ActionDropdown as |dd|>
       <dd.ToggleIcon
-        @icon='more-horizontal'
-        @text='Menu'
+        @icon="more-horizontal"
+        @text="Menu"
         @hasChevron={{false}}
       />
-      <dd.Interactive
-        @icon='edit'
-        @text='Edit'
-      />
+      <dd.Interactive @icon="edit" @text="Edit" />
     </L.ActionDropdown>
   </Cut::ListItem>
   <Cut::ListItem as |L|>
@@ -377,23 +360,23 @@
         <T.Label as |LB|>
           <LB.Title>Exposed-path-name</LB.Title>
           <LB.Metadata>
-            <Cut::TextWithIcon @text="grpc" @icon="globe"/>
-            <Cut::TextWithIcon @text="listening on :63891" @icon="network"/>
-            <Cut::TextWithIcon @text="/expeditabandwidth_overriding_berkshire.xif" @icon="path"/>
+            <Cut::TextWithIcon @text="grpc" @icon="globe" />
+            <Cut::TextWithIcon @text="listening on :63891" @icon="network" />
+            <Cut::TextWithIcon
+              @text="/expeditabandwidth_overriding_berkshire.xif"
+              @icon="path"
+            />
           </LB.Metadata>
         </T.Label>
       </Cut::ListItem::Template>
     </L.Content>
     <L.ActionDropdown as |dd|>
       <dd.ToggleIcon
-        @icon='more-horizontal'
-        @text='Menu'
+        @icon="more-horizontal"
+        @text="Menu"
         @hasChevron={{false}}
       />
-      <dd.Interactive
-        @icon='edit'
-        @text='Edit'
-      />
+      <dd.Interactive @icon="edit" @text="Edit" />
     </L.ActionDropdown>
   </Cut::ListItem>
 </div>

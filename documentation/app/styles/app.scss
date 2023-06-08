@@ -124,6 +124,10 @@ li {
         margin-top: 0;
       }
     }
+
+    .hds-alert {
+      margin-bottom: 2.5rem;
+    }
   }
 
   > footer {
@@ -153,11 +157,11 @@ li {
     }
   }
 
-  .docs-Page {
+  .doc-Page {
     display: flex;
     justify-content: space-between;
 
-    .docs-Page-content {
+    .doc-Page-content {
       max-width: 800px;
       flex-grow: 1;
 

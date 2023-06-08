@@ -8,9 +8,9 @@
   @github="https://github.com/hashicorp/consul-ui-toolkit/tree/main/toolkit/src/components/cut/list-item"
   @status="development"
 >
-  A list item is used to list information that is often interactive and when
+  A List Item is used to list information that is often interactive and when
   selected navigates the user to a details page to view additional information
-  about the item listed. A list item is best used to display information that is
+  about the item listed. A List Item is best used to display information that is
   dynamic in nature or information that must be shared within the same line item
   in order to provide the proper context. List items are also helpful when the
   data needing to be displayed is dense and unable to fit within a standard
@@ -21,12 +21,12 @@
   <T.Tab>Guidelines</T.Tab>
   <T.Tab>Code</T.Tab>
   <T.Panel>
-    <div class="docs-Page">
-      <div class="docs-Page-content">
+    <div class="doc-Page">
+      <div class="doc-Page-content">
         <h2 id="usage">Usage</h2>
         <h3 id="when-to-use">When to use</h3>
         <ul>
-          <li>A list item should be used to contain any information or data that
+          <li>A List Item should be used to contain any information or data that
             may not be suitable for a standard table. A list can handle
             displaying more dynamic content since it is never paired with a list
             header to determine the content within (like a table).</li>
@@ -47,35 +47,37 @@
           </li>
         </ul>
 
-        <h2 id="interactivity-and-actions">Interactivity & Actions</h2>
+        <h2 id="interactivity-and-actions">Interactivity & actions</h2>
         <h3 id="interactive-list-item">Interactive List Item</h3>
         {{! template-lint-disable no-potential-path-strings }}
         <p>The entirety of List Item can be actionable (ie. it can be hovered,
           clicked, and focused), this is the most common behavior. Ensure the
-          list item
+          List Item
           <CodeInline @code="“state” = “default”" />
-          in order to have interactivity within prototypes and use one of the
+          and use one of the
           <CodeInline @code="@route" />,
           <CodeInline @code="@href" />, or
           <CodeInline @code="@onClick" />
-          arguments in code.</p>
+          arguments in code to make the List Item actionable.</p>
 
         <h3 id="static-list-item">Static List Item</h3>
         <p>
-          You can use the list item
+          You can use the List Item
           <CodeInline @code="“state” = “static”" />
-          to make a list item non-interactive (this will apply the “base”
-          elevation / drop-shadow) within prototypes and don't apply any of the
-          interactive arguments in code (<CodeInline @code="@route" />,
+          to make a List Item non-interactive (this will apply the “base”
+          elevation / drop-shadow). Don't apply any of the interactive arguments
+          in code (<CodeInline @code="@route" />,
           <CodeInline @code="@href" />, or
-          <CodeInline @code="@onClick" />). The list item may have interactive
+          <CodeInline @code="@onClick" />). The List Item may have interactive
           elements within them, but are not themselves actionable or
           interactive.
         </p>
 
-        <h3 id="elevation-levels">Elevation Levels</h3>
+        <h3 id="elevation-levels">Elevation levels</h3>
 
-        <div class="flex-images hds-typography-display-100">
+        <div
+          class="doc-elevation-levels flex-images hds-typography-display-100"
+        >
           <div>
             <Hds::Card::Container
               @level="base"
@@ -83,8 +85,9 @@
               class="list-item-elevation"
             />
             <p><strong>Base</strong></p>
-            <p class="hds-foreground-faint">Only use for
-              <strong>Static cards</strong></p>
+            <p class="hds-foreground-faint">Used within the
+              <strong>"static"</strong>
+              state for non-interactive List Items</p>
           </div>
           <div>
             <Hds::Card::Container
@@ -93,8 +96,9 @@
               class="list-item-elevation"
             />
             <p><strong>Mid</strong></p>
-            <p class="hds-foreground-faint">Only use for
-              <strong>Static cards</strong></p>
+            <p class="hds-foreground-faint">Used within the
+              <strong>"default"</strong>
+              state for interactive List Items</p>
           </div>
           <div>
             <Hds::Card::Container
@@ -103,19 +107,20 @@
               class="list-item-elevation"
             />
             <p><strong>High</strong></p>
-            <p class="hds-foreground-faint">Only use for
-              <strong>Static cards</strong></p>
+            <p class="hds-foreground-faint">Used within the
+              <strong>"hovered"</strong>
+              state for interactive List Items</p>
           </div>
         </div>
 
-        <h3 id="action-menu">Action Menu</h3>
+        <h3 id="action-menu">Action menu</h3>
         <p>There is the option for an action menu. It has default options for a
           standard HDS button (small), and HDS “toggle icon” to allow users to
           open a dropdown to select common values (edit, delete, etc). You can
           also add your own custom action if wanted, the most common use-case
           being a flight icon (which is the default custom value). You can
           however change this to any icon or component you would like. We
-          recommend only using one action per list item.
+          recommend only using one action per List Item.
         </p>
 
         <div class="hds-typography-display-100">
@@ -138,7 +143,7 @@
                 @hasChevron={{false}}
               />
               <A.Interactive @icon="edit" @text="Edit" />
-              <A.Interactive @icon="hexagon" @text="Delete" @color="critical" />
+              <A.Interactive @icon="trash" @text="Delete" @color="critical" />
             </L.ActionDropdown>
           </Cut::ListItem>
           <p><strong>Custom</strong></p>
@@ -157,45 +162,30 @@
 
         </div>
 
-        <h2 id="clip-content">Clip content</h2>
-        <p>To ensure the proper visual elevation is shown, make sure “Clip
-          Content” is checked on the “ListItem” component, this will be enabled
-          by default.</p>
-
-        <div class="flex-images">
-          <img
-            src="/images/list-item-clip-content-do.svg"
-            alt="List item clip content correct practices"
-          />
-          <img
-            src="/images/list-item-clip-content-dont.svg"
-            alt="List item clip content incorrect practices"
-          />
-        </div>
-
-        <h2 id="color">Color</h2>
-        <h3 id="surface-primary">surface-primary</h3>
-        <p>Use “surface primary” (which is the default value) for the background
-          color for the list item container. If you are planning to utilize a
-          different color ensure there is a good reason to do so.</p>
+        <h2 id="color">Background color</h2>
+        <p>We recommend "surface primary" (which is the default value) for the
+          background color for the List Item container.</p>
 
         <h2 id="size">Size</h2>
-        <p>The internal padding should be 12px around all contents placed within
-          and 8px between content and action items.</p>
+
+        <p>The internal padding of the List Item should be 12px around all
+          sides, ensuring that any content placed within will have consistent
+          padding. If an action is included, there should be 8px between the
+          content and the action item.</p>
         <img
           src="/images/list-item-size.svg"
-          alt="list item sizing guidelines"
+          alt="List Item sizing guidelines"
         />
 
         <h3 id="height">Height</h3>
-        <p>The height of the container is able to be dynamic based on the
-          content that is within as it is set to “hug”, however it is recommend
-          to be no taller than 80px.</p>
+        <p>The height of the List Item should be dynamic based on the content
+          that is placed within. We recommend that the height does not exceed
+          80px.</p>
         <h3 id="width">Width</h3>
-        <p>The width of the list item should “fill” the entire section that it
+        <p>The width of the List Item should “fill” the entire section that it
           is placed within.</p>
         <Hds::Alert @type="inline" @color="highlight" as |A|>
-          <A.Title>It is important to keep list items that are displayed on the
+          <A.Title>It is important to keep List Items that are displayed on the
             same page a consistent size (height and width)</A.Title>
         </Hds::Alert>
 
@@ -206,7 +196,7 @@
           space that it occupies.</p>
         <img
           src="/images/list-item-spacing.svg"
-          alt="list item spacing guidelines"
+          alt="List Item spacing guidelines"
         />
       </div>
 
@@ -221,9 +211,7 @@
         <I.Link @section="#static-list-item" @depth={{2}}>Static list item</I.Link>
         <I.Link @section="#elevation-levels" @depth={{2}}>Elevation levels</I.Link>
         <I.Link @section="#action-menu" @depth={{2}}>Action menu</I.Link>
-        <I.Link @section="#clip-content" @depth={{1}}>Clip content</I.Link>
-        <I.Link @section="#color" @depth={{1}}>Color</I.Link>
-        <I.Link @section="#surface-primary" @depth={{2}}>Surface primary</I.Link>
+        <I.Link @section="#color" @depth={{1}}>Background color</I.Link>
         <I.Link @section="#size" @depth={{1}}>Size</I.Link>
         <I.Link @section="#height" @depth={{2}}>Height</I.Link>
         <I.Link @section="#width" @depth={{2}}>Width</I.Link>
@@ -232,8 +220,8 @@
     </div>
   </T.Panel>
   <T.Panel>
-    <div class="docs-Page">
-      <div class="docs-Page-content">
+    <div class="doc-Page">
+      <div class="doc-Page-content">
         <h2 id="how-to-use">How to use this component</h2>
         <p>To make invocation more flexible, we provide contextual components
           for content, and different optional actions. The most basic invocation
@@ -266,7 +254,7 @@
           <CodeInline @code="@route" />,
           <CodeInline @code="@href" />, or
           <CodeInline @code="@onClick" />
-          argument to the List Item to have the entire list item become
+          argument to the List Item to have the entire List Item become
           interactive. It uses
           <CodeInline @code="<Hds::Interactive />" />
           under the hood. The design system has
@@ -313,7 +301,7 @@
               <Cut::ListItem @onClick={{this.alertMe}} as |L|>
                 <L.Content>
                   List item that is using the
-                  <CodeInline @code="@href" />
+                  <CodeInline @code="@onClick" />
                   property
                 </L.Content>
               </Cut::ListItem>
@@ -355,9 +343,9 @@
         </PreviewBlock>
 
         <h3 id="actions">Actions</h3>
-        <p>In addition to having the entire list item component being
+        <p>In addition to having the entire List Item component being
           interactive, we provide 3 different contextual components for
-          interactions within the list item. The first being the
+          interactions within the List Item. The first being the
           <CodeInline @code="<Cut::ListItem::ActionButton />" />, which will
           render an
           <CodeInline @code="<Hds::Button />" />. Reference the
@@ -405,11 +393,7 @@
                   @hasChevron={{false}}
                 />
                 <A.Interactive @icon="edit" @text="Edit" />
-                <A.Interactive
-                  @icon="hexagon"
-                  @text="Delete"
-                  @color="critical"
-                />
+                <A.Interactive @icon="trash" @text="Delete" @color="critical" />
               </L.ActionDropdown>
             </Cut::ListItem>
           </P.Preview>
@@ -477,7 +461,7 @@
           each with their own APIs:</p>
         <ul>
           <li>The List Item component</li>
-          <li>Content component to display the main content of the list item</li>
+          <li>Content component to display the main content of the List Item</li>
           <li>Action components to optionally add actionable content to the list
             item</li>
           <ul>
@@ -490,8 +474,8 @@
         <h3 id="list-item">Cut::ListItem</h3>
 
         <ComponentApi @name="onClick" @type="action">
-          Action that is called with the list item is interacted with. Adding
-          this argument enables the interactive state fro the list item.
+          Action that is called with the List Item is interacted with. Adding
+          this argument enables the interactive state fro the List Item.
         </ComponentApi>
         <ComponentApi @name="href" @type="string">
           URL parameter that’s passed down to the
@@ -546,7 +530,7 @@
         <p><CodeInline @code="<Cut::ListItem::ActionButton />" />
           is a contextual component that uses
           <CodeInline @code="<Hds::Button />" />
-          to render a button in the list items action slot. For full
+          to render a button in the List Items action slot. For full
           documentation and guides around usage of the
           <CodeInline @code="<Hds::Button />" />
           view the
@@ -559,7 +543,7 @@
           <CodeInline @code="<Cut::ListItem::ActionDropdown />" />
           renders a
           <CodeInline @code="<Hds::Dropdown />" />
-          in the list item action slot. As such the best place to reference the
+          in the List Item action slot. As such the best place to reference the
           up-to-date component documentation is on the
           <Hds::Link::Inline
             @href="https://helios.hashicorp.design/components/dropdown?tab=code#component-api"
