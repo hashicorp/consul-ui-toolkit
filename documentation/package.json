@@ -29,7 +29,7 @@
     "@embroider/test-setup": "^1.8.3",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
-    "@hashicorp/consul-ui-toolkit": "^0.0.0",
+    "@hashicorp/consul-ui-toolkit": "^0.1.0",
     "@hashicorp/design-system-components": "^2.2.0",
     "@hashicorp/ember-flight-icons": "^3.0.2",
     "@types/qunit": "latest",
