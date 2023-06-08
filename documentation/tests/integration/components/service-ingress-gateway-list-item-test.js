@@ -93,9 +93,9 @@ module(
       );
 
       assert.true(
-        cutServiceIngressGateway.metadata.externalSource.text.includes(
-          service.metadata.externalSource
-        ),
+        cutServiceIngressGateway.metadata.externalSource.text
+          .toLowerCase()
+          .includes(service.metadata.externalSource),
         'includes external source value in metadata'
       );
       assert.true(

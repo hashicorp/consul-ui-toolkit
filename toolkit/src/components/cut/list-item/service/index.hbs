@@ -45,24 +45,23 @@
             <!-- TODO: add translate with pluralize(CC-5314) -->
             <span data-test-associated-instance-count>{{@service.metadata.instanceCount}} instances</span>
           {{/if}}
-
-          <Cut::Metadata::InServiceMesh
-            @connectedWithGateway={{@service.metadata.connectedWithGateway}}
-            @connectedWithProxy={{@service.metadata.connectedWithProxy}}
-          />
-
           {{#if @service.metadata.isPermissiveMTls}}
             <!-- TODO: add translate(CC-5314) -->
             <Cut::TextWithIcon @icon="unlock" @text="permissive mTLS" data-test-permissive-mtls/>
           {{/if}}
-
+          <Cut::Metadata::InServiceMesh
+            @connectedWithGateway={{@service.metadata.connectedWithGateway}}
+            @connectedWithProxy={{@service.metadata.connectedWithProxy}}
+          />
           {{#if @service.metadata.samenessGroup}}
             <Cut::TextWithIcon @icon="collections" @text={{@service.metadata.samenessGroup}} data-test-sameness-group/>
           {{/if}}
-
           {{#if @service.metadata.isImported}}
             <!-- TODO: add translate(CC-5314) -->
             <Cut::TextWithIcon @icon="upload" @text="Imported" data-test-imported/>
+          {{/if}}
+          {{#if @service.metadata.externalSource}}
+            <Cut::Metadata::ExternalSource @externalSource={{@service.metadata.externalSource}}/>
           {{/if}}
         </LB.Metadata>
       </T.Label>

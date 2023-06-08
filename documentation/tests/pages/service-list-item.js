@@ -55,5 +55,9 @@ export default create({
       text: text(`${listItemSelector} [data-test-sameness-group]`),
     },
     isImported: isPresent(`${listItemSelector} [data-test-imported]`),
+    externalSource: {
+      renders: isPresent(`${listItemSelector} [data-test-external-source]`),
+      text: text(`${listItemSelector} [data-test-external-source]`),
+    },
   },
 });

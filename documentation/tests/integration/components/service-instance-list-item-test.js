@@ -133,9 +133,9 @@ module(
       );
 
       assert.true(
-        cutServiceInstance.metadata.externalSource.text.includes(
-          service.metadata.externalSource
-        ),
+        cutServiceInstance.metadata.externalSource.text
+          .toLowerCase()
+          .includes(service.metadata.externalSource),
         'includes external source value in metadata'
       );
       assert.true(

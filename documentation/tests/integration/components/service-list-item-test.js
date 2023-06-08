@@ -34,6 +34,7 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
         isPermissiveMTls: true,
         samenessGroup: 'sameness-group-1',
         connectedWithGateway: true,
+        externalSource: 'vault',
       },
     };
     this.set('service', service);
@@ -109,6 +110,17 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
       ),
       'renders sameness group text'
     );
+    assert.true(
+      cutService.metadata.externalSource.renders,
+      'renders external source'
+    );
+
+    assert.true(
+      cutService.metadata.externalSource.text
+        .toLowerCase()
+        .includes(service.metadata.externalSource),
+      'includes external source value in metadata'
+    );
   });
   test('it renders Cut::ListItem::Service without metadata', async function (assert) {
     const service = {
@@ -140,5 +152,9 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
     assert.false(cutService.metadata.isPermissiveMTls, 'permissive mTLS');
     assert.false(cutService.metadata.isImported, 'imported');
     assert.false(cutService.metadata.samenessGroup.renders, 'sameness group');
+    assert.false(
+      cutService.metadata.externalSource.renders,
+      'does not render external source'
+    );
   });
 });

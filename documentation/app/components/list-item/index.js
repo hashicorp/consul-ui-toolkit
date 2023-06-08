@@ -3,13 +3,16 @@
  */
 
 import Component from '@glimmer/component';
+import { CUT_SERVICE_LIST_ITEM_TYPE } from '@hashicorp/consul-ui-toolkit/utils/service-list-item';
 
-export default class ListItemComponent extends Component {
+export default class ListItemTemporaryComponent extends Component {
+  cutServiceListItems = CUT_SERVICE_LIST_ITEM_TYPE;
+
   get serviceListData() {
     return [
       {
         name: 'Service instance: All Healthy',
-        type: 'service-instance',
+        type: CUT_SERVICE_LIST_ITEM_TYPE.ServiceInstance,
         metadata: {
           healthCheck: {
             node: {
@@ -32,7 +35,7 @@ export default class ListItemComponent extends Component {
       },
       {
         name: 'Service instance: Failed checks, service socket, no tags, no node name',
-        type: 'service-instance',
+        type: CUT_SERVICE_LIST_ITEM_TYPE.ServiceInstance,
         metadata: {
           healthCheck: {
             node: {
@@ -55,7 +58,7 @@ export default class ListItemComponent extends Component {
       },
       {
         name: 'Service: Failed checks, imported, with sameness group, permissive mTLS',
-        type: 'service',
+        type: CUT_SERVICE_LIST_ITEM_TYPE.Service,
         metadata: {
           healthCheck: {
             instance: {
@@ -73,7 +76,7 @@ export default class ListItemComponent extends Component {
       },
       {
         name: 'Service: Green checks, no imported, with sameness group, permissive mTLS, external source',
-        type: 'service',
+        type: CUT_SERVICE_LIST_ITEM_TYPE.Service,
         metadata: {
           healthCheck: {
             instance: {
@@ -88,11 +91,12 @@ export default class ListItemComponent extends Component {
           isImported: true,
           samenessGroup: 'group-1',
           isPermissiveMTls: true,
+          externalSource: 'aws',
         },
       },
       {
         name: 'Service (Ingress Gateway): Green checks',
-        type: 'service-ingress-gateway',
+        type: CUT_SERVICE_LIST_ITEM_TYPE.ServiceIngressGateway,
         metadata: {
           healthCheck: {
             instance: {
@@ -110,7 +114,7 @@ export default class ListItemComponent extends Component {
       },
       {
         name: 'Service (terminating gateway): Failed checks',
-        type: 'service-terminating-gateway',
+        type: CUT_SERVICE_LIST_ITEM_TYPE.ServiceTerminatingGateway,
         metadata: {
           healthCheck: {
             instance: {

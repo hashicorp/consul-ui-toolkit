@@ -219,7 +219,7 @@
 </div>
 
 <h3>Templates</h3>
-<div>
+<div class="doc-list-container">
   <Cut::ListItem @href="#" @isHrefExternal={{false}} as |L|>
     <L.Content>
       <Cut::ListItem::Template as |T|>
@@ -398,25 +398,25 @@
   </Cut::ListItem>
 
   {{#each this.serviceListData as |item|}}
-    {{#if (eq item.type 'service')}}
+    {{#if (eq item.type this.cutServiceListItems.Service)}}
       <Cut::ListItem::Service
         @isHrefExternal={{false}}
         @href='#'
         @service={{item}}
       />
-    {{else if (eq item.type 'service-instance')}}
+    {{else if (eq item.type this.cutServiceListItems.ServiceInstance)}}
       <Cut::ListItem::ServiceInstance
         @isHrefExternal={{false}}
         @href='#'
         @service={{item}}
       />
-    {{else if (eq item.type 'service-terminating-gateway')}}
+    {{else if (eq item.type this.cutServiceListItems.ServiceTerminatingGateway)}}
       <Cut::ListItem::ServiceTerminatingGateway
         @isHrefExternal={{false}}
         @href='#'
         @service={{item}}
       />
-    {{else if (eq item.type 'service-ingress-gateway')}}
+    {{else if (eq item.type this.cutServiceListItems.ServiceIngressGateway)}}
       <Cut::ListItem::ServiceIngressGateway
         @isHrefExternal={{false}}
         @href='#'

@@ -3,7 +3,10 @@
  */
 
 import Component from '@glimmer/component';
-import { HealthCheck } from '../../../../utils/service-list-item';
+import {
+  ExternalSource,
+  HealthCheck,
+} from '../../../../utils/service-list-item';
 
 export interface CutService {
   name: string | undefined;
@@ -18,6 +21,7 @@ export interface CutService {
     connectedWithGateway: boolean | undefined;
     connectedWithProxy: boolean | undefined;
     samenessGroup: string | undefined;
+    externalSource: ExternalSource | undefined;
   };
 }
 

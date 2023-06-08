@@ -96,7 +96,8 @@
       "./components/cut/metadata/health-check-badge-set/index.js": "./dist/_app_/components/cut/metadata/health-check-badge-set/index.js",
       "./components/cut/metadata/in-service-mesh/index.js": "./dist/_app_/components/cut/metadata/in-service-mesh/index.js",
       "./components/cut/metadata/tags/index.js": "./dist/_app_/components/cut/metadata/tags/index.js",
-      "./components/cut/text-with-icon/index.js": "./dist/_app_/components/cut/text-with-icon/index.js"
+      "./components/cut/text-with-icon/index.js": "./dist/_app_/components/cut/text-with-icon/index.js",
+      "./utils/service-list-item.js": "./dist/_app_/utils/service-list-item.js"
     }
   },
   "exports": {

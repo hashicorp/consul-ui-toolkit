@@ -5,6 +5,7 @@
 import Component from '@glimmer/component';
 import {
   EXTERNAL_SOURCE_ICON_MAPPING,
+  EXTERNAL_SOURCE_LABELS,
   ExternalSource,
 } from '../../../../utils/service-list-item';
 
@@ -20,6 +21,14 @@ export default class MetadataExternalSourceComponent extends Component<Component
 
     return externalSource !== undefined
       ? EXTERNAL_SOURCE_ICON_MAPPING[externalSource]
+      : null;
+  }
+
+  get externalSourceText() {
+    const { externalSource } = this.args;
+
+    return externalSource !== undefined
+      ? EXTERNAL_SOURCE_LABELS[externalSource]
       : null;
   }
 }
