@@ -30,21 +30,28 @@
     }
 
     > .toolbar > .toolbar-item > .copy-to-clipboard-button {
-      border: 1px solid transparent;
-      margin-top: 1rem;
-      margin-right: 1rem;
-      color: var(--token-color-foreground-high-contrast);
-      padding: 1px 7px;
-      background-color: var(--token-color-foreground-action);
-      border-radius: var(--token-form-control-border-radius);
-      font-size: var(--token-typography-display-200-font-size);
-      font-weight: var(--token-typography-font-weight-regular);
-      line-height: var(--token-typography-display-200-line-height);
-      font-family: var(--token-typography-font-stack-text);
-
-      &:hover {
-        background-color: var(--token-color-foreground-action-hover);
-      }
+      margin: 1rem 1rem 0 0;
     }
+  }
+}
+
+// Keeping this outside the preview-block scope because so we can easily
+// differentiate <CodeBlock />s that are outside a <PreviewBlock />.
+// Primarily useful for code blocks that are 1 line in length. We may have
+// to revisit if we start having preview blocks that are also one line.
+.code-toolbar > .toolbar > .toolbar-item > .copy-to-clipboard-button {
+  border: 1px solid transparent;
+  margin: 0.63rem 0.63rem 0 0;
+  color: var(--token-color-foreground-high-contrast);
+  padding: 1px 7px;
+  background-color: var(--token-color-foreground-action);
+  border-radius: var(--token-form-control-border-radius);
+  font-size: var(--token-typography-display-200-font-size);
+  font-weight: var(--token-typography-font-weight-regular);
+  line-height: var(--token-typography-display-200-line-height);
+  font-family: var(--token-typography-font-stack-text);
+
+  &:hover {
+    background-color: var(--token-color-foreground-action-hover);
   }
 }

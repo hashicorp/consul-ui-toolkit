@@ -22,6 +22,10 @@
     </div>
   {{/if}}
 
+  {{#if @isRequired}}
+    <Hds::Badge @text="Required" class="doc-componentApi-required" />
+  {{/if}}
+
   {{#if @values}}
     <div class="doc-componentApi-values">
       <dt>Values</dt>
@@ -36,10 +40,10 @@
     </div>
   {{/if}}
 
-  {{#if @description}}
+  {{#if (has-block)}}
     <div class="doc-componentApi-description">
       <dt>Description</dt>
-      <dd>{{@description}}</dd>
+      <dd>{{yield}}</dd>
     </div>
   {{/if}}
 </dl>
