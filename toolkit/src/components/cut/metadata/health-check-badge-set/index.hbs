@@ -1,0 +1,35 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
+{{#if (gt this.total 0)}}
+  {{#if (gt @criticalCount 0)}}
+    <Hds::Badge
+      @color='critical'
+      @icon='x'
+      @text={{concat @criticalCount '/' this.total ' ' @type ' checks'}}
+      @size="small"
+      data-test-health-check-critical={{@type}}
+    />
+  {{/if}}
+
+  {{#if (gt @warningCount 0)}}
+    <Hds::Badge
+      @color='warning'
+      @icon='alert-triangle'
+      @text={{concat @warningCount '/' this.total ' ' @type ' checks'}}
+      @size="small"
+      data-test-health-check-warning={{@type}}
+    />
+  {{/if}}
+
+  {{#if (eq @successCount this.total)}}
+    <Hds::Badge
+      @color='success'
+      @icon='check'
+      @text={{concat @successCount '/' this.total ' ' @type ' checks'}}
+      @size="small"
+      data-test-health-check-success={{@type}}
+    />
+  {{/if}}
+{{/if}}

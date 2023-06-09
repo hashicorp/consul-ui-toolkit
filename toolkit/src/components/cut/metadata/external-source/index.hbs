@@ -1,0 +1,13 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
+{{#if @externalSource}}
+  <!-- TODO: add translation(CC-5314) -->
+  <Cut::TextWithIcon
+    @text={{concat "Registered via " this.externalSourceText}}
+    @icon={{this.externalSourceIcon}}
+    @iconColor="var(--token-color-hashicorp-brand)"
+    data-test-external-source={{@externalSource}}
+  />
+{{/if}}

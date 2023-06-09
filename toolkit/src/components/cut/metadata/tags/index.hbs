@@ -1,0 +1,7 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
+{{#if @tags}}
+  <Cut::TextWithIcon @icon="tag" @text={{join ', ' (union (or @tags (array)))}} data-test-tags/>
+{{/if}}

@@ -1,0 +1,15 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
+.doc-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+pre, code {
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
