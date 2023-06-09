@@ -1,0 +1,155 @@
+<PageHeader
+  @title="List Item Template"
+  @figma="https://www.figma.com/file/SenC8kTQNUJKCvOvcL8WPu/Consul-Component-Library?type=design&node-id=722-120845&t=YhNf39KC0C4MRjwb-0"
+  @github="https://github.com/hashicorp/consul-ui-toolkit/blob/main/toolkit/src/components/cut/list-item/template/index.hbs"
+  @status="development"
+>
+  A list item template is used as a layout template to create a number of Consul
+  feature specific list items. It can also be used as a template for other items
+  that are able to make use of the template layout and its available
+  pre-determined element options.
+</PageHeader>
+<Hds::Tabs as |T|>
+  <T.Tab>Guidelines</T.Tab>
+  <T.Tab>Code</T.Tab>
+  <T.Panel>
+    <div class="doc-Page">
+      <div class="doc-Page-content">
+        <h2 id="usage">Usage</h2>
+
+        <h3 id="when-to-use">When to use</h3>
+        <ul>
+          <li>A list item template will most commonly be used within a
+            <Hds::Link::Inline @route="components.list-item">List Item
+              (container)</Hds::Link::Inline>. It can also be nested within
+            other components as a template.</li>
+        </ul>
+        <img
+          src="/images/list-item-template-usage.svg"
+          alt="List Item demo with List Item Template being used inside of it"
+        />
+
+        <h3 id="when-not-to-use">When not to use</h3>
+        <ul>
+          <li>When your content within is more than 3 lines tall, consider
+            creating your own template.</li>
+          <li>If you need to make use of styles or nested components that are
+            not already available within the template.</li>
+        </ul>
+
+        <h2 id="interactivity-and-actions">Interactivity & actions</h2>
+        <p>By default the list item template is static in nature. Interactivity
+          can be applied to elements within, but should adhere to the following
+          guidelines.</p>
+
+        <h3 id="tooltips">Tooltips</h3>
+        <p>Tooltips can be paired with the template for text, icon, or badge
+          elements that need to provide more context on hover. For example, when
+          the list item template is within a list item (container).</p>
+        <img
+          src="/images/list-item-template-tooltips.svg"
+          alt="Example of using tooltips on the List Item Template icons and badges"
+        />
+
+        <h3 id="interactivity-specific-elements">Interactivity on a specific
+          element</h3>
+        <ul>
+          <li>
+            If paired with the List Item (container) the state of the container
+            should be set to “static”, meaning that clicking on the entire list
+            is non-interactive and only individual elements would be.
+          </li>
+          <li>
+            On hover of clickable data, the background color of the object
+            hovered should change to “Surface/interactive-hover”. If the action
+            is to copy text then the default copy icon will show.
+          </li>
+          <li>
+            When adding interactivity to an individual element such as a piece
+            of text, consider adding a link style (underline or color change) to
+            signify that it is interactive if this is the main action of the
+            list item.
+          </li>
+        </ul>
+
+        <Cut::ListItem as |L|>
+          <L.Content>
+            <Cut::ListItem::Template as |T|>
+              <T.Label as |LB|>
+                <LB.Icon @name="hexagon" />
+                <LB.Title><Cut::CopyBlock
+                    @clipboardText="Title"
+                  >Title</Cut::CopyBlock></LB.Title>
+                <LB.Metadata>
+                  <Cut::TextWithIcon @text="IconLabel" @icon="hexagon" />
+                  <Cut::CopyBlock @clipboardText="IconLabel">
+                    <Cut::TextWithIcon @text="IconLabel" @icon="hexagon" />
+                  </Cut::CopyBlock>
+                </LB.Metadata>
+              </T.Label>
+              <T.Badge @icon="hexagon" @text="Default" />
+              <T.Label2 as |LB|>
+                <LB.Icon @name="hexagon" />
+                <LB.Title><Cut::CopyBlock
+                    @clipboardText="Title"
+                  >Title</Cut::CopyBlock></LB.Title>
+                <LB.Metadata>
+                  <Cut::CopyBlock @clipboardText="Label">
+                    Label
+                  </Cut::CopyBlock>
+                  <Cut::TextWithIcon @text="IconLabel" @icon="hexagon" />
+                </LB.Metadata>
+              </T.Label2>
+            </Cut::ListItem::Template>
+          </L.Content>
+          <L.ActionDropdown as |A|>
+            <A.ToggleIcon
+              @icon="more-horizontal"
+              @text="Menu"
+              @hasChevron={{false}}
+            />
+            <A.Interactive @icon="edit" @text="Edit" />
+            <A.Interactive @icon="trash" @text="Delete" @color="critical" />
+          </L.ActionDropdown>
+        </Cut::ListItem>
+
+        <h2 id="color">Color</h2>
+        <h3 id="transparent-background">Transparent background</h3>
+        <h3 id="title">Title</h3>
+        <h3 id="description">Description</h3>
+        <h3 id="icons">Icons</h3>
+        <h2 id="size">Size</h2>
+        <h3 id="height">Height</h3>
+        <h3 id="width">Width</h3>
+        <h3 id="responsive">Responsive layout</h3>
+        <h3 id="large">Large (default)</h3>
+        <h3 id="small">Small (mobile)</h3>
+      </div>
+      <InPageNav as |I|>
+        <I.Link @section="#usage" @depth={{1}}>Usage</I.Link>
+        <I.Link @section="#when-to-use" @depth={{2}}>When to use</I.Link>
+        <I.Link @section="#when-not-to-use" @depth={{2}}>When not to use</I.Link>
+        <I.Link @section="#interactivity-and-actions" @depth={{1}}>Interactivity
+          & actions</I.Link>
+        <I.Link @section="#tooltips" @depth={{2}}>Tooltips</I.Link>
+        <I.Link
+          @section="#interactivity-specific-elements"
+          @depth={{2}}
+        >Interactivity on a specific element</I.Link>
+        <I.Link @section="#color" @depth={{2}}>Color</I.Link>
+        <I.Link @section="#transparent-background" @depth={{2}}>Transparent
+          background</I.Link>
+        <I.Link @section="#title" @depth={{2}}>Title</I.Link>
+        <I.Link @section="#description" @depth={{2}}>Description</I.Link>
+        <I.Link @section="#icons" @depth={{2}}>Icons</I.Link>
+        <I.Link @section="#size" @depth={{1}}>Size</I.Link>
+        <I.Link @section="#height" @depth={{2}}>Height</I.Link>
+        <I.Link @section="#width" @depth={{2}}>Width</I.Link>
+        <I.Link @section="#responsive" @depth={{2}}>Responsive</I.Link>
+        <I.Link @section="#large" @depth={{2}}>Large (default)</I.Link>
+        <I.Link @section="#small" @depth={{2}}>Small (default)</I.Link>
+      </InPageNav>
+    </div>
+  </T.Panel>
+  <T.Panel />
+</Hds::Tabs>

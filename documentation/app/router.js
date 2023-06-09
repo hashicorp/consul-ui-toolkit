@@ -20,5 +20,6 @@ Router.map(function () {
   this.route('index', { path: '/' });
   this.route('components', function () {
     this.route('list-item');
+    this.route('list-item-template');
   });
 });
