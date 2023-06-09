@@ -36,14 +36,26 @@
               />
             {{/if}}
           {{/if}}
-          {{#if @service.metadata.kindName}}
-            <Cut::TextWithIcon @icon="gateway" @text={{@service.metadata.kindName}}
+          {{#if @service.metadata.kind}}
+            <Cut::TextWithIcon @icon="gateway" @text={{this.kindName}}
               data-test-service-kind
             />
           {{/if}}
-          {{#if (not-eq @service.metadata.instanceCount undefined)}}
-            <!-- TODO: add translate with pluralize(CC-5314) -->
-            <span data-test-associated-instance-count>{{@service.metadata.instanceCount}} instances</span>
+          {{#if this.isIngressGateway}}
+            {{#if (not-eq @service.metadata.upstreamCount undefined)}}
+              <!-- TODO: add translate with pluralize(CC-5314)-->
+              <span data-test-associated-upstream-count>{{@service.metadata.upstreamCount}} upstreams</span>
+            {{/if}}
+          {{else if this.isTerminatingGateway}}
+            {{#if (not-eq @service.metadata.linkedServiceCount undefined)}}
+              <!-- TODO: add translate with pluralize (CC-5314) -->
+              <span data-test-associated-service-count>{{@service.metadata.linkedServiceCount}} linked services</span>
+            {{/if}}
+          {{else}}
+            {{#if (not-eq @service.metadata.instanceCount undefined)}}
+              <!-- TODO: add translate with pluralize(CC-5314) -->
+              <span data-test-associated-instance-count>{{@service.metadata.instanceCount}} instances</span>
+            {{/if}}
           {{/if}}
           {{#if @service.metadata.isPermissiveMTls}}
             <!-- TODO: add translate(CC-5314) -->
@@ -62,6 +74,9 @@
           {{/if}}
           {{#if @service.metadata.externalSource}}
             <Cut::Metadata::ExternalSource @externalSource={{@service.metadata.externalSource}}/>
+          {{/if}}
+          {{#if @service.metadata.tags.length}}
+            <Cut::Metadata::Tags @tags={{@service.metadata.tags}}/>
           {{/if}}
         </LB.Metadata>
       </T.Label>

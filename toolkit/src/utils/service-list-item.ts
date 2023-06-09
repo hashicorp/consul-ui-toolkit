@@ -45,7 +45,25 @@ export interface HealthCheck {
 
 export const CUT_SERVICE_LIST_ITEM_TYPE = {
   Service: 'service',
-  ServiceTerminatingGateway: 'service-terminating-gateway',
-  ServiceIngressGateway: 'service-ingress-gateway',
   ServiceInstance: 'service-instance',
 };
+
+export const NORMALIZED_GATEWAY_LABELS = {
+  'api-gateway': 'API Gateway',
+  'mesh-gateway': 'Mesh Gateway',
+  'ingress-gateway': 'Ingress Gateway',
+  'terminating-gateway': 'Terminating Gateway',
+};
+
+export const SERVICE_GATEWAY_TYPE = {
+  ApiGateway: 'api-gateway',
+  MeshGateway: 'mesh-gateway',
+  IngressGateway: 'ingress-gateway',
+  TerminatingGateway: 'terminating-gateway',
+};
+
+export type SERVICE_KIND =
+  | 'api-gateway'
+  | 'mesh-gateway'
+  | 'ingress-gateway'
+  | 'terminating-gateway';

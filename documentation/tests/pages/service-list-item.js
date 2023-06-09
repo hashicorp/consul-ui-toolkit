@@ -43,6 +43,18 @@ export default create({
       ),
       text: text(`${listItemSelector} [data-test-associated-instance-count]`),
     },
+    linkedServiceCount: {
+      renders: isPresent(
+        `${listItemSelector} [data-test-associated-service-count]`
+      ),
+      text: text(`${listItemSelector} [data-test-associated-service-count]`),
+    },
+    upstreamCount: {
+      renders: isPresent(
+        `${listItemSelector} [data-test-associated-upstream-count]`
+      ),
+      text: text(`${listItemSelector} [data-test-associated-upstream-count]`),
+    },
     inMeshGateway: {
       renders: isPresent(`${listItemSelector} [data-test-mesh]`),
       text: text(`${listItemSelector} [data-test-mesh]`),
@@ -58,6 +70,10 @@ export default create({
     externalSource: {
       renders: isPresent(`${listItemSelector} [data-test-external-source]`),
       text: text(`${listItemSelector} [data-test-external-source]`),
+    },
+    tags: {
+      renders: isPresent(`${listItemSelector} [data-test-tags]`),
+      text: text(`${listItemSelector} [data-test-tags]`),
     },
   },
 });

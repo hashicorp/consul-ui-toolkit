@@ -6,6 +6,9 @@ import Component from '@glimmer/component';
 import {
   ExternalSource,
   HealthCheck,
+  NORMALIZED_GATEWAY_LABELS,
+  SERVICE_GATEWAY_TYPE,
+  SERVICE_KIND,
 } from '../../../../utils/service-list-item';
 
 export interface CutService {
@@ -14,7 +17,7 @@ export interface CutService {
     healthCheck: {
       instance: HealthCheck | undefined;
     };
-    kindName: string | undefined;
+    kind: SERVICE_KIND | undefined;
     instanceCount: number | undefined;
     isImported: boolean | undefined;
     isPermissiveMTls: boolean | undefined;
@@ -22,6 +25,9 @@ export interface CutService {
     connectedWithProxy: boolean | undefined;
     samenessGroup: string | undefined;
     externalSource: ExternalSource | undefined;
+    tags: string[];
+    upstreamCount: number | undefined;
+    linkedServiceCount: number | undefined;
   };
 }
 
@@ -42,11 +48,32 @@ interface ComponentSignature {
 }
 
 export default class ServiceListItemComponent extends Component<ComponentSignature> {
+  ServiceGatewayType = SERVICE_GATEWAY_TYPE;
+  NormalizedGatewayLabels = NORMALIZED_GATEWAY_LABELS;
+
   get isAllHealthy() {
     const { healthCheck } = this.args.service.metadata;
 
     return healthCheck.instance
       ? !healthCheck.instance.critical && !healthCheck.instance.warning
       : true;
+  }
+
+  get isIngressGateway() {
+    return (
+      this.args.service.metadata.kind === this.ServiceGatewayType.IngressGateway
+    );
+  }
+
+  get isTerminatingGateway() {
+    return (
+      this.args.service.metadata.kind ===
+      this.ServiceGatewayType.TerminatingGateway
+    );
+  }
+
+  get kindName() {
+    const { kind } = this.args.service.metadata;
+    return kind ? this.NormalizedGatewayLabels[kind] : undefined;
   }
 }

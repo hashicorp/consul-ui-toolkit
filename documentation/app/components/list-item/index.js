@@ -3,7 +3,10 @@
  */
 
 import Component from '@glimmer/component';
-import { CUT_SERVICE_LIST_ITEM_TYPE } from '@hashicorp/consul-ui-toolkit/utils/service-list-item';
+import {
+  CUT_SERVICE_LIST_ITEM_TYPE,
+  SERVICE_GATEWAY_TYPE,
+} from '@hashicorp/consul-ui-toolkit/utils/service-list-item';
 
 export default class ListItemTemporaryComponent extends Component {
   cutServiceListItems = CUT_SERVICE_LIST_ITEM_TYPE;
@@ -67,6 +70,7 @@ export default class ListItemTemporaryComponent extends Component {
               critical: 2,
             },
           },
+          kind: SERVICE_GATEWAY_TYPE.MeshGateway,
           externalSource: 'kubernetes',
           instanceCount: 8,
           isImported: true,
@@ -85,6 +89,7 @@ export default class ListItemTemporaryComponent extends Component {
               critical: 0,
             },
           },
+          kind: SERVICE_GATEWAY_TYPE.MeshGateway,
           instanceCount: 5,
           connectedWithGateway: true,
           connectedWithProxy: true,
@@ -96,7 +101,7 @@ export default class ListItemTemporaryComponent extends Component {
       },
       {
         name: 'Service (Ingress Gateway): Green checks',
-        type: CUT_SERVICE_LIST_ITEM_TYPE.ServiceIngressGateway,
+        type: CUT_SERVICE_LIST_ITEM_TYPE.Service,
         metadata: {
           healthCheck: {
             instance: {
@@ -106,7 +111,7 @@ export default class ListItemTemporaryComponent extends Component {
             },
           },
           connectedWithGateway: true,
-          kindName: 'Ingress gateway',
+          kind: SERVICE_GATEWAY_TYPE.IngressGateway,
           externalSource: 'nomad',
           upstreamCount: 5,
           tags: ['monitor', 'array', 'monitor'],
@@ -114,7 +119,7 @@ export default class ListItemTemporaryComponent extends Component {
       },
       {
         name: 'Service (terminating gateway): Failed checks',
-        type: CUT_SERVICE_LIST_ITEM_TYPE.ServiceTerminatingGateway,
+        type: CUT_SERVICE_LIST_ITEM_TYPE.Service,
         metadata: {
           healthCheck: {
             instance: {
@@ -123,7 +128,7 @@ export default class ListItemTemporaryComponent extends Component {
               critical: 0,
             },
           },
-          kindName: 'Terminating gateway',
+          kind: SERVICE_GATEWAY_TYPE.TerminatingGateway,
           linkedServiceCount: 6,
           externalSource: 'vault',
         },

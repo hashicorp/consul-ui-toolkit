@@ -182,9 +182,6 @@
   </Cut::ListItem>
   <Cut::ListItem as |L|>
     <L.Content>Service c</L.Content>
-    <L.ActionGeneric>
-      <Hds::Link::Standalone @href="#" @text="2 Permissions" @icon="doc-link" />
-    </L.ActionGeneric>
   </Cut::ListItem>
   <Cut::ListItem as |L|>
     <L.Content>Service d</L.Content>
@@ -389,18 +386,6 @@
       />
     {{else if (eq item.type this.cutServiceListItems.ServiceInstance)}}
       <Cut::ListItem::ServiceInstance
-        @isHrefExternal={{false}}
-        @href='#'
-        @service={{item}}
-      />
-    {{else if (eq item.type this.cutServiceListItems.ServiceTerminatingGateway)}}
-      <Cut::ListItem::ServiceTerminatingGateway
-        @isHrefExternal={{false}}
-        @href='#'
-        @service={{item}}
-      />
-    {{else if (eq item.type this.cutServiceListItems.ServiceIngressGateway)}}
-      <Cut::ListItem::ServiceIngressGateway
         @isHrefExternal={{false}}
         @href='#'
         @service={{item}}
