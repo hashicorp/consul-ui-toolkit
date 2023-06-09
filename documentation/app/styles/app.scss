@@ -7,6 +7,7 @@
 @import "./components/page-header";
 @import "./components/preview-block.scss";
 @import "./components/in-page-nav.scss";
+@import "./pages/list-item";
 @import "../app/components/list-item/styles";
 
 *,
@@ -43,12 +44,14 @@ h1 {
 }
 
 h2 {
+  margin-top: 3rem;
   font-size: var(--token-typography-display-400-font-size);
   line-height: var(--token-typography-display-400-line-height);
   font-weight: var(--token-typography-font-weight-bold);
 }
 
 h3 {
+  margin-top: 2rem;
   font-size: var(--token-typography-display-300-font-size);
   font-weight: var(--token-typography-font-weight-bold);
   line-height: var(--token-typography-display-300-line-height);
@@ -79,6 +82,10 @@ small {
 code,
 pre {
   font-family: var(--token-typography-font-stack-code);
+}
+
+li {
+  line-height: var(--token-typography-display-200-line-height);
 }
 
 .application {
@@ -113,6 +120,14 @@ pre {
     .content,
     .hds-tabs__panel {
       margin-top: 2rem;
+
+      h2:first-of-type {
+        margin-top: 0;
+      }
+    }
+
+    .hds-alert {
+      margin-bottom: 2.5rem;
     }
   }
 
@@ -143,13 +158,25 @@ pre {
     }
   }
 
-  .docs-Page {
+  .doc-Page {
     display: flex;
     justify-content: space-between;
 
-    .docs-Page-content {
+    .doc-Page-content {
       max-width: 800px;
       flex-grow: 1;
+
+      img {
+        max-width: 100%;
+      }
+
+      .flex-images {
+        display: flex;
+        align-items: start;
+        justify-content: stretch;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+      }
     }
   }
 }

@@ -26,7 +26,6 @@ module.exports = function (defaults) {
       },
     },
     'ember-prism': {
-      theme: 'tomorrow',
       components: ['javascript', 'markup'], //needs to be an array, or undefined.
       plugins: [
         'line-highlight',
