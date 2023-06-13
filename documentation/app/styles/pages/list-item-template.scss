@@ -1,0 +1,32 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
+.doc-list-item-template-div {
+  background-color: lightblue;
+  background-image: linear-gradient(to right, lightblue, lightpink);
+  padding: 0.75rem;
+  border-radius: var(--token-form-control-border-radius);
+}
+
+.doc-list-item-template-types {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 2rem;
+  align-items: start;
+  row-gap: 1rem;
+
+  .doc-list-item-template-types_small {
+    max-width: 260px;
+  }
+
+  p {
+    margin-top: 0;
+  }
+}
+
+.doc-list-item-template-connection-method-anatomy {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}

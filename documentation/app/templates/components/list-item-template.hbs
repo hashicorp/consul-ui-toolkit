@@ -1,16 +1,21 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
 <PageHeader
   @title="List Item Template"
   @figma="https://www.figma.com/file/SenC8kTQNUJKCvOvcL8WPu/Consul-Component-Library?type=design&node-id=722-120845&t=YhNf39KC0C4MRjwb-0"
   @github="https://github.com/hashicorp/consul-ui-toolkit/blob/main/toolkit/src/components/cut/list-item/template/index.hbs"
   @status="development"
 >
-  A list item template is used as a layout template to create a number of Consul
+  A List Item Template is used as a layout template to create a number of Consul
   feature specific list items. It can also be used as a template for other items
   that are able to make use of the template layout and its available
   pre-determined element options.
 </PageHeader>
 <Hds::Tabs as |T|>
   <T.Tab>Guidelines</T.Tab>
+  <T.Tab>Anatomy</T.Tab>
   <T.Tab>Code</T.Tab>
   <T.Panel>
     <div class="doc-Page">
@@ -19,7 +24,7 @@
 
         <h3 id="when-to-use">When to use</h3>
         <ul>
-          <li>A list item template will most commonly be used within a
+          <li>A List Item Template will most commonly be used within a
             <Hds::Link::Inline @route="components.list-item">List Item
               (container)</Hds::Link::Inline>. It can also be nested within
             other components as a template.</li>
@@ -38,17 +43,17 @@
         </ul>
 
         <h2 id="interactivity-and-actions">Interactivity & actions</h2>
-        <p>By default the list item template is static in nature. Interactivity
+        <p>By default the List Item Template is static in nature. Interactivity
           can be applied to elements within, but should adhere to the following
           guidelines.</p>
 
         <h3 id="tooltips">Tooltips</h3>
         <p>Tooltips can be paired with the template for text, icon, or badge
           elements that need to provide more context on hover. For example, when
-          the list item template is within a list item (container).</p>
+          the List Item Template is within a list item (container).</p>
         <img
           src="/images/list-item-template-tooltips.svg"
-          alt="Example of using tooltips on the List Item Template icons and badges"
+          alt="Demonstration of tooltips on the List Item Template"
         />
 
         <h3 id="interactivity-specific-elements">Interactivity on a specific
@@ -72,58 +77,71 @@
           </li>
         </ul>
 
-        <Cut::ListItem as |L|>
-          <L.Content>
-            <Cut::ListItem::Template as |T|>
-              <T.Label as |LB|>
-                <LB.Icon @name="hexagon" />
-                <LB.Title><Cut::CopyBlock
-                    @clipboardText="Title"
-                  >Title</Cut::CopyBlock></LB.Title>
-                <LB.Metadata>
-                  <Cut::TextWithIcon @text="IconLabel" @icon="hexagon" />
-                  <Cut::CopyBlock @clipboardText="IconLabel">
-                    <Cut::TextWithIcon @text="IconLabel" @icon="hexagon" />
-                  </Cut::CopyBlock>
-                </LB.Metadata>
-              </T.Label>
-              <T.Badge @icon="hexagon" @text="Default" />
-              <T.Label2 as |LB|>
-                <LB.Icon @name="hexagon" />
-                <LB.Title><Cut::CopyBlock
-                    @clipboardText="Title"
-                  >Title</Cut::CopyBlock></LB.Title>
-                <LB.Metadata>
-                  <Cut::CopyBlock @clipboardText="Label">
-                    Label
-                  </Cut::CopyBlock>
-                  <Cut::TextWithIcon @text="IconLabel" @icon="hexagon" />
-                </LB.Metadata>
-              </T.Label2>
-            </Cut::ListItem::Template>
-          </L.Content>
-          <L.ActionDropdown as |A|>
-            <A.ToggleIcon
-              @icon="more-horizontal"
-              @text="Menu"
-              @hasChevron={{false}}
-            />
-            <A.Interactive @icon="edit" @text="Edit" />
-            <A.Interactive @icon="trash" @text="Delete" @color="critical" />
-          </L.ActionDropdown>
-        </Cut::ListItem>
+        <img
+          src="/images/list-item-template-interactivity.svg"
+          alt="Demonstration of List Item Template interactivity"
+        />
 
         <h2 id="color">Color</h2>
         <h3 id="transparent-background">Transparent background</h3>
+        <p>The List Item Template has a transparent background color by default.
+          It is set to transparent so it utilizes the background color of
+          whatever component it is nested within. This can be changed manually
+          as needed.</p>
         <h3 id="title">Title</h3>
+        <p>Any text used within the “title” should use HDS text style of
+          “Foreground/Strong”.</p>
         <h3 id="description">Description</h3>
+        <p>Any text used within the “description” should use HDS text style of
+          “Foreground/Faint”.</p>
         <h3 id="icons">Icons</h3>
+        <p>Any icon used should use the coloring as stated above based on the
+          section they are within. Exceptions to this rule are if the icon is
+          representing a company or brand logo, or if the icon is representing a
+          status.</p>
         <h2 id="size">Size</h2>
+        <p>The template horizontal and vertical size preferences can be modified
+          depending on the placement of the template. When paired with the list
+          Item component use the height and width suggestions listed below.</p>
+
+        <img
+          src="/images/list-item-template-size.svg"
+          alt="List Item Template size guidelines"
+        />
+        <img
+          src="/images/list-item-template-padding.svg"
+          alt="List Item Template padding guidelines"
+        />
         <h3 id="height">Height</h3>
+        <p>The default height of the template is 56px for desktop (large) screen
+          sizes, this is the recommended max limit for the height of this
+          component.</p>
         <h3 id="width">Width</h3>
+        <p>The width of the list item should “fill” the entire section that it
+          is placed within.
+        </p>
+        <Hds::Alert @type="inline" @color="highlight" as |A|>
+          <A.Title>
+            It is important to keep list items that are displayed on the same
+            page a consistent size (height and width).</A.Title>
+        </Hds::Alert>
         <h3 id="responsive">Responsive layout</h3>
+        <p>The List Item Template has two states, “Large” and “”Small”.</p>
         <h3 id="large">Large (default)</h3>
+        <p>The large variant will fill the entire width of whichever it is
+          contained within by default.
+        </p>
+        <img
+          src="/images/list-item-template-responsive-large.svg"
+          alt="List Item Template should fill the entired width of it's container on larger screens."
+        />
         <h3 id="small">Small (mobile)</h3>
+        <p>The small variant will have a max width of 318px, when placed in a
+          container you will need to set the container width to “hug”.</p>
+        <img
+          src="/images/list-item-template-responsive-small.svg"
+          alt="List Item Template small details"
+        />
       </div>
       <InPageNav as |I|>
         <I.Link @section="#usage" @depth={{1}}>Usage</I.Link>
@@ -151,5 +169,678 @@
       </InPageNav>
     </div>
   </T.Panel>
-  <T.Panel />
+  <T.Panel>
+    <div class="doc-Page">
+      <div class="doc-Page-content">
+        <h2 id="type">Type</h2>
+        <div class="doc-list-item-template-types">
+          <p>Large <br />(Desktop)</p>
+          <Cut::ListItem::Template as |T|>
+            <T.Label as |Label|>
+              <Label.Icon @name="hexagon" />
+              <Label.Title>Title</Label.Title>
+              <Label.Metadata>
+                <Cut::TextWithIcon @icon="hexagon" @text="IconLabel" />
+                <Cut::TextWithIcon @icon="hexagon" @text="IconLabel" />
+              </Label.Metadata>
+            </T.Label>
+            <T.Badge @icon="hexagon" @text="Default" />
+            <T.Label2 as |Label|>
+              <Label.Icon @name="hexagon" />
+              <Label.Title>Title</Label.Title>
+              <Label.Metadata>
+                <Cut::TextWithIcon @icon="hexagon" @text="IconLabel" />
+                <Cut::TextWithIcon @icon="hexagon" @text="IconLabel" />
+              </Label.Metadata>
+            </T.Label2>
+          </Cut::ListItem::Template>
+          <p>Small<br />(Mobile)</p>
+          <Cut::ListItem::Template
+            class="doc-list-item-template-types_small"
+            as |T|
+          >
+            <T.Label as |Label|>
+              <Label.Icon @name="hexagon" />
+              <Label.Title>Title</Label.Title>
+              <Label.Metadata>
+                <Cut::TextWithIcon @icon="hexagon" @text="IconLabel" />
+                <Cut::TextWithIcon @icon="hexagon" @text="IconLabel" />
+              </Label.Metadata>
+            </T.Label>
+            <T.Badge @icon="hexagon" @text="Default" />
+            <T.Label2 as |Label|>
+              <Label.Icon @name="hexagon" />
+              <Label.Title>Title</Label.Title>
+              <Label.Metadata>
+                <Cut::TextWithIcon @icon="hexagon" @text="IconLabel" />
+                <Cut::TextWithIcon @icon="hexagon" @text="IconLabel" />
+              </Label.Metadata>
+            </T.Label2>
+          </Cut::ListItem::Template>
+        </div>
+        <h2 id="component-anatomy">Component anatomy</h2>
+        <p>The List Item Template is made up from nested components. Below is
+          the anatomy for the individual components. For more details on their
+          respective APIs, view the component API section under the code tab.</p>
+
+        <h3 id="section">Label</h3>
+        <p>The List Item Template Label is the primary part of the template. It
+          consists of a title, as well as an option icon for the title and a
+          section to place metadata like badges, labels, etc. There are two
+          available Labels in the List Item Template. The first is required and
+          is available via the
+          <CodeInline @code="Label" />
+          contextual component. The optional second Label can be used via the
+          <CodeInline @code="Label2" />
+          contextual component.</p>
+        <img
+          src="/images/list-item-template-section.svg"
+          alt="List Item Template Section Anatomy"
+        />
+
+        <h3 id="connection-method">Connection Method</h3>
+        <p>The List Item Template also provides two different components for the
+          Connection Method between the two sections,
+          <CodeInline @code="Icon" />
+          and
+          <CodeInline @code="Badge" />. Both using the
+          <Hds::Link::Inline
+            @href="https://helios.hashicorp.design/icons/usage-guidelines"
+          >Icon</Hds::Link::Inline>
+          and
+          <Hds::Link::Inline
+            @href="https://helios.hashicorp.design/components/badge"
+          >Badge</Hds::Link::Inline>
+          components from HDS respectively.</p>
+        <div class="doc-list-item-template-connection-method-anatomy">
+          <img
+            src="/images/list-item-template-connection-method-badge.svg"
+            alt="List Item Template connection method badge"
+          />
+          <img
+            src="/images/list-item-template-connection-method-icon.svg"
+            alt="List Item Template connection method icon"
+          />
+        </div>
+      </div>
+      <InPageNav as |I|>
+        <I.Link @section="#type">Type</I.Link>
+        <I.Link @section="#component-anatomy">Component anatomy</I.Link>
+        <I.Link @section="#section" @depth={{2}}>Label</I.Link>
+        <I.Link @section="#connection-method" @depth={{2}}>Connection method</I.Link>
+      </InPageNav>
+    </div>
+  </T.Panel>
+  <T.Panel>
+    <div class="doc-Page">
+      <div class="doc-Page-content">
+        <h2 id="how-to-use">How to use this component</h2>
+        <p>The List Item Template is composed of several contextual components.
+          Primarily the Label, followed by an optional Badge or Icon and a
+          second Label. The List Item Template will most commonly be used within
+          a
+          <Hds::Link::Inline @route="components.list-item">List Item (container)</Hds::Link::Inline>.
+          It can also be nested within other components as a template.</p>
+
+        <PreviewBlock as |P|>
+          <P.Preview>
+            <ul class="doc-list-items-demo">
+              <Cut::ListItem as |L|>
+                <L.Content>
+                  <Cut::ListItem::Template as |T|>
+                    <T.Label as |Label|>
+                      <Label.Icon @name="hexagon" />
+                      <Label.Title>A List Item Template using only the title and
+                        icon</Label.Title>
+                    </T.Label>
+                  </Cut::ListItem::Template>
+                </L.Content>
+              </Cut::ListItem>
+              <Cut::ListItem as |L|>
+                <L.Content>
+                  <Cut::ListItem::Template as |T|>
+                    <T.Label as |label|>
+                      <label.Icon @name="hexagon" />
+                      <label.Title>Example in a List Item</label.Title>
+                      <label.Metadata>
+                        <Cut::TextWithIcon
+                          @icon="hexagon"
+                          @text="Example metadata"
+                        />
+                        <Cut::TextWithIcon
+                          @icon="hexagon"
+                          @text="Example metadata"
+                        />
+                        <Cut::TextWithIcon
+                          @icon="hexagon"
+                          @text="Example metadata"
+                        />
+                      </label.Metadata>
+                    </T.Label>
+                  </Cut::ListItem::Template>
+                </L.Content>
+              </Cut::ListItem>
+            </ul>
+
+            <div class="doc-list-item-template-div">
+              <Cut::ListItem::Template as |T|>
+                <T.Label as |label|>
+                  <label.Icon @name="hexagon" />
+                  <label.Title>Example in a regular div</label.Title>
+                  <label.Metadata>
+                    <Cut::TextWithIcon
+                      @icon="hexagon"
+                      @text="Example metadata"
+                    />
+                    <Cut::TextWithIcon
+                      @icon="hexagon"
+                      @text="Example metadata"
+                    />
+                    <Cut::TextWithIcon
+                      @icon="hexagon"
+                      @text="Example metadata"
+                    />
+                  </label.Metadata>
+                </T.Label>
+              </Cut::ListItem::Template>
+            </div>
+          </P.Preview>
+          <P.Code
+            @code={{{'
+            <ul>
+              <Cut::ListItem as |L|>
+                <L.Content>
+                  <Cut::ListItem::Template as |T|>
+                    <T.Label as |Label|>
+                      <Label.Icon @name="hexagon" />
+                      <Label.Title>A List Item Template using only the title and
+                        icon</Label.Title>
+                    </T.Label>
+                  </Cut::ListItem::Template>
+                </L.Content>
+              </Cut::ListItem>
+              <Cut::ListItem as |L|>
+                <L.Content>
+                  <Cut::ListItem::Template as |T|>
+                    <T.Label as |label|>
+                      <label.Icon @name="hexagon" />
+                      <label.Title>Example in a List Item</label.Title>
+                      <label.Metadata>
+                        <Cut::TextWithIcon
+                          @icon="hexagon"
+                          @text="Example metadata"
+                        />
+                        <Cut::TextWithIcon
+                          @icon="hexagon"
+                          @text="Example metadata"
+                        />
+                        <Cut::TextWithIcon
+                          @icon="hexagon"
+                          @text="Example metadata"
+                        />
+                      </label.Metadata>
+                    </T.Label>
+                  </Cut::ListItem::Template>
+                </L.Content>
+              </Cut::ListItem>
+            </ul>
+            <div class="doc-list-item-template-div">
+              <Cut::ListItem::Template as |T|>
+                <T.Label as |label|>
+                  <label.Icon @name="hexagon" />
+                  <label.Title>Example in a regular div</label.Title>
+                  <label.Metadata>
+                    <Cut::TextWithIcon
+                      @icon="hexagon"
+                      @text="Example metadata"
+                    />
+                    <Cut::TextWithIcon
+                      @icon="hexagon"
+                      @text="Example metadata"
+                    />
+                    <Cut::TextWithIcon
+                      @icon="hexagon"
+                      @text="Example metadata"
+                    />
+                  </label.Metadata>
+                </T.Label>
+              </Cut::ListItem::Template>
+            </div>
+          '}}}
+          />
+        </PreviewBlock>
+
+        <h3 id="multiple-labels">Multiple labels</h3>
+        <p>You can apply a second label by using the
+          <CodeInline @code="Label2" />
+          contextual component and either a
+          <CodeInline @code="Badge" />
+          or a
+          <CodeInline @code="Icon" />
+          divider.</p>
+        <PreviewBlock as |P|>
+          <P.Preview>
+            <ul class="doc-list-items-demo">
+              <Cut::ListItem as |L|>
+                <L.Content>
+                  <Cut::ListItem::Template as |T|>
+                    <T.Label as |label|>
+                      <label.Icon @name="hexagon" />
+                      <label.Title>Label 1</label.Title>
+                      <label.Metadata>
+                        <Cut::TextWithIcon @icon="hexagon" @text="Metadata 1" />
+                        <Cut::TextWithIcon @icon="hexagon" @text="Metadata 2" />
+                      </label.Metadata>
+                    </T.Label>
+                    <T.Badge @text="Default badge" />
+                    <T.Label2 as |label|>
+                      <label.Icon @name="hexagon" />
+                      <label.Title>Label 2</label.Title>
+                      <label.Metadata>
+                        <Cut::TextWithIcon @icon="hexagon" @text="Metadata 3" />
+                        <Cut::TextWithIcon @icon="hexagon" @text="Metadata 4" />
+                      </label.Metadata>
+                    </T.Label2>
+                  </Cut::ListItem::Template>
+                </L.Content>
+              </Cut::ListItem>
+              <Cut::ListItem as |L|>
+                <L.Content>
+                  <Cut::ListItem::Template as |T|>
+                    <T.Label as |label|>
+                      <label.Icon @name="hexagon" />
+                      <label.Title>Label 1</label.Title>
+                      <label.Metadata>
+                        <Cut::TextWithIcon @icon="hexagon" @text="Metadata 1" />
+                        <Cut::TextWithIcon @icon="hexagon" @text="Metadata 2" />
+                        <Cut::TextWithIcon @icon="hexagon" @text="Metadata 3" />
+                      </label.Metadata>
+                    </T.Label>
+                    <T.Icon @name="arrow-right" />
+                    <T.Label2 as |label|>
+                      <label.Icon @name="hexagon" />
+                      <label.Title>Label 2</label.Title>
+                      <label.Metadata>
+                        <Cut::TextWithIcon @icon="hexagon" @text="Metadata 4" />
+                        <Cut::TextWithIcon @icon="hexagon" @text="Metadata 5" />
+                        <Cut::TextWithIcon @icon="hexagon" @text="Metadata 6" />
+                      </label.Metadata>
+                    </T.Label2>
+                  </Cut::ListItem::Template>
+                </L.Content>
+              </Cut::ListItem>
+            </ul>
+          </P.Preview>
+          <P.Code
+            @code={{{'
+            <ul class="doc-list-items-demo">
+              <Cut::ListItem as |L|>
+                <L.Content>
+                  <Cut::ListItem::Template as |T|>
+                    <T.Label as |label|>
+                      <label.Icon @name="hexagon" />
+                      <label.Title>Label 1</label.Title>
+                      <label.Metadata>
+                        <Cut::TextWithIcon @icon="hexagon" @text="Metadata 1" />
+                        <Cut::TextWithIcon @icon="hexagon" @text="Metadata 2" />
+                      </label.Metadata>
+                    </T.Label>
+                    <T.Badge @text="Default badge" />
+                    <T.Label2 as |label|>
+                      <label.Icon @name="hexagon" />
+                      <label.Title>Label 2</label.Title>
+                      <label.Metadata>
+                        <Cut::TextWithIcon @icon="hexagon" @text="Metadata 3" />
+                        <Cut::TextWithIcon @icon="hexagon" @text="Metadata 4" />
+                      </label.Metadata>
+                    </T.Label2>
+                  </Cut::ListItem::Template>
+                </L.Content>
+              </Cut::ListItem>
+              <Cut::ListItem as |L|>
+                <L.Content>
+                  <Cut::ListItem::Template as |T|>
+                    <T.Label as |label|>
+                      <label.Icon @name="hexagon" />
+                      <label.Title>Label 1</label.Title>
+                      <label.Metadata>
+                        <Cut::TextWithIcon @icon="hexagon" @text="Metadata 1" />
+                        <Cut::TextWithIcon @icon="hexagon" @text="Metadata 2" />
+                        <Cut::TextWithIcon @icon="hexagon" @text="Metadata 3" />
+                      </label.Metadata>
+                    </T.Label>
+                    <T.Icon @name="arrow-right" />
+                    <T.Label2 as |label|>
+                      <label.Icon @name="hexagon" />
+                      <label.Title>Label 2</label.Title>
+                      <label.Metadata>
+                        <Cut::TextWithIcon @icon="hexagon" @text="Metadata 4" />
+                        <Cut::TextWithIcon @icon="hexagon" @text="Metadata 5" />
+                        <Cut::TextWithIcon @icon="hexagon" @text="Metadata 6" />
+                      </label.Metadata>
+                    </T.Label2>
+                  </Cut::ListItem::Template>
+                </L.Content>
+              </Cut::ListItem>
+            </ul>
+            '}}}
+          />
+        </PreviewBlock>
+
+        <h3 id="using-tooltips">Tooltips</h3>
+
+        <p>You may apply a tooltip to the text, icons, and badges to provide
+          more context on hover, by using the
+          <Hds::Link::Inline
+            @href="https://helios.hashicorp.design/components/tooltip?tab=code#hds-tooltip-modifier"
+          >HDS Tooltip modifier</Hds::Link::Inline>.</p>
+
+        <PreviewBlock as |P|>
+          <P.Preview>
+            <ul class="doc-list-items-demo">
+              <Cut::ListItem as |L|>
+                <L.Content
+                  {{hds-tooltip
+                    "This tooltip is on the entire List Item Content"
+                  }}
+                >
+                  <Cut::ListItem::Template as |T|>
+                    <T.Label as |label|>
+                      <label.Icon @name="hexagon" />
+                      <label.Title>Title</label.Title>
+                      <label.Metadata>
+                        <Cut::TextWithIcon @icon="hexagon" @text="Icon Label" />
+                        <Cut::TextWithIcon @icon="hexagon" @text="Icon Label" />
+                      </label.Metadata>
+                    </T.Label>
+                    <T.Badge @text="Default" @icon="hexagon" />
+                    <T.Label2 as |label|>
+                      <label.Icon @name="hexagon" />
+                      <label.Title>Label 2</label.Title>
+                      <label.Metadata>
+                        <Cut::TextWithIcon @icon="hexagon" @text="Metadata 3" />
+                        <Cut::TextWithIcon @icon="hexagon" @text="Metadata 4" />
+                      </label.Metadata>
+                    </T.Label2>
+                  </Cut::ListItem::Template>
+                </L.Content>
+              </Cut::ListItem>
+              <Cut::ListItem as |L|>
+                <L.Content>
+                  <Cut::ListItem::Template as |T|>
+                    <T.Label as |label|>
+                      <label.Icon @name="hexagon" />
+                      <label.Title
+                        {{hds-tooltip "This tooltip is on the title text"}}
+                      >Title</label.Title>
+                      <label.Metadata>
+                        <Cut::TextWithIcon @icon="hexagon" @text="Icon Label" />
+                        <Cut::TextWithIcon @icon="hexagon" @text="Icon Label" />
+                      </label.Metadata>
+                    </T.Label>
+                    <T.Badge
+                      @text="Default"
+                      @icon="hexagon"
+                      {{hds-tooltip "This tooltip is on the badge seperator"}}
+                    />
+                    <T.Label2 as |label|>
+                      <label.Icon @name="hexagon" />
+                      <label.Title>Label 2</label.Title>
+                      <label.Metadata>
+                        <Cut::TextWithIcon @icon="hexagon" @text="Metadata 3" />
+                        <Cut::TextWithIcon
+                          @icon="hexagon"
+                          @text="Metadata 4"
+                          {{hds-tooltip "This tooltip is on the metadata"}}
+                        />
+                      </label.Metadata>
+                    </T.Label2>
+                  </Cut::ListItem::Template>
+                </L.Content>
+              </Cut::ListItem>
+            </ul>
+          </P.Preview>
+          <P.Code
+            @code={{{'
+            <ul class="doc-list-items-demo">
+              <Cut::ListItem as |L|>
+                <L.Content
+                  {{hds-tooltip
+                    "This tooltip is on the entire List Item Content"
+                  }}
+                >
+                  <Cut::ListItem::Template as |T|>
+                    <T.Label as |label|>
+                      <label.Icon @name="hexagon" />
+                      <label.Title>Title</label.Title>
+                      <label.Metadata>
+                        <Cut::TextWithIcon @icon="hexagon" @text="Icon Label" />
+                        <Cut::TextWithIcon @icon="hexagon" @text="Icon Label" />
+                      </label.Metadata>
+                    </T.Label>
+                    <T.Badge @text="Default" @icon="hexagon" />
+                    <T.Label2 as |label|>
+                      <label.Icon @name="hexagon" />
+                      <label.Title>Label 2</label.Title>
+                      <label.Metadata>
+                        <Cut::TextWithIcon @icon="hexagon" @text="Metadata 3" />
+                        <Cut::TextWithIcon @icon="hexagon" @text="Metadata 4" />
+                      </label.Metadata>
+                    </T.Label2>
+                  </Cut::ListItem::Template>
+                </L.Content>
+              </Cut::ListItem>
+              <Cut::ListItem as |L|>
+                <L.Content>
+                  <Cut::ListItem::Template as |T|>
+                    <T.Label as |label|>
+                      <label.Icon @name="hexagon" />
+                      <label.Title
+                        {{hds-tooltip "This tooltip is on the title text"}}
+                      >Title</label.Title>
+                      <label.Metadata>
+                        <Cut::TextWithIcon @icon="hexagon" @text="Icon Label" />
+                        <Cut::TextWithIcon @icon="hexagon" @text="Icon Label" />
+                      </label.Metadata>
+                    </T.Label>
+                    <T.Badge
+                      @text="Default"
+                      @icon="hexagon"
+                      {{hds-tooltip "This tooltip is on the badge seperator"}}
+                    />
+                    <T.Label2 as |label|>
+                      <label.Icon @name="hexagon" />
+                      <label.Title>Label 2</label.Title>
+                      <label.Metadata>
+                        <Cut::TextWithIcon @icon="hexagon" @text="Metadata 3" />
+                        <Cut::TextWithIcon
+                          @icon="hexagon"
+                          @text="Metadata 4"
+                          {{hds-tooltip "This tooltip is on the metadata"}}
+                        />
+                      </label.Metadata>
+                    </T.Label2>
+                  </Cut::ListItem::Template>
+                </L.Content>
+              </Cut::ListItem>
+            </ul>
+            '}}}
+          />
+        </PreviewBlock>
+
+        <h3 id="interactivity">Interactivity</h3>
+        <p>You can make individual items in the List Item Template interactive.
+          Reference the documentation highlighted in the guidelines tab. In the
+          example below, we are achieving interactivity with the
+          <CodeInline @code="<Cut::CopyBlock />" />
+          component.</p>
+        <PreviewBlock as |P|>
+          <P.Preview>
+            <Cut::ListItem as |L|>
+              <L.Content>
+                <Cut::ListItem::Template as |T|>
+                  <T.Label as |LB|>
+                    <LB.Icon @name="check-circle" />
+                    <LB.Title><Cut::CopyBlock
+                        @clipboardText="service-name"
+                      >service-name</Cut::CopyBlock></LB.Title>
+                    <LB.Metadata>
+                      <Hds::Badge
+                        @text="Registered via Vault"
+                        @icon="vault"
+                        @size="small"
+                      />
+                      <div>12 instances</div>
+                      <Cut::CopyBlock
+                        @clipboardText="in service mesh with proxy"
+                      ><Cut::TextWithIcon
+                          @text="in service mesh with proxy"
+                          @icon="mesh"
+                        /></Cut::CopyBlock>
+                      <Cut::TextWithIcon
+                        @text="kubernetes-api, kube"
+                        @icon="tag"
+                      />
+                    </LB.Metadata>
+                  </T.Label>
+                </Cut::ListItem::Template>
+              </L.Content>
+            </Cut::ListItem>
+          </P.Preview>
+          <P.Code
+            @code={{{'
+            <Cut::ListItem as |L|>
+              <L.Content>
+                <Cut::ListItem::Template as |T|>
+                  <T.Label as |LB|>
+                    <LB.Icon @name="check-circle" />
+                    <LB.Title><Cut::CopyBlock
+                        @clipboardText="service-name"
+                      >service-name</Cut::CopyBlock></LB.Title>
+                    <LB.Metadata>
+                      <Hds::Badge
+                        @text="Registered via Vault"
+                        @icon="vault"
+                        @size="small"
+                      />
+                      <div>12 instances</div>
+                      <Cut::CopyBlock
+                        @clipboardText="in service mesh with proxy"
+                      ><Cut::TextWithIcon
+                          @text="in service mesh with proxy"
+                          @icon="mesh"
+                        /></Cut::CopyBlock>
+                      <Cut::TextWithIcon
+                        @text="kubernetes-api, kube"
+                        @icon="tag"
+                      />
+                    </LB.Metadata>
+                  </T.Label>
+                </Cut::ListItem::Template>
+              </L.Content>
+            </Cut::ListItem>
+          '}}}
+          />
+        </PreviewBlock>
+
+        <h2 id="component-api">Component API</h2>
+        <p>The List Item Template yields a few different contextual components.
+          Primarily it provides a
+          <CodeInline @code="Label" />
+          component to present the main content and an optional second
+          <CodeInline @code="Label" />
+          in the form of
+          <CodeInline @code="Label2" />. It also offers optional seperators in
+          via the
+          <CodeInline @code="Badge" />
+          and
+          <CodeInline @code="Icon" />
+          contextual components. We'll provide more details regarding these
+          components below.</p>
+
+        <ComponentApi @name="...attributes">
+          This component supports use of
+          <CodeInline @code="...attributes" />
+        </ComponentApi>
+
+        <h3 id="label">Label</h3>
+        <p>The List Item Template Label is the primary part of the template. It
+          consists of a title, as well as an option icon for the title and a
+          section to place metadata like badges, labels, etc. There are two
+          available Labels in the List Item Template. The first is required and
+          is available via the Label contextual component. The optional second
+          section can be used via the Label2 contextual component.</p>
+        <ComponentApi @name="Icon">
+          The
+          <CodeInline @code="Icon" />
+          contextual component renders a
+          <CodeInline @code="<FlightIcon />" />
+          from HDS. Therefore it shares the same API. Reference the
+          <Hds::Link::Inline
+            @href="https://helios.hashicorp.design/icons/usage-guidelines?tab=code#how-to-use-icons"
+          >HDS Icon usage documentation</Hds::Link::Inline>
+          for a full guide on how to use the
+          <CodeInline @code="Icon" />.
+        </ComponentApi>
+
+        <ComponentApi @name="Title" @isRequired={{true}} @type="yield">
+          The
+          <CodeInline @code="Title" />
+          is a contextual component that yields a slot for the title portion of
+          the List Item Label. You may place any content you wish into this
+          block. The most common usage is text for the title.
+        </ComponentApi>
+
+        <ComponentApi @name="Metadata" @type="yield">
+          The
+          <CodeInline @code="Metadata" />
+          contextual component yields a slot for any metadata for the List Item
+          Template's Label. While this component doesn't prescribe what that
+          content should be, it is often used for
+          <CodeInline @code="<Hds::Badge />" />,
+          <CodeInline @code="<Cut::TextWithIcon />" />,
+          <CodeInline @code="<Cut::CopyBlock />" />, etc.
+        </ComponentApi>
+
+        <h3 id="label2">Label2</h3>
+        <p><CodeInline @code="Label2" />
+          is the second option
+          <CodeInline @code="Label" />
+          that is yielded by the List Item Template. It is an optional component
+          and shares the exact same API as the
+          <CodeInline @code="Label" />.</p>
+        <h3 id="badge">Badge</h3>
+        <p>The
+          <CodeInline @code="Badge" />
+          contextual component is used as an optional separator between the two
+          <CodeInline @code="Labels" />. It renders a
+          <CodeInline @code="<Hds::Badge />" />
+          from HDS. Therefore, it shares the same API. Reference the
+          <Hds::Link::Inline
+            @href="https://helios.hashicorp.design/components/badge?tab=code"
+          >HDS Badge documentation</Hds::Link::Inline>
+          for a full API reference.</p>
+        <h3 id="icon">Icon</h3>
+        <p>The
+          <CodeInline @code="Icon" />
+          contextual component is used as an optional separator between the two
+          <CodeInline @code="Labels" />. It renders a
+          <CodeInline @code="<FlightIcon />" />
+          from HDS. Therefore it shares the same API. Reference the
+          <Hds::Link::Inline
+            @href="https://helios.hashicorp.design/icons/usage-guidelines?tab=code#how-to-use-icons"
+          >HDS Icon usage documentation</Hds::Link::Inline>
+          for a full guide on how to use the
+          <CodeInline @code="Icon" />.</p>
+      </div>
+      <InPageNav as |I|>
+        <I.Link @section="#how-to-use">How to use</I.Link>
+        <I.Link @section="#component-api">Component API</I.Link>
+        <I.Link @section="#label" @depth={{2}}>Label</I.Link>
+        <I.Link @section="#label2" @depth={{2}}>Label2</I.Link>
+        <I.Link @section="#badge" @depth={{2}}>Badge</I.Link>
+        <I.Link @section="#icon" @depth={{2}}>Icon</I.Link>
+      </InPageNav>
+    </div>
+  </T.Panel>
 </Hds::Tabs>

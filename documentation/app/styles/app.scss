@@ -3,12 +3,13 @@
  */
 @import "@hashicorp/design-system-components";
 @import "@hashicorp/consul-ui-toolkit";
+@import "./components/list-item";
 @import "./components/component-api";
 @import "./components/page-header";
 @import "./components/preview-block.scss";
 @import "./components/in-page-nav.scss";
 @import "./pages/list-item";
-@import "../app/components/list-item/styles";
+@import "./pages/list-item-template";
 
 *,
 *::before,
