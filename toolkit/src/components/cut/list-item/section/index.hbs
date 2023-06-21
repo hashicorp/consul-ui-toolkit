@@ -1,0 +1,11 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
+<div class='cut-list-item-section' ...attributes>
+  <div class='cut-list-item-section__title-row'>
+    {{yield (hash Icon=(component 'flight-icon' size='16'))}}
+    {{yield (hash Title=(component 'cut/list-item/section/title'))}}
+  </div>
+  {{yield (hash Metadata=(component 'cut/list-item/section/metadata'))}}
+</div>

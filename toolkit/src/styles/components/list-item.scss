@@ -70,7 +70,7 @@ button.cut-list-item__content-container {
   gap: 16px;
 }
 
-.cut-list-item-label {
+.cut-list-item-section {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -83,14 +83,14 @@ button.cut-list-item__content-container {
   }
 }
 
-.cut-list-item-label__title {
+.cut-list-item-section__title {
   display: flex;
   gap: 8px;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.cut-list-item-label__metadata {
+.cut-list-item-section__metadata {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

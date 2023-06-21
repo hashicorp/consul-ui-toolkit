@@ -2,14 +2,15 @@
   Copyright (c) HashiCorp, Inc.
 }}
 
-<div class="cut-list-item-template" ...attributes>
-  {{yield (hash Label=(component 'cut/list-item/label'))}}
+<div class='cut-list-item-template' ...attributes>
+  {{yield (hash Section=(component 'cut/list-item/section'))}}
   <div>
-    {{yield (hash
-              Badge=(component 'hds/badge' size='small')
-              Icon=(component "flight-icon" size=16)
-            )
+    {{yield
+      (hash
+        Badge=(component 'hds/badge' size='small')
+        Icon=(component 'flight-icon' size=16)
+      )
     }}
   </div>
-  {{yield (hash Label2=(component 'cut/list-item/label'))}}
+  {{yield (hash SecondSection=(component 'cut/list-item/section'))}}
 </div>
