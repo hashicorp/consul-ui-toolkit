@@ -2101,14 +2101,14 @@
   resolved "https://registry.yarnpkg.com/@handlebars/parser/-/parser-2.0.0.tgz#5e8b7298f31ff8f7b260e6b7363c7e9ceed7d9c5"
   integrity sha512-EP9uEDZv/L5Qh9IWuMUGJRfwhXJ4h1dqKTT4/3+tY0eu7sPis7xh23j61SYUnNF4vqCQvvUXpDo9Bh/+q1zASA==
 
-"@hashicorp/design-system-components@^2.2.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@hashicorp/design-system-components/-/design-system-components-2.3.0.tgz#22b1c4753df36b1e7cf35950691717cbbcbabaec"
-  integrity sha512-V3l0e0NuXjeqCTc+AEHG6YBb1dFMUXDXSWd3vFVc1tYu2fTHWs5Z6sduFAlwW7BelUfLqutoIYxtAMMJ4fRxvQ==
+"@hashicorp/design-system-components@^2.7.0":
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/@hashicorp/design-system-components/-/design-system-components-2.7.0.tgz#d461374ddaad7564dadfb4b996c580abe1a1aecf"
+  integrity sha512-hoZTgzP9vP6ft/2GsJeaTyhStVsBJn1qV7FUxwmy6zSR1Gose0aHDR4XtJFAhJd0UAw+Gjaa/z41ihclW6rRWw==
   dependencies:
     "@ember/render-modifiers" "^2.0.5"
     "@hashicorp/design-system-tokens" "^1.5.0"
-    "@hashicorp/ember-flight-icons" "^3.0.2"
+    "@hashicorp/ember-flight-icons" "^3.0.5"
     dialog-polyfill "^0.5.6"
     ember-a11y-refocus "^3.0.2"
     ember-auto-import "^2.6.0"
@@ -2141,10 +2141,25 @@
     ember-cli-babel "^7.26.11"
     ember-cli-htmlbars "^6.1.0"
 
+"@hashicorp/ember-flight-icons@^3.0.5":
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@hashicorp/ember-flight-icons/-/ember-flight-icons-3.0.5.tgz#ed30ad3cc4a00c7b376438d51a19a5ae5b4891b8"
+  integrity sha512-N0mQZS3a7mk+4AZNbaRyCqE2wqcAchpO6k5XTypCPKks6ZgpveVQFoLfd02XNw3MSJ5h2gm6lLckAxZaCDNl4Q==
+  dependencies:
+    "@hashicorp/flight-icons" "^2.13.1"
+    ember-auto-import "^2.6.0"
+    ember-cli-babel "^7.26.11"
+    ember-cli-htmlbars "^6.1.0"
+
 "@hashicorp/flight-icons@^2.12.0":
   version "2.12.0"
   resolved "https://registry.yarnpkg.com/@hashicorp/flight-icons/-/flight-icons-2.12.0.tgz#48bc21f21678668ffe9147b181a2991d8b151fc7"
   integrity sha512-PhjTTHCjoq4EJirifbxLxnxXnCRf1NUAYZ1WnFW8i0yOmmax6fgjsJRPlf0VIGsR8R7isFpjuy6gJ5c7mNhE0w==
+
+"@hashicorp/flight-icons@^2.13.1":
+  version "2.13.1"
+  resolved "https://registry.yarnpkg.com/@hashicorp/flight-icons/-/flight-icons-2.13.1.tgz#bcf1adce364282845c6e1e89ed892133d44579c3"
+  integrity sha512-f9Sg/5KOMsE7o+Im5coVuenhRkKva7w8nNxjfWLP/iSZVHy2uVHJvhPOcibAAeam1Mnbe7k+sHV6liOtOMKIBA==
 
 "@humanwhocodes/config-array@^0.5.0":
   version "0.5.0"
