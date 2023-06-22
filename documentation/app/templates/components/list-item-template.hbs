@@ -8,10 +8,10 @@
   @github="https://github.com/hashicorp/consul-ui-toolkit/blob/main/toolkit/src/components/cut/list-item/template/index.hbs"
   @status="development"
 >
-  A List Item Template is used as a layout template to create a number of Consul
-  feature specific list items. It can also be used as a template for other items
-  that are able to make use of the template layout and its available
-  pre-determined element options.
+  The List Item Template is meant to be used as a reusable pattern to create
+  both visually and functionally consistent List Items. This component is
+  primarily used as a template to create List Items for most Consul specific
+  features.
 </PageHeader>
 <Hds::Tabs as |T|>
   <T.Tab>Guidelines</T.Tab>
@@ -50,7 +50,7 @@
         <h3 id="tooltips">Tooltips</h3>
         <p>Tooltips can be paired with the template for text, icon, or badge
           elements that need to provide more context on hover. For example, when
-          the List Item Template is within a list item (container).</p>
+          the List Item Template is within a List Item (container).</p>
         <img
           src="/images/list-item-template-tooltips.svg"
           alt="Demonstration of tooltips on the List Item Template"
@@ -112,7 +112,7 @@
           Item component use the height and width suggestions listed below.</p>
 
         <img
-          src="/images/list-item-template-size.svg"
+          src="/images/list-item-template-content.svg"
           alt="List Item Template size guidelines"
         />
         <img
@@ -232,12 +232,13 @@
 
         <h3 id="section">Label</h3>
         <p>The List Item Template Label is the primary part of the template. It
-          consists of a title, as well as an option icon for the title and a
-          section to place metadata like badges, labels, etc. There are two
+          consists of a title, and an optional icon for the title, as well as an
+          area to place metadata like badges, labels, etc. There are two
           available Labels in the List Item Template. The first is required and
           is available via the
           <CodeInline @code="Label" />
-          contextual component. The optional second Label can be used via the
+          contextual component. The second Label is optional and can be used via
+          the
           <CodeInline @code="Label2" />
           contextual component.</p>
         <img
@@ -246,10 +247,11 @@
         />
 
         <h3 id="connection-method">Connection Method</h3>
-        <p>The List Item Template also provides two different components for the
-          Connection Method between the two sections,
+        <p>
+          The List Item Template provides two different component options for
+          the Connection Method, an
           <CodeInline @code="Icon" />
-          and
+          and a
           <CodeInline @code="Badge" />. Both using the
           <Hds::Link::Inline
             @href="https://helios.hashicorp.design/icons/usage-guidelines"
@@ -258,7 +260,10 @@
           <Hds::Link::Inline
             @href="https://helios.hashicorp.design/components/badge"
           >Badge</Hds::Link::Inline>
-          components from HDS respectively.</p>
+          components from HDS respectively. The connection Method option is only
+          available if the second section is visible and will be displayed
+          between each section.
+        </p>
         <div class="doc-list-item-template-connection-method-anatomy">
           <img
             src="/images/list-item-template-connection-method-badge.svg"

@@ -3,10 +3,10 @@
  */
 
 .doc-list-item-template-div {
-  background-color: lightblue;
-  background-image: linear-gradient(to right, lightblue, lightpink);
-  padding: 0.75rem;
+  background-color: var(--token-color-surface-faint);
+  padding: 3rem;
   border-radius: var(--token-form-control-border-radius);
+  border: 1px solid var(--token-color-border-strong);
 }
 
 .doc-list-item-template-types {
