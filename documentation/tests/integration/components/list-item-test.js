@@ -122,7 +122,7 @@ module('Integration | Component | cut/list-item', function (hooks) {
     await render(
       hbs`
         <Cut::ListItem::Template id="test-list-item-template" as |T|>
-          <T.Label id="test-list-item-template-label"></T.Label>
+          <T.Section id="test-list-item-template-label"></T.Section>
         </Cut::ListItem::Template>`
     );
     assert
@@ -155,29 +155,33 @@ module('Integration | Component | cut/list-item', function (hooks) {
       .hasText('test');
   });
 
-  test('it should have Cut::ListItem::Label with yielded Title component', async function (assert) {
+  test('it should have Cut::ListItem::Section with yielded Title component', async function (assert) {
     await render(
       hbs`
-        <Cut::ListItem::Label id="test-list-item-label" as |L|>
-          <L.Title id="test-list-item-label-title">test</L.Title>
-        </Cut::ListItem::Label>`
+        <Cut::ListItem::Section id="test-list-item-section" as |L|>
+          <L.Title id="test-list-item-section-title">test</L.Title>
+        </Cut::ListItem::Section>`
     );
-    assert.dom('#test-list-item-label #test-list-item-label-title').exists();
     assert
-      .dom('#test-list-item-label #test-list-item-label-title')
+      .dom('#test-list-item-section #test-list-item-section-title')
+      .exists();
+    assert
+      .dom('#test-list-item-section #test-list-item-section-title')
       .hasText('test');
   });
 
-  test('it should have Cut::ListItem::Label with yielded Metadata component', async function (assert) {
+  test('it should have Cut::ListItem::Section with yielded Metadata component', async function (assert) {
     await render(
       hbs`
-        <Cut::ListItem::Label id="test-list-item-label" as |L|>
-          <L.Metadata id="test-list-item-label-metadata">test</L.Metadata>
-        </Cut::ListItem::Label>`
+        <Cut::ListItem::Section id="test-list-item-section" as |L|>
+          <L.Metadata id="test-list-item-section-metadata">test</L.Metadata>
+        </Cut::ListItem::Section>`
     );
-    assert.dom('#test-list-item-label #test-list-item-label-metadata').exists();
     assert
-      .dom('#test-list-item-label #test-list-item-label-metadata')
+      .dom('#test-list-item-section #test-list-item-section-metadata')
+      .exists();
+    assert
+      .dom('#test-list-item-section #test-list-item-section-metadata')
       .hasText('test');
   });
 });

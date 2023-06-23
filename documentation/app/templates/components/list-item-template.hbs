@@ -183,46 +183,46 @@
         <div class="doc-list-item-template-types">
           <p>Large <br />(Desktop)</p>
           <Cut::ListItem::Template as |T|>
-            <T.Label as |Label|>
-              <Label.Icon @name="hexagon" />
-              <Label.Title>Title</Label.Title>
-              <Label.Metadata>
+            <T.Section as |Section|>
+              <Section.Icon @name="hexagon" />
+              <Section.Title>Title</Section.Title>
+              <Section.Metadata>
                 <Cut::TextWithIcon @icon="hexagon" @text="IconLabel" />
                 <Cut::TextWithIcon @icon="hexagon" @text="IconLabel" />
-              </Label.Metadata>
-            </T.Label>
+              </Section.Metadata>
+            </T.Section>
             <T.Badge @icon="hexagon" @text="Default" />
-            <T.Label2 as |Label|>
-              <Label.Icon @name="hexagon" />
-              <Label.Title>Title</Label.Title>
-              <Label.Metadata>
+            <T.SecondSection as |Section|>
+              <Section.Icon @name="hexagon" />
+              <Section.Title>Title</Section.Title>
+              <Section.Metadata>
                 <Cut::TextWithIcon @icon="hexagon" @text="IconLabel" />
                 <Cut::TextWithIcon @icon="hexagon" @text="IconLabel" />
-              </Label.Metadata>
-            </T.Label2>
+              </Section.Metadata>
+            </T.SecondSection>
           </Cut::ListItem::Template>
           <p>Small<br />(Mobile)</p>
           <Cut::ListItem::Template
             class="doc-list-item-template-types_small"
             as |T|
           >
-            <T.Label as |Label|>
-              <Label.Icon @name="hexagon" />
-              <Label.Title>Title</Label.Title>
-              <Label.Metadata>
+            <T.Section as |Section|>
+              <Section.Icon @name="hexagon" />
+              <Section.Title>Title</Section.Title>
+              <Section.Metadata>
                 <Cut::TextWithIcon @icon="hexagon" @text="IconLabel" />
                 <Cut::TextWithIcon @icon="hexagon" @text="IconLabel" />
-              </Label.Metadata>
-            </T.Label>
+              </Section.Metadata>
+            </T.Section>
             <T.Badge @icon="hexagon" @text="Default" />
-            <T.Label2 as |Label|>
-              <Label.Icon @name="hexagon" />
-              <Label.Title>Title</Label.Title>
-              <Label.Metadata>
+            <T.SecondSection as |Section|>
+              <Section.Icon @name="hexagon" />
+              <Section.Title>Title</Section.Title>
+              <Section.Metadata>
                 <Cut::TextWithIcon @icon="hexagon" @text="IconLabel" />
                 <Cut::TextWithIcon @icon="hexagon" @text="IconLabel" />
-              </Label.Metadata>
-            </T.Label2>
+              </Section.Metadata>
+            </T.SecondSection>
           </Cut::ListItem::Template>
         </div>
         <h2 id="component-anatomy">Component anatomy</h2>
@@ -231,15 +231,15 @@
           respective APIs, view the component API section under the code tab.</p>
 
         <h3 id="section">Label</h3>
-        <p>The List Item Template Label is the primary part of the template. It
-          consists of a title, and an optional icon for the title, as well as an
-          area to place metadata like badges, labels, etc. There are two
-          available Labels in the List Item Template. The first is required and
-          is available via the
-          <CodeInline @code="Label" />
-          contextual component. The second Label is optional and can be used via
-          the
-          <CodeInline @code="Label2" />
+        <p>The List Item Template Section is the primary part of the template.
+          It consists of a title, and an optional icon for the title, as well as
+          an area to place metadata like badges, labels, etc. There are two
+          available Sections in the List Item Template. The first is required
+          and is available via the
+          <CodeInline @code="Section" />
+          contextual component. The second Section is optional and can be used
+          via the
+          <CodeInline @code="SecondSection" />
           contextual component.</p>
         <img
           src="/images/list-item-template-section.svg"
@@ -278,7 +278,7 @@
       <InPageNav as |I|>
         <I.Link @section="#type">Type</I.Link>
         <I.Link @section="#component-anatomy">Component anatomy</I.Link>
-        <I.Link @section="#section" @depth={{2}}>Label</I.Link>
+        <I.Link @section="#section" @depth={{2}}>Section</I.Link>
         <I.Link @section="#connection-method" @depth={{2}}>Connection method</I.Link>
       </InPageNav>
     </div>
@@ -288,9 +288,9 @@
       <div class="doc-Page-content">
         <h2 id="how-to-use">How to use this component</h2>
         <p>The List Item Template is composed of several contextual components.
-          Primarily the Label, followed by an optional Badge or Icon and a
-          second Label. The List Item Template will most commonly be used within
-          a
+          Primarily the Section, followed by an optional Badge or Icon and a
+          second Section. The List Item Template will most commonly be used
+          within a
           <Hds::Link::Inline @route="components.list-item">List Item (container)</Hds::Link::Inline>.
           It can also be nested within other components as a template.</p>
 
@@ -300,21 +300,21 @@
               <Cut::ListItem as |L|>
                 <L.Content>
                   <Cut::ListItem::Template as |T|>
-                    <T.Label as |Label|>
-                      <Label.Icon @name="hexagon" />
-                      <Label.Title>A List Item Template using only the title and
-                        icon</Label.Title>
-                    </T.Label>
+                    <T.Section as |Section|>
+                      <Section.Icon @name="hexagon" />
+                      <Section.Title>A List Item Template using only the title
+                        and icon</Section.Title>
+                    </T.Section>
                   </Cut::ListItem::Template>
                 </L.Content>
               </Cut::ListItem>
               <Cut::ListItem as |L|>
                 <L.Content>
                   <Cut::ListItem::Template as |T|>
-                    <T.Label as |label|>
-                      <label.Icon @name="hexagon" />
-                      <label.Title>Example in a List Item</label.Title>
-                      <label.Metadata>
+                    <T.Section as |section|>
+                      <section.Icon @name="hexagon" />
+                      <section.Title>Example in a List Item</section.Title>
+                      <section.Metadata>
                         <Cut::TextWithIcon
                           @icon="hexagon"
                           @text="Example metadata"
@@ -327,8 +327,8 @@
                           @icon="hexagon"
                           @text="Example metadata"
                         />
-                      </label.Metadata>
-                    </T.Label>
+                      </section.Metadata>
+                    </T.Section>
                   </Cut::ListItem::Template>
                 </L.Content>
               </Cut::ListItem>
@@ -336,10 +336,10 @@
 
             <div class="doc-list-item-template-div">
               <Cut::ListItem::Template as |T|>
-                <T.Label as |label|>
-                  <label.Icon @name="hexagon" />
-                  <label.Title>Example in a regular div</label.Title>
-                  <label.Metadata>
+                <T.Section as |section|>
+                  <section.Icon @name="hexagon" />
+                  <section.Title>Example in a regular div</section.Title>
+                  <section.Metadata>
                     <Cut::TextWithIcon
                       @icon="hexagon"
                       @text="Example metadata"
@@ -352,8 +352,8 @@
                       @icon="hexagon"
                       @text="Example metadata"
                     />
-                  </label.Metadata>
-                </T.Label>
+                  </section.Metadata>
+                </T.Section>
               </Cut::ListItem::Template>
             </div>
           </P.Preview>
@@ -363,21 +363,21 @@
               <Cut::ListItem as |L|>
                 <L.Content>
                   <Cut::ListItem::Template as |T|>
-                    <T.Label as |Label|>
-                      <Label.Icon @name="hexagon" />
-                      <Label.Title>A List Item Template using only the title and
-                        icon</Label.Title>
-                    </T.Label>
+                    <T.Section as |Section|>
+                      <Section.Icon @name="hexagon" />
+                      <Section.Title>A List Item Template using only the title and
+                        icon</Section.Title>
+                    </T.Section>
                   </Cut::ListItem::Template>
                 </L.Content>
               </Cut::ListItem>
               <Cut::ListItem as |L|>
                 <L.Content>
                   <Cut::ListItem::Template as |T|>
-                    <T.Label as |label|>
-                      <label.Icon @name="hexagon" />
-                      <label.Title>Example in a List Item</label.Title>
-                      <label.Metadata>
+                    <T.Section as |section|>
+                      <section.Icon @name="hexagon" />
+                      <section.Title>Example in a List Item</section.Title>
+                      <section.Metadata>
                         <Cut::TextWithIcon
                           @icon="hexagon"
                           @text="Example metadata"
@@ -390,18 +390,18 @@
                           @icon="hexagon"
                           @text="Example metadata"
                         />
-                      </label.Metadata>
-                    </T.Label>
+                      </section.Metadata>
+                    </T.Section>
                   </Cut::ListItem::Template>
                 </L.Content>
               </Cut::ListItem>
             </ul>
             <div class="doc-list-item-template-div">
               <Cut::ListItem::Template as |T|>
-                <T.Label as |label|>
-                  <label.Icon @name="hexagon" />
-                  <label.Title>Example in a regular div</label.Title>
-                  <label.Metadata>
+                <T.Section as |section|>
+                  <section.Icon @name="hexagon" />
+                  <section.Title>Example in a regular div</section.Title>
+                  <section.Metadata>
                     <Cut::TextWithIcon
                       @icon="hexagon"
                       @text="Example metadata"
@@ -414,17 +414,17 @@
                       @icon="hexagon"
                       @text="Example metadata"
                     />
-                  </label.Metadata>
-                </T.Label>
+                  </section.Metadata>
+                </T.Section>
               </Cut::ListItem::Template>
             </div>
           '}}}
           />
         </PreviewBlock>
 
-        <h3 id="multiple-labels">Multiple labels</h3>
+        <h3 id="multiple-sections">Multiple sections</h3>
         <p>You can apply a second label by using the
-          <CodeInline @code="Label2" />
+          <CodeInline @code="SecondSection" />
           contextual component and either a
           <CodeInline @code="Badge" />
           or a
@@ -436,48 +436,48 @@
               <Cut::ListItem as |L|>
                 <L.Content>
                   <Cut::ListItem::Template as |T|>
-                    <T.Label as |label|>
-                      <label.Icon @name="hexagon" />
-                      <label.Title>Label 1</label.Title>
-                      <label.Metadata>
+                    <T.Section as |section|>
+                      <section.Icon @name="hexagon" />
+                      <section.Title>Section 1</section.Title>
+                      <section.Metadata>
                         <Cut::TextWithIcon @icon="hexagon" @text="Metadata 1" />
                         <Cut::TextWithIcon @icon="hexagon" @text="Metadata 2" />
-                      </label.Metadata>
-                    </T.Label>
+                      </section.Metadata>
+                    </T.Section>
                     <T.Badge @text="Default badge" />
-                    <T.Label2 as |label|>
-                      <label.Icon @name="hexagon" />
-                      <label.Title>Label 2</label.Title>
-                      <label.Metadata>
+                    <T.SecondSection as |section|>
+                      <section.Icon @name="hexagon" />
+                      <section.Title>Section 2</section.Title>
+                      <section.Metadata>
                         <Cut::TextWithIcon @icon="hexagon" @text="Metadata 3" />
                         <Cut::TextWithIcon @icon="hexagon" @text="Metadata 4" />
-                      </label.Metadata>
-                    </T.Label2>
+                      </section.Metadata>
+                    </T.SecondSection>
                   </Cut::ListItem::Template>
                 </L.Content>
               </Cut::ListItem>
               <Cut::ListItem as |L|>
                 <L.Content>
                   <Cut::ListItem::Template as |T|>
-                    <T.Label as |label|>
-                      <label.Icon @name="hexagon" />
-                      <label.Title>Label 1</label.Title>
-                      <label.Metadata>
+                    <T.Section as |section|>
+                      <section.Icon @name="hexagon" />
+                      <section.Title>Section 1</section.Title>
+                      <section.Metadata>
                         <Cut::TextWithIcon @icon="hexagon" @text="Metadata 1" />
                         <Cut::TextWithIcon @icon="hexagon" @text="Metadata 2" />
                         <Cut::TextWithIcon @icon="hexagon" @text="Metadata 3" />
-                      </label.Metadata>
-                    </T.Label>
+                      </section.Metadata>
+                    </T.Section>
                     <T.Icon @name="arrow-right" />
-                    <T.Label2 as |label|>
-                      <label.Icon @name="hexagon" />
-                      <label.Title>Label 2</label.Title>
-                      <label.Metadata>
+                    <T.SecondSection as |section|>
+                      <section.Icon @name="hexagon" />
+                      <section.Title>Section 2</section.Title>
+                      <section.Metadata>
                         <Cut::TextWithIcon @icon="hexagon" @text="Metadata 4" />
                         <Cut::TextWithIcon @icon="hexagon" @text="Metadata 5" />
                         <Cut::TextWithIcon @icon="hexagon" @text="Metadata 6" />
-                      </label.Metadata>
-                    </T.Label2>
+                      </section.Metadata>
+                    </T.SecondSection>
                   </Cut::ListItem::Template>
                 </L.Content>
               </Cut::ListItem>
@@ -489,48 +489,48 @@
               <Cut::ListItem as |L|>
                 <L.Content>
                   <Cut::ListItem::Template as |T|>
-                    <T.Label as |label|>
-                      <label.Icon @name="hexagon" />
-                      <label.Title>Label 1</label.Title>
-                      <label.Metadata>
+                    <T.Section as |section|>
+                      <section.Icon @name="hexagon" />
+                      <section.Title>Section 1</section.Title>
+                      <section.Metadata>
                         <Cut::TextWithIcon @icon="hexagon" @text="Metadata 1" />
                         <Cut::TextWithIcon @icon="hexagon" @text="Metadata 2" />
-                      </label.Metadata>
-                    </T.Label>
+                      </section.Metadata>
+                    </T.Section>
                     <T.Badge @text="Default badge" />
-                    <T.Label2 as |label|>
-                      <label.Icon @name="hexagon" />
-                      <label.Title>Label 2</label.Title>
-                      <label.Metadata>
+                    <T.SecondSection as |section|>
+                      <section.Icon @name="hexagon" />
+                      <section.Title>Section 2</section.Title>
+                      <section.Metadata>
                         <Cut::TextWithIcon @icon="hexagon" @text="Metadata 3" />
                         <Cut::TextWithIcon @icon="hexagon" @text="Metadata 4" />
-                      </label.Metadata>
-                    </T.Label2>
+                      </section.Metadata>
+                    </T.SecondSection>
                   </Cut::ListItem::Template>
                 </L.Content>
               </Cut::ListItem>
               <Cut::ListItem as |L|>
                 <L.Content>
                   <Cut::ListItem::Template as |T|>
-                    <T.Label as |label|>
-                      <label.Icon @name="hexagon" />
-                      <label.Title>Label 1</label.Title>
-                      <label.Metadata>
+                    <T.Section as |section|>
+                      <section.Icon @name="hexagon" />
+                      <section.Title>Section 1</section.Title>
+                      <section.Metadata>
                         <Cut::TextWithIcon @icon="hexagon" @text="Metadata 1" />
                         <Cut::TextWithIcon @icon="hexagon" @text="Metadata 2" />
                         <Cut::TextWithIcon @icon="hexagon" @text="Metadata 3" />
-                      </label.Metadata>
-                    </T.Label>
+                      </section.Metadata>
+                    </T.Section>
                     <T.Icon @name="arrow-right" />
-                    <T.Label2 as |label|>
-                      <label.Icon @name="hexagon" />
-                      <label.Title>Label 2</label.Title>
-                      <label.Metadata>
+                    <T.SecondSection as |section|>
+                      <section.Icon @name="hexagon" />
+                      <section.Title>Section 2</section.Title>
+                      <section.Metadata>
                         <Cut::TextWithIcon @icon="hexagon" @text="Metadata 4" />
                         <Cut::TextWithIcon @icon="hexagon" @text="Metadata 5" />
                         <Cut::TextWithIcon @icon="hexagon" @text="Metadata 6" />
-                      </label.Metadata>
-                    </T.Label2>
+                      </section.Metadata>
+                    </T.SecondSection>
                   </Cut::ListItem::Template>
                 </L.Content>
               </Cut::ListItem>
@@ -557,56 +557,56 @@
                   }}
                 >
                   <Cut::ListItem::Template as |T|>
-                    <T.Label as |label|>
-                      <label.Icon @name="hexagon" />
-                      <label.Title>Title</label.Title>
-                      <label.Metadata>
+                    <T.Section as |section|>
+                      <section.Icon @name="hexagon" />
+                      <section.Title>Title</section.Title>
+                      <section.Metadata>
                         <Cut::TextWithIcon @icon="hexagon" @text="Icon Label" />
                         <Cut::TextWithIcon @icon="hexagon" @text="Icon Label" />
-                      </label.Metadata>
-                    </T.Label>
+                      </section.Metadata>
+                    </T.Section>
                     <T.Badge @text="Default" @icon="hexagon" />
-                    <T.Label2 as |label|>
-                      <label.Icon @name="hexagon" />
-                      <label.Title>Label 2</label.Title>
-                      <label.Metadata>
+                    <T.SecondSection as |section|>
+                      <section.Icon @name="hexagon" />
+                      <section.Title>Section 2</section.Title>
+                      <section.Metadata>
                         <Cut::TextWithIcon @icon="hexagon" @text="Metadata 3" />
                         <Cut::TextWithIcon @icon="hexagon" @text="Metadata 4" />
-                      </label.Metadata>
-                    </T.Label2>
+                      </section.Metadata>
+                    </T.SecondSection>
                   </Cut::ListItem::Template>
                 </L.Content>
               </Cut::ListItem>
               <Cut::ListItem as |L|>
                 <L.Content>
                   <Cut::ListItem::Template as |T|>
-                    <T.Label as |label|>
-                      <label.Icon @name="hexagon" />
-                      <label.Title
+                    <T.Section as |section|>
+                      <section.Icon @name="hexagon" />
+                      <section.Title
                         {{hds-tooltip "This tooltip is on the title text"}}
-                      >Title</label.Title>
-                      <label.Metadata>
+                      >Title</section.Title>
+                      <section.Metadata>
                         <Cut::TextWithIcon @icon="hexagon" @text="Icon Label" />
                         <Cut::TextWithIcon @icon="hexagon" @text="Icon Label" />
-                      </label.Metadata>
-                    </T.Label>
+                      </section.Metadata>
+                    </T.Section>
                     <T.Badge
                       @text="Default"
                       @icon="hexagon"
                       {{hds-tooltip "This tooltip is on the badge seperator"}}
                     />
-                    <T.Label2 as |label|>
-                      <label.Icon @name="hexagon" />
-                      <label.Title>Label 2</label.Title>
-                      <label.Metadata>
+                    <T.SecondSection as |section|>
+                      <section.Icon @name="hexagon" />
+                      <section.Title>Section 2</section.Title>
+                      <section.Metadata>
                         <Cut::TextWithIcon @icon="hexagon" @text="Metadata 3" />
                         <Cut::TextWithIcon
                           @icon="hexagon"
                           @text="Metadata 4"
                           {{hds-tooltip "This tooltip is on the metadata"}}
                         />
-                      </label.Metadata>
-                    </T.Label2>
+                      </section.Metadata>
+                    </T.SecondSection>
                   </Cut::ListItem::Template>
                 </L.Content>
               </Cut::ListItem>
@@ -622,56 +622,56 @@
                   }}
                 >
                   <Cut::ListItem::Template as |T|>
-                    <T.Label as |label|>
-                      <label.Icon @name="hexagon" />
-                      <label.Title>Title</label.Title>
-                      <label.Metadata>
+                    <T.Section as |section|>
+                      <section.Icon @name="hexagon" />
+                      <section.Title>Title</section.Title>
+                      <section.Metadata>
                         <Cut::TextWithIcon @icon="hexagon" @text="Icon Label" />
                         <Cut::TextWithIcon @icon="hexagon" @text="Icon Label" />
-                      </label.Metadata>
-                    </T.Label>
+                      </section.Metadata>
+                    </T.Section>
                     <T.Badge @text="Default" @icon="hexagon" />
-                    <T.Label2 as |label|>
-                      <label.Icon @name="hexagon" />
-                      <label.Title>Label 2</label.Title>
-                      <label.Metadata>
+                    <T.SecondSection as |section|>
+                      <section.Icon @name="hexagon" />
+                      <section.Title>Section 2</section.Title>
+                      <section.Metadata>
                         <Cut::TextWithIcon @icon="hexagon" @text="Metadata 3" />
                         <Cut::TextWithIcon @icon="hexagon" @text="Metadata 4" />
-                      </label.Metadata>
-                    </T.Label2>
+                      </section.Metadata>
+                    </T.SecondSection>
                   </Cut::ListItem::Template>
                 </L.Content>
               </Cut::ListItem>
               <Cut::ListItem as |L|>
                 <L.Content>
                   <Cut::ListItem::Template as |T|>
-                    <T.Label as |label|>
-                      <label.Icon @name="hexagon" />
-                      <label.Title
+                    <T.Section as |section|>
+                      <section.Icon @name="hexagon" />
+                      <section.Title
                         {{hds-tooltip "This tooltip is on the title text"}}
-                      >Title</label.Title>
-                      <label.Metadata>
+                      >Title</section.Title>
+                      <section.Metadata>
                         <Cut::TextWithIcon @icon="hexagon" @text="Icon Label" />
                         <Cut::TextWithIcon @icon="hexagon" @text="Icon Label" />
-                      </label.Metadata>
-                    </T.Label>
+                      </section.Metadata>
+                    </T.Section>
                     <T.Badge
                       @text="Default"
                       @icon="hexagon"
                       {{hds-tooltip "This tooltip is on the badge seperator"}}
                     />
-                    <T.Label2 as |label|>
-                      <label.Icon @name="hexagon" />
-                      <label.Title>Label 2</label.Title>
-                      <label.Metadata>
+                    <T.SecondSection as |section|>
+                      <section.Icon @name="hexagon" />
+                      <section.Title>Section 2</section.Title>
+                      <section.Metadata>
                         <Cut::TextWithIcon @icon="hexagon" @text="Metadata 3" />
                         <Cut::TextWithIcon
                           @icon="hexagon"
                           @text="Metadata 4"
                           {{hds-tooltip "This tooltip is on the metadata"}}
                         />
-                      </label.Metadata>
-                    </T.Label2>
+                      </section.Metadata>
+                    </T.SecondSection>
                   </Cut::ListItem::Template>
                 </L.Content>
               </Cut::ListItem>
@@ -691,12 +691,12 @@
             <Cut::ListItem as |L|>
               <L.Content>
                 <Cut::ListItem::Template as |T|>
-                  <T.Label as |LB|>
-                    <LB.Icon @name="check-circle" />
-                    <LB.Title><Cut::CopyBlock
+                  <T.Section as |SC|>
+                    <SC.Icon @name="check-circle" />
+                    <SC.Title><Cut::CopyBlock
                         @clipboardText="service-name"
-                      >service-name</Cut::CopyBlock></LB.Title>
-                    <LB.Metadata>
+                      >service-name</Cut::CopyBlock></SC.Title>
+                    <SC.Metadata>
                       <Hds::Badge
                         @text="Registered via Vault"
                         @icon="vault"
@@ -713,8 +713,8 @@
                         @text="kubernetes-api, kube"
                         @icon="tag"
                       />
-                    </LB.Metadata>
-                  </T.Label>
+                    </SC.Metadata>
+                  </T.Section>
                 </Cut::ListItem::Template>
               </L.Content>
             </Cut::ListItem>
@@ -724,12 +724,12 @@
             <Cut::ListItem as |L|>
               <L.Content>
                 <Cut::ListItem::Template as |T|>
-                  <T.Label as |LB|>
-                    <LB.Icon @name="check-circle" />
-                    <LB.Title><Cut::CopyBlock
+                  <T.Section as |SC|>
+                    <SC.Icon @name="check-circle" />
+                    <SC.Title><Cut::CopyBlock
                         @clipboardText="service-name"
-                      >service-name</Cut::CopyBlock></LB.Title>
-                    <LB.Metadata>
+                      >service-name</Cut::CopyBlock></SC.Title>
+                    <SC.Metadata>
                       <Hds::Badge
                         @text="Registered via Vault"
                         @icon="vault"
@@ -746,8 +746,8 @@
                         @text="kubernetes-api, kube"
                         @icon="tag"
                       />
-                    </LB.Metadata>
-                  </T.Label>
+                    </SC.Metadata>
+                  </T.Section>
                 </Cut::ListItem::Template>
               </L.Content>
             </Cut::ListItem>
@@ -758,12 +758,12 @@
         <h2 id="component-api">Component API</h2>
         <p>The List Item Template yields a few different contextual components.
           Primarily it provides a
-          <CodeInline @code="Label" />
+          <CodeInline @code="Section" />
           component to present the main content and an optional second
-          <CodeInline @code="Label" />
+          <CodeInline @code="Section" />
           in the form of
-          <CodeInline @code="Label2" />. It also offers optional seperators in
-          via the
+          <CodeInline @code="SecondSection" />. It also offers optional
+          seperators in via the
           <CodeInline @code="Badge" />
           and
           <CodeInline @code="Icon" />
@@ -775,13 +775,13 @@
           <CodeInline @code="...attributes" />
         </ComponentApi>
 
-        <h3 id="label">Label</h3>
-        <p>The List Item Template Label is the primary part of the template. It
-          consists of a title, as well as an option icon for the title and a
+        <h3 id="section-api">Section</h3>
+        <p>The List Item Template Section is the primary part of the template.
+          It consists of a title, as well as an option icon for the title and a
           section to place metadata like badges, labels, etc. There are two
-          available Labels in the List Item Template. The first is required and
-          is available via the Label contextual component. The optional second
-          section can be used via the Label2 contextual component.</p>
+          available Sections in the List Item Template. The first is required
+          and is available via the Label contextual component. The optional
+          second section can be used via the SecondSection contextual component.</p>
         <ComponentApi @name="Icon">
           The
           <CodeInline @code="Icon" />
@@ -799,7 +799,7 @@
           The
           <CodeInline @code="Title" />
           is a contextual component that yields a slot for the title portion of
-          the List Item Label. You may place any content you wish into this
+          the List Item Section. You may place any content you wish into this
           block. The most common usage is text for the title.
         </ComponentApi>
 
@@ -807,25 +807,25 @@
           The
           <CodeInline @code="Metadata" />
           contextual component yields a slot for any metadata for the List Item
-          Template's Label. While this component doesn't prescribe what that
+          Template's Section. While this component doesn't prescribe what that
           content should be, it is often used for
           <CodeInline @code="<Hds::Badge />" />,
           <CodeInline @code="<Cut::TextWithIcon />" />,
           <CodeInline @code="<Cut::CopyBlock />" />, etc.
         </ComponentApi>
 
-        <h3 id="label2">Label2</h3>
-        <p><CodeInline @code="Label2" />
+        <h3 id="section2">SecondSection</h3>
+        <p><CodeInline @code="SecondSection" />
           is the second option
-          <CodeInline @code="Label" />
+          <CodeInline @code="Section" />
           that is yielded by the List Item Template. It is an optional component
           and shares the exact same API as the
-          <CodeInline @code="Label" />.</p>
+          <CodeInline @code="Section" />.</p>
         <h3 id="badge">Badge</h3>
         <p>The
           <CodeInline @code="Badge" />
           contextual component is used as an optional separator between the two
-          <CodeInline @code="Labels" />. It renders a
+          <CodeInline @code="Sections" />. It renders a
           <CodeInline @code="<Hds::Badge />" />
           from HDS. Therefore, it shares the same API. Reference the
           <Hds::Link::Inline
@@ -836,7 +836,7 @@
         <p>The
           <CodeInline @code="Icon" />
           contextual component is used as an optional separator between the two
-          <CodeInline @code="Labels" />. It renders a
+          <CodeInline @code="Sections" />. It renders a
           <CodeInline @code="<FlightIcon />" />
           from HDS. Therefore it shares the same API. Reference the
           <Hds::Link::Inline
@@ -847,12 +847,12 @@
       </div>
       <InPageNav as |I|>
         <I.Link @section="#how-to-use">How to use</I.Link>
-        <I.Link @section="#multiple-labels" @depth={{2}}>Multiple labels</I.Link>
+        <I.Link @section="#multiple-sections" @depth={{2}}>Multiple sections</I.Link>
         <I.Link @section="#using-tooltips" @depth={{2}}>Tooltips</I.Link>
         <I.Link @section="#interactivity" @depth={{2}}>Interactivity</I.Link>
         <I.Link @section="#component-api">Component API</I.Link>
-        <I.Link @section="#label" @depth={{2}}>Label</I.Link>
-        <I.Link @section="#label2" @depth={{2}}>Label2</I.Link>
+        <I.Link @section="#section-api" @depth={{2}}>Section</I.Link>
+        <I.Link @section="#section2" @depth={{2}}>SecondSection</I.Link>
         <I.Link @section="#badge" @depth={{2}}>Badge</I.Link>
         <I.Link @section="#icon" @depth={{2}}>Icon</I.Link>
       </InPageNav>

@@ -9,12 +9,14 @@
   gap: 2px;
   padding-left: 4px;
   margin-left: -4px;
+  cursor: pointer;
 
   .cut-copy-block__copy-button {
     opacity: 0;
     & > .copy-btn {
       display: flex;
       align-items: center;
+      cursor: pointer;
     }
   }
 

@@ -205,8 +205,8 @@
   <Cut::ListItem @href="#" @isHrefExternal={{false}} as |L|>
     <L.Content>
       <Cut::ListItem::Template as |T|>
-        <T.Label as |LB|>
-          <LB.Title>
+        <T.Section as |SC|>
+          <SC.Title>
             <Cut::TextWithIcon
               @text="auth-01"
               @icon="server-cluster"
@@ -222,8 +222,8 @@
               @connection="/"
             />
             <Cut::TextWithIcon @text="default" @icon="users" />
-          </LB.Title>
-          <LB.Metadata>
+          </SC.Title>
+          <SC.Metadata>
             <Hds::Badge
               @text="Allow"
               @color="success"
@@ -232,29 +232,30 @@
             />
             <Cut::TextWithIcon @text="30 seconds ago" @icon="pipeline" />
             <div>10 shared services</div>
-          </LB.Metadata>
-        </T.Label>
+          </SC.Metadata>
+        </T.Section>
       </Cut::ListItem::Template>
     </L.Content>
   </Cut::ListItem>
   <pre><code>
       &lt;Cut::ListItem @onClick=this.onItemClicked as |L|&gt; &lt;L.Content&gt;
-      &lt;Cut::ListItem::Template as |T|&gt; &lt;T.Label as |LB&gt; &lt;LB.Icon
-      @name="check-circle" /&gt; &lt;LB.Title>Service-name&lt;/LB.Title&gt;
-      &lt;LB.Metadata&gt; &lt;Hds::Badge @text="Registered via Vault"
-      @icon="vault" @size="small" /&gt; &lt;div&gt;12 instances&lt;/div&gt;
-      &lt;Cut::TextWithIcon @text="in service mesh with proxy" @icon="mesh"
-      /&gt; &lt;Cut::TextWithIcon @text="kubernetes-api, dev, kube-dev-2"
-      @icon="tag" /&gt; &lt;/LB.Metadata&gt; &lt;/T.Label&gt;
-      &lt;/Cut::ListItem::Template&gt; &lt;/L.Content&gt; &lt;/Cut::ListItem&gt;
+      &lt;Cut::ListItem::Template as |T|&gt; &lt;T.Section as |LB&gt;
+      &lt;SC.Icon @name="check-circle" /&gt;
+      &lt;SC.Title>Service-name&lt;/SC.Title&gt; &lt;SC.Metadata&gt;
+      &lt;Hds::Badge @text="Registered via Vault" @icon="vault" @size="small"
+      /&gt; &lt;div&gt;12 instances&lt;/div&gt; &lt;Cut::TextWithIcon @text="in
+      service mesh with proxy" @icon="mesh" /&gt; &lt;Cut::TextWithIcon
+      @text="kubernetes-api, dev, kube-dev-2" @icon="tag" /&gt;
+      &lt;/SC.Metadata&gt; &lt;/T.Section&gt; &lt;/Cut::ListItem::Template&gt;
+      &lt;/L.Content&gt; &lt;/Cut::ListItem&gt;
     </code></pre>
   <Cut::ListItem as |L|>
     <L.Content>
       <Cut::ListItem::Template as |T|>
-        <T.Label as |LB|>
-          <LB.Icon @name="check-circle" />
-          <LB.Title>Service-name</LB.Title>
-          <LB.Metadata>
+        <T.Section as |SC|>
+          <SC.Icon @name="check-circle" />
+          <SC.Title>Service-name</SC.Title>
+          <SC.Metadata>
             <Hds::Badge
               @text="Registered via Vault"
               @icon="vault"
@@ -271,8 +272,8 @@
               @text="kubernetes-api, dev, kube-dev-2"
               @icon="tag"
             />
-          </LB.Metadata>
-        </T.Label>
+          </SC.Metadata>
+        </T.Section>
       </Cut::ListItem::Template>
     </L.Content>
     <L.ActionDropdown as |dd|>
@@ -286,43 +287,44 @@
   </Cut::ListItem>
   <pre><code>
       &lt;Cut::ListItem as |L|&gt; &lt;L.Content&gt; &lt;Cut::ListItem::Template
-      as |T|&gt; &lt;T.Label as |LB|&gt;
-      &lt;LB.Title&gt;consul-da-server-client-development&lt;/LB.Title&gt;
-      &lt;LB.Metadata&gt; &lt;Cut::TextWithIcon @icon="users"
+      as |T|&gt; &lt;T.Section as |SC|&gt;
+      &lt;SC.Title&gt;consul-da-server-client-development&lt;/SC.Title&gt;
+      &lt;SC.Metadata&gt; &lt;Cut::TextWithIcon @icon="users"
       @text="billing"/&gt; &lt;div&gt;/&lt;/div&gt; &lt;Cut::TextWithIcon
-      @icon="folder" @text="default"/&gt; &lt;/LB.Metadata&gt;
+      @icon="folder" @text="default"/&gt; &lt;/SC.Metadata&gt;
       &lt;/Cut::ListItem::Template&gt; &lt;T.Badge @text="Allow"
-      @color="success" @icon="arrow-right" @size="small"/&gt; &lt;T.Label2 as
-      |LB|&gt;
-      &lt;LB.Title&gt;consul-da-server-client-development&lt;/T.Title&gt;
-      &lt;LB.Metadata&gt; &lt;Cut::TextWithIcon @icon="users"
+      @color="success" @icon="arrow-right" @size="small"/&gt;
+      &lt;T.SecondSection as |SC|&gt;
+      &lt;SC.Title&gt;consul-da-server-client-development&lt;/T.Title&gt;
+      &lt;SC.Metadata&gt; &lt;Cut::TextWithIcon @icon="users"
       @text="billing"/&gt; &lt;div&gt;/&lt;/div&gt; &lt;Cut::TextWithIcon
-      @icon="folder" @text="default"/&gt; &lt;/LB.Metadata&gt; &lt;/T.Label2&gt;
-      &lt;/Cut::ListItem::Template&gt; &lt;/L.Content&gt; &lt;/Cut::ListItem&gt;
+      @icon="folder" @text="default"/&gt; &lt;/SC.Metadata&gt;
+      &lt;/T.SecondSection&gt; &lt;/Cut::ListItem::Template&gt;
+      &lt;/L.Content&gt; &lt;/Cut::ListItem&gt;
     </code></pre>
   <Cut::ListItem as |L|>
     <L.Content>
       <Cut::ListItem::Template as |T|>
-        <T.Label as |LB|>
-          <LB.Title>consul-da-server-client-development</LB.Title>
-          <LB.Metadata>
+        <T.Section as |SC|>
+          <SC.Title>consul-da-server-client-development</SC.Title>
+          <SC.Metadata>
             <Cut::TextWithIcon @icon="users" @text="billing" @connection="/" />
             <Cut::TextWithIcon @icon="folder" @text="default" />
-          </LB.Metadata>
-        </T.Label>
+          </SC.Metadata>
+        </T.Section>
         <T.Badge
           @text="Allow"
           @color="success"
           @icon="arrow-right"
           @size="small"
         />
-        <T.Label2 as |LB|>
-          <LB.Title>consul-da-server-client-development</LB.Title>
-          <LB.Metadata>
+        <T.SecondSection as |SC|>
+          <SC.Title>consul-da-server-client-development</SC.Title>
+          <SC.Metadata>
             <Cut::TextWithIcon @icon="users" @text="billing" @connection="/" />
             <Cut::TextWithIcon @icon="folder" @text="default" />
-          </LB.Metadata>
-        </T.Label2>
+          </SC.Metadata>
+        </T.SecondSection>
       </Cut::ListItem::Template>
     </L.Content>
     <L.ActionDropdown as |dd|>
@@ -337,16 +339,16 @@
   <Cut::ListItem as |L|>
     <L.Content>
       <Cut::ListItem::Template as |T|>
-        <T.Label as |LB|>
-          <LB.Title>Namespace-name</LB.Title>
-          <LB.Metadata>
+        <T.Section as |SC|>
+          <SC.Title>Namespace-name</SC.Title>
+          <SC.Metadata>
             <div>namespace description</div>
             <Cut::TextWithIcon @text="policy-1" @icon="file-text" />
             <Cut::TextWithIcon @text="policy-2" @icon="file-text" />
             <Cut::TextWithIcon @text="role-1" @icon="user" />
             <Cut::TextWithIcon @text="role-2" @icon="user" />
-          </LB.Metadata>
-        </T.Label>
+          </SC.Metadata>
+        </T.Section>
       </Cut::ListItem::Template>
     </L.Content>
     <L.ActionDropdown as |dd|>
@@ -361,17 +363,17 @@
   <Cut::ListItem as |L|>
     <L.Content>
       <Cut::ListItem::Template as |T|>
-        <T.Label as |LB|>
-          <LB.Title>Exposed-path-name</LB.Title>
-          <LB.Metadata>
+        <T.Section as |SC|>
+          <SC.Title>Exposed-path-name</SC.Title>
+          <SC.Metadata>
             <Cut::TextWithIcon @text="grpc" @icon="globe" />
             <Cut::TextWithIcon @text="listening on :63891" @icon="network" />
             <Cut::TextWithIcon
               @text="/expeditabandwidth_overriding_berkshire.xif"
               @icon="path"
             />
-          </LB.Metadata>
-        </T.Label>
+          </SC.Metadata>
+        </T.Section>
       </Cut::ListItem::Template>
     </L.Content>
     <L.ActionDropdown as |dd|>

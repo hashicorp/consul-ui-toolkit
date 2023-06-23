@@ -11,18 +11,19 @@
   @replace={{@replace}}
   @onClick={{@onClick}}
   data-test-service-instance-list-item
-  as |L|>
+  as |L|
+>
   <L.Content as |C|>
     <Cut::ListItem::Template as |T|>
-      <T.Label as |LB|>
-        <LB.Title data-test-service-name>{{@service.name}}</LB.Title>
-        <LB.Metadata>
+      <T.Section as |SC|>
+        <SC.Title data-test-service-name>{{@service.name}}</SC.Title>
+        <SC.Metadata>
           {{#if this.isAllHealthy}}
             <Hds::Badge
               @color='success'
               @icon='check'
               @text='Healthy'
-              @size="small"
+              @size='small'
               data-test-health-check-all-healthy
             />
           {{else}}
@@ -32,7 +33,7 @@
                 @successCount={{@service.metadata.healthCheck.service.success}}
                 @warningCount={{@service.metadata.healthCheck.service.warning}}
                 @criticalCount={{@service.metadata.healthCheck.service.critical}}
-                @type="service"
+                @type='service'
               />
             {{/if}}
             <!--Node health check-->
@@ -41,7 +42,7 @@
                 @successCount={{@service.metadata.healthCheck.node.success}}
                 @warningCount={{@service.metadata.healthCheck.node.warning}}
                 @criticalCount={{@service.metadata.healthCheck.node.critical}}
-                @type="node"
+                @type='node'
               />
             {{/if}}
           {{/if}}
@@ -51,25 +52,39 @@
           />
 
           {{#if @service.metadata.externalSource}}
-            <Cut::Metadata::ExternalSource @externalSource={{@service.metadata.externalSource}}/>
+            <Cut::Metadata::ExternalSource
+              @externalSource={{@service.metadata.externalSource}}
+            />
           {{/if}}
 
           {{#if @service.metadata.node}}
-            <Cut::TextWithIcon @icon="node" @text={{@service.metadata.node}} data-test-node-name/>
+            <Cut::TextWithIcon
+              @icon='node'
+              @text={{@service.metadata.node}}
+              data-test-node-name
+            />
           {{/if}}
 
           {{#if @service.metadata.servicePortAddress}}
-            <Cut::TextWithIcon @icon="globe" @text={{@service.metadata.servicePortAddress}} data-test-address/>
+            <Cut::TextWithIcon
+              @icon='globe'
+              @text={{@service.metadata.servicePortAddress}}
+              data-test-address
+            />
 
           {{else if @service.metadata.serviceSocketPath}}
-            <Cut::TextWithIcon @icon="socket" @text={{@service.metadata.serviceSocketPath}} data-test-socket />
+            <Cut::TextWithIcon
+              @icon='socket'
+              @text={{@service.metadata.serviceSocketPath}}
+              data-test-socket
+            />
           {{/if}}
 
           {{#if @service.metadata.tags.length}}
-            <Cut::Metadata::Tags @tags={{@service.metadata.tags}}/>
+            <Cut::Metadata::Tags @tags={{@service.metadata.tags}} />
           {{/if}}
-        </LB.Metadata>
-      </T.Label>
+        </SC.Metadata>
+      </T.Section>
     </Cut::ListItem::Template>
   </L.Content>
 </Cut::ListItem>
