@@ -21,5 +21,6 @@ Router.map(function () {
   this.route('components', function () {
     this.route('list-item');
     this.route('list-item-template');
+    this.route('service-list-item');
   });
 });

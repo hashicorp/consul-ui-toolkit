@@ -1,0 +1,331 @@
+<PageHeader
+  @title="Service List Item"
+  @github="https://github.com/hashicorp/consul-ui-toolkit/tree/main/toolkit/src/components/cut/list-item/service"
+  @status="development"
+>
+  The Service List Item is a wrapper of the List Item and List Item Template
+  components that takes data from a service and generates a List Item with the
+  appropriate information and formatting.
+</PageHeader>
+<Hds::Tabs as |T|>
+  <T.Tab>About</T.Tab>
+  <T.Tab>Code</T.Tab>
+  <T.Panel>
+    <div class="doc-Page">
+      <div class="doc-Page-content">
+        <h2 id="about">About</h2>
+        <p>The Service list Item is a wrapper around the
+          <Hds::Link::Inline @route="components.list-item">List Item</Hds::Link::Inline>
+          and
+          <Hds::Link::Inline @route="components.list-item-template">List Item
+            Template</Hds::Link::Inline>, and is used to make it easier to build
+          list items for services across the two Consul UI applications.</p>
+        <Cut::ListItem::Service @service={{this.serviceListItem}} />
+
+        <h2 id="examples">Examples</h2>
+        <p>The following are some examples of different Service List Items and
+          their corresponding service object. For the full API, visit the Code
+          tab.</p>
+
+        <PreviewBlock as |P|>
+          <P.Preview>
+            <Cut::ListItem::Service @service={{this.healthyPlainService}} />
+          </P.Preview>
+          <P.Code
+            @code={{{"
+            /* 
+              Example service object
+              {
+                name: 'Plain Healthy Service',
+                metadata: {
+                  healthCheck: {
+                    instance: {
+                      success: 3,
+                      warning: 0,
+                      critical: 0,
+                    },
+                  },
+                  externalSource: 'consul',
+                  instanceCount: 3,
+                  tags: ['consul', 'array', 'monitor'],
+                },
+              }
+            */
+
+            <Cut::ListItem::Service @service={{this.healthyPlainService}} />
+          "}}}
+          />
+        </PreviewBlock>
+
+        <PreviewBlock as |P|>
+          <P.Preview>
+            <Cut::ListItem::Service
+              @service={{this.failingTerminatingGateway}}
+            />
+          </P.Preview>
+          <P.Code
+            @code={{{"
+            /* 
+              Example service object
+              {
+                name: 'Service (terminating gateway): Failed checks',
+                metadata: {
+                  healthCheck: {
+                    instance: {
+                      success: 4,
+                      warning: 0,
+                      critical: 1,
+                    },
+                  },
+                  kind: SERVICE_GATEWAY_TYPE.TerminatingGateway,
+                  linkedServiceCount: 6,
+                  externalSource: 'vault',
+                }
+              }
+            */
+
+            <Cut::ListItem::Service @service={{this.failingTerminatingGateway}} />
+          "}}}
+          />
+        </PreviewBlock>
+
+        <PreviewBlock as |P|>
+          <P.Preview>
+            <Cut::ListItem::Service
+              @service={{this.mtlsSamenessGroupService}}
+            />
+          </P.Preview>
+          <P.Code
+            @code={{{"
+            /*
+              Example service object
+
+              {
+                name: 'Service: imported, with sameness group, permissive mTLS',
+                metadata: {
+                  healthCheck: {
+                    instance: {
+                      success: 2,
+                      warning: 1,
+                      critical: 0,
+                    },
+                  },
+                  instanceCount: 8,
+                  isImported: true,
+                  samenessGroup: 'group-1',
+                  isPermissiveMTls: true,
+                },
+            */
+            <Cut::ListItem::Service @service={{this.mtlsSamenessGroupService}} />
+          "}}}
+          />
+        </PreviewBlock>
+
+      </div>
+      <InPageNav as |I|>
+        <I.Link @section="#about">About</I.Link>
+        <I.Link @section="#examples">Examples</I.Link>
+      </InPageNav>
+    </div>
+
+  </T.Panel>
+  <T.Panel>
+
+    <div class="doc-Page">
+      <div class="doc-Page-content">
+        <h2 id="component-api">Component API</h2>
+        <p>The Service List Item is composed with the List Item and the List
+          Item Template. It accepts all the arguments that the List Item does.
+          Visit the
+          <Hds::Link::Inline @route="components.list-item">List Item
+            documentation</Hds::Link::Inline>
+          to get full details on it's API.</p>
+        <p>Aside from that, the Service List Item accepts a Service object that
+          is composed of a
+          <CodeInline @code="name" />
+          and a
+          <CodeInline @code="metadata" />
+          object. We'll dive into the details below.</p>
+
+        <CodeBlock
+          @code={{{"
+          interface CutService {
+            name: string | undefined;
+            metadata: {
+              healthCheck: {
+                instance?: HealthCheck;
+              };
+              kind?: SERVICE_KIND;
+              instanceCount?: number;
+              isImported?: boolean;
+              isPermissiveMTls?: boolean;
+              connectedWithGateway?: boolean;
+              connectedWithProxy?: boolean;
+              samenessGroup?: string;
+              externalSource?: ExternalSource;
+              tags: string[];
+              upstreamCount?: number;
+              linkedServiceCount?: number;
+            };
+          }
+          "}}}
+        />
+
+        <ComponentApi @name="name" @isRequired={{true}} @type="string" />
+        <h3 id="metadata">Metadata</h3>
+        <p>The
+          <CodeInline @code="metadata" />
+          object on the service holds the details to display the significant
+          portion of the information about the service.</p>
+
+        <ComponentApi
+          @name="kind"
+          @isRequired={{false}}
+          @values={{array
+            "api-gateway"
+            "mesh-gateway"
+            "ingress-gateway"
+            "terminating-gateway"
+            "undefined"
+          }}
+          @default="undefined"
+        >
+          Determines the service's kind. If a gateway value is used, a icon and
+          associated gateway label will be presented in the metadata section of
+          the List Item.
+        </ComponentApi>
+
+        <ComponentApi @name="instanceCount" @type="number">
+          Used to display the number of service instances in the List Item
+          metadata.
+        </ComponentApi>
+
+        <ComponentApi @name="upstreamCount" @type="number">
+          Used to display the number of upstream services for an Ingress Gateway
+          in the List Item metadata.
+        </ComponentApi>
+
+        <ComponentApi @name="linkedServiceCount" @type="number">
+          Used to display the number of linked services for an Terminating
+          Gateway in the List Item metadata.
+        </ComponentApi>
+
+        <ComponentApi @name="isImported" @type="boolean" @default={{false}}>
+          If
+          <CodeInline @code="true" />, an icon and associated 'imported' text is
+          show in the List Item metadata.
+        </ComponentApi>
+
+        <ComponentApi
+          @name="isPermissiveMtls"
+          @type="boolean"
+          @default={{false}}
+        >
+          If
+          <CodeInline @code="true" />, an icon and text is shown in the List
+          Item metadata section to represent that the service has Permissive
+          MTLS enabled.
+        </ComponentApi>
+
+        <ComponentApi
+          @name="connectedWithGateway"
+          @type="boolean"
+          @default={{false}}
+        >
+          <p>
+
+            If this is
+            <CodeInline @code="true" />
+            and
+            <CodeInline @code="connectedWithProxy" />
+            is
+            <CodeInline @code="false" />, then an icon with text displaying "in
+            service mesh with gateway" display in the List Item metadata.
+          </p>
+          <p>Alternatively, if both are
+            <CodeInline @code="true" />
+            then the text display "in service mesh with proxy and gateway".</p>
+        </ComponentApi>
+
+        <ComponentApi
+          @name="connectedWithProxy"
+          @type="boolean"
+          @default={{false}}
+        >
+          <p>
+
+            If this is
+            <CodeInline @code="true" />
+            and
+            <CodeInline @code="connectedWithGateway" />
+            is
+            <CodeInline @code="false" />, then an icon with text displaying "in
+            service mesh with proxy" display in the List Item metadata.
+          </p>
+          <p>Alternatively, if both are
+            <CodeInline @code="true" />
+            then the text display "in service mesh with proxy and gateway".</p>
+        </ComponentApi>
+
+        <ComponentApi @name="samenessGroup" @type="string">
+          Display an icon and text containing the sameness group name in the
+          List Item metadata.
+        </ComponentApi>
+
+        <ComponentApi @name="tags" @type="string[]">
+          Used to display a list of tags for the service in the List Item
+          metadata.
+        </ComponentApi>
+
+        <ComponentApi
+          @name="externalSource"
+          @type="string"
+          @values={{array
+            "kubernetes"
+            "terraform"
+            "nomad"
+            "consul"
+            "consul-api-gateway"
+            "vault"
+            "aws"
+            "aws-iam"
+            "lambda"
+            "undefined"
+          }}
+          @default="undefined"
+        >
+          Used to display what the service was registered via in the List Item
+          metadata.
+        </ComponentApi>
+
+        <h4 id="health-check">Health check</h4>
+        The
+        <CodeInline @code="healthCheck" />
+        property is an object that has one optional property,
+        <CodeInline @code="instance" />, that holds the information about the
+        service instances' health check statuses. The API for the
+        <CodeInline @code="healthCheck.instance" />
+        property is as follows.
+
+        <ComponentApi @name="success" @isRequired={{true}} @type="number">The
+          number of instance health checks reporting a
+          <CodeInline @code="success" />
+          status.</ComponentApi>
+        <ComponentApi @name="warning" @isRequired={{true}} @type="number">The
+          number of instance health checks reporting a
+          <CodeInline @code="warning" />
+          status.</ComponentApi>
+        <ComponentApi @name="critical" @isRequired={{true}} @type="number">The
+          number of instance health checks reporting a
+          <CodeInline @code="critical" />
+          status.</ComponentApi>
+
+      </div>
+      <InPageNav as |I|>
+        <I.Link @section="#component-api">Component API</I.Link>
+        <I.Link @section="#metadata" @depth={{2}}>Metadata</I.Link>
+        <I.Link @section="#health-check" @depth={{2}}>Health check</I.Link>
+      </InPageNav>
+    </div>
+  </T.Panel>
+</Hds::Tabs>
