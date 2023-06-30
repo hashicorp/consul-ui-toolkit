@@ -178,7 +178,11 @@
           "}}}
         />
 
-        <ComponentApi @name="name" @isRequired={{true}} @type="string" />
+        <ComponentApi
+          @name="service.name"
+          @isRequired={{true}}
+          @type="string"
+        />
         <h3 id="metadata">Metadata</h3>
         <p>The
           <CodeInline @code="service.metadata" />
