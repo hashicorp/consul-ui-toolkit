@@ -145,11 +145,13 @@
           <Hds::Link::Inline @route="components.list-item">List Item
             documentation</Hds::Link::Inline>
           to get full details on it's API.</p>
+
+        <h3 id="service">Service</h3>
         <p>Aside from that, the Service List Item accepts a Service object that
           is composed of a
-          <CodeInline @code="name" />
+          <CodeInline @code="service.name" />
           and a
-          <CodeInline @code="metadata" />
+          <CodeInline @code="service.metadata" />
           object. We'll dive into the details below.</p>
 
         <CodeBlock
@@ -179,12 +181,12 @@
         <ComponentApi @name="name" @isRequired={{true}} @type="string" />
         <h3 id="metadata">Metadata</h3>
         <p>The
-          <CodeInline @code="metadata" />
+          <CodeInline @code="service.metadata" />
           object on the service holds the details to display the significant
           portion of the information about the service.</p>
 
         <ComponentApi
-          @name="kind"
+          @name="service.metadata.kind"
           @isRequired={{false}}
           @values={{array
             "api-gateway"
@@ -200,29 +202,36 @@
           the List Item.
         </ComponentApi>
 
-        <ComponentApi @name="instanceCount" @type="number">
+        <ComponentApi @name="service.metadata.instanceCount" @type="number">
           Used to display the number of service instances in the List Item
           metadata.
         </ComponentApi>
 
-        <ComponentApi @name="upstreamCount" @type="number">
+        <ComponentApi @name="service.metadata.upstreamCount" @type="number">
           Used to display the number of upstream services for an Ingress Gateway
           in the List Item metadata.
         </ComponentApi>
 
-        <ComponentApi @name="linkedServiceCount" @type="number">
+        <ComponentApi
+          @name="service.metadata.linkedServiceCount"
+          @type="number"
+        >
           Used to display the number of linked services for an Terminating
           Gateway in the List Item metadata.
         </ComponentApi>
 
-        <ComponentApi @name="isImported" @type="boolean" @default={{false}}>
+        <ComponentApi
+          @name="service.metadata.isImported"
+          @type="boolean"
+          @default={{false}}
+        >
           If
           <CodeInline @code="true" />, an icon and associated 'imported' text is
           show in the List Item metadata.
         </ComponentApi>
 
         <ComponentApi
-          @name="isPermissiveMtls"
+          @name="service.metadata.isPermissiveMtls"
           @type="boolean"
           @default={{false}}
         >
@@ -233,7 +242,7 @@
         </ComponentApi>
 
         <ComponentApi
-          @name="connectedWithGateway"
+          @name="service.metadata.connectedWithGateway"
           @type="boolean"
           @default={{false}}
         >
@@ -253,7 +262,7 @@
         </ComponentApi>
 
         <ComponentApi
-          @name="connectedWithProxy"
+          @name="service.metadata.connectedWithProxy"
           @type="boolean"
           @default={{false}}
         >
@@ -272,18 +281,18 @@
             then the text display "in service mesh with proxy and gateway".</p>
         </ComponentApi>
 
-        <ComponentApi @name="samenessGroup" @type="string">
+        <ComponentApi @name="service.metadata.samenessGroup" @type="string">
           Display an icon and text containing the sameness group name in the
           List Item metadata.
         </ComponentApi>
 
-        <ComponentApi @name="tags" @type="string[]">
+        <ComponentApi @name="service.metadata.tags" @type="string[]">
           Used to display a list of tags for the service in the List Item
           metadata.
         </ComponentApi>
 
         <ComponentApi
-          @name="externalSource"
+          @name="service.metadata.externalSource"
           @type="string"
           @values={{array
             "kubernetes"
@@ -305,29 +314,39 @@
 
         <h4 id="health-check">Health check</h4>
         The
-        <CodeInline @code="healthCheck" />
+        <CodeInline @code="service.metadata.healthCheck" />
         property is an object that has one optional property,
         <CodeInline @code="instance" />, that holds the information about the
         service instances' health check statuses. The API for the
-        <CodeInline @code="healthCheck.instance" />
+        <CodeInline @code="service.metadata.healthCheck.instance" />
         property is as follows.
 
-        <ComponentApi @name="success" @isRequired={{true}} @type="number">The
-          number of instance health checks reporting a
+        <ComponentApi
+          @name="service.metadata.healthCheck.instance.success"
+          @isRequired={{true}}
+          @type="number"
+        >The number of instance health checks reporting a
           <CodeInline @code="success" />
           status.</ComponentApi>
-        <ComponentApi @name="warning" @isRequired={{true}} @type="number">The
-          number of instance health checks reporting a
+        <ComponentApi
+          @name="service.metadata.healthCheck.instance.warning"
+          @isRequired={{true}}
+          @type="number"
+        >The number of instance health checks reporting a
           <CodeInline @code="warning" />
           status.</ComponentApi>
-        <ComponentApi @name="critical" @isRequired={{true}} @type="number">The
-          number of instance health checks reporting a
+        <ComponentApi
+          @name="service.metadata.healthCheck.instance.critical"
+          @isRequired={{true}}
+          @type="number"
+        >The number of instance health checks reporting a
           <CodeInline @code="critical" />
           status.</ComponentApi>
 
       </div>
       <InPageNav as |I|>
         <I.Link @section="#component-api">Component API</I.Link>
+        <I.Link @section="#service" @depth={{2}}>Service</I.Link>
         <I.Link @section="#metadata" @depth={{2}}>Metadata</I.Link>
         <I.Link @section="#health-check" @depth={{2}}>Health check</I.Link>
       </InPageNav>
