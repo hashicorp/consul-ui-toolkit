@@ -15,19 +15,19 @@ export interface CutService {
   name: string | undefined;
   metadata: {
     healthCheck: {
-      instance: HealthCheck | undefined;
+      instance?: HealthCheck;
     };
-    kind: SERVICE_KIND | undefined;
-    instanceCount: number | undefined;
-    isImported: boolean | undefined;
-    isPermissiveMTls: boolean | undefined;
-    connectedWithGateway: boolean | undefined;
-    connectedWithProxy: boolean | undefined;
-    samenessGroup: string | undefined;
-    externalSource: ExternalSource | undefined;
+    kind?: SERVICE_KIND;
+    instanceCount?: number;
+    isImported?: boolean;
+    isPermissiveMTls?: boolean;
+    connectedWithGateway?: boolean;
+    connectedWithProxy?: boolean;
+    samenessGroup?: string;
+    externalSource?: ExternalSource;
     tags: string[];
-    upstreamCount: number | undefined;
-    linkedServiceCount: number | undefined;
+    upstreamCount?: number;
+    linkedServiceCount?: number;
   };
 }
 
