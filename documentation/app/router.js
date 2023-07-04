@@ -22,5 +22,6 @@ Router.map(function () {
     this.route('list-item');
     this.route('list-item-template');
     this.route('service-list-item');
+    this.route('service-instance-list-item');
   });
 });
