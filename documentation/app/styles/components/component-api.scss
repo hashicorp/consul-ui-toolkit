@@ -4,8 +4,8 @@
 
 .doc-componentApi {
   display: grid;
-  grid-template-columns: 1fr 1fr auto;
-  grid-template-areas: "name type required";
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "name type";
   grid-auto-flow: row;
   gap: 1rem;
   padding: 1.5rem 1rem;
@@ -28,13 +28,13 @@
     grid-area: name;
   }
 
-  .doc-componentApi-type {
+  .doc-componentApi-type-required-group {
     grid-area: type;
+    display: flex;
+    justify-content: space-between;
   }
 
   .doc-componentApi-required {
-    grid-area: required;
-    justify-self: end;
     align-self: start;
   }
 

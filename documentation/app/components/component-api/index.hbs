@@ -8,22 +8,24 @@
     <dd><Hds::Badge @text={{@name}} @type="inverted" /></dd>
   </div>
 
-  {{#if @type}}
+  <div class="doc-componentApi-type-required-group">
     <div class="doc-componentApi-type">
-      <dt>Type</dt>
-      <dd class="hds-font-family-mono-code">{{@type}}</dd>
+      {{#if @type}}
+        <dt>Type</dt>
+        <dd class="hds-font-family-mono-code">{{@type}}</dd>
+      {{/if}}
     </div>
-  {{/if}}
+
+    {{#if @isRequired}}
+      <Hds::Badge @text="Required" class="doc-componentApi-required" />
+    {{/if}}
+  </div>
 
   {{#if (and @default (not @values))}}
     <div class="doc-componentApi-default">
       <dt>Default</dt>
       <dd><Hds::Badge @text={{@default}} @type="inverted" /></dd>
     </div>
-  {{/if}}
-
-  {{#if @isRequired}}
-    <Hds::Badge @text="Required" class="doc-componentApi-required" />
   {{/if}}
 
   {{#if @values}}

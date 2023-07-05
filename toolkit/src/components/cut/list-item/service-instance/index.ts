@@ -9,18 +9,18 @@ import {
 } from '../../../../utils/service-list-item';
 
 export interface CutServiceInstance {
-  name: string | undefined;
+  name?: string;
   metadata: {
     healthCheck: {
-      node: HealthCheck | undefined;
-      service: HealthCheck | undefined;
+      node?: HealthCheck;
+      service?: HealthCheck;
     };
     tags: string[];
-    servicePortAddress: string | null;
-    serviceSocketPath: string | undefined;
-    node: string | undefined;
-    externalSource: ExternalSource | undefined;
-    connectedWithProxy: boolean | undefined;
+    servicePortAddress?: string;
+    serviceSocketPath?: string;
+    node?: string;
+    externalSource?: ExternalSource;
+    connectedWithProxy?: boolean;
   };
 }
 

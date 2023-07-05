@@ -1,0 +1,270 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
+<PageHeader
+  @title="Service Instance List Item"
+  @figma="https://www.figma.com/file/SenC8kTQNUJKCvOvcL8WPu/Consul-Component-Library?node-id=642%3A89719&mode=dev"
+  @github="https://github.com/hashicorp/consul-ui-toolkit/tree/main/toolkit/src/components/cut/list-item/service-instance"
+  @status="development"
+>
+  The Service Instance List Item is a wrapper of the List Item and List Item
+  Template components that takes data from a Service Instance and generates a
+  List Item with the appropriate information and formatting.
+</PageHeader>
+<Hds::Tabs as |T|>
+  <T.Tab>About</T.Tab>
+  <T.Tab>Code</T.Tab>
+  <T.Panel>
+    <div class="doc-Page">
+      <div class="doc-Page-content">
+        <h2 id="about">About</h2>
+        <p>The Service Instance List Item is a wrapper around the
+          <Hds::Link::Inline @route="components.list-item">List Item</Hds::Link::Inline>
+          and
+          <Hds::Link::Inline @route="components.list-item-template">List Item
+            Template</Hds::Link::Inline>, and is used to make it easier to build
+          list items for Service Instances across the two Consul UI
+          applications.</p>
+        <Cut::ListItem::ServiceInstance
+          @service={{this.healthyServiceInstance}}
+        />
+
+        <h2 id="examples">Examples</h2>
+        <p>The following are some examples of different Service Instance List
+          Items and their corresponding Service Instance object. For the full
+          API, visit the Code tab.</p>
+
+        <PreviewBlock as |P|>
+          <P.Preview>
+            <Cut::ListItem::ServiceInstance
+              @service={{this.healthyServiceInstance}}
+            />
+          </P.Preview>
+          <P.Code
+            @code={{{"
+            /* 
+              Example service object
+              {
+                name: 'Service instance: All Healthy',
+                metadata: {
+                  healthCheck: {
+                    node: {
+                      success: 5,
+                      warning: 0,
+                      critical: 0,
+                    },
+                    service: {
+                      success: 2,
+                      warning: 0,
+                      critical: 0,
+                    },
+                  },
+                  tags: ['tag', 'service'],
+                  servicePortAddress: '8.8.8.8:8000',
+                  serviceSocketPath: '/qui/asperiores/quis',
+                  node: 'node',
+                  externalSource: 'kubernetes',
+                },
+              }
+            */
+
+            <Cut::ListItem::ServiceInstance @service={{this.healthyServiceInstance}} />
+          "}}}
+          />
+        </PreviewBlock>
+
+        <PreviewBlock as |P|>
+          <P.Preview>
+            <Cut::ListItem::ServiceInstance
+              @service={{this.failingServiceInstance}}
+            />
+          </P.Preview>
+          <P.Code
+            @code={{{"
+            /* 
+              Example service object
+              {
+                name: 'Service instance: Failed checks, service socket, no tags, no node name',
+                metadata: {
+                  healthCheck: {
+                    node: {
+                      success: 5,
+                      warning: 1,
+                      critical: 2,
+                    },
+                    service: {
+                      success: 9,
+                      warning: 0,
+                      critical: 0,
+                    },
+                  },
+                  tags: [],
+                  servicePortAddress: '',
+                  serviceSocketPath: '/qui/asperiores/quis',
+                  node: null,
+                },
+              }
+            */
+
+            <Cut::ListItem::ServiceInstance @service={{this.failingServiceInstance}} />
+          "}}}
+          />
+        </PreviewBlock>
+
+      </div>
+      <InPageNav as |I|>
+        <I.Link @section="#about">About</I.Link>
+        <I.Link @section="#examples">Examples</I.Link>
+      </InPageNav>
+    </div>
+
+  </T.Panel>
+  <T.Panel>
+    <div class="doc-Page">
+      <div class="doc-Page-content">
+        <h2 id="component-api">Component API</h2>
+        <p>The Service Instance List Item is composed with the List Item and the
+          List Item Template. It accepts all the arguments that the List Item
+          does. Visit the
+          <Hds::Link::Inline @route="components.list-item">List Item
+            documentation</Hds::Link::Inline>
+          to get full details on it's API.</p>
+
+        <h3 id="service">Service</h3>
+        <p>Aside from that, the Service Instance List Item accepts a Service
+          object that is composed of a
+          <CodeInline @code="service.name" />
+          and a
+          <CodeInline @code="service.metadata" />
+          object. We'll dive into the details below.</p>
+
+        <CodeBlock
+          @code={{{"
+          interface CutServiceInstance {
+            name?: string;
+            metadata: {
+              healthCheck: {
+                node?: HealthCheck;
+                service?: HealthCheck;
+              };
+              tags: string[];
+              servicePortAddress?: string;
+              serviceSocketPath?: string;
+              node?: string;
+              externalSource?: ExternalSource;
+              connectedWithProxy?: boolean;
+            };
+          }
+          "}}}
+        />
+
+        <ComponentApi
+          @name="service.name"
+          @isRequired={{true}}
+          @type="string"
+        />
+        <h3 id="metadata">Metadata</h3>
+        <p>The
+          <CodeInline @code="service.metadata" />
+          object on the service holds the details to display the significant
+          portion of the information about the service.</p>
+
+        <ComponentApi @name="service.metadata.tags" @type="string[]">
+          Used to display a list of tags for the Service Instance in the List
+          Item metadata.
+        </ComponentApi>
+
+        <ComponentApi
+          @name="service.metadata.externalSource"
+          @type="string"
+          @values={{array
+            "kubernetes"
+            "terraform"
+            "nomad"
+            "consul"
+            "consul-api-gateway"
+            "vault"
+            "aws"
+            "aws-iam"
+            "lambda"
+            "undefined"
+          }}
+          @default="undefined"
+        >
+          Used to display what the Service Instance was registered via in the
+          List Item metadata.
+        </ComponentApi>
+
+        <ComponentApi
+          @name="service.metadata.servicePortAddress"
+          @type="string"
+        >
+          Used to display the Service Instance IP and Port in the List Item
+          metadata.
+        </ComponentApi>
+
+        <ComponentApi @name="service.metadata.serviceSocketPath" @type="string">
+          Used to display the Service Instance Socket Path in the List Item
+          metadata.
+        </ComponentApi>
+
+        <ComponentApi @name="service.metadata.node" @type="string">
+          Used to display the associated Node name in the List Item metadata.
+        </ComponentApi>
+
+        <ComponentApi
+          @name="service.metadata.connectedWithProxy"
+          @type="boolean"
+          @default="false"
+        >
+          If this is
+          <CodeInline @code="true" />
+          then an icon with text displaying "in service mesh with proxy" display
+          in the List Item metadata.
+        </ComponentApi>
+
+        <h4 id="health-check">Health check</h4>
+        The
+        <CodeInline @code="service.metadata.healthCheck" />
+        property is an object that has two optional properties,
+        <CodeInline @code="node" />
+        and
+        <CodeInline @code="service" />, that hold the information about the node
+        and service instances' health check statuses respectively. The API for
+        the
+        <CodeInline @code="service.metadata.healthCheck.{node|service}" />
+        property is as follows.
+
+        <ComponentApi
+          @name="service.metadata.healthCheck.{node|service}.success"
+          @isRequired={{true}}
+          @type="number"
+        >The number of node/service health checks reporting a
+          <CodeInline @code="success" />
+          status.</ComponentApi>
+        <ComponentApi
+          @name="service.metadata.healthCheck.{node|service}.warning"
+          @isRequired={{true}}
+          @type="number"
+        >The number of node/service health checks reporting a
+          <CodeInline @code="warning" />
+          status.</ComponentApi>
+        <ComponentApi
+          @name="service.metadata.healthCheck.{node|service}.critical"
+          @isRequired={{true}}
+          @type="number"
+        >The number of node/service health checks reporting a
+          <CodeInline @code="critical" />
+          status.</ComponentApi>
+
+      </div>
+      <InPageNav as |I|>
+        <I.Link @section="#component-api">Component API</I.Link>
+        <I.Link @section="#service" @depth={{2}}>Service</I.Link>
+        <I.Link @section="#metadata" @depth={{2}}>Metadata</I.Link>
+        <I.Link @section="#health-check" @depth={{2}}>Health check</I.Link>
+      </InPageNav>
+    </div>
+  </T.Panel>
+</Hds::Tabs>
