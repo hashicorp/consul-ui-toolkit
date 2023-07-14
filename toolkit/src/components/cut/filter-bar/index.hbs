@@ -1,0 +1,58 @@
+<div class='cut-filter-bar'>
+  <div class='cut-filter-bar-filters'>
+    <Hds::SegmentedGroup as |S|>
+      <S.TextInput @type='search' placeholder='Search' aria-label='Search' />
+      <S.Dropdown as |DD|>
+        <DD.ToggleButton @color='secondary' @text='Across' @count='2' />
+        <DD.Checkbox checked>Metadata</DD.Checkbox>
+        <DD.Checkbox checked>Tags</DD.Checkbox>
+        <DD.Checkbox>Service name</DD.Checkbox>
+      </S.Dropdown>
+    </Hds::SegmentedGroup>
+
+    <Hds::SegmentedGroup as |S|>
+      <S.Dropdown as |DD|>
+        <DD.ToggleButton @color='secondary' @text='Status' />
+        <DD.Checkbox checked><Hds::Badge
+            @icon='check'
+            @color='success'
+            @text='Health'
+          /></DD.Checkbox>
+        <DD.Checkbox><Hds::Badge
+            @icon='alert-triangle'
+            @color='warning'
+            @text='Warning'
+          /></DD.Checkbox>
+        <DD.Checkbox checked><Hds::Badge
+            @icon='x'
+            @color='critical'
+            @text='Critical'
+          /></DD.Checkbox>
+      </S.Dropdown>
+      <S.Dropdown as |DD|>
+        <DD.ToggleButton @color='secondary' @text='Type' />
+        <DD.Title @text='Service' />
+        <DD.Checkbox checked>Service</DD.Checkbox>
+        <DD.Title @text='Gateway' />
+        <DD.Checkbox>Api Gateway</DD.Checkbox>
+        <DD.Checkbox>Ingress Gateway</DD.Checkbox>
+        <DD.Checkbox>Mesh Gateway</DD.Checkbox>
+        <DD.Checkbox>Terminating Gateway</DD.Checkbox>
+        <DD.Button @text='Apply' {{on 'click' this.handleButtonClick}} />
+      </S.Dropdown>
+    </Hds::SegmentedGroup>
+
+  </div>
+
+  <Hds::Dropdown as |DD|>
+
+    <DD.ToggleButton
+      @text='sort by: unhealthy to healthy'
+      @icon='sort-desc'
+      @color='secondary'
+    />
+    <DD.Checkmark @selected={{true}}>Unhealthy to Healthy</DD.Checkmark>
+    <DD.Checkmark @selected={{false}}>Unhealthy to Healthy</DD.Checkmark>
+    <DD.Checkmark @selected={{false}}>Unhealthy to Healthy</DD.Checkmark>
+  </Hds::Dropdown>
+</div>

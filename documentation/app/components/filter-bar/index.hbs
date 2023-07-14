@@ -1,0 +1,134 @@
+{{! 
+  FilterBar takes initial state (optional? how would you manage defaults for radio options)
+  - Only sends update for changes to filters when something actually changes so initial requests shouldn't impact it?
+  - provides current filter selection down
+  - provides comparator function for simple filter checking
+  - provides function for updating filter
+  - provides slots for filters
+ }}
+
+<div class="cut-filter-bar">
+  {{#if (has-block "prefilters")}}{{/if}}
+  <div class="cut-filter-bar-filters">
+
+    {{#if (has-block "searchgroup")}}
+      <Hds::SegmentedGroup as |components|>
+        <components.TextInput @value={{this.search}} @type="search" />
+        {{yield components to="searchgroup"}}
+      </Hds::SegmentedGroup>
+    {{else if (has-block "search")}}
+      <Hds::Form::TextInput::Base @value={{this.search}} @type="search" />
+    {{/if}}
+    {{#if (has-block "filtergroup")}}
+      <Hds::SegmentedGroup as |S|>
+        {{yield S this.toggleFilterValue to="filtergroup"}}
+      </Hds::SegmentedGroup>
+    {{/if}}
+  </div>
+  {{#if (has-block "sort")}}{{else if (has-block "combinedsort")}}{{/if}}
+</div>
+
+{{! <div class="cut-filter-bar">
+  <div class="cut-filter-bar-filters">
+    <Hds::SegmentedGroup as |S|>
+
+      <S.TextInput @type="search" placeholder="Search" aria-label="Search" />
+      <S.Dropdown as |DD|>
+        <DD.ToggleButton @color="secondary" @text="Across" @count="2" />
+        <DD.Checkbox checked>Metadata</DD.Checkbox>
+        <DD.Checkbox checked>Tags</DD.Checkbox>
+        <DD.Checkbox>Service name</DD.Checkbox>
+      </S.Dropdown> }}
+{{!-- {{yield (hash
+        Search=(component 'cut/filter-bar/search')
+        SearchAcross=(component 'cut/filter-bar/search-accross')
+      )}} --}}
+{{! </Hds::SegmentedGroup> }}
+
+{{!-- {{#if (has-block "filters")}} --}}
+{{! <Hds::SegmentedGroup as |S|> }}
+{{!-- {{yield this.applyFilter S to="filters"}} --}}
+{{! <S.Dropdown as |DD|> }}
+{{!-- {{yield (hash Checkbox=(component DD.Checkbox checked=true))}}
+      </S.Dropdown> --}}
+{{!-- {{yield
+        (hash
+          CheckboxFilter=(component
+            "filter-bar/checkbox-filter" applyFilter=(this.applyFilter)
+          )
+        )
+      }} --}}
+{{!-- <S.Dropdown as |DD|>
+        <DD.ToggleButton @color="secondary" @text="Status" />
+        <DD.Checkbox checked><Hds::Badge
+            @icon="check"
+            @color="success"
+            @text="Health"
+          /></DD.Checkbox>
+        <DD.Checkbox><Hds::Badge
+            @icon="alert-triangle"
+            @color="warning"
+            @text="Warning"
+          /></DD.Checkbox>
+        <DD.Checkbox checked><Hds::Badge
+            @icon="x"
+            @color="critical"
+            @text="Critical"
+          /></DD.Checkbox>
+      </S.Dropdown>
+      <S.Dropdown as |DD|>
+        <DD.ToggleButton @color="secondary" @text="Type" />
+        <DD.Title @text="Service" />
+        <DD.Checkbox checked>Service</DD.Checkbox>
+        <DD.Title @text="Gateway" />
+        <DD.Checkbox>Api Gateway</DD.Checkbox>
+        <DD.Checkbox>Ingress Gateway</DD.Checkbox>
+        <DD.Checkbox>Mesh Gateway</DD.Checkbox>
+        <DD.Checkbox>Terminating Gateway</DD.Checkbox>
+        <DD.Button @text="Apply" {{on "click" this.handleButtonClick}} />
+      </S.Dropdown> --}}
+{{! </Hds::SegmentedGroup> }}
+{{!-- {{/if}} --}}
+{{! </div> }}
+
+{{!-- <Hds::Dropdown as |DD|>
+    <DD.ToggleButton
+      @text="sort by: unhealthy to healthy"
+      @icon="sort-desc"
+      @color="secondary"
+    />
+    <DD.Checkmark @selected={{true}}>Unhealthy to Healthy</DD.Checkmark>
+    <DD.Checkmark @selected={{false}}>Unhealthy to Healthy</DD.Checkmark>
+    <DD.Checkmark @selected={{false}}>Unhealthy to Healthy</DD.Checkmark>
+  </Hds::Dropdown> --}}
+{{! </div> }}
+
+{{! <Cut::FilterBar as |F|>
+  <F.Search />
+  <F.CheckboxFilter as |CF|>
+    <CF.ToggleButton />
+    <CF.Checkbox />
+  </F.CheckboxFilter>
+</Cut::FilterBar> }}
+
+{{!-- <List as |L|>
+  <L.FilterBar @applyFilters="" />
+  <L.Content as |C|>
+    <Cut::ServiceListItem @service={{C}} />
+  </L.Content>
+  <L.Empty></L.Empty>
+</List>
+
+<div class="cut-list-items">
+  {{#each @items as |item|}}
+    
+  {{/each}}
+</div>
+
+<Cut::ListItem as |L|>
+  <L.Content>
+    <Cut::BentoBox @hasBorder={{false}} as |B|>
+
+    </Cut::BentoBox>
+  </L.Content>
+</Cut::ListItem> --}}

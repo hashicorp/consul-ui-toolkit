@@ -1,0 +1,9 @@
+.cut-filter-bar {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+  .cut-filter-bar-filters {
+    gap: 32px;
+  }
+}

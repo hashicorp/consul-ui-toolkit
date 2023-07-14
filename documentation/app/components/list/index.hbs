@@ -1,0 +1,14 @@
+<div class="cut-list">
+  <div class="cut-list-filter-bar-slot">
+    {{yield
+      (hash
+        FilterBar=(component
+          "list/filter-bar" updateFilter=this.applyFilter items=@items
+        )
+      )
+    }}
+  </div>
+  <div class="cut-list-conten-slot">
+
+  </div>
+</div>
