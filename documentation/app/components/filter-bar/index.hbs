@@ -21,7 +21,26 @@
     {{/if}}
     {{#if (has-block "filtergroup")}}
       <Hds::SegmentedGroup as |S|>
-        {{yield S this.toggleFilterValue to="filtergroup"}}
+        {{!-- {{yield
+          S
+          this.filters
+          this.toggleFilterValue
+          this.softToggleFilterValue
+          this.applyFilter
+          to="filtergroup"
+        }} --}}
+
+        {{yield
+          (hash
+            components=S
+            filters=this.filters
+            toggle=this.toggleFilterValue
+            softToggle=this.softToggleFilterValue
+            apply=this.applyFilter
+            isChecked=this.isCheckboxChecked
+          )
+          to="filtergroup"
+        }}
       </Hds::SegmentedGroup>
     {{/if}}
   </div>

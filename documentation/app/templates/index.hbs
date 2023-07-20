@@ -12,28 +12,48 @@
       <DD.Checkbox>Service name</DD.Checkbox>
     </components.Dropdown>
   </:searchgroup>
-  <:filtergroup as |components toggle|>
-    <components.Dropdown as |DD|>
+
+  <:filtergroup as |FG|>
+    <FG.components.Dropdown as |DD|>
       <DD.ToggleButton @color="secondary" @text="Status" />
-      <DD.Checkbox checked><Hds::Badge
+      <DD.Checkbox
+        checked={{eq "status" "success"}}
+        {{on "click" (fn FG.softToggle "status" "success")}}
+      ><Hds::Badge
           @icon="check"
           @color="success"
           @text="Health"
-          {{on "click" (fn toggle "status" "success")}}
         /></DD.Checkbox>
-      <DD.Checkbox><Hds::Badge
+      <DD.Checkbox
+        {{on "click" (fn FG.softToggle "status" "warning")}}
+      ><Hds::Badge
           @icon="alert-triangle"
           @color="warning"
           @text="Warning"
-          {{on "click" (fn toggle "status" "warning")}}
         /></DD.Checkbox>
-      <DD.Checkbox><Hds::Badge
-          @icon="x"
-          @color="critical"
-          @text="Critical"
-          {{on "click" (fn toggle "status" "critical")}}
-        /></DD.Checkbox>
-    </components.Dropdown>
+      <DD.Checkbox
+        {{on "click" (fn FG.softToggle "status" "critical")}}
+      ><Hds::Badge @icon="x" @color="critical" @text="Critical" /></DD.Checkbox>
+      {{!-- <FG.components.ApplyButton @components={{DD}} @filterName="status" /> --}}
+      {{!-- <DD.Generic>
+        <Hds::Button @text="Apply filters" {{on "click" (fn apply "status")}} />
+      </DD.Generic> --}}
+    </FG.components.Dropdown>
+    <FG.components.Dropdown as |DD|>
+      <DD.ToggleButton @color="secondary" @text="sort" />
+      <DD.Checkmark
+        @selected={{eq FG.filters.sort "unhealthy"}}
+        {{on "click" (fn FG.toggle "sort" "unhealthy")}}
+      >Unhealth to Healthy</DD.Checkmark>
+      <DD.Checkmark
+        @selected={{eq FG.filters.sort "name"}}
+        {{on "click" (fn FG.toggle "sort" "name")}}
+      >name</DD.Checkmark>
+      <DD.Checkmark
+        @selected={{eq FG.filters.sort "date"}}
+        {{on "click" (fn FG.toggle "sort" "date")}}
+      >date</DD.Checkmark>
+    </FG.components.Dropdown>
   </:filtergroup>
 </FilterBar>
 

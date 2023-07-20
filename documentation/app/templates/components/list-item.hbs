@@ -16,6 +16,21 @@
   table cell.
 </PageHeader>
 
+<Dummy as |DU|>
+  <DU.Droppidy @filter="numbers" as |DD|>
+    <DD.ToggleButton @text="Togggle" />
+    <DD.Checkbox @value="1">Check it out</DD.Checkbox>
+    <DD.Checkbox @value="2">Check it out</DD.Checkbox>
+    <DD.Checkbox @value="3">Check it out</DD.Checkbox>
+  </DU.Droppidy>
+  <DU.Droppidy as |DD|>
+    <DD.ToggleButton @text="Togggle" />
+    <DD.Checkbox @value="1">Check it out</DD.Checkbox>
+    <DD.Checkbox @value="2">Check it out</DD.Checkbox>
+    <DD.Checkbox @value="3">Check it out</DD.Checkbox>
+  </DU.Droppidy>
+</Dummy>
+
 <Hds::Tabs as |T|>
   <T.Tab>Guidelines</T.Tab>
   <T.Tab>Code</T.Tab>

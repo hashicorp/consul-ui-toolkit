@@ -1,0 +1,16 @@
+{{#let @dropdown as |Dropdown|}}
+  <Dropdown as |DD|>
+    {{yield
+      (hash
+        ToggleButton=DD.ToggleButton
+        Checkbox=(component
+          "dummy/droppidy/checkbox"
+          checkbox=DD.Checkbox
+          isChecked=@isChecked
+          filters=@filters
+          toggle=@toggleFilterValue
+        )
+      )
+    }}
+  </Dropdown>
+{{/let}}

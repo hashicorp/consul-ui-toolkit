@@ -1,0 +1,6 @@
+{{#let @components as |components|}}
+  {{log "foo"}}
+  <components.Generic>
+    <Hds::Button @text="Apply filters" {{on "click" (fn @apply @filterName)}} />
+  </components.Generic>
+{{/let}}

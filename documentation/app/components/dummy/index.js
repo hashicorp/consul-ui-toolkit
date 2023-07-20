@@ -2,13 +2,18 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class FilterBarComponent extends Component {
-  @tracked filters = { status: ['success'], sort: 'unhealthy' };
+export default class DummyComponent extends Component {
+  @tracked filters = { numbers: ['2'] };
   @tracked filterChanges = {};
 
   isCheckboxChecked(filter, value) {
-    debugger;
-    return this.filters[filter] === value;
+    console.log(this.filters[filter], filter, value);
+    return this.filters[filter].includes(value);
+  }
+
+  @action
+  doSomething() {
+    console.log('do something');
   }
 
   @action

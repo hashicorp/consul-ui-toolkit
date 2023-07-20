@@ -1,0 +1,16 @@
+<div class="cut-filter-bar" style="margin-left: 250px;">
+  <Hds::SegmentedGroup as |S|>
+    {{yield
+      (hash
+        Droppidy=(component
+          "dummy/droppidy"
+          dropdown=S.Dropdown
+          doSomething=this.doSomething
+          isChecked=this.isCheckboxChecked
+          toggleFilterValue=this.toggleFilterValue
+          filters=this.filters
+        )
+      )
+    }}
+  </Hds::SegmentedGroup>
+</div>
