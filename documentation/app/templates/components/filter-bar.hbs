@@ -1,0 +1,44 @@
+<PageHeader
+  @title="Filter Bar"
+  @figma="https://www.figma.com/file/SenC8kTQNUJKCvOvcL8WPu/Consul-Component-Library?type=design&node-id=2-4&t=S9Jf7rEKjWwv3e9d-0"
+  @github="https://github.com/hashicorp/consul-ui-toolkit/tree/main/toolkit/src/components/cut/list-item"
+>
+  A List Item is used to list information that is often interactive and when
+  selected navigates the user to a details page to view additional information
+  about the item listed. A List Item is best used to display information that is
+  dynamic in nature or information that must be shared within the same line item
+  in order to provide the proper context. List items are also helpful when the
+  data needing to be displayed is dense and unable to fit within a standard
+  table cell.
+</PageHeader>
+
+<Cut::FilterBar as |FB|>
+  <FB.PreFilter @name="cluster" as |F|>
+    <F.ToggleButton @text="cluster" @color="secondary" />
+    <F.Checkmark @value={{1}}>One</F.Checkmark>
+    <F.Checkmark @value={{2}}>Two</F.Checkmark>
+  </FB.PreFilter>
+  <FB.FilterGroup as |Filters|>
+    <Filters.Filter @name="status" @batch={{true}} as |F|>
+      <F.ToggleButton @color="secondary" @text="Status" />
+      <F.Checkbox @value="runnning"><Hds::Badge
+          @text="running"
+          @color="success"
+        /></F.Checkbox>
+      <F.Checkbox @value="warning"><Hds::Badge
+          @text="warning"
+          @color="warning"
+        /></F.Checkbox>
+      <F.Checkbox @value="critical"><Hds::Badge
+          @text="critical"
+          @color="critical"
+        /></F.Checkbox>
+    </Filters.Filter>
+    <Filters.Filter @name="type" @batch={{true}} as |F|>
+      <F.ToggleButton @color="secondary" @text="Type" />
+      <F.Checkbox @value="Consul">Consul</F.Checkbox>
+      <F.Checkbox @value="Nomad">Nomad</F.Checkbox>
+      <F.Checkbox @value="Vault">Vault</F.Checkbox>
+    </Filters.Filter>
+  </FB.FilterGroup>
+</Cut::FilterBar>

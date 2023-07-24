@@ -1,0 +1,18 @@
+<Hds::SegmentedGroup
+  class='cut-filter-bar-filter-group'
+  ...attributes
+  as |Group|
+>
+  {{yield
+    (hash
+      Filter=(component
+        'cut/filter-bar/filter'
+        dropdown=Group.Dropdown
+        toggle=@toggle
+        softToggle=@softToggle
+        applyFilter=@applyFilter
+        isChecked=@isChecked
+      )
+    )
+  }}
+</Hds::SegmentedGroup>
