@@ -80,6 +80,13 @@
     "main": "addon-main.cjs",
     "app-js": {
       "./components/cut/copy-block/index.js": "./dist/_app_/components/cut/copy-block/index.js",
+      "./components/cut/filter-bar/filter-group.js": "./dist/_app_/components/cut/filter-bar/filter-group.js",
+      "./components/cut/filter-bar/filter/checkbox.js": "./dist/_app_/components/cut/filter-bar/filter/checkbox.js",
+      "./components/cut/filter-bar/filter/checkmark.js": "./dist/_app_/components/cut/filter-bar/filter/checkmark.js",
+      "./components/cut/filter-bar/filter/generic.js": "./dist/_app_/components/cut/filter-bar/filter/generic.js",
+      "./components/cut/filter-bar/filter/index.js": "./dist/_app_/components/cut/filter-bar/filter/index.js",
+      "./components/cut/filter-bar/filter/radio.js": "./dist/_app_/components/cut/filter-bar/filter/radio.js",
+      "./components/cut/filter-bar/index.js": "./dist/_app_/components/cut/filter-bar/index.js",
       "./components/cut/list-item/action-generic.js": "./dist/_app_/components/cut/list-item/action-generic.js",
       "./components/cut/list-item/content.js": "./dist/_app_/components/cut/list-item/content.js",
       "./components/cut/list-item/index.js": "./dist/_app_/components/cut/list-item/index.js",

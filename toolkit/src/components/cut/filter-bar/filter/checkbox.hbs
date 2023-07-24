@@ -1,0 +1,7 @@
+{{#let @checkbox as |Checkbox|}}
+  <Checkbox
+    checked={{this.isChecked}}
+    {{on 'click' (fn @toggle @name @value)}}
+    ...attributes
+  >{{yield}}</Checkbox>
+{{/let}}

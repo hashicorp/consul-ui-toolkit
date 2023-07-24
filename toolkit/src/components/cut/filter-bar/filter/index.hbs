@@ -1,0 +1,74 @@
+{{log @dropdown}}
+{{#if @dropdown}}
+  {{#let @dropdown as |Dropdown|}}
+    <Dropdown ...attributes as |DD|>
+      {{yield
+        (hash
+          ToggleButton=(component DD.ToggleButton color='secondary')
+          Checkbox=(component
+            'cut/filter-bar/filter/checkbox'
+            checkbox=DD.Checkbox
+            filters=@filters
+            name=@name
+            toggle=@toggle
+            softToggle=@softToggle
+            applyFilter=@applyFilter
+            isChecked=@isChecked
+          )
+          Checkmark=(component
+            'cut/filter-bar/filter/checkmark'
+            checkmark=DD.Checkmark
+            filters=@filters
+            name=@name
+          )
+          Radio=(component
+            'cut/filter-bar/filter/radio' radio=DD.Radio filters=@filters
+          )
+          Generic=(component
+            'cut/filter-bar/filter/generic' generic=DD.Generic filters=@filters
+          )
+          CopyItem=DD.CopyItem
+          Description=DD.Description
+          Interactive=DD.Interactive
+          Separator=DD.Separator
+          Title=DD.Title
+        )
+      }}
+    </Dropdown>
+  {{/let}}
+{{else}}
+  <Hds::Dropdown ...attributes as |DD|>
+    {{yield
+      (hash
+        ToggleButton=(component DD.ToggleButton color='secondary')
+        Checkbox=(component
+          'cut/filter-bar/filter/checkbox'
+          checkbox=DD.Checkbox
+          filters=@filters
+          name=@name
+          toggle=@toggle
+          softToggle=@softToggle
+          applyFilter=@applyFilter
+          isChecked=@isChecked
+        )
+        Checkmark=(component
+          'cut/filter-bar/filter/checkmark'
+          checkmark=DD.Checkmark
+          filters=@filters
+          name=@name
+        )
+        Radio=(component
+          'cut/filter-bar/filter/radio' radio=DD.Radio filters=@filters
+        )
+        Generic=(component
+          'cut/filter-bar/filter/generic' generic=DD.Generic filters=@filters
+        )
+        CopyItem=DD.CopyItem
+        Description=DD.Description
+        Interactive=DD.Interactive
+        Separator=DD.Separator
+        Title=DD.Title
+      )
+    }}
+  </Hds::Dropdown>
+{{/if}}
