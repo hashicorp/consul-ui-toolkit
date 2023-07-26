@@ -1,7 +1,11 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
 {{#let @checkbox as |Checkbox|}}
   <Checkbox
     checked={{this.isChecked}}
-    {{on 'click' (fn @toggle @name @value)}}
+    {{on 'click' (fn @softToggle @name 'Status' @value @isMultiSelect)}}
     ...attributes
   >{{yield}}</Checkbox>
 {{/let}}

@@ -1,13 +1,32 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
 <div class='cut-filter-bar'>
   <div class='cut-filter-bar-filters'>
     {{! pre-filters }}
     {{yield
       (hash
-        PreFilter=(component 'cut/filter-bar/filter')
-        PreFilterGroup=(component 'cut/filter-bar/filter-group')
+        PreFilter=(component
+          'cut/filter-bar/filter'
+          toggle=this.toggleFilterValue
+          softToggle=this.softToggleFilterValue
+          applyFilter=this.applyFilter
+          isChecked=this.isCheckboxChecked
+          listPosition='bottom-left'
+          config=@config
+        )
+        PreFilterGroup=(component
+          'cut/filter-bar/filter-group'
+          toggle=this.toggleFilterValue
+          softToggle=this.softToggleFilterValue
+          applyFilter=this.applyFilter
+          isChecked=this.isCheckboxChecked
+          listPosition='bottom-left'
+          filters=@config
+        )
       )
     }}
-    {{log this.filters}}
 
     {{! search }}
     <Hds::SegmentedGroup as |S|>
@@ -29,8 +48,16 @@
           softToggle=this.softToggleFilterValue
           applyFilter=this.applyFilter
           isChecked=this.isCheckboxChecked
+          config=@config
         )
-        Filter=(component 'cut/filter-bar/filter')
+        Filter=(component
+          'cut/filter-bar/filter'
+          toggle=this.toggleFilterValue
+          softToggle=this.softToggleFilterValue
+          applyFilter=this.applyFilter
+          isChecked=this.isCheckboxChecked
+          config=@config
+        )
       )
     }}
   </div>
