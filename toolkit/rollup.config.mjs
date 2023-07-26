@@ -48,7 +48,7 @@ export default {
     addon.hbs(),
 
     scss({
-      output: "./build/css/style.css",
+      output: './build/css/style.css',
       failOnError: true,
     }),
 

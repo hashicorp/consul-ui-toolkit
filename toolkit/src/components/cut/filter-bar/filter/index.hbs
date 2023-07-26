@@ -1,10 +1,19 @@
-{{log @dropdown}}
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
 {{#if @dropdown}}
-  {{#let @dropdown as |Dropdown|}}
-    <Dropdown ...attributes as |DD|>
+  {{#let @dropdown this.filterCount as |Dropdown filterCount|}}
+    <Dropdown
+      @listPosition={{if @listPosition @listPosition 'bottom-right'}}
+      ...attributes
+      as |DD|
+    >
       {{yield
         (hash
-          ToggleButton=(component DD.ToggleButton color='secondary')
+          ToggleButton=(component
+            DD.ToggleButton color='secondary' count=filterCount
+          )
           Checkbox=(component
             'cut/filter-bar/filter/checkbox'
             checkbox=DD.Checkbox
@@ -14,12 +23,18 @@
             softToggle=@softToggle
             applyFilter=@applyFilter
             isChecked=@isChecked
+            isMultiSelect=@isMultiSelect
           )
           Checkmark=(component
             'cut/filter-bar/filter/checkmark'
             checkmark=DD.Checkmark
             filters=@filters
             name=@name
+            toggle=@toggle
+            softToggle=@softToggle
+            applyFilter=@applyFilter
+            isChecked=@isChecked
+            isMultiSelect=@isMultiSelect
           )
           Radio=(component
             'cut/filter-bar/filter/radio' radio=DD.Radio filters=@filters
@@ -37,7 +52,11 @@
     </Dropdown>
   {{/let}}
 {{else}}
-  <Hds::Dropdown ...attributes as |DD|>
+  <Hds::Dropdown
+    @listPosition={{if @listPosition @listPosition 'bottom-right'}}
+    ...attributes
+    as |DD|
+  >
     {{yield
       (hash
         ToggleButton=(component DD.ToggleButton color='secondary')
@@ -56,6 +75,10 @@
           checkmark=DD.Checkmark
           filters=@filters
           name=@name
+          toggle=@toggle
+          softToggle=@softToggle
+          applyFilter=@applyFilter
+          isChecked=@isChecked
         )
         Radio=(component
           'cut/filter-bar/filter/radio' radio=DD.Radio filters=@filters

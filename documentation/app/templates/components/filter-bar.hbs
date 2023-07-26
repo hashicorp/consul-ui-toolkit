@@ -1,3 +1,7 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
 <PageHeader
   @title="Filter Bar"
   @figma="https://www.figma.com/file/SenC8kTQNUJKCvOvcL8WPu/Consul-Component-Library?type=design&node-id=2-4&t=S9Jf7rEKjWwv3e9d-0"
@@ -12,16 +16,25 @@
   table cell.
 </PageHeader>
 
-<Cut::FilterBar as |FB|>
+<Cut::FilterBar
+  @config={{this.filters}}
+  @onChange={{this.handleFilterChange}}
+  as |FB|
+>
   <FB.PreFilter @name="cluster" as |F|>
-    <F.ToggleButton @text="cluster" @color="secondary" />
+    <F.ToggleButton @icon="server-cluster" @text="cluster" @color="secondary" />
     <F.Checkmark @value={{1}}>One</F.Checkmark>
     <F.Checkmark @value={{2}}>Two</F.Checkmark>
   </FB.PreFilter>
   <FB.FilterGroup as |Filters|>
-    <Filters.Filter @name="status" @batch={{true}} as |F|>
+    <Filters.Filter
+      @name="status"
+      @batch={{true}}
+      @isMultiSelect={{true}}
+      as |F|
+    >
       <F.ToggleButton @color="secondary" @text="Status" />
-      <F.Checkbox @value="runnning"><Hds::Badge
+      <F.Checkbox @value="running"><Hds::Badge
           @text="running"
           @color="success"
         /></F.Checkbox>
@@ -34,11 +47,28 @@
           @color="critical"
         /></F.Checkbox>
     </Filters.Filter>
-    <Filters.Filter @name="type" @batch={{true}} as |F|>
+    <Filters.Filter @name="type" as |F|>
       <F.ToggleButton @color="secondary" @text="Type" />
-      <F.Checkbox @value="Consul">Consul</F.Checkbox>
-      <F.Checkbox @value="Nomad">Nomad</F.Checkbox>
-      <F.Checkbox @value="Vault">Vault</F.Checkbox>
+      <F.Checkmark @value="consul">Consul</F.Checkmark>
+      <F.Checkmark @value="nomad">Nomad</F.Checkmark>
+      <F.Checkmark @value="vault">Vault</F.Checkmark>
     </Filters.Filter>
   </FB.FilterGroup>
 </Cut::FilterBar>
+
+{{! <FB.Filter as |F|>
+
+    <F.ToggleButton @color="secondary" @text="Status" />
+    <F.Checkbox @value="running"><Hds::Badge
+        @text="running"
+        @color="success"
+      /></F.Checkbox>
+    <F.Checkbox @value="warning"><Hds::Badge
+        @text="warning"
+        @color="warning"
+      /></F.Checkbox>
+    <F.Checkbox @value="critical"><Hds::Badge
+        @text="critical"
+        @color="critical"
+      /></F.Checkbox>
+  </FB.Filter> }}

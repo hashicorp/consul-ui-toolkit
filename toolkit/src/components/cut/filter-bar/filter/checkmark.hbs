@@ -1,0 +1,11 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
+{{#let @checkmark as |Checkmark|}}
+  <Checkmark
+    @selected={{this.isChecked}}
+    {{on 'click' (fn @softToggle @name 'Type' @value false)}}
+    ...attributes
+  >{{yield}}</Checkmark>
+{{/let}}
