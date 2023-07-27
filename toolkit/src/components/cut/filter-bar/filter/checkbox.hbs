@@ -5,7 +5,7 @@
 {{#let @checkbox as |Checkbox|}}
   <Checkbox
     checked={{this.isChecked}}
-    {{on 'click' (fn @softToggle @filterName @name @value @isMultiSelect)}}
+    {{on 'click' (fn @toggle @filterName @name @value @isMultiSelect)}}
     ...attributes
   >{{yield}}</Checkbox>
 {{/let}}

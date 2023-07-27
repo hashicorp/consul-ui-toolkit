@@ -4,74 +4,119 @@
 
 <div class='cut-filter-bar'>
   <div class='cut-filter-bar-filters'>
-    {{! pre-filters }}
-    {{yield
-      (hash
-        PreFilter=(component
-          'cut/filter-bar/filter'
-          toggle=this.toggleFilterValue
-          softToggle=this.softToggleFilterValue
-          applyFilter=this.applyFilter
-          isChecked=this.isCheckboxChecked
-          listPosition='bottom-left'
-          config=@config
+    <div class='cut-filter-bar-filtergroup'>
+      {{! pre-filters }}
+      {{yield
+        (hash
+          PreFilter=(component
+            'cut/filter-bar/filter'
+            toggle=this.toggleFilterValue
+            softToggle=this.softToggleFilterValue
+            applyFilter=this.applyFilter
+            isChecked=this.isCheckboxChecked
+            listPosition='bottom-left'
+            config=@config
+          )
+          PreFilterGroup=(component
+            'cut/filter-bar/filter-group'
+            toggle=this.toggleFilterValue
+            softToggle=this.softToggleFilterValue
+            applyFilter=this.applyFilter
+            isChecked=this.isCheckboxChecked
+            listPosition='bottom-left'
+            filters=@config
+          )
         )
-        PreFilterGroup=(component
-          'cut/filter-bar/filter-group'
-          toggle=this.toggleFilterValue
-          softToggle=this.softToggleFilterValue
-          applyFilter=this.applyFilter
-          isChecked=this.isCheckboxChecked
-          listPosition='bottom-left'
-          filters=@config
-        )
-      )
-    }}
+      }}
 
-    {{! search }}
-    <Hds::SegmentedGroup as |S|>
-      <S.TextInput @type='search' placeholder='Search' aria-label='Search' />
-      <S.Dropdown as |DD|>
-        <DD.ToggleButton @color='secondary' @text='Across' @count='2' />
-        <DD.Checkbox checked>Metadata</DD.Checkbox>
-        <DD.Checkbox checked>Tags</DD.Checkbox>
-        <DD.Checkbox>Service name</DD.Checkbox>
-      </S.Dropdown>
-    </Hds::SegmentedGroup>
+      {{! search }}
+      <Hds::SegmentedGroup as |S|>
+        <S.TextInput @type='search' placeholder='Search' aria-label='Search' />
+        <S.Dropdown as |DD|>
+          <DD.ToggleButton @color='secondary' @text='Across' @count='2' />
+          <DD.Checkbox checked>Metadata</DD.Checkbox>
+          <DD.Checkbox checked>Tags</DD.Checkbox>
+          <DD.Checkbox>Service name</DD.Checkbox>
+        </S.Dropdown>
+      </Hds::SegmentedGroup>
 
-    {{! filters }}
-    {{yield
-      (hash
-        FilterGroup=(component
-          'cut/filter-bar/filter-group'
-          toggle=this.toggleFilterValue
-          softToggle=this.softToggleFilterValue
-          applyFilter=this.applyFilter
-          isChecked=this.isCheckboxChecked
-          config=@config
+      {{! filters }}
+      {{yield
+        (hash
+          FilterGroup=(component
+            'cut/filter-bar/filter-group'
+            toggle=this.toggleFilterValue
+            softToggle=this.softToggleFilterValue
+            applyFilter=this.applyFilter
+            isChecked=this.isCheckboxChecked
+            config=@config
+          )
+          Filter=(component
+            'cut/filter-bar/filter'
+            toggle=this.toggleFilterValue
+            softToggle=this.softToggleFilterValue
+            applyFilter=this.applyFilter
+            isChecked=this.isCheckboxChecked
+            config=@config
+          )
         )
-        Filter=(component
-          'cut/filter-bar/filter'
-          toggle=this.toggleFilterValue
-          softToggle=this.softToggleFilterValue
-          applyFilter=this.applyFilter
-          isChecked=this.isCheckboxChecked
-          config=@config
-        )
-      )
-    }}
+      }}
+    </div>
+
+    {{! sort }}
+    <Hds::Dropdown as |DD|>
+
+      <DD.ToggleButton
+        @text='sort by: unhealthy to healthy'
+        @icon='sort-desc'
+        @color='secondary'
+      />
+      <DD.Checkmark @selected={{true}}>Unhealthy to Healthy</DD.Checkmark>
+      <DD.Checkmark @selected={{false}}>Unhealthy to Healthy</DD.Checkmark>
+      <DD.Checkmark @selected={{false}}>Unhealthy to Healthy</DD.Checkmark>
+    </Hds::Dropdown>
+
   </div>
 
-  {{! sort }}
-  <Hds::Dropdown as |DD|>
+  <div class='cut-filter-bar-results'>
+    <p class='cut-filter-bar-results-count'>Showing X results</p>
 
-    <DD.ToggleButton
-      @text='sort by: unhealthy to healthy'
-      @icon='sort-desc'
-      @color='secondary'
-    />
-    <DD.Checkmark @selected={{true}}>Unhealthy to Healthy</DD.Checkmark>
-    <DD.Checkmark @selected={{false}}>Unhealthy to Healthy</DD.Checkmark>
-    <DD.Checkmark @selected={{false}}>Unhealthy to Healthy</DD.Checkmark>
-  </Hds::Dropdown>
+    {{#each this.appliedFilters as |filter|}}
+      <p class='cut-filter-bar-applied-filter-label'><strong>{{this.titlecase
+            filter.name
+          }}:</strong></p>
+
+      {{#each filter.value as |filterValue|}}
+        <Hds::Tag
+          @text={{this.titlecase filterValue.text}}
+          @onDismiss={{fn
+            this.toggleFilterValue
+            filter.name
+            filterValue.text
+            filterValue.value
+            filter.isMultiSelect
+          }}
+        />
+      {{/each}}
+    {{/each}}
+
+    {{!-- <p class='cut-filter-bar-applied-filter-label'><strong>Status:</strong></p>
+    <Hds::Tag @text='Running' @onDismiss={{fn this.applyFilter 'status'}} />
+    <Hds::Tag @text='Running' @onDismiss={{fn this.applyFilter 'status'}} />
+    <Hds::Tag @text='Running' @onDismiss={{fn this.applyFilter 'status'}} />
+    <Hds::Tag @text='Running' @onDismiss={{fn this.applyFilter 'status'}} />
+    <Hds::Tag @text='Running' @onDismiss={{fn this.applyFilter 'status'}} />
+    <Hds::Tag @text='Running' @onDismiss={{fn this.applyFilter 'status'}} />
+    <p class='cut-filter-bar-applied-filter-label'><strong>Status:</strong></p>
+    <Hds::Tag @text='Running' @onDismiss={{fn this.applyFilter 'status'}} />
+    <Hds::Tag @text='Running' @onDismiss={{fn this.applyFilter 'status'}} />
+    <Hds::Tag @text='Running' @onDismiss={{fn this.applyFilter 'status'}} />
+    <Hds::Tag @text='Running' @onDismiss={{fn this.applyFilter 'status'}} />
+    <Hds::Tag @text='Running' @onDismiss={{fn this.applyFilter 'status'}} />
+    <Hds::Tag @text='Running' @onDismiss={{fn this.applyFilter 'status'}} />
+    <Hds::Tag @text='Running' @onDismiss={{fn this.applyFilter 'status'}} />
+    <Hds::Tag @text='Running' @onDismiss={{fn this.applyFilter 'status'}} />
+    <Hds::Tag @text='Running' @onDismiss={{fn this.applyFilter 'status'}} />
+    <Hds::Tag @text='Warning' @onDismiss={{fn this.applyFilter 'status'}} /> --}}
+  </div>
 </div>
