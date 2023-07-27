@@ -12,12 +12,12 @@ export default class FilterBarController extends Controller {
       value: '',
     },
     filters: {
-      status: {
-        text: 'Status',
-        value: ['running', 'warning'],
-      },
+      status: [
+        { text: 'Running', value: 'running' },
+        { text: 'Warning', value: 'warning' },
+      ],
       type: {
-        text: 'Type',
+        text: 'Nomad',
         value: 'nomad',
       },
     },

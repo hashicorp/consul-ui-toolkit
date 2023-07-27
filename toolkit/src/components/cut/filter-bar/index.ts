@@ -5,7 +5,6 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-// import { assert } from '@ember/debug';
 
 export interface ComponentSignature {
   Args: {
@@ -30,7 +29,7 @@ export interface Filter {
 }
 
 export interface Filters {
-  [name: string]: Filter;
+  [name: string]: Filter | Filter[] | undefined;
 }
 
 // 'clusterID'.replace(/([A-Z]+)/g, " $1").replace(/([A-Z][a-z])/g, " $1").replace(/  /g, " ").replace(/^./g, (match) => match.toUpperCase())
@@ -81,10 +80,12 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
 
   @action
   isCheckboxChecked(filter: string, value: any) {
-    if (Array.isArray(this.localConfig?.filters?.[filter]?.value)) {
-      return this.localConfig?.filters?.[filter]?.value?.includes(value);
+    if (Array.isArray(this.localConfig?.filters?.[filter])) {
+      return !!(this.localConfig?.filters?.[filter] as Filter[]).find(
+        (filter: Filter) => filter.value === value
+      );
     } else {
-      return this.localConfig?.filters?.[filter]?.value === value;
+      return (this.localConfig?.filters?.[filter] as Filter)?.value === value;
     }
   }
 
@@ -116,10 +117,17 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
     isMultiSelect?: boolean
   ) {
     console.log('BEFORE:', this.configChanges);
-    debugger;
-    let filterChange: Filters = {
-      [name]: { text: displayName, value: undefined },
-    };
+
+    let filterChange: Filters = {};
+
+    // if (isMultiSelect) {
+    //   filterChange = { [name]: [{ text: displayName, value: undefined }] };
+    // } else {
+    //   filterChange = { [name]: { text: displayName, value: undefined } };
+    // }
+    // let filterChange: Filters = {
+    //   [name]: { text: displayName, value: undefined },
+    // };
 
     if (this.localConfig?.filters?.[name]) {
       filterChange = Object.assign(filterChange, {
@@ -134,32 +142,32 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
     }
 
     if (isMultiSelect) {
-      if (Array.isArray(filterChange[name].value)) {
-        let valueIndex = filterChange[name].value?.indexOf(value);
+      if (Array.isArray(filterChange[name])) {
+        let valueIndex = (filterChange[name] as Filter[]).findIndex(
+          (filter: Filter) => filter.value === value
+        );
 
         if (valueIndex !== -1) {
-          filterChange[name].value.splice(valueIndex, 1);
+          (filterChange[name] as Filter[]).splice(valueIndex, 1);
         } else {
-          filterChange[name].value.push(value);
+          (filterChange[name] as Filter[]).push({ text: displayName, value });
         }
       } else {
-        filterChange[name].value = [value];
+        (filterChange[name] as Filter[]) = [{ text: displayName, value }];
       }
     } else if (typeof value === 'object') {
-      filterChange[name].value = value;
+      filterChange[name] = { text: displayName, value };
     } else {
-      if (filterChange[name].value === value) {
-        filterChange[name].value = undefined;
+      if ((filterChange[name] as Filter)?.value === value) {
+        filterChange[name] = undefined;
       } else {
-        filterChange[name].value = value;
+        filterChange[name] = { text: displayName, value };
       }
     }
-
     this.configChanges.filters = Object.assign(
       this.configChanges?.filters || {},
       filterChange
     );
-
     console.log('AFTER:', this.configChanges);
     this.applyFilter(name);
   }
@@ -202,23 +210,20 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
         [name]: this.configChanges?.filters?.[name],
       });
     }
-
     // clear out the empty filters
     if (config.filters) {
       Object.keys(config.filters).forEach((key) => {
         if (
-          !config?.filters?.[key]?.value ||
-          (Array.isArray(config?.filters?.[key]?.value) &&
-            config?.filters?.[key]?.value.length === 0)
+          !config?.filters?.[key] ||
+          (Array.isArray(config?.filters?.[key]) &&
+            (config?.filters?.[key] as Filter[])?.length === 0)
         ) {
           delete config.filters?.[key];
         }
       });
     }
-
     // call it
     this.args.onChange(config);
-
     // clear out the config changes for that filter
     delete this.configChanges?.filters?.[name];
   }
