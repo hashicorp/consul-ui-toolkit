@@ -26,7 +26,7 @@ export default class FilterComponent extends Component<FilterInterface> {
       return undefined;
     }
 
-    const value = this.args.config.filters[this.args.name]?.value;
+    const value = this.args.config.filters[this.args.name];
     if (value && Array.isArray(value) && value.length >= 1) {
       return value.length.toString();
     }
