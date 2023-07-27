@@ -19,8 +19,7 @@
             checkbox=DD.Checkbox
             filters=@filters
             filterName=@name
-            toggle=@toggle
-            softToggle=@softToggle
+            toggle=this.toggle
             applyFilter=@applyFilter
             isChecked=@isChecked
             isMultiSelect=@isMultiSelect
@@ -30,8 +29,7 @@
             checkmark=DD.Checkmark
             filters=@filters
             filterName=@name
-            toggle=@toggle
-            softToggle=@softToggle
+            toggle=this.toggle
             applyFilter=@applyFilter
             isChecked=@isChecked
             isMultiSelect=@isMultiSelect
@@ -49,6 +47,18 @@
           Title=DD.Title
         )
       }}
+      {{#if @batch}}
+        <DD.Separator />
+        <DD.Generic class='cut-filter-bar-apply-filter-button'>
+          <Hds::Button
+            @type='button'
+            @text='Apply'
+            @color='primary'
+            @isFullWidth={{true}}
+            {{on 'click' (fn @applyFilter @name)}}
+          />
+        </DD.Generic>
+      {{/if}}
     </Dropdown>
   {{/let}}
 {{else}}
@@ -65,8 +75,7 @@
           checkbox=DD.Checkbox
           filters=@filters
           filterName=@name
-          toggle=@toggle
-          softToggle=@softToggle
+          toggle=this.toggle
           applyFilter=@applyFilter
           isChecked=@isChecked
         )
@@ -75,8 +84,7 @@
           checkmark=DD.Checkmark
           filters=@filters
           filterName=@name
-          toggle=@toggle
-          softToggle=@softToggle
+          toggle=this.toggle
           applyFilter=@applyFilter
           isChecked=@isChecked
         )
@@ -93,5 +101,17 @@
         Title=DD.Title
       )
     }}
+
+    {{#if @batch}}
+      <DD.Generic>
+        <p>Hello?</p>
+        {{!-- <Hds::Button
+          @type='button'
+          @text='Apply'
+          @color='primary'
+          {{on 'click' (fn @applyFilter @name)}}
+        /> --}}
+      </DD.Generic>
+    {{/if}}
   </Hds::Dropdown>
 {{/if}}
