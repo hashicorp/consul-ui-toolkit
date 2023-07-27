@@ -35,10 +35,24 @@
             isMultiSelect=@isMultiSelect
           )
           Radio=(component
-            'cut/filter-bar/filter/radio' radio=DD.Radio filters=@filters
+            'cut/filter-bar/filter/radio'
+            radio=DD.Radio
+            filters=@filters
+            filterName=@name
+            toggle=this.toggle
+            applyFilter=@applyFilter
+            isChecked=@isChecked
+            isMultiSelect=@isMultiSelect
           )
           Generic=(component
-            'cut/filter-bar/filter/generic' generic=DD.Generic filters=@filters
+            'cut/filter-bar/filter/generic'
+            generic=DD.Generic
+            filters=@filters
+            filterName=@name
+            toggle=this.toggle
+            applyFilter=@applyFilter
+            isChecked=@isChecked
+            isMultiSelect=@isMultiSelect
           )
           CopyItem=DD.CopyItem
           Description=DD.Description
@@ -89,10 +103,24 @@
           isChecked=@isChecked
         )
         Radio=(component
-          'cut/filter-bar/filter/radio' radio=DD.Radio filters=@filters
+          'cut/filter-bar/filter/radio'
+          radio=DD.Radio
+          filters=@filters
+          filterName=@name
+          toggle=this.toggle
+          applyFilter=@applyFilter
+          isChecked=@isChecked
+          isMultiSelect=@isMultiSelect
         )
         Generic=(component
-          'cut/filter-bar/filter/generic' generic=DD.Generic filters=@filters
+          'cut/filter-bar/filter/generic'
+          generic=DD.Generic
+          filters=@filters
+          filterName=@name
+          toggle=this.toggle
+          applyFilter=@applyFilter
+          isChecked=@isChecked
+          isMultiSelect=@isMultiSelect
         )
         CopyItem=DD.CopyItem
         Description=DD.Description
@@ -103,14 +131,15 @@
     }}
 
     {{#if @batch}}
-      <DD.Generic>
-        <p>Hello?</p>
-        {{!-- <Hds::Button
+      <DD.Separator />
+      <DD.Generic class='cut-filter-bar-apply-filter-button'>
+        <Hds::Button
           @type='button'
           @text='Apply'
           @color='primary'
+          @isFullWidth={{true}}
           {{on 'click' (fn @applyFilter @name)}}
-        /> --}}
+        />
       </DD.Generic>
     {{/if}}
   </Hds::Dropdown>
