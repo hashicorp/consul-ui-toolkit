@@ -21,8 +21,12 @@
   @onChange={{this.handleFilterChange}}
   as |FB|
 >
-  <FB.PreFilter @name="cluster" as |F|>
-    <F.ToggleButton @icon="server-cluster" @text="cluster" @color="secondary" />
+  <FB.PreFilter @name="clusterID" as |F|>
+    <F.ToggleButton
+      @icon="server-cluster"
+      @text="Cluster ID"
+      @color="secondary"
+    />
     <F.Checkmark @value={{1}} @name="Cluster One">One</F.Checkmark>
     <F.Checkmark @value={{2}} @name="Cluster Two">Two</F.Checkmark>
   </FB.PreFilter>

@@ -3,13 +3,34 @@
  */
 
 .cut-filter-bar {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
   width: 100%;
 
   .cut-filter-bar-filters {
-    gap: 1rem;
     display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    .cut-filter-bar-filtergroup {
+      gap: 1rem;
+      display: flex;
+    }
+  }
+
+  .cut-filter-bar-results {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 8px;
+    row-gap: 12px;
+    margin: 12px 0;
+
+    p.cut-filter-bar-results-count {
+      margin: 0;
+      flex-shrink: 0;
+    }
+
+    p.cut-filter-bar-applied-filter-label {
+      margin: 0 0 0 8px;
+    }
   }
 }

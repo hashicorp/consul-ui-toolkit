@@ -32,6 +32,12 @@ export interface Filters {
   [name: string]: Filter | Filter[] | undefined;
 }
 
+interface AppliedFilter {
+  name: string;
+  value: Filter[];
+  isMultiSelect?: boolean;
+}
+
 // 'clusterID'.replace(/([A-Z]+)/g, " $1").replace(/([A-Z][a-z])/g, " $1").replace(/  /g, " ").replace(/^./g, (match) => match.toUpperCase())
 export default class FilterBarComponent extends Component<ComponentSignature> {
   @tracked configChanges: FilterConfig = {};
@@ -78,6 +84,33 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
     return local;
   }
 
+  /**
+   * [
+   *   { name: filterName, value: { text: , value: }}
+   * ]
+   */
+  get appliedFilters(): AppliedFilter[] {
+    return Object.keys(this.args.config?.filters || {})
+      .map((filterName) => {
+        const filter = this.args.config?.filters?.[filterName];
+
+        if (filter && Array.isArray(filter)) {
+          return {
+            name: filterName,
+            value: this.args.config?.filters?.[filterName],
+            isMultiSelect: true,
+          };
+        } else if (filter) {
+          return {
+            name: filterName,
+            value: [this.args.config?.filters?.[filterName]],
+            isMultiSelect: false,
+          };
+        }
+      })
+      .filter(Boolean) as AppliedFilter[];
+  }
+
   @action
   isCheckboxChecked(filter: string, value: any) {
     if (Array.isArray(this.localConfig?.filters?.[filter])) {
@@ -116,18 +149,7 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
     value: any,
     isMultiSelect?: boolean
   ) {
-    console.log('BEFORE:', this.configChanges);
-
     let filterChange: Filters = {};
-
-    // if (isMultiSelect) {
-    //   filterChange = { [name]: [{ text: displayName, value: undefined }] };
-    // } else {
-    //   filterChange = { [name]: { text: displayName, value: undefined } };
-    // }
-    // let filterChange: Filters = {
-    //   [name]: { text: displayName, value: undefined },
-    // };
 
     if (this.localConfig?.filters?.[name]) {
       filterChange = Object.assign(filterChange, {
@@ -168,8 +190,6 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
       this.configChanges?.filters || {},
       filterChange
     );
-    console.log('AFTER:', this.configChanges);
-    this.applyFilter(name);
   }
 
   /**
@@ -186,7 +206,7 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
   toggleFilterValue(
     filterName: string,
     displayName: string,
-    value: Filter,
+    value: any,
     isMultiSelect?: boolean
   ) {
     this.softToggleFilterValue(filterName, displayName, value, isMultiSelect);
@@ -200,12 +220,12 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
    * @param name
    */
   @action
-  applyFilter(name: string) {
+  applyFilter(name: string): any {
     // grab the config
     let config = Object.assign({}, this.args.config);
 
     // apply the filter from filterChanges
-    if (this.configChanges?.filters?.[name]) {
+    if (Object.hasOwn(this.configChanges?.filters || {}, name)) {
       config.filters = Object.assign({}, config.filters, {
         [name]: this.configChanges?.filters?.[name],
       });

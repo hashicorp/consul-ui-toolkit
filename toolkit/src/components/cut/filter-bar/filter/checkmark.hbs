@@ -5,7 +5,7 @@
 {{#let @checkmark as |Checkmark|}}
   <Checkmark
     @selected={{this.isChecked}}
-    {{on 'click' (fn @softToggle @filterName @name @value false)}}
+    {{on 'click' (fn @toggle @filterName @name @value false)}}
     ...attributes
   >{{yield}}</Checkmark>
 {{/let}}
