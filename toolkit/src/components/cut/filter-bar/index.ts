@@ -242,9 +242,19 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
         }
       });
     }
+
     // call it
     this.args.onChange(config);
     // clear out the config changes for that filter
     delete this.configChanges?.filters?.[name];
+  }
+
+  @action
+  clearFilters() {
+    const config = Object.assign({}, this.args.config, this.configChanges, {
+      filters: {},
+    });
+
+    this.args.onChange(config);
   }
 }
