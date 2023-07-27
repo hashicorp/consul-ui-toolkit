@@ -9,11 +9,22 @@ interface FilterInterface {
   Args: {
     name: string;
     config: FilterConfig;
-    toggle: (name: string, value: any) => void;
-    softToggle: (name: string, displayName: string, value: any) => void;
+    toggle: (
+      name: string,
+      displayName: string,
+      value: any,
+      isMultiSelect: boolean
+    ) => void;
+    softToggle: (
+      name: string,
+      displayName: string,
+      value: any,
+      isMultiSelect: boolean
+    ) => void;
     applyFilter: (name: string) => void;
     isChecked: (name: string, value: any) => boolean;
     isMultiSelect?: boolean;
+    batch?: boolean;
     // not sure what to make this type
     dropdown?: any;
     listPosition?: 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right';
@@ -21,6 +32,15 @@ interface FilterInterface {
 }
 
 export default class FilterComponent extends Component<FilterInterface> {
+  get toggle(): (
+    name: string,
+    displayName: string,
+    value: any,
+    isMultiSelect: boolean
+  ) => void {
+    return this.args.batch ? this.args.softToggle : this.args.toggle;
+  }
+
   get filterCount(): string | undefined {
     if (!this.args.config?.filters || !this.args.isMultiSelect) {
       return undefined;

@@ -14,6 +14,15 @@
       gap: 1rem;
       display: flex;
     }
+
+    .cut-filter-bar-apply-filter-button {
+      padding: 8px 16px;
+
+      button {
+        border-radius: 5px;
+        margin-left: 0;
+      }
+    }
   }
 
   .cut-filter-bar-results {
