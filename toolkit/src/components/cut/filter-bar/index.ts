@@ -293,4 +293,15 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
 
     this.args.onChange(config);
   }
+
+  @action
+  onSortChange(value: string, text: string): void {
+    if (value && value !== this.args.config?.sort?.value) {
+      const config = Object.assign({}, this.args.config, {
+        sort: { value, text },
+      });
+
+      this.args.onChange(config);
+    }
+  }
 }

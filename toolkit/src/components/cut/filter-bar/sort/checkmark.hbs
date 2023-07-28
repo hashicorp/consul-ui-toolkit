@@ -1,0 +1,17 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{#let @checkmark as |Checkmark|}}
+  <Checkmark
+    @selected={{this.isSelected}}
+    {{on 'click' (fn @onSortChange @value @name)}}
+  >
+    {{#if (has-block)}}
+      {{yield}}
+    {{else}}
+      {{@name}}
+    {{/if}}
+  </Checkmark>
+{{/let}}

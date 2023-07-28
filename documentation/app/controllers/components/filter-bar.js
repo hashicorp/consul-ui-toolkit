@@ -21,6 +21,10 @@ export default class FilterBarController extends Controller {
         value: 'nomad',
       },
     },
+    sort: {
+      text: 'critical to healthy',
+      value: 'health',
+    },
   };
 
   @tracked count = 0;
