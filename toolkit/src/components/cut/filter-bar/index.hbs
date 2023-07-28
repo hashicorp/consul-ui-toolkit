@@ -5,41 +5,6 @@
 <div class='cut-filter-bar'>
   <div class='cut-filter-bar-filters'>
     <div class='cut-filter-bar-filtergroup'>
-      {{! pre-filters }}
-      {{yield
-        (hash
-          PreFilter=(component
-            'cut/filter-bar/filter'
-            toggle=this.toggleFilterValue
-            softToggle=this.softToggleFilterValue
-            applyFilter=this.applyFilter
-            isChecked=this.isCheckboxChecked
-            listPosition='bottom-left'
-            config=@config
-          )
-          PreFilterGroup=(component
-            'cut/filter-bar/filter-group'
-            toggle=this.toggleFilterValue
-            softToggle=this.softToggleFilterValue
-            applyFilter=this.applyFilter
-            isChecked=this.isCheckboxChecked
-            listPosition='bottom-left'
-            filters=@config
-          )
-        )
-      }}
-
-      {{! search }}
-      {{! <Hds::SegmentedGroup as |S|>
-        <S.TextInput @type='search' placeholder='Search' aria-label='Search' />
-        <S.Dropdown as |DD|>
-          <DD.ToggleButton @color='secondary' @text='Across' @count='2' />
-          <DD.Checkbox checked>Metadata</DD.Checkbox>
-          <DD.Checkbox checked>Tags</DD.Checkbox>
-          <DD.Checkbox>Service name</DD.Checkbox>
-        </S.Dropdown>
-      </Hds::SegmentedGroup> }}
-
       {{! filters }}
       {{yield
         (hash
@@ -72,7 +37,6 @@
 
     {{! sort }}
     <Hds::Dropdown as |DD|>
-
       <DD.ToggleButton
         @text='sort by: unhealthy to healthy'
         @icon='sort-desc'
@@ -82,7 +46,6 @@
       <DD.Checkmark @selected={{false}}>Unhealthy to Healthy</DD.Checkmark>
       <DD.Checkmark @selected={{false}}>Unhealthy to Healthy</DD.Checkmark>
     </Hds::Dropdown>
-
   </div>
 
   <div class='cut-filter-bar-results'>

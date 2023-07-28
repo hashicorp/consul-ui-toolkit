@@ -21,7 +21,7 @@
   @onChange={{this.handleFilterChange}}
   as |FB|
 >
-  <FB.PreFilter @name="clusterID" as |F|>
+  <FB.Filter @name="clusterID" @listPosition="bottom-left" as |F|>
     <F.ToggleButton
       @icon="server-cluster"
       @text="Cluster ID"
@@ -29,7 +29,8 @@
     />
     <F.Checkmark @value={{1}} @name="Cluster One">One</F.Checkmark>
     <F.Checkmark @value={{2}} @name="Cluster Two">Two</F.Checkmark>
-  </FB.PreFilter>
+  </FB.Filter>
+
   <FB.Search placeholder="Search for services" />
   {{!-- <FB.FilterGroup as |Filters|>
     <Filters.Search />
