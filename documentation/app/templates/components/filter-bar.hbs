@@ -30,6 +30,16 @@
     <F.Checkmark @value={{1}} @name="Cluster One">One</F.Checkmark>
     <F.Checkmark @value={{2}} @name="Cluster Two">Two</F.Checkmark>
   </FB.PreFilter>
+  <FB.Search placeholder="Search for services" />
+  {{!-- <FB.FilterGroup as |Filters|>
+    <Filters.Search />
+    <Filters.Filter @name="sport" @isMultiSelect={{true}} as |F|>
+      <F.ToggleButton @color="secondary" @text="Sport" />
+      <F.Checkbox @value="f1" @name="Formula 1">Formula 1</F.Checkbox>
+      <F.Checkbox @value="soccer" @name="Socccer">Soccer</F.Checkbox>
+      <F.Checkbox @value="hockey" @name="Hockey">Hockey</F.Checkbox>
+    </Filters.Filter>
+  </FB.FilterGroup> --}}
   <FB.FilterGroup as |Filters|>
     <Filters.Filter
       @name="status"

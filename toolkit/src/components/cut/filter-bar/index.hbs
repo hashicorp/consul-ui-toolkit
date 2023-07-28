@@ -30,7 +30,7 @@
       }}
 
       {{! search }}
-      <Hds::SegmentedGroup as |S|>
+      {{! <Hds::SegmentedGroup as |S|>
         <S.TextInput @type='search' placeholder='Search' aria-label='Search' />
         <S.Dropdown as |DD|>
           <DD.ToggleButton @color='secondary' @text='Across' @count='2' />
@@ -38,7 +38,7 @@
           <DD.Checkbox checked>Tags</DD.Checkbox>
           <DD.Checkbox>Service name</DD.Checkbox>
         </S.Dropdown>
-      </Hds::SegmentedGroup>
+      </Hds::SegmentedGroup> }}
 
       {{! filters }}
       {{yield
@@ -48,6 +48,8 @@
             toggle=this.toggleFilterValue
             softToggle=this.softToggleFilterValue
             applyFilter=this.applyFilter
+            onSearchInput=this.onSearchInput
+            onSearchKeyup=this.onSearchKeyup
             isChecked=this.isCheckboxChecked
             config=@config
           )
@@ -58,6 +60,11 @@
             applyFilter=this.applyFilter
             isChecked=this.isCheckboxChecked
             config=@config
+          )
+          Search=(component
+            'cut/filter-bar/search'
+            onSearchInput=this.onSearchInput
+            onSearchKeyup=this.onSearchKeyup
           )
         )
       }}

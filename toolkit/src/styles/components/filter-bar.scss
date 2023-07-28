@@ -10,6 +10,11 @@
     flex-wrap: nowrap;
     justify-content: space-between;
 
+    .cut-filter-bar-search {
+      width: 196px;
+      height: 36px;
+    }
+
     .cut-filter-bar-filtergroup {
       gap: 1rem;
       display: flex;
