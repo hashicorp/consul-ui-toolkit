@@ -2,7 +2,7 @@
   Copyright (c) HashiCorp, Inc.
 }}
 
-<div class='cut-filter-bar'>
+<div class='cut-filter-bar' aria-label='Filter bar'>
   <div class='cut-filter-bar-filters'>
     <div class='cut-filter-bar-filtergroup'>
       {{! filters }}
@@ -35,8 +35,29 @@
       }}
     </div>
 
+    {{yield
+      (hash
+        SortGroup=(component
+          'cut/filter-bar/sort-group'
+          toggle=this.toggleFilterValue
+          softToggle=this.softToggleFilterValue
+          applyFilter=this.applyFilter
+          onSearchInput=this.onSearchInput
+          onSearchKeyup=this.onSearchKeyup
+          isChecked=this.isCheckboxChecked
+          config=@config
+          localConfig=this.localConfig
+          onSortChange=this.onSortChange
+        )
+        Sort=(component
+          'cut/filter-bar/sort'
+          config=this.localConfig
+          onSortChange=this.onSortChange
+        )
+      )
+    }}
     {{! sort }}
-    <Hds::Dropdown as |DD|>
+    {{!-- <Hds::Dropdown as |DD|>
       <DD.ToggleButton
         @text='sort by: unhealthy to healthy'
         @icon='sort-desc'
@@ -45,7 +66,7 @@
       <DD.Checkmark @selected={{true}}>Unhealthy to Healthy</DD.Checkmark>
       <DD.Checkmark @selected={{false}}>Unhealthy to Healthy</DD.Checkmark>
       <DD.Checkmark @selected={{false}}>Unhealthy to Healthy</DD.Checkmark>
-    </Hds::Dropdown>
+    </Hds::Dropdown> --}}
   </div>
 
   <div class='cut-filter-bar-results'>

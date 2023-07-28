@@ -61,6 +61,42 @@
       <F.Checkmark @value="vault" @name="Vault">Vault</F.Checkmark>
     </Filters.Filter>
   </FB.FilterGroup>
+  {{!-- <FB.SortGroup as |Filters|>
+    <Filters.Filter
+      @name="status"
+      @batch={{true}}
+      @isMultiSelect={{true}}
+      as |F|
+    >
+      <F.ToggleButton @color="secondary" @text="Status" />
+      <F.Checkbox @value="running" @name="Running"><Hds::Badge
+          @text="running"
+          @color="success"
+        /></F.Checkbox>
+      <F.Checkbox @value="warning" @name="Warning"><Hds::Badge
+          @text="warning"
+          @color="warning"
+        /></F.Checkbox>
+      <F.Checkbox @value="critical" @name="Critical"><Hds::Badge
+          @text="critical"
+          @color="critical"
+        /></F.Checkbox>
+    </Filters.Filter>
+    <Filters.Sort as |S|>
+      <S.Checkmark @value="health" @name="critical to healthy">Critical to
+        Healthy</S.Checkmark>
+      <S.Checkmark @value="-health" @name="healthy to critical">
+        Healthy to Critical</S.Checkmark>
+      <S.Checkmark @value="instances" @name="instance count" />
+    </Filters.Sort>
+  </FB.SortGroup> --}}
+
+  <FB.Sort as |S|>
+    <S.Checkmark @value="health" @name="critical to healthy">Critical to Healthy</S.Checkmark>
+    <S.Checkmark @value="-health" @name="healthy to critical">
+      Healthy to Critical</S.Checkmark>
+    <S.Checkmark @value="instances" @name="instance count" />
+  </FB.Sort>
 </Cut::FilterBar>
 
 <CodeBlock

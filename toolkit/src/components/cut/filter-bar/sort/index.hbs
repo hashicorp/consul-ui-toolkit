@@ -1,0 +1,44 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{#if @dropdown}}
+  {{#let @dropdown as |Dropdown|}}
+    <Dropdown ...attributes as |DD|>
+      <DD.ToggleButton
+        @icon='sort-desc'
+        @text='Sort by: {{@config.sort.text}}'
+        @color='secondary'
+      />
+      {{yield
+        (hash
+          Checkmark=(component
+            'cut/filter-bar/sort/checkmark'
+            checkmark=DD.Checkmark
+            config=@config
+            onSortChange=@onSortChange
+          )
+        )
+      }}
+    </Dropdown>
+  {{/let}}
+{{else}}
+  <Hds::Dropdown ...attributes as |DD|>
+    <DD.ToggleButton
+      @icon='sort-desc'
+      @text='Sort by: {{@config.sort.text}}'
+      @color='secondary'
+    />
+    {{yield
+      (hash
+        Checkmark=(component
+          'cut/filter-bar/sort/checkmark'
+          checkmark=DD.Checkmark
+          config=@config
+          onSortChange=@onSortChange
+        )
+      )
+    }}
+  </Hds::Dropdown>
+{{/if}}
