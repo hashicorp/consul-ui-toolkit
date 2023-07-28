@@ -54,6 +54,7 @@
     "@typescript-eslint/eslint-plugin": "^5.2.0",
     "@typescript-eslint/parser": "^5.2.0",
     "concurrently": "^7.2.1",
+    "ember-inflector": "^4.0.2",
     "ember-set-helper": "^2.0.1",
     "ember-template-lint": "^4.0.0",
     "eslint": "^7.32.0",
