@@ -205,6 +205,14 @@
           @text="critical"
           @color="critical"
         /></F.Checkbox>
+      <F.Generic as |fb|>
+        <Hds::Button
+          @type="button"
+          @text="Toggle Yolo"
+          @isFullWidth={{true}}
+          {{on "click" (fn fb.toggle "status" "yolo" "Yolo" true)}}
+        />
+      </F.Generic>
     </Filters.Filter>
     <Filters.Filter @name="type" as |F|>
       <F.ToggleButton @color="secondary" @text="Type" />
