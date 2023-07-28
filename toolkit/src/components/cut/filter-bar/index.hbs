@@ -26,6 +26,14 @@
             isChecked=this.isCheckboxChecked
             config=@config
           )
+          Generic=(component
+            'cut/filter-bar/generic'
+            toggle=this.toggleFilterValue
+            softToggle=this.softToggleFilterValue
+            applyFilter=this.applyFilter
+            config=@config
+            localConfig=this.localConfig
+          )
           Search=(component
             'cut/filter-bar/search'
             onSearchInput=this.onSearchInput
