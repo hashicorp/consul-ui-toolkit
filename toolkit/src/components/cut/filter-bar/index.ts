@@ -56,7 +56,7 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
     return value
       .replace(/([A-Z]+)/g, ' $1')
       .replace(/([A-Z][a-z])/g, ' $1')
-      .replace(/{2}/g, ' ')
+      .replace(/ {2}/g, ' ')
       .replace(/^./g, (match) => match.toUpperCase());
   }
 
