@@ -9,6 +9,7 @@ import { tracked } from '@glimmer/tracking';
 export interface ComponentSignature {
   Args: {
     config: FilterConfig;
+    results?: number;
     onChange: (config: FilterConfig) => void;
   };
 }

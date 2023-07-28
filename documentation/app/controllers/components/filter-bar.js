@@ -23,10 +23,13 @@ export default class FilterBarController extends Controller {
     },
   };
 
+  @tracked count = 0;
+
   @action
   handleFilterChange(config) {
     console.log('Received updated filters');
     this.filters = config;
+    this.count = Math.floor(Math.random() * 50);
     console.log(this.filters);
   }
 }

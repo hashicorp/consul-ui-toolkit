@@ -49,7 +49,10 @@
   </div>
 
   <div class='cut-filter-bar-results'>
-    <p class='cut-filter-bar-results-count'>Showing X results</p>
+    {{#let (if @count @count 0) as |count|}}
+      <p class='cut-filter-bar-results-count'>Showing
+        {{pluralize count 'result'}}</p>
+    {{/let}}
 
     {{#each this.appliedFilters as |filter|}}
       <p class='cut-filter-bar-applied-filter-label'><strong>{{this.titlecase
