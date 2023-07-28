@@ -33,15 +33,6 @@
   </FB.Filter>
 
   <FB.Search placeholder="Search for services" />
-  {{!-- <FB.FilterGroup as |Filters|>
-    <Filters.Search />
-    <Filters.Filter @name="sport" @isMultiSelect={{true}} as |F|>
-      <F.ToggleButton @color="secondary" @text="Sport" />
-      <F.Checkbox @value="f1" @name="Formula 1">Formula 1</F.Checkbox>
-      <F.Checkbox @value="soccer" @name="Socccer">Soccer</F.Checkbox>
-      <F.Checkbox @value="hockey" @name="Hockey">Hockey</F.Checkbox>
-    </Filters.Filter>
-  </FB.FilterGroup> --}}
   <FB.FilterGroup as |Filters|>
     <Filters.Filter
       @name="status"
@@ -71,6 +62,86 @@
     </Filters.Filter>
   </FB.FilterGroup>
 </Cut::FilterBar>
+
+<CodeBlock
+  @language="handlebars"
+  @code={{{'
+<Cut::FilterBar
+  @config={{this.filters}}
+  @count={{this.count}}
+  @onChange={{this.handleFilterChange}}
+  as |FB|>
+  <FB.Filter @name="clusterID" @listPosition="bottom-left" as |F|>
+    <F.ToggleButton
+      @icon="server-cluster"
+      @text="Cluster ID"
+      @color="secondary"
+    />
+    <F.Checkmark @value={{1}} @name="Cluster One">One</F.Checkmark>
+    <F.Checkmark @value={{2}} @name="Cluster Two">Two</F.Checkmark>
+  </FB.Filter>
+  <FB.Search placeholder="Search for services" />
+  <FB.FilterGroup as |Filters|>
+    <Filters.Filter
+      @name="status"
+      @batch={{true}}
+      @isMultiSelect={{true}}
+      as |F|
+    >
+      <F.ToggleButton @color="secondary" @text="Status" />
+      <F.Checkbox @value="running" @name="Running"><Hds::Badge
+          @text="running"
+          @color="success"
+        /></F.Checkbox>
+      <F.Checkbox @value="warning" @name="Warning"><Hds::Badge
+          @text="warning"
+          @color="warning"
+        /></F.Checkbox>
+      <F.Checkbox @value="critical" @name="Critical"><Hds::Badge
+          @text="critical"
+          @color="critical"
+        /></F.Checkbox>
+    </Filters.Filter>
+    <Filters.Filter @name="type" as |F|>
+      <F.ToggleButton @color="secondary" @text="Type" />
+      <F.Checkmark @value="consul" @name="Consul">Consul</F.Checkmark>
+      <F.Checkmark @value="nomad" @name="Nomad">Nomad</F.Checkmark>
+      <F.Checkmark @value="vault" @name="Vault">Vault</F.Checkmark>
+    </Filters.Filter>
+  </FB.FilterGroup>
+</Cut::FilterBar>
+'}}}
+/>
+
+<CodeBlock
+  @language="javascript"
+  @code={{{"
+  export default class FilterBarController extends Controller {
+  @tracked filters = {
+    search: {
+      value: '',
+    },
+    filters: {
+      status: [
+        { text: 'Running', value: 'running' },
+        { text: 'Warning', value: 'warning' },
+      ],
+      type: {
+        text: 'Nomad',
+        value: 'nomad',
+      },
+    },
+  };
+
+  @tracked count = 0;
+
+  @action
+  handleFilterChange(config) {
+    this.filters = config;
+  }
+}
+  "}}}
+/>
 
 {{! <FB.Filter as |F|>
 
