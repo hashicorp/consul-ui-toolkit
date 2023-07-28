@@ -56,7 +56,7 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
     return value
       .replace(/([A-Z]+)/g, ' $1')
       .replace(/([A-Z][a-z])/g, ' $1')
-      .replace(/  /g, ' ')
+      .replace(/{2}/g, ' ')
       .replace(/^./g, (match) => match.toUpperCase());
   }
 
@@ -66,7 +66,7 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
       - if there are no filter changes return config
       - if there are filter changes apply them to config and return them
     */
-    let local = Object.assign({}, this.args.config);
+    const local = Object.assign({}, this.args.config);
 
     if (this.configChanges.filters) {
       // do the filter changes
@@ -171,7 +171,7 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
 
     if (isMultiSelect) {
       if (Array.isArray(filterChange[name])) {
-        let valueIndex = (filterChange[name] as Filter[]).findIndex(
+        const valueIndex = (filterChange[name] as Filter[]).findIndex(
           (filter: Filter) => filter.value === value
         );
 
@@ -228,7 +228,7 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
   @action
   applyFilter(name: string): void {
     // grab the config
-    let config = Object.assign({}, this.args.config);
+    const config = Object.assign({}, this.args.config);
 
     // apply the filter from filterChanges
     if (Object.hasOwn(this.configChanges?.filters || {}, name)) {

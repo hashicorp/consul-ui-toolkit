@@ -22,7 +22,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:ember/recommended',
     'plugin:prettier/recommended',
-    'plugin:@typescript-eslint/recommended'
+    'plugin:@typescript-eslint/recommended',
   ],
   env: {
     browser: true,
@@ -30,6 +30,7 @@ module.exports = {
   rules: {
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
   },
   overrides: [
     // node files

@@ -3,7 +3,7 @@
  */
 
 import Component from '@glimmer/component';
-import { FilterConfig, Filters } from '..';
+import { FilterConfig } from '..';
 
 interface FilterInterface {
   Args: {
