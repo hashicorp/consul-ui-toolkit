@@ -17,7 +17,6 @@
           Checkbox=(component
             'cut/filter-bar/filter/checkbox'
             checkbox=DD.Checkbox
-            filters=@filters
             filterName=@name
             toggle=this.toggle
             applyFilter=@applyFilter
@@ -27,7 +26,6 @@
           Checkmark=(component
             'cut/filter-bar/filter/checkmark'
             checkmark=DD.Checkmark
-            filters=@filters
             filterName=@name
             toggle=this.toggle
             applyFilter=@applyFilter
@@ -37,7 +35,6 @@
           Radio=(component
             'cut/filter-bar/filter/radio'
             radio=DD.Radio
-            filters=@filters
             filterName=@name
             toggle=this.toggle
             applyFilter=@applyFilter
@@ -47,12 +44,10 @@
           Generic=(component
             'cut/filter-bar/filter/generic'
             generic=DD.Generic
-            filters=@filters
-            filterName=@name
             toggle=this.toggle
             applyFilter=@applyFilter
-            isChecked=@isChecked
-            isMultiSelect=@isMultiSelect
+            config=@config
+            localConfig=@localConfig
           )
           CopyItem=DD.CopyItem
           Description=DD.Description
@@ -87,7 +82,6 @@
         Checkbox=(component
           'cut/filter-bar/filter/checkbox'
           checkbox=DD.Checkbox
-          filters=@filters
           filterName=@name
           toggle=this.toggle
           applyFilter=@applyFilter
@@ -96,7 +90,6 @@
         Checkmark=(component
           'cut/filter-bar/filter/checkmark'
           checkmark=DD.Checkmark
-          filters=@filters
           filterName=@name
           toggle=this.toggle
           applyFilter=@applyFilter
@@ -105,7 +98,6 @@
         Radio=(component
           'cut/filter-bar/filter/radio'
           radio=DD.Radio
-          filters=@filters
           filterName=@name
           toggle=this.toggle
           applyFilter=@applyFilter
@@ -115,12 +107,10 @@
         Generic=(component
           'cut/filter-bar/filter/generic'
           generic=DD.Generic
-          filters=@filters
-          filterName=@name
           toggle=this.toggle
           applyFilter=@applyFilter
-          isChecked=@isChecked
-          isMultiSelect=@isMultiSelect
+          config=@config
+          localConfig=@localConfig
         )
         CopyItem=DD.CopyItem
         Description=DD.Description
