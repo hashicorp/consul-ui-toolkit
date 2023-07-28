@@ -38,6 +38,11 @@ interface AppliedFilter {
   isMultiSelect?: boolean;
 }
 
+export type HTMLElementEvent<T extends HTMLElement> = Event & {
+  target: T;
+  currentTarget: T;
+};
+
 // 'clusterID'.replace(/([A-Z]+)/g, " $1").replace(/([A-Z][a-z])/g, " $1").replace(/  /g, " ").replace(/^./g, (match) => match.toUpperCase())
 export default class FilterBarComponent extends Component<ComponentSignature> {
   @tracked configChanges: FilterConfig = {};
@@ -220,7 +225,7 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
    * @param name
    */
   @action
-  applyFilter(name: string): any {
+  applyFilter(name: string): void {
     // grab the config
     let config = Object.assign({}, this.args.config);
 
@@ -230,6 +235,7 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
         [name]: this.configChanges?.filters?.[name],
       });
     }
+
     // clear out the empty filters
     if (config.filters) {
       Object.keys(config.filters).forEach((key) => {
@@ -250,9 +256,38 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
   }
 
   @action
-  clearFilters() {
+  clearFilters(): void {
     const config = Object.assign({}, this.args.config, this.configChanges, {
       filters: {},
+    });
+
+    this.args.onChange(config);
+  }
+
+  @action
+  onSearchKeyup(event: KeyboardEvent) {
+    const value = (event?.target as HTMLInputElement)?.value;
+
+    if (event.key === 'Enter') {
+      this.onSearch(value);
+    }
+  }
+
+  @action
+  onSearchInput(event: HTMLElementEvent<HTMLInputElement>) {
+    const value = event?.target?.value;
+
+    if (value === '') {
+      this.onSearch('');
+    }
+  }
+
+  @action
+  onSearch(value: string): void {
+    const config = Object.assign({}, this.args.config, {
+      search: {
+        value,
+      },
     });
 
     this.args.onChange(config);

@@ -1,0 +1,26 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
+{{#if @group}}
+  {{#let @group as |SG|}}
+    <SG.TextInput
+      @type='search'
+      placeholder='Search'
+      aria-label='Search'
+      {{on 'keyup' @onSearchKeyup}}
+      {{on 'input' @onSearchInput}}
+      ...attributes
+    />
+  {{/let}}
+{{else}}
+  <Hds::Form::TextInput::Base
+    @type='search'
+    placeholder='Search'
+    aria-label='Search'
+    class='cut-filter-bar-search'
+    {{on 'keyup' @onSearchKeyup}}
+    {{on 'input' @onSearchInput}}
+    ...attributes
+  />
+{{/if}}

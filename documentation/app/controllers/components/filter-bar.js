@@ -24,8 +24,9 @@ export default class FilterBarController extends Controller {
   };
 
   @action
-  handleFilterChange(filters) {
+  handleFilterChange(config) {
     console.log('Received updated filters');
-    this.filters = filters;
+    this.filters = config;
+    console.log(this.filters);
   }
 }
