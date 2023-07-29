@@ -28,8 +28,17 @@
       @text="Cluster ID"
       @color="secondary"
     />
-    <F.Checkmark @value={{1}} @name="Cluster One">One</F.Checkmark>
-    <F.Checkmark @value={{2}} @name="Cluster Two">Two</F.Checkmark>
+    <F.FilterInput
+      @value={{this.search}}
+      @count={{this.filteredClusters.length}}
+      @onInput={{this.updateSearch}}
+    />
+    {{#each this.filteredClusters as |cluster|}}
+      <F.Checkmark
+        @value={{cluster.id}}
+        @name={{cluster.name}}
+      >{{cluster.name}}</F.Checkmark>
+    {{/each}}
   </FB.Filter>
 
   <FB.Search placeholder="Search for services" />

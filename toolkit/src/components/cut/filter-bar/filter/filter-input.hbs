@@ -1,0 +1,22 @@
+{{#let @components as |Components|}}
+  <Components.Generic>
+    <Hds::Form::TextInput::Base
+      @type='search'
+      @value={{this.search}}
+      style='margin: 8px 0;'
+      placeholder='Search'
+      aria-label='Search Clusters'
+      {{on 'input' @onInput}}
+    />
+  </Components.Generic>
+  <Components.Separator />
+  <Components.Generic>
+    <span
+      class='hds-foreground-faint hds-typography-body-100 hds-font-weight-regular'
+      style='display: flex; justify-content: space-between; margin: 8px 0;'
+    >
+      <span>Cluster ID</span>
+      <span>{{or @count 0}}</span>
+    </span>
+  </Components.Generic>
+{{/let}}
