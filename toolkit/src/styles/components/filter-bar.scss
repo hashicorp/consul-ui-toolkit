@@ -37,14 +37,19 @@
     column-gap: 8px;
     row-gap: 12px;
     margin: 12px 0;
+    font-size: var(--token-typography-body-200-font-size);
 
     p.cut-filter-bar-results-count {
       margin: 0;
       flex-shrink: 0;
+      color: var(--token-color-foreground-faint);
     }
 
     p.cut-filter-bar-applied-filter-label {
       margin: 0 0 0 8px;
+      font-size: var(--token-typography-body-200-font-size);
+      font-weight: var(--token-typography-font-weight-medium);
+      color: var(--token-color-foreground-faint);
     }
   }
 }

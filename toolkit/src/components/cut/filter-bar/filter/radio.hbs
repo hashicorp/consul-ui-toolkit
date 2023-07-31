@@ -2,3 +2,10 @@
   Copyright (c) HashiCorp, Inc.
 }}
 
+{{#let @radio as |Radio|}}
+  <Radio
+    checked={{this.isChecked}}
+    {{on 'click' (fn @toggle @filterName @name @value false)}}
+    ...attributes
+  >{{yield}}</Radio>
+{{/let}}

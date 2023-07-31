@@ -69,6 +69,12 @@
       <F.Checkmark @value="nomad" @name="Nomad">Nomad</F.Checkmark>
       <F.Checkmark @value="vault" @name="Vault">Vault</F.Checkmark>
     </Filters.Filter>
+    <Filters.Filter @name="juice" as |F|>
+      <F.ToggleButton @color="secondary" @text="Juice" />
+      <F.Radio @value="oj" @name="Orange">Orange Juice</F.Radio>
+      <F.Radio @value="apple" @name="Apple">Apple Juice</F.Radio>
+      <F.Radio @value="lemonade" @name="Lemonade">Lemonade</F.Radio>
+    </Filters.Filter>
   </FB.FilterGroup>
   <FB.Sort as |S|>
     <S.Checkmark @value="health" @name="critical to healthy">Critical to Healthy</S.Checkmark>
