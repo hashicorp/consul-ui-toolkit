@@ -7,6 +7,7 @@
   <Checkmark
     @selected={{this.isSelected}}
     {{on 'click' (fn @onSortChange @value @name)}}
+    ...attributes
   >
     {{#if (has-block)}}
       {{yield}}
