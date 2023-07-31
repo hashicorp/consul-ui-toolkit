@@ -225,7 +225,15 @@
           @type="button"
           @text="Toggle Yolo"
           @isFullWidth={{true}}
-          {{on "click" (fn fb.toggle "status" "yolo" "Yolo" true)}}
+          {{on
+            "click"
+            (fn
+              fb.toggle
+              (hash
+                filterName="status" value="yolo" text="Yolo" isMultiSelect=true
+              )
+            )
+          }}
         />
       </F.Generic>
     </Filters.Filter>
@@ -240,7 +248,10 @@
     <Hds::Button
       @text="Generic"
       @type="button"
-      {{on "click" (fn functions.toggle "foo" "bar" "bar")}}
+      {{on
+        "click"
+        (fn functions.toggle (hash filterName="foo" value="bar" text="bar"))
+      }}
     />
   </FB.Generic>
   <FB.SortGroup as |Filters|>

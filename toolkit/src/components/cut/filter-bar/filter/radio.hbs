@@ -5,7 +5,10 @@
 {{#let @radio as |Radio|}}
   <Radio
     checked={{this.isChecked}}
-    {{on 'click' (fn @toggle @filterName @name @value false)}}
+    {{on
+      'click'
+      (fn @toggle (hash filterName=@filterName text=@name value=@value))
+    }}
     ...attributes
   >{{yield}}</Radio>
 {{/let}}

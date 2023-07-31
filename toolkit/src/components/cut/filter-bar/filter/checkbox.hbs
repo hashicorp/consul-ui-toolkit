@@ -5,7 +5,18 @@
 {{#let @checkbox as |Checkbox|}}
   <Checkbox
     checked={{this.isChecked}}
-    {{on 'click' (fn @toggle @filterName @name @value @isMultiSelect)}}
+    {{on
+      'click'
+      (fn
+        @toggle
+        (hash
+          filterName=@filterName
+          text=@name
+          value=@value
+          isMultiSelect=@isMultiSelect
+        )
+      )
+    }}
     ...attributes
   >{{yield}}</Checkbox>
 {{/let}}

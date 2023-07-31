@@ -44,6 +44,24 @@ export type HTMLElementEvent<T extends HTMLElement> = Event & {
   currentTarget: T;
 };
 
+/**
+ * TODO:
+ * - Add radio filter
+ * - Update how isChecked works (stop using an action)
+ * - Review types
+ * - Add tests
+ * - Update comments
+ * - Update togglebutton default color to be secondary
+ */
+
+export interface ToggleArgs {
+  filterName: string;
+  value: any;
+  text: string;
+  isMultiSelect?: boolean;
+  isRadio?: boolean;
+}
+
 // 'clusterID'.replace(/([A-Z]+)/g, " $1").replace(/([A-Z][a-z])/g, " $1").replace(/  /g, " ").replace(/^./g, (match) => match.toUpperCase())
 export default class FilterBarComponent extends Component<ComponentSignature> {
   @tracked configChanges: FilterConfig = {};
@@ -128,6 +146,10 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
     }
   }
 
+  /*
+   * softToggleFilterValue({ filterName: name, value: any, isRadio: foo, isMultiSelect})
+   */
+
   /**
    *
    * @param name
@@ -149,47 +171,47 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
    *  for how it should be represented there.
    */
   @action
-  softToggleFilterValue(
-    name: string,
-    displayName: string,
-    value: any,
-    isMultiSelect?: boolean
-  ) {
+  softToggleFilterValue(toggle: ToggleArgs): void {
+    const { filterName, value, text, isMultiSelect, isRadio } = Object.assign(
+      {},
+      { isMultiSelect: false, isRadio: false },
+      toggle
+    );
     let filterChange: Filters = {};
 
-    if (this.localConfig?.filters?.[name]) {
+    if (this.localConfig?.filters?.[filterName]) {
       filterChange = Object.assign(filterChange, {
-        [name]: this.localConfig?.filters?.[name],
+        [filterName]: this.localConfig?.filters?.[filterName],
       });
     }
 
-    if (this.configChanges?.filters?.[name]) {
+    if (this.configChanges?.filters?.[filterName]) {
       filterChange = Object.assign(filterChange, {
-        [name]: this.configChanges?.filters?.[name],
+        [filterName]: this.configChanges?.filters?.[filterName],
       });
     }
 
     if (isMultiSelect) {
-      if (Array.isArray(filterChange[name])) {
-        const valueIndex = (filterChange[name] as Filter[]).findIndex(
+      if (Array.isArray(filterChange[filterName])) {
+        const valueIndex = (filterChange[filterName] as Filter[]).findIndex(
           (filter: Filter) => filter.value === value
         );
 
         if (valueIndex !== -1) {
-          (filterChange[name] as Filter[]).splice(valueIndex, 1);
+          (filterChange[filterName] as Filter[]).splice(valueIndex, 1);
         } else {
-          (filterChange[name] as Filter[]).push({ text: displayName, value });
+          (filterChange[filterName] as Filter[]).push({ text, value });
         }
       } else {
-        (filterChange[name] as Filter[]) = [{ text: displayName, value }];
+        (filterChange[filterName] as Filter[]) = [{ text, value }];
       }
     } else if (typeof value === 'object') {
-      filterChange[name] = { text: displayName, value };
+      filterChange[filterName] = { text, value };
     } else {
-      if ((filterChange[name] as Filter)?.value === value) {
-        filterChange[name] = undefined;
+      if ((filterChange[filterName] as Filter)?.value === value) {
+        filterChange[filterName] = undefined;
       } else {
-        filterChange[name] = { text: displayName, value };
+        filterChange[filterName] = { text, value };
       }
     }
     this.configChanges.filters = Object.assign(
@@ -209,14 +231,9 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
    * function, followed by the applyFilter function to perform this.
    */
   @action
-  toggleFilterValue(
-    filterName: string,
-    displayName: string,
-    value: any,
-    isMultiSelect?: boolean
-  ) {
-    this.softToggleFilterValue(filterName, displayName, value, isMultiSelect);
-    this.applyFilter(filterName);
+  toggleFilterValue(toggle: ToggleArgs): void {
+    this.softToggleFilterValue(toggle);
+    this.applyFilter(toggle.filterName);
   }
 
   // apply filterChanges to filters
