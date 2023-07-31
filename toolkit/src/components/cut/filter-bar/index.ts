@@ -235,6 +235,7 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
       }
     }
     this.configChanges.filters = Object.assign(
+      {},
       this.configChanges?.filters || {},
       filterChange
     );

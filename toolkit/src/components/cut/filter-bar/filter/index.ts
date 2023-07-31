@@ -26,13 +26,15 @@ export default class FilterComponent extends Component<FilterInterface> {
   }
 
   get filterCount(): string | undefined {
-    if (!this.args.config?.filters || !this.args.isMultiSelect) {
+    if (!this.args.config?.filters) {
       return undefined;
     }
 
     const value = this.args.config.filters[this.args.name];
-    if (value && Array.isArray(value) && value.length >= 1) {
+    if (value && Array.isArray(value)) {
       return value.length.toString();
+    } else if (value) {
+      return '1';
     }
   }
 }
