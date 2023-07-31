@@ -1,15 +1,14 @@
 {{#let @components as |Components|}}
-  <Components.Generic>
+  <Components.Header @hasDivider={{true}}>
     <Hds::Form::TextInput::Base
       @type='search'
-      @value={{this.search}}
+      @value={{@value}}
       style='margin: 8px 0;'
       placeholder='Search'
       aria-label='Search Clusters'
       {{on 'input' @onInput}}
     />
-  </Components.Generic>
-  <Components.Separator />
+  </Components.Header>
   <Components.Generic>
     <span
       class='hds-foreground-faint hds-typography-body-100 hds-font-weight-regular'
