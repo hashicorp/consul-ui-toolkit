@@ -22,7 +22,13 @@
   @onChange={{this.handleFilterChange}}
   as |FB|
 >
-  <FB.Filter @name="clusterID" @listPosition="bottom-left" as |F|>
+  <FB.Filter
+    @name="clusterID"
+    @listPosition="bottom-left"
+    @isMultiSelect={{true}}
+    @batch={{true}}
+    as |F|
+  >
     <F.ToggleButton
       @icon="server-cluster"
       @text="Cluster ID"
@@ -34,10 +40,10 @@
       @onInput={{this.updateSearch}}
     />
     {{#each this.filteredClusters as |cluster|}}
-      <F.Checkmark
+      <F.Checkbox
         @value={{cluster.id}}
         @name={{cluster.name}}
-      >{{cluster.name}}</F.Checkmark>
+      >{{cluster.name}}</F.Checkbox>
     {{/each}}
   </FB.Filter>
 

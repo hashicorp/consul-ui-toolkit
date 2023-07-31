@@ -60,8 +60,10 @@
         )
       }}
       {{#if @batch}}
-        <DD.Separator />
-        <DD.Generic class='cut-filter-bar-apply-filter-button'>
+        <DD.Footer
+          @hasDivider={{true}}
+          class='cut-filter-bar-apply-filter-button'
+        >
           <Hds::Button
             @type='button'
             @text='Apply'
@@ -69,7 +71,7 @@
             @isFullWidth={{true}}
             {{on 'click' (fn @applyFilter @name)}}
           />
-        </DD.Generic>
+        </DD.Footer>
       {{/if}}
     </Dropdown>
   {{/let}}
@@ -89,6 +91,7 @@
           toggle=this.toggle
           applyFilter=@applyFilter
           isChecked=@isChecked
+          isMultiSelect=@isMultiSelect
         )
         Checkmark=(component
           'cut/filter-bar/filter/checkmark'
@@ -97,6 +100,7 @@
           toggle=this.toggle
           applyFilter=@applyFilter
           isChecked=@isChecked
+          isMultiSelect=@isMultiSelect
         )
         Radio=(component
           'cut/filter-bar/filter/radio'
@@ -127,8 +131,10 @@
     }}
 
     {{#if @batch}}
-      <DD.Separator />
-      <DD.Generic class='cut-filter-bar-apply-filter-button'>
+      <DD.Footer
+        @hasDivider={{true}}
+        class='cut-filter-bar-apply-filter-button'
+      >
         <Hds::Button
           @type='button'
           @text='Apply'
@@ -136,7 +142,7 @@
           @isFullWidth={{true}}
           {{on 'click' (fn @applyFilter @name)}}
         />
-      </DD.Generic>
+      </DD.Footer>
     {{/if}}
   </Hds::Dropdown>
 {{/if}}

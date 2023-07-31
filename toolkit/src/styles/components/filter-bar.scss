@@ -5,6 +5,10 @@
 .cut-filter-bar {
   width: 100%;
 
+  .hds-dropdown__content {
+    max-height: 360px;
+  }
+
   .cut-filter-bar-filters {
     display: flex;
     flex-wrap: nowrap;
@@ -21,8 +25,6 @@
     }
 
     .cut-filter-bar-apply-filter-button {
-      padding: 8px 16px;
-
       button {
         border-radius: 5px;
         margin-left: 0;

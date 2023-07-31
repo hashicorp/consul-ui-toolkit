@@ -16,9 +16,10 @@ export default class FilterBarController extends Controller {
         { text: 'Running', value: 'running' },
         { text: 'Warning', value: 'warning' },
       ],
-      type: {
-        text: 'Nomad',
-        value: 'nomad',
+      juice: {
+        text: 'Orange',
+        value: 'oj',
+        isRequired: true,
       },
     },
     sort: {
