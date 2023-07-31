@@ -27,6 +27,7 @@ interface Search {
 export interface Filter {
   text: string;
   value: any;
+  isRequired?: boolean;
 }
 
 export interface Filters {
@@ -37,6 +38,7 @@ interface AppliedFilter {
   name: string;
   value: Filter[];
   isMultiSelect?: boolean;
+  isRequired?: boolean;
 }
 
 export type HTMLElementEvent<T extends HTMLElement> = Event & {
@@ -59,7 +61,7 @@ export interface ToggleArgs {
   value: any;
   text: string;
   isMultiSelect?: boolean;
-  isRadio?: boolean;
+  isRequired?: boolean;
 }
 
 // 'clusterID'.replace(/([A-Z]+)/g, " $1").replace(/([A-Z][a-z])/g, " $1").replace(/  /g, " ").replace(/^./g, (match) => match.toUpperCase())
@@ -119,16 +121,26 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
         const filter = this.args.config?.filters?.[filterName];
 
         if (filter && Array.isArray(filter)) {
+          const isRequired = !!(
+            this.args.config?.filters?.[filterName] as Filter[]
+          ).find((filter: Filter) => filter.isRequired);
+
           return {
             name: filterName,
             value: this.args.config?.filters?.[filterName],
             isMultiSelect: true,
+            isRequired,
           };
         } else if (filter) {
+          const isRequired = !!(
+            this.args.config?.filters?.[filterName] as Filter
+          ).isRequired;
+
           return {
             name: filterName,
             value: [this.args.config?.filters?.[filterName]],
             isMultiSelect: false,
+            isRequired,
           };
         }
       })
@@ -172,11 +184,8 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
    */
   @action
   softToggleFilterValue(toggle: ToggleArgs): void {
-    const { filterName, value, text, isMultiSelect, isRadio } = Object.assign(
-      {},
-      { isMultiSelect: false, isRadio: false },
-      toggle
-    );
+    const { filterName, value, text, isMultiSelect, isRequired } =
+      Object.assign({}, { isMultiSelect: false, isRequired: false }, toggle);
     let filterChange: Filters = {};
 
     if (this.localConfig?.filters?.[filterName]) {
@@ -197,21 +206,28 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
           (filter: Filter) => filter.value === value
         );
 
-        if (valueIndex !== -1) {
+        if (valueIndex !== -1 && !isRequired) {
           (filterChange[filterName] as Filter[]).splice(valueIndex, 1);
         } else {
-          (filterChange[filterName] as Filter[]).push({ text, value });
+          (filterChange[filterName] as Filter[]).push({
+            text,
+            value,
+            isRequired,
+          });
         }
       } else {
-        (filterChange[filterName] as Filter[]) = [{ text, value }];
+        (filterChange[filterName] as Filter[]) = [{ text, value, isRequired }];
       }
     } else if (typeof value === 'object') {
-      filterChange[filterName] = { text, value };
+      filterChange[filterName] = { text, value, isRequired };
     } else {
-      if ((filterChange[filterName] as Filter)?.value === value) {
+      if (
+        (filterChange[filterName] as Filter)?.value === value &&
+        !isRequired
+      ) {
         filterChange[filterName] = undefined;
       } else {
-        filterChange[filterName] = { text, value };
+        filterChange[filterName] = { text, value, isRequired };
       }
     }
     this.configChanges.filters = Object.assign(
@@ -275,11 +291,27 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
 
   @action
   clearFilters(): void {
-    const config = Object.assign({}, this.args.config, this.configChanges, {
-      filters: {},
+    let config = Object.assign({}, this.args.config) || {};
+
+    const keysToKeep = Object.keys(config?.filters || {}).filter(
+      (key: string) => {
+        return Array.isArray(config.filters?.[key])
+          ? !!(config.filters?.[key] as Filter[])?.find(
+              (filter: Filter) => filter.isRequired
+            )
+          : (config.filters?.[key] as Filter)?.isRequired;
+      }
+    );
+
+    const filtersToKeep: Filters = {};
+    keysToKeep.forEach((key) => {
+      filtersToKeep[key] = config.filters?.[key];
     });
 
+    config = Object.assign({}, config, { filters: filtersToKeep });
+
     this.args.onChange(config);
+    this.configChanges = {};
   }
 
   @action

@@ -7,7 +7,10 @@
     checked={{this.isChecked}}
     {{on
       'click'
-      (fn @toggle (hash filterName=@filterName text=@name value=@value))
+      (fn
+        @toggle
+        (hash filterName=@filterName text=@name value=@value isRequired=true)
+      )
     }}
     ...attributes
   >{{yield}}</Radio>

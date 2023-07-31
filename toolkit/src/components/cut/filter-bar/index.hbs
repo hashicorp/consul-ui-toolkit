@@ -79,18 +79,22 @@
         }}:</p>
 
       {{#each filter.value as |filterValue|}}
-        <Hds::Tag
-          @text={{this.titlecase filterValue.text}}
-          @onDismiss={{fn
-            this.toggleFilterValue
-            (hash
-              filterName=filter.name
-              text=filterValue.text
-              value=filterValue.value
-              isMultiSelect=filter.isMultiSelect
-            )
-          }}
-        />
+        {{#if filter.isRequired}}
+          <Hds::Tag @text={{this.titlecase filterValue.text}} />
+        {{else}}
+          <Hds::Tag
+            @text={{this.titlecase filterValue.text}}
+            @onDismiss={{fn
+              this.toggleFilterValue
+              (hash
+                filterName=filter.name
+                text=filterValue.text
+                value=filterValue.value
+                isMultiSelect=filter.isMultiSelect
+              )
+            }}
+          />
+        {{/if}}
       {{/each}}
     {{/each}}
 
