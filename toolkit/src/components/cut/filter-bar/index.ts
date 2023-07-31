@@ -48,12 +48,16 @@ export type HTMLElementEvent<T extends HTMLElement> = Event & {
 
 /**
  * TODO:
- * - Add radio filter
+ * - [x] Add radio filter
  * - Update how isChecked works (stop using an action)
  * - Review types
  * - Add tests
  * - Update comments
  * - Update togglebutton default color to be secondary
+ * - [x] max-height:  360px dropdowns
+ * - [x] update search to use dropdown::header
+ * - [x] update batch to use dropdown::footer
+ * - update dropdowns to clear non-applied filters on close
  */
 
 export interface ToggleArgs {
