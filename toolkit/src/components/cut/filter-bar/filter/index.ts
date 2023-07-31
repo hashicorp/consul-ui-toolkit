@@ -3,41 +3,25 @@
  */
 
 import Component from '@glimmer/component';
-import { FilterConfig } from '..';
+import { FilterConfig, ToggleArgs } from '..';
 
 interface FilterInterface {
   Args: {
     name: string;
     config: FilterConfig;
-    toggle: (
-      name: string,
-      displayName: string,
-      value: any,
-      isMultiSelect: boolean
-    ) => void;
-    softToggle: (
-      name: string,
-      displayName: string,
-      value: any,
-      isMultiSelect: boolean
-    ) => void;
+    toggle: (toggle: ToggleArgs) => void;
+    softToggle: (toggle: ToggleArgs) => void;
     applyFilter: (name: string) => void;
     isChecked: (name: string, value: any) => boolean;
     isMultiSelect?: boolean;
     batch?: boolean;
-    // not sure what to make this type
-    dropdown?: any;
+    dropdown?: unknown;
     listPosition?: 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right';
   };
 }
 
 export default class FilterComponent extends Component<FilterInterface> {
-  get toggle(): (
-    name: string,
-    displayName: string,
-    value: any,
-    isMultiSelect: boolean
-  ) => void {
+  get toggle(): (toggle: ToggleArgs) => void {
     return this.args.batch ? this.args.softToggle : this.args.toggle;
   }
 

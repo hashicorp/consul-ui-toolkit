@@ -3,13 +3,14 @@
  */
 
 import Component from '@glimmer/component';
+import { ToggleArgs } from '..';
 
 interface FilterBarCheckbox {
   Args: {
     filterName: string;
     name: string;
     value: any;
-    toggle: (name: string, value: any) => void;
+    toggle: (toggle: ToggleArgs) => void;
     isChecked: (name: string, value: any) => boolean;
   };
 }

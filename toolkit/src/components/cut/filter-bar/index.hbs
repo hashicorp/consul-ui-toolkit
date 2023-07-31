@@ -5,7 +5,6 @@
 <div class='cut-filter-bar' aria-label='Filter bar'>
   <div class='cut-filter-bar-filters'>
     <div class='cut-filter-bar-filtergroup'>
-      {{! filters }}
       {{yield
         (hash
           FilterGroup=(component
@@ -66,17 +65,6 @@
         )
       )
     }}
-    {{! sort }}
-    {{!-- <Hds::Dropdown as |DD|>
-      <DD.ToggleButton
-        @text='sort by: unhealthy to healthy'
-        @icon='sort-desc'
-        @color='secondary'
-      />
-      <DD.Checkmark @selected={{true}}>Unhealthy to Healthy</DD.Checkmark>
-      <DD.Checkmark @selected={{false}}>Unhealthy to Healthy</DD.Checkmark>
-      <DD.Checkmark @selected={{false}}>Unhealthy to Healthy</DD.Checkmark>
-    </Hds::Dropdown> --}}
   </div>
 
   <div class='cut-filter-bar-results'>
@@ -95,10 +83,12 @@
           @text={{this.titlecase filterValue.text}}
           @onDismiss={{fn
             this.toggleFilterValue
-            filter.name
-            filterValue.text
-            filterValue.value
-            filter.isMultiSelect
+            (hash
+              filterName=filter.name
+              text=filterValue.text
+              value=filterValue.value
+              isMultiSelect=filter.isMultiSelect
+            )
           }}
         />
       {{/each}}
