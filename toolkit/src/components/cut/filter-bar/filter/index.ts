@@ -9,10 +9,11 @@ interface FilterInterface {
   Args: {
     name: string;
     config: FilterConfig;
+    localConfig: FilterConfig;
     toggle: (toggle: ToggleArgs) => void;
     softToggle: (toggle: ToggleArgs) => void;
     applyFilter: (name: string) => void;
-    isChecked: (name: string, value: any) => boolean;
+    isChecked: (localConfig: FilterConfig, name: string, value: any) => boolean;
     isMultiSelect?: boolean;
     batch?: boolean;
     dropdown?: unknown;
