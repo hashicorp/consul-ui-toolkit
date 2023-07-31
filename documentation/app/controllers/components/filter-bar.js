@@ -76,15 +76,12 @@ export default class FilterBarController extends Controller {
 
   @action
   handleFilterChange(config) {
-    console.log('Received updated filters');
     this.filters = config;
     this.count = Math.floor(Math.random() * 50);
-    console.log(this.filters);
   }
 
   @action
   updateSearch(event) {
-    console.log(event);
     this.search = event.target.value;
   }
 }

@@ -5,6 +5,7 @@
 <div class='cut-filter-bar' aria-label='Filter bar'>
   <div class='cut-filter-bar-filters'>
     <div class='cut-filter-bar-filtergroup'>
+
       {{yield
         (hash
           FilterGroup=(component
@@ -14,7 +15,8 @@
             applyFilter=this.applyFilter
             onSearchInput=this.onSearchInput
             onSearchKeyup=this.onSearchKeyup
-            isChecked=this.isCheckboxChecked
+            clearPendingFilter=this.clearPendingFilter
+            isChecked=this.isChecked
             config=@config
             localConfig=this.localConfig
           )
@@ -23,7 +25,8 @@
             toggle=this.toggleFilterValue
             softToggle=this.softToggleFilterValue
             applyFilter=this.applyFilter
-            isChecked=this.isCheckboxChecked
+            clearPendingFilter=this.clearPendingFilter
+            isChecked=this.isChecked
             config=@config
             localConfig=this.localConfig
           )
@@ -32,6 +35,7 @@
             toggle=this.toggleFilterValue
             softToggle=this.softToggleFilterValue
             applyFilter=this.applyFilter
+            isChecked=this.isChecked
             config=@config
             localConfig=this.localConfig
           )
@@ -51,9 +55,10 @@
           toggle=this.toggleFilterValue
           softToggle=this.softToggleFilterValue
           applyFilter=this.applyFilter
+          clearPendingFilter=this.clearPendingFilter
           onSearchInput=this.onSearchInput
           onSearchKeyup=this.onSearchKeyup
-          isChecked=this.isCheckboxChecked
+          isChecked=this.isChecked
           config=@config
           localConfig=this.localConfig
           onSortChange=this.onSortChange

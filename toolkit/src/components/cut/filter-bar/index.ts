@@ -53,7 +53,7 @@ export type HTMLElementEvent<T extends HTMLElement> = Event & {
  * - Review types
  * - Add tests
  * - Update comments
- * - Update togglebutton default color to be secondary
+ * - [x] Update togglebutton default color to be secondary
  * - [x] max-height:  360px dropdowns
  * - [x] update search to use dropdown::header
  * - [x] update batch to use dropdown::footer
@@ -151,14 +151,13 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
       .filter(Boolean) as AppliedFilter[];
   }
 
-  @action
-  isCheckboxChecked(filter: string, value: any) {
-    if (Array.isArray(this.localConfig?.filters?.[filter])) {
-      return !!(this.localConfig?.filters?.[filter] as Filter[]).find(
+  isChecked(localConfig: FilterConfig, filter: string, value: any) {
+    if (Array.isArray(localConfig?.filters?.[filter])) {
+      return !!(localConfig?.filters?.[filter] as Filter[]).find(
         (filter: Filter) => filter.value === value
       );
     } else {
-      return (this.localConfig?.filters?.[filter] as Filter)?.value === value;
+      return (localConfig?.filters?.[filter] as Filter)?.value === value;
     }
   }
 
