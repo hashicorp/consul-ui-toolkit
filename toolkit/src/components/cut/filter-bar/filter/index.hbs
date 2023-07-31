@@ -12,7 +12,7 @@
       {{yield
         (hash
           ToggleButton=(component
-            DD.ToggleButton color='secondary' count=filterCount
+            DD.ToggleButton color='secondary' count=this.filterCount
           )
           Checkbox=(component
             'cut/filter-bar/filter/checkbox'
@@ -83,7 +83,9 @@
   >
     {{yield
       (hash
-        ToggleButton=(component DD.ToggleButton color='secondary')
+        ToggleButton=(component
+          DD.ToggleButton color='secondary' count=this.filterCount
+        )
         Checkbox=(component
           'cut/filter-bar/filter/checkbox'
           checkbox=DD.Checkbox
