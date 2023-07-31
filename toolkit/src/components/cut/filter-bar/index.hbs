@@ -86,9 +86,9 @@
     {{/let}}
 
     {{#each this.appliedFilters as |filter|}}
-      <p class='cut-filter-bar-applied-filter-label'><strong>{{this.titlecase
-            filter.name
-          }}:</strong></p>
+      <p class='cut-filter-bar-applied-filter-label'>{{this.titlecase
+          filter.name
+        }}:</p>
 
       {{#each filter.value as |filterValue|}}
         <Hds::Tag
