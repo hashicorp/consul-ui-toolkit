@@ -18,5 +18,11 @@
       )
     }}
     ...attributes
-  >{{yield}}</Checkbox>
+  >
+    {{#if (has-block)}}
+      {{yield}}
+    {{else}}
+      {{@name}}
+    {{/if}}
+  </Checkbox>
 {{/let}}

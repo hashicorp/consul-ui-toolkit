@@ -4,16 +4,13 @@
 
 <PageHeader
   @title="Filter Bar"
-  @figma="https://www.figma.com/file/SenC8kTQNUJKCvOvcL8WPu/Consul-Component-Library?type=design&node-id=2-4&t=S9Jf7rEKjWwv3e9d-0"
-  @github="https://github.com/hashicorp/consul-ui-toolkit/tree/main/toolkit/src/components/cut/list-item"
+  @figma="https://www.figma.com/file/KIkyC5ChM8vczgqwnAeCg9/Consul-%7C-UI-Unification?type=design&node-id=3315-544301&mode=dev"
+  @github="https://github.com/hashicorp/consul-ui-toolkit/tree/main/toolkit/src/components/cut/filter-bar"
 >
-  A List Item is used to list information that is often interactive and when
-  selected navigates the user to a details page to view additional information
-  about the item listed. A List Item is best used to display information that is
-  dynamic in nature or information that must be shared within the same line item
-  in order to provide the proper context. List items are also helpful when the
-  data needing to be displayed is dense and unable to fit within a standard
-  table cell.
+  A Filter Bar is used to allow the user to filter, search and sort a list of
+  results. The Filter Bar does not manage the list of results itself, but
+  manages the configuration of the filters and calls a function whenever they
+  are updated by the user interacting with the Filter Bar.
 </PageHeader>
 
 <Cut::FilterBar
@@ -71,9 +68,9 @@
     </Filters.Filter>
     <Filters.Filter @name="type" as |F|>
       <F.ToggleButton @text="Type" />
-      <F.Checkmark @value="consul" @name="Consul">Consul</F.Checkmark>
-      <F.Checkmark @value="nomad" @name="Nomad">Nomad</F.Checkmark>
-      <F.Checkmark @value="vault" @name="Vault">Vault</F.Checkmark>
+      <F.Checkmark @value="consul" @name="Consul" />
+      <F.Checkmark @value="nomad" @name="Nomad" />
+      <F.Checkmark @value="vault" @name="Vault" />
     </Filters.Filter>
     <Filters.Filter @name="juice" as |F|>
       <F.ToggleButton @text="Juice" />

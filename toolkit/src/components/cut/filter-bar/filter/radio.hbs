@@ -13,5 +13,11 @@
       )
     }}
     ...attributes
-  >{{yield}}</Radio>
+  >
+    {{#if (has-block)}}
+      {{yield}}
+    {{else}}
+      {{@name}}
+    {{/if}}
+  </Radio>
 {{/let}}
