@@ -152,6 +152,13 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
       .filter(Boolean) as AppliedFilter[];
   }
 
+  get shouldShowClearFiltersButton(): boolean {
+    return (
+      this.appliedFilters.length > 0 &&
+      !!this.appliedFilters.find((filter) => !filter.isRequired)
+    );
+  }
+
   isChecked(localConfig: FilterConfig, filter: string, value: unknown) {
     if (Array.isArray(localConfig?.filters?.[filter])) {
       return !!(localConfig?.filters?.[filter] as Filter[]).find(

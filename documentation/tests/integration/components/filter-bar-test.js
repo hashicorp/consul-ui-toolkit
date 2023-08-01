@@ -15,27 +15,30 @@ import {
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 
-async function setupTest() {
-  this.set('config', {
-    search: {
-      value: '',
-    },
-    filters: {
-      status: [
-        { text: 'Running', value: 'running' },
-        { text: 'Warning', value: 'warning' },
-      ],
-      juice: {
-        text: 'Orange',
-        value: 'oj',
-        isRequired: true,
+async function setupTest(config) {
+  this.set(
+    'config',
+    config || {
+      search: {
+        value: '',
       },
-    },
-    sort: {
-      text: 'critical to healthy',
-      value: 'health',
-    },
-  });
+      filters: {
+        status: [
+          { text: 'Running', value: 'running' },
+          { text: 'Warning', value: 'warning' },
+        ],
+        juice: {
+          text: 'Orange',
+          value: 'oj',
+          isRequired: true,
+        },
+      },
+      sort: {
+        text: 'critical to healthy',
+        value: 'health',
+      },
+    }
+  );
 
   let onChange = sinon.spy();
   this.onChange = onChange;
@@ -152,6 +155,33 @@ module('Integration | Component | cut/filter-bar', function (hooks) {
         isRequired: true,
       },
     });
+  });
+
+  test("clear filters doesn't show when there are only required filters", async function (assert) {
+    const { onChange } = await setupTest.call(this, {
+      search: {
+        value: '',
+      },
+      filters: {
+        juice: {
+          text: 'Orange',
+          value: 'oj',
+          isRequired: true,
+        },
+      },
+      sort: {
+        text: 'critical to healthy',
+        value: 'health',
+      },
+    });
+
+    const tags = this.element.querySelectorAll(
+      '.cut-filter-bar-results .hds-tag'
+    );
+
+    assert.strictEqual(tags.length, 1);
+    assert.strictEqual(tags[0].textContent.trim(), 'Orange');
+    assert.dom('.cut-filter-bar-results > button').doesNotExist();
   });
 
   test('batch filters call apply after apply button is pressed', async function (assert) {
