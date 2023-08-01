@@ -84,7 +84,7 @@ export interface ToggleArgs {
  * It is the result of taking the source of truth (config), and applying any existing pending changes from the
  * `configChanges` object to it. `localConfig` is used to represent the state of pending action. For example,
  * if I were to check a few checkboxes in a batch filter, but not yet apply them. This state would be represented
- * in the `localConfig` but not yet in the `config`. Once you apply the pending changes, they will be applied ot the
+ * in the `localConfig` but not yet in the `config`. Once you apply the pending changes, they will be applied to the
  * `config` and the `onChange` function will be called.
  */
 export default class FilterBarComponent extends Component<ComponentSignature> {
