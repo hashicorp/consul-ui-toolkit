@@ -103,7 +103,7 @@
       {{/each}}
     {{/each}}
 
-    {{#if (gt this.appliedFilters.length 0)}}
+    {{#if this.shouldShowClearFiltersButton}}
       <Hds::Button
         @text='Clear filters'
         @color='tertiary'
