@@ -123,7 +123,6 @@ module('Integration | Component | cut/filter-bar', function (hooks) {
     assert.ok(onChange.calledOnce);
 
     let newConfig = onChange.getCall(0).args;
-    console.log(newConfig[0]);
     assert.strictEqual(newConfig[0].filters.status.length, 1);
     assert.deepEqual(newConfig[0].filters, {
       status: [

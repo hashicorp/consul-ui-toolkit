@@ -58,6 +58,35 @@ export interface ToggleArgs {
   isRequired?: boolean;
 }
 
+/**
+ * `Cut::FilterBar` provides the UI building blocks for building a FilterBar while also managing state for you.
+ *
+ * ```
+ * <Cut::FilterBar
+ *  @config={{filterConfig}}
+ *  @count={{numberOfReturnedItems}}
+ *  @onChange={{onFilterChangeFunction}}
+ * as |FB|>
+ *
+ * </Cut::FilterBar>
+ * ```
+ *
+ * @class FilterBarComponent
+ *
+ * The FilterBar component takes in a `config` which denotes the initial values of the filter, search, and sort.
+ * In addition, it takes a `onChange` function that will be called everytime the filters/sort/search are altered
+ * with the new config. It is the consumers responsibility to perform any side-effects of filter changes and to
+ * update the config state accordingly.
+ *
+ * FilterBar manages state via 3 main variables. The `config` is the source of truth, as it represents the actual
+ * state of the filters/search/sort. The `configChanges` is an object of the same type as `config`, but it holds
+ * any pending changes that have yet to be committed/applied. The `localConfig` is also a `FilterConfig` object.
+ * It is the result of taking the source of truth (config), and applying any existing pending changes from the
+ * `configChanges` object to it. `localConfig` is used to represent the state of pending action. For example,
+ * if I were to check a few checkboxes in a batch filter, but not yet apply them. This state would be represented
+ * in the `localConfig` but not yet in the `config`. Once you apply the pending changes, they will be applied ot the
+ * `config` and the `onChange` function will be called.
+ */
 export default class FilterBarComponent extends Component<ComponentSignature> {
   @tracked configChanges: FilterConfig = {};
 
@@ -134,24 +163,13 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
   }
 
   /**
-   *
-   * @param name
-   * @param displayName
-   * @param value
-   * @param isMultiSelect
+   * @function softToggleFilterValue
+   * @param toggle ToggleArgs
    *
    * softToggleFilterValue extracts the filter that is being changed from the passed in config,
    * applies the existing pending config changes for that filter to it, then applies the new
    * change to it and saves it back to the configChanges object so that it may be applied in
    * the future.
-   *
-   * TODO:
-   *  this works best with arrays of basic data types and basic data types best right now.
-   *  Need to find a way to identify custom objects so that we can compare them.
-   *  This also doesn't support passing in display copy for value types currently. By that
-   *  I mean if you have a value that isn't easily or nicely converted to a string to show in
-   *  the applied filters section of the filter bar, it would be nice to be able to pass in copy
-   *  for how it should be represented there.
    */
   @action
   softToggleFilterValue(toggle: ToggleArgs): void {
@@ -209,11 +227,8 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
   }
 
   /**
-   *
-   * @param filterName
-   * @param displayName
-   * @param value
-   * @param isMultiSelect
+   * @function softToggleFilterValue
+   * @param toggle ToggleArgs
    *
    * toggleFilterValue toggles filters and applies the change immediately. This will call the softToggleValue
    * function, followed by the applyFilter function to perform this.
@@ -224,11 +239,12 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
     this.applyFilter(toggle.filterName);
   }
 
-  // apply filterChanges to filters
-  // delete that filters change in the filterchanges object
   /**
-   *
+   * @function applyFilter
    * @param name
+   *
+   * Applies the filter changes in `configChanges` for the named filter to the `config`
+   * and calls the `onChange` function with the new config.
    */
   @action
   applyFilter(name: string): void {
@@ -261,6 +277,13 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
     delete this.configChanges?.filters?.[name];
   }
 
+  /**
+   * @function clearFilters
+   *
+   * Clears all existing filters that don't have `isRequired` set to `true` in the `config`.
+   * It also clears out all changes in the `configChanges` object and calls the `onChange` function
+   * with the new config.
+   */
   @action
   clearFilters(): void {
     let config = Object.assign({}, this.args.config) || {};

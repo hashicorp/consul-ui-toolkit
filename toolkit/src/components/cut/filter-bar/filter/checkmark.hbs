@@ -10,5 +10,11 @@
       (fn @toggle (hash filterName=@filterName text=@name value=@value))
     }}
     ...attributes
-  >{{yield}}</Checkmark>
+  >
+    {{#if (has-block)}}
+      {{yield}}
+    {{else}}
+      {{@name}}
+    {{/if}}
+  </Checkmark>
 {{/let}}

@@ -25,6 +25,23 @@ interface FilterInterface {
   };
 }
 
+/**
+ * `Cut::FilterBar::Filter` is a wrapper of the HDS::Dropdown component that exposes wrapped dropdown list items
+ * that handle hooking up the change handlers for updating filter bar state. It also provides some defaults to the UI
+ * compoents, like filter counts to the toggle button.
+ *
+ * ```
+ * <Cut::FilterBar as |FB|>
+ *  <FB.Filter @name="status" as |F|>
+ *    <F.ToggleButton @text="Status" />
+ *    <F.Checkbox @name="Warning" @value="warning" />
+ *  </FB.Filter>
+ * </Cut::FilterBar>
+ * ```
+ *
+ * @class Cut::FilterComponent
+ *
+ */
 export default class FilterComponent extends Component<FilterInterface> {
   get toggle(): (toggle: ToggleArgs) => void {
     return this.args.batch ? this.args.softToggle : this.args.toggle;
