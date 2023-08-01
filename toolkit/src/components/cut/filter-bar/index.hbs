@@ -79,16 +79,16 @@
     {{/let}}
 
     {{#each this.appliedFilters as |filter|}}
-      <p class='cut-filter-bar-applied-filter-label'>{{this.titlecase
+      <p class='cut-filter-bar-applied-filter-label'>{{titlecase
           filter.name
         }}:</p>
 
       {{#each filter.value as |filterValue|}}
         {{#if filter.isRequired}}
-          <Hds::Tag @text={{this.titlecase filterValue.text}} />
+          <Hds::Tag @text={{titlecase filterValue.text}} />
         {{else}}
           <Hds::Tag
-            @text={{this.titlecase filterValue.text}}
+            @text={{titlecase filterValue.text}}
             @onDismiss={{fn
               this.toggleFilterValue
               (hash
