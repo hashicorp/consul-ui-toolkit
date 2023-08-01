@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { FilterConfig } from '..';
 
 interface SortCheckmarkInterface {
-  checkmark: any;
+  checkmark: unknown;
   config: FilterConfig;
   value: string;
   name: string;

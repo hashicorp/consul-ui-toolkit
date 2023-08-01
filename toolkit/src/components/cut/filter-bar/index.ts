@@ -123,7 +123,7 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
       .filter(Boolean) as AppliedFilter[];
   }
 
-  isChecked(localConfig: FilterConfig, filter: string, value: any) {
+  isChecked(localConfig: FilterConfig, filter: string, value: unknown) {
     if (Array.isArray(localConfig?.filters?.[filter])) {
       return !!(localConfig?.filters?.[filter] as Filter[]).find(
         (filter: Filter) => filter.value === value
