@@ -9,10 +9,14 @@ interface FilterBarCheckbox {
   Args: {
     filterName: string;
     name: string;
-    value: any;
+    value: unknown;
     localConfig: FilterConfig;
     toggle: (toggle: ToggleArgs) => void;
-    isChecked: (localConfig: FilterConfig, name: string, value: any) => boolean;
+    isChecked: (
+      localConfig: FilterConfig,
+      name: string,
+      value: unknown
+    ) => boolean;
   };
 }
 
