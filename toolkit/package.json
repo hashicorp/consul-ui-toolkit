@@ -109,6 +109,7 @@
       "./components/cut/metadata/in-service-mesh/index.js": "./dist/_app_/components/cut/metadata/in-service-mesh/index.js",
       "./components/cut/metadata/tags/index.js": "./dist/_app_/components/cut/metadata/tags/index.js",
       "./components/cut/text-with-icon/index.js": "./dist/_app_/components/cut/text-with-icon/index.js",
+      "./helpers/titlecase.js": "./dist/_app_/helpers/titlecase.js",
       "./utils/service-list-item.js": "./dist/_app_/utils/service-list-item.js"
     }
   },

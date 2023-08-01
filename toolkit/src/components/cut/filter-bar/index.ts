@@ -17,7 +17,11 @@ export interface ComponentSignature {
 export interface FilterConfig {
   search?: Search;
   filters?: Filters;
-  sort?: { value?: string };
+  sort?: Sort;
+}
+
+interface Sort {
+  value?: string;
 }
 
 interface Search {
@@ -26,7 +30,7 @@ interface Search {
 
 export interface Filter {
   text: string;
-  value: any;
+  value: unknown;
   isRequired?: boolean;
 }
 
@@ -34,7 +38,7 @@ export interface Filters {
   [name: string]: Filter | Filter[] | undefined;
 }
 
-interface AppliedFilter {
+export interface AppliedFilter {
   name: string;
   value: Filter[];
   isMultiSelect?: boolean;
@@ -46,43 +50,16 @@ export type HTMLElementEvent<T extends HTMLElement> = Event & {
   currentTarget: T;
 };
 
-/**
- * TODO:
- * - [x] Add radio filter
- * - Update how isChecked works (stop using an action)
- * - Review types
- * - Add tests
- * - Update comments
- * - [x] Update togglebutton default color to be secondary
- * - [x] max-height:  360px dropdowns
- * - [x] update search to use dropdown::header
- * - [x] update batch to use dropdown::footer
- * - update dropdowns to clear non-applied filters on close
- */
-
 export interface ToggleArgs {
   filterName: string;
-  value: any;
+  value: unknown;
   text: string;
   isMultiSelect?: boolean;
   isRequired?: boolean;
 }
 
-// 'clusterID'.replace(/([A-Z]+)/g, " $1").replace(/([A-Z][a-z])/g, " $1").replace(/  /g, " ").replace(/^./g, (match) => match.toUpperCase())
 export default class FilterBarComponent extends Component<ComponentSignature> {
   @tracked configChanges: FilterConfig = {};
-  // @tracked localConfig?: FilterConfig;
-  titlecase(value: string): string | null {
-    if (!value || typeof value !== 'string') {
-      return null;
-    }
-
-    return value
-      .replace(/([A-Z]+)/g, ' $1')
-      .replace(/([A-Z][a-z])/g, ' $1')
-      .replace(/ {2}/g, ' ')
-      .replace(/^./g, (match) => match.toUpperCase());
-  }
 
   get localConfig(): FilterConfig {
     /*
@@ -114,11 +91,6 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
     return local;
   }
 
-  /**
-   * [
-   *   { name: filterName, value: { text: , value: }}
-   * ]
-   */
   get appliedFilters(): AppliedFilter[] {
     return Object.keys(this.args.config?.filters || {})
       .map((filterName) => {
@@ -160,10 +132,6 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
       return (localConfig?.filters?.[filter] as Filter)?.value === value;
     }
   }
-
-  /*
-   * softToggleFilterValue({ filterName: name, value: any, isRadio: foo, isMultiSelect})
-   */
 
   /**
    *
