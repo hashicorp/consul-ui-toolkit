@@ -1,0 +1,53 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
+<div class='cut-list' ...attributes>
+  {{yield
+    (hash
+      FilterBar=(component
+        'cut/filter-bar' onChange=this.onPageChange config=this.config
+      )
+    )
+  }}
+  <div class='cut-list-contents'>
+    {{#if (gt @items.length 0)}}
+      <ul>
+        {{#each @items as |item|}}
+          {{yield
+            (hash
+              item=item
+              Generic=(component 'cut/list/contents/generic')
+              ListItem=(component 'cut/list-item')
+              ServiceListItem=(component 'cut/list-item/service')
+              ServiceInstanceListItem=(component
+                'cut/list-item/service-instance'
+              )
+            )
+          }}
+        {{/each}}
+      </ul>
+    {{else}}
+      {{yield
+        (hash
+          isFiltered=this.isFiltered
+          config=this.config
+          Empty=(component 'cut/list/contents/empty')
+        )
+      }}
+    {{/if}}
+  </div>
+
+  {{#if (gt @items.length 0)}}
+    {{yield
+      (hash
+        Pagination=(component
+          'hds/pagination/compact'
+          class='cut-list-pagination'
+          showLabels=true
+          onPageChange=this.onPageChange
+        )
+      )
+    }}
+  {{/if}}
+</div>

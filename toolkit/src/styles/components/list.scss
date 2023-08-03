@@ -1,0 +1,17 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
+.cut-list {
+  width: 100%;
+
+  .cut-list-contents {
+    > ul {
+      padding: 0;
+
+      li {
+        margin-bottom: 0.75rem;
+      }
+    }
+  }
+}
