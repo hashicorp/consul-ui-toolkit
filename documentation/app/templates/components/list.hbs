@@ -1,0 +1,123 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
+<PageHeader
+  @title="List"
+  @figma="https://www.figma.com/file/KIkyC5ChM8vczgqwnAeCg9/Consul-%7C-UI-Unification?type=design&node-id=3315-544301&mode=dev"
+  @github="https://github.com/hashicorp/consul-ui-toolkit/tree/main/toolkit/src/components/cut/filter-bar"
+  @status="development"
+>
+  A Filter Bar is used to allow the user to filter, search and sort a list of
+  results. The Filter Bar does not manage the list of results itself, but
+  manages the configuration of the filters and calls a function whenever they
+  are updated by the user interacting with the Filter Bar.
+</PageHeader>
+
+<Cut::List @items={{array 1 2 3 4 5 6}} as |L|>
+  <L.FilterBar as |FB|>
+    <FB.Filter
+      @name="clusterID"
+      @listPosition="bottom-left"
+      @isMultiSelect={{true}}
+      @batch={{true}}
+      as |F|
+    >
+      <F.ToggleButton
+        @icon="server-cluster"
+        @text="Cluster ID"
+        @color="secondary"
+      />
+      <F.FilterInput
+        @value={{this.search}}
+        @count={{this.filteredClusters.length}}
+        @onInput={{this.updateSearch}}
+      />
+      {{#each this.filteredClusters as |cluster|}}
+        <F.Checkbox
+          @value={{cluster.id}}
+          @name={{cluster.name}}
+        >{{cluster.name}}</F.Checkbox>
+      {{/each}}
+    </FB.Filter>
+
+    <FB.Search placeholder="Search for services" />
+    <FB.FilterGroup as |Filters|>
+      <Filters.Filter
+        @name="status"
+        @batch={{true}}
+        @isMultiSelect={{true}}
+        as |F|
+      >
+        <F.ToggleButton @text="Status" />
+        <F.Checkbox @value="critical" @name="Critical"><Hds::Badge
+            @icon="x"
+            @text="critical"
+            @color="critical"
+          /></F.Checkbox>
+        <F.Checkbox @value="warning" @name="Warning"><Hds::Badge
+            @icon="alert-triangle"
+            @text="warning"
+            @color="warning"
+          /></F.Checkbox>
+        <F.Checkbox @value="running" @name="Running"><Hds::Badge
+            @icon="check"
+            @text="running"
+            @color="success"
+          /></F.Checkbox>
+      </Filters.Filter>
+      <Filters.Filter
+        @name="type"
+        @batch={{true}}
+        @isMultiSelect={{true}}
+        as |F|
+      >
+        <F.ToggleButton @text="Type" />
+        <F.Description @text="Service" />
+        <F.Checkbox @value="service" @name="Service" />
+        <F.Description @text="Gateway" />
+        <F.Checkbox @value="api-gateway" @name="API Gateway" />
+        <F.Checkbox @value="ingress-gateway" @name="Ingress Gateway" />
+        <F.Checkbox @value="terminating-gateway" @name="Terminating Gateway" />
+        <F.Checkbox @value="mesh-gateway" @name="Mesh Gateway" />
+        <F.Description @text="Mesh" />
+        <F.Checkbox @value="mesh" @name="In service mesh" />
+        <F.Checkbox @value="no-mesh" @name="Not in service mesh" />
+        <F.Description @text="mTLS Mode" />
+        <F.Checkbox @value="permissive-mtls" @name="Permissive" />
+        <F.Checkbox @value="strict-mtls" @name="Strict" />
+      </Filters.Filter>
+      <Filters.Filter as |F|>
+        <F.ToggleButton @text="Source" />
+        <F.Description @text="Registration" />
+        <F.Checkbox @value="consul" @name="Consul" />
+        <F.Checkbox @value="terraform" @name="Terraform" />
+        <F.Checkbox @value="vault" @name="Vault" />
+        <F.Checkbox @value="aws" @name="AWS" />
+        <F.Description @text="Imported" />
+        <F.Checkbox @value="peer-import" @name="From peer" />
+        <F.Checkbox @value="partition-import" @name="From partition" />
+      </Filters.Filter>
+    </FB.FilterGroup>
+    <FB.Sort as |S|>
+      <S.Checkmark @value="-health" @name="Critical to healthy" />
+      <S.Checkmark @value="health" @name="Healthy to critical" />
+      <S.Checkmark @value="alpha" @name="Alphabetical (A-Z)" />
+      <S.Checkmark @value="-alpha" @name="Alphabetical (Z-A)" />
+      <S.Checkmark @value="sameness" @name="Sameness group" />
+    </FB.Sort>
+  </L.FilterBar>
+  <L.ListItem as |LI|>
+    <LI.Content>List item with button</LI.Content>
+    <LI.ActionDropdown as |A|>
+      <A.ToggleIcon
+        @icon="more-horizontal"
+        @text="Menu"
+        @hasChevron={{false}}
+      />
+      <A.Interactive @icon="edit" @text="Edit" />
+      <A.Interactive @icon="trash" @text="Delete" @color="critical" />
+    </LI.ActionDropdown>
+  </L.ListItem>
+  <L.Pagination />
+</Cut::List>
