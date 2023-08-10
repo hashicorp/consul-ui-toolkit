@@ -5,6 +5,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import structuredClone from '@ungap/structured-clone';
 
 export interface ComponentSignature {
   Args: {
@@ -79,16 +80,16 @@ export interface ToggleArgs {
  * update the config state accordingly.
  *
  * FilterBar manages state via 3 main variables. The `config` is the source of truth, as it represents the actual
- * state of the filters/search/sort. The `configChanges` is an object of the same type as `config`, but it holds
- * any pending changes that have yet to be committed/applied. The `localConfig` is also a `FilterConfig` object.
- * It is the result of taking the source of truth (config), and applying any existing pending changes from the
- * `configChanges` object to it. `localConfig` is used to represent the state of pending action. For example,
+ * state of the filters/search/sort. The `pendingFilterChange` is an object of the same type as `config.filters`, but it holds
+ * any pending changes that have yet to be committed/applied. The `localConfig` is a `FilterConfig` object.
+ * It is the result of taking the source of truth (config), and applying any existing pending filter changes from the
+ * `pendingFilterChange` object to it. `localConfig` is used to represent the state of pending action. For example,
  * if I were to check a few checkboxes in a batch filter, but not yet apply them. This state would be represented
  * in the `localConfig` but not yet in the `config`. Once you apply the pending changes, they will be applied to the
  * `config` and the `onChange` function will be called.
  */
 export default class FilterBarComponent extends Component<ComponentSignature> {
-  @tracked configChanges: FilterConfig = {};
+  @tracked pendingFilterChange: Filters = {};
 
   get localConfig(): FilterConfig {
     /*
@@ -96,25 +97,13 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
       - if there are no filter changes return config
       - if there are filter changes apply them to config and return them
     */
-    const local = Object.assign({}, this.args.config);
+    const local = structuredClone(this.args.config);
 
-    if (this.configChanges.filters) {
-      // do the filter changes
-      local.filters = Object.assign(
-        {},
-        local.filters,
-        this.configChanges.filters
-      );
-    }
-
-    if (this.configChanges.search) {
-      // do the search changes
-      local.search = Object.assign({}, local.search, this.configChanges.search);
-    }
-
-    if (this.configChanges.sort) {
-      // do the sort changes
-      local.sort = Object.assign({}, local.sort, this.configChanges.sort);
+    const pendingFilterKey = Object.keys(this.pendingFilterChange)[0];
+    if (pendingFilterKey) {
+      local.filters = Object.assign({}, local.filters, {
+        [pendingFilterKey]: this.pendingFilterChange[pendingFilterKey],
+      });
     }
 
     return local;
@@ -175,7 +164,7 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
    *
    * softToggleFilterValue extracts the filter that is being changed from the passed in config,
    * applies the existing pending config changes for that filter to it, then applies the new
-   * change to it and saves it back to the configChanges object so that it may be applied in
+   * change to it and saves it back to the pendingFilterChange object so that it may be applied in
    * the future.
    */
   @action
@@ -185,14 +174,8 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
     let filterChange: Filters = {};
 
     if (this.localConfig?.filters?.[filterName]) {
-      filterChange = Object.assign(filterChange, {
+      filterChange = Object.assign({}, filterChange, {
         [filterName]: this.localConfig?.filters?.[filterName],
-      });
-    }
-
-    if (this.configChanges?.filters?.[filterName]) {
-      filterChange = Object.assign(filterChange, {
-        [filterName]: this.configChanges?.filters?.[filterName],
       });
     }
 
@@ -226,9 +209,10 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
         filterChange[filterName] = { text, value, isRequired };
       }
     }
-    this.configChanges.filters = Object.assign(
+
+    this.pendingFilterChange = Object.assign(
       {},
-      this.configChanges?.filters || {},
+      this.pendingFilterChange,
       filterChange
     );
   }
@@ -256,44 +240,50 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
   @action
   applyFilter(name: string): void {
     // grab the config
-    const config = Object.assign({}, this.args.config);
+    const config = structuredClone(this.args.config);
 
     // apply the filter from filterChanges
-    if (Object.hasOwn(this.configChanges?.filters || {}, name)) {
+    if (Object.hasOwn(this.pendingFilterChange || {}, name)) {
       config.filters = Object.assign({}, config.filters, {
-        [name]: this.configChanges?.filters?.[name],
+        [name]: this.pendingFilterChange?.[name],
       });
     }
 
-    // clear out the empty filters
-    if (config.filters) {
-      Object.keys(config.filters).forEach((key) => {
-        if (
-          !config?.filters?.[key] ||
-          (Array.isArray(config?.filters?.[key]) &&
-            (config?.filters?.[key] as Filter[])?.length === 0)
-        ) {
-          delete config.filters?.[key];
-        }
-      });
+    if (
+      !config?.filters?.[name] ||
+      (Array.isArray(config?.filters?.[name]) &&
+        (config?.filters?.[name] as Filter[])?.length === 0)
+    ) {
+      delete config.filters?.[name];
     }
 
     // call it
     this.args.onChange(config);
+
     // clear out the config changes for that filter
-    delete this.configChanges?.filters?.[name];
+    this.pendingFilterChange = {};
+  }
+
+  /**
+   * @function clearPendingFilter
+   *
+   * Clears all pending filter changes
+   */
+  @action
+  clearPendingFilter(): void {
+    this.pendingFilterChange = {};
   }
 
   /**
    * @function clearFilters
    *
    * Clears all existing filters that don't have `isRequired` set to `true` in the `config`.
-   * It also clears out all changes in the `configChanges` object and calls the `onChange` function
+   * It also clears out all changes in the `pendingFilterChanges` object and calls the `onChange` function
    * with the new config.
    */
   @action
   clearFilters(): void {
-    let config = Object.assign({}, this.args.config) || {};
+    let config = structuredClone(this.args.config);
 
     const keysToKeep = Object.keys(config?.filters || {}).filter(
       (key: string) => {
@@ -313,7 +303,7 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
     config = Object.assign({}, config, { filters: filtersToKeep });
 
     this.args.onChange(config);
-    this.configChanges = {};
+    this.pendingFilterChange = {};
   }
 
   @action

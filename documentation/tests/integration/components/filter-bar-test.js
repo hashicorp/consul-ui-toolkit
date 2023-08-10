@@ -40,7 +40,7 @@ async function setupTest(config) {
     }
   );
 
-  let onChange = sinon.spy();
+  const onChange = sinon.spy();
   this.onChange = onChange;
 
   await render(hbs`
@@ -158,7 +158,7 @@ module('Integration | Component | cut/filter-bar', function (hooks) {
   });
 
   test("clear filters doesn't show when there are only required filters", async function (assert) {
-    const { onChange } = await setupTest.call(this, {
+    await setupTest.call(this, {
       search: {
         value: '',
       },

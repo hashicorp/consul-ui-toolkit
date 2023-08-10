@@ -6,6 +6,7 @@
   {{#let @dropdown this.filterCount as |Dropdown filterCount|}}
     <Dropdown
       @listPosition={{if @listPosition @listPosition 'bottom-right'}}
+      @onClose={{fn @clearPendingFilter @name}}
       ...attributes
       as |DD|
     >
@@ -21,6 +22,7 @@
             localConfig=@localConfig
             toggle=this.toggle
             applyFilter=@applyFilter
+            localConfig=@localConfig
             isChecked=@isChecked
             isMultiSelect=@isMultiSelect
           )
@@ -31,6 +33,7 @@
             localConfig=@localConfig
             toggle=this.toggle
             applyFilter=@applyFilter
+            localConfig=@localConfig
             isChecked=@isChecked
             isMultiSelect=@isMultiSelect
           )
@@ -41,6 +44,7 @@
             localConfig=@localConfig
             toggle=this.toggle
             applyFilter=@applyFilter
+            localConfig=@localConfig
             isChecked=@isChecked
             isMultiSelect=@isMultiSelect
           )
@@ -81,6 +85,7 @@
 {{else}}
   <Hds::Dropdown
     @listPosition={{if @listPosition @listPosition 'bottom-right'}}
+    @onClose={{fn @clearPendingFilter @name}}
     ...attributes
     as |DD|
   >
@@ -96,6 +101,7 @@
           localConfig=@localConfig
           toggle=this.toggle
           applyFilter=@applyFilter
+          localConfig=@localConfig
           isChecked=@isChecked
           isMultiSelect=@isMultiSelect
         )
