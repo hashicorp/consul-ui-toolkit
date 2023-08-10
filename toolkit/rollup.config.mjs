@@ -66,5 +66,9 @@ export default {
         { src: '../LICENSE.md', dest: '.' },
       ],
     }),
+
+    // nodeResolve({
+    //   resolveOnly: (module) => module.includes('@ungap/structured-clone'),
+    // }),
   ],
 };

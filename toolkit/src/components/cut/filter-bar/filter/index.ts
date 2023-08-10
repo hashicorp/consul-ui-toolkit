@@ -13,6 +13,7 @@ interface FilterInterface {
     toggle: (toggle: ToggleArgs) => void;
     softToggle: (toggle: ToggleArgs) => void;
     applyFilter: (name: string) => void;
+    clearPendingFilter: () => void;
     isChecked: (
       localConfig: FilterConfig,
       name: string,
