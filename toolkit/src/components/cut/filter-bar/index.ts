@@ -10,7 +10,8 @@ import structuredClone from '@ungap/structured-clone';
 export interface ComponentSignature {
   Args: {
     config: FilterConfig;
-    results?: number;
+    count?: number;
+    totalCount?: number;
     onChange: (config: FilterConfig) => void;
   };
 }
