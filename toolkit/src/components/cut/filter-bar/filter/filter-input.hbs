@@ -5,21 +5,25 @@
 {{#let @components as |Components|}}
   <Components.Header @hasDivider={{true}}>
     <Hds::Form::TextInput::Base
-      @type='search'
+      @type={{or @type 'search'}}
       @value={{@value}}
       style='margin: 8px 0;'
-      placeholder='Search'
-      aria-label='Search Clusters'
+      placeholder={{or @placeholder 'Search'}}
+      aria-label={{or @placeholder 'Search'}}
       {{on 'input' @onInput}}
     />
   </Components.Header>
-  <Components.Generic>
-    <span
-      class='hds-foreground-faint hds-typography-body-100 hds-font-weight-regular'
-      style='display: flex; justify-content: space-between; margin: 8px 0;'
-    >
-      <span>Cluster ID</span>
-      <span>{{or @count 0}}</span>
-    </span>
-  </Components.Generic>
+  {{#if @label}}
+    <Components.Generic>
+      <span
+        class='hds-foreground-faint hds-typography-body-100 hds-font-weight-regular'
+        style='display: flex; justify-content: space-between; margin: 8px 0;'
+      >
+        <span>{{@label}}</span>
+        {{#if @count}}
+          <span>{{or @count 0}}</span>
+        {{/if}}
+      </span>
+    </Components.Generic>
+  {{/if}}
 {{/let}}

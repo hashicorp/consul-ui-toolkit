@@ -34,7 +34,8 @@
     />
     <F.FilterInput
       @value={{this.search}}
-      @count={{this.filteredClusters.length}}
+      @count={{or this.filteredClusters.length "0"}}
+      @label="Cluster ID"
       @onInput={{this.updateSearch}}
     />
     {{#each this.filteredClusters as |cluster|}}
