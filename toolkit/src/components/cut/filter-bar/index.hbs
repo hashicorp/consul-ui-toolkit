@@ -76,7 +76,10 @@
   <div class='cut-filter-bar-results'>
     {{#let (if @count @count 0) as |count|}}
       <p class='cut-filter-bar-results-count'>Showing
-        {{pluralize count 'result'}}</p>
+        {{pluralize count 'result'}}{{if
+          @totalCount
+          (concat ' of ' @totalCount)
+        }}</p>
     {{/let}}
 
     {{#each this.appliedFilters as |filter|}}
