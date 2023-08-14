@@ -1,0 +1,29 @@
+{{!-- 
+  <Cut::Pagination
+    @pageSizes={{array 5 20 60}}
+    @currentPageSize={{this.pageSize}}
+    @nextToken={{this.nextToken}}
+    @previousToken={{this.prevToken}}
+    @route={{this.route}}
+    @queryParams={{this.queryParams}}
+    @onPageSizeChange
+  />
+ --}}
+
+<div class='cut-list-pagination' ...attributes>
+  <Hds::Pagination::Compact
+    class='cut-list-pagination_page-selector'
+    @showLabels={{true}}
+    @onPageChange={{@onPageChange}}
+  />
+
+  {{#if (and @pageSizes @currentPageSize @onPageSizeChange)}}
+    <Hds::Pagination::SizeSelector
+      class='cut-list-pagination_size-selector'
+      @pageSizes={{@pageSizes}}
+      @label='Items per page'
+      @selectedSize={{@currentPageSize}}
+      @onChange={{@onPageSizeChange}}
+    />
+  {{/if}}
+</div>

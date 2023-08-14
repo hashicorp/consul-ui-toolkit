@@ -110,6 +110,7 @@
       "./components/cut/list/contents/generic.js": "./dist/_app_/components/cut/list/contents/generic.js",
       "./components/cut/list/contents/items.js": "./dist/_app_/components/cut/list/contents/items.js",
       "./components/cut/list/index.js": "./dist/_app_/components/cut/list/index.js",
+      "./components/cut/list/pagination.js": "./dist/_app_/components/cut/list/pagination.js",
       "./components/cut/metadata/external-source/index.js": "./dist/_app_/components/cut/metadata/external-source/index.js",
       "./components/cut/metadata/health-check-badge-set/index.js": "./dist/_app_/components/cut/metadata/health-check-badge-set/index.js",
       "./components/cut/metadata/in-service-mesh/index.js": "./dist/_app_/components/cut/metadata/in-service-mesh/index.js",

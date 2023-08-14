@@ -4,14 +4,35 @@
 
 .cut-list {
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-  .cut-list-contents {
-    > ul {
-      padding: 0;
+  .cut-list--group {
+    .cut-list-contents {
+      > ul {
+        padding: 0;
 
-      li {
-        margin-bottom: 0.75rem;
+        li {
+          margin-bottom: 0.75rem;
+        }
       }
+    }
+  }
+
+  .cut-list-pagination {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+
+    .cut-list-pagination_page-selector {
+      justify-self: center;
+      grid-column: 2/3;
+    }
+
+    .cut-list-pagination_size-selector {
+      justify-self: end;
+      grid-column: 3/4;
     }
   }
 }
