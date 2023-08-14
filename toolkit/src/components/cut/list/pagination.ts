@@ -22,9 +22,11 @@ interface PaginationArgs {
   Args: {
     nextCursor?: string;
     prevCursor?: string;
+    model?: unknown;
     queryFunction?: (page: string) => {
       [key: string]: string | number | unknown;
     };
+    onPageSizeChange?: (size: number) => void;
   };
 }
 
@@ -47,7 +49,18 @@ export default class PaginationComponent extends Component<PaginationArgs> {
   }
 
   @action
-  onPageChange() {
-    console.log(...arguments);
+  onPageSizeChange(size: number) {
+    if (this.args.onPageSizeChange) {
+      this.args.onPageSizeChange(size);
+    } else {
+      const queryParams = this.router.currentRoute?.queryParams || {};
+      const newParams = Object.assign({}, queryParams, {
+        pageSize: size,
+      });
+
+      this.router.transitionTo({
+        queryParams: newParams,
+      });
+    }
   }
 }
