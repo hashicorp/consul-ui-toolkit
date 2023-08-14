@@ -12,7 +12,60 @@
   filter bar, empty states and pagination.
 </PageHeader>
 
-<Cut::List @items={{array 1 2 3 4 5 6}} as |L|>
+<div class="list-demo-controls">
+  <p>Controls for the list demo. This demo is mostly to present the structure
+    and how pagination can be set up. It is set up pretty scrappy way so it
+    doesn't currently read state back from the query parameters, nor does it
+    filter/paginate any real data.</p>
+  <Hds::SegmentedGroup as |SG|>
+    <SG.Dropdown as |DD|>
+      <DD.ToggleButton @text="Pagination Method" />
+      <DD.Radio
+        checked={{this.isRouteBased}}
+        {{on "click" (fn (mut this.isRouteBased) true)}}
+      >Route based</DD.Radio>
+      <DD.Radio
+        checked={{not this.isRouteBased}}
+        {{on "click" (fn (mut this.isRouteBased) false)}}
+      >Function based</DD.Radio>
+    </SG.Dropdown>
+    <SG.Dropdown as |DD|>
+      <DD.ToggleButton @text="Has items" />
+      <DD.Radio
+        checked={{this.hasItems}}
+        {{on "click" (fn (mut this.hasItems) true)}}
+      >True</DD.Radio>
+      <DD.Radio
+        checked={{not this.hasItems}}
+        {{on "click" (fn (mut this.hasItems) false)}}
+      >False</DD.Radio>
+    </SG.Dropdown>
+    <SG.Dropdown as |DD|>
+      <DD.ToggleButton @text="Empty state type" />
+      <DD.Radio
+        checked={{this.isGenericEmptyState}}
+        {{on "click" (fn (mut this.isGenericEmptyState) true)}}
+      >True</DD.Radio>
+      <DD.Radio
+        checked={{not this.isGenericEmptyState}}
+        {{on "click" (fn (mut this.isGenericEmptyState) false)}}
+      >False</DD.Radio>
+    </SG.Dropdown>
+    <SG.Dropdown as |DD|>
+      <DD.ToggleButton @text="List item interactivity" />
+      <DD.Radio
+        checked={{this.isListItemInteractive}}
+        {{on "click" (fn (mut this.isListItemInteractive) true)}}
+      >True</DD.Radio>
+      <DD.Radio
+        checked={{not this.isListItemInteractive}}
+        {{on "click" (fn (mut this.isListItemInteractive) false)}}
+      >False</DD.Radio>
+    </SG.Dropdown>
+  </Hds::SegmentedGroup>
+</div>
+
+<Cut::List @items={{this.items}} as |L|>
   <L.FilterBar
     @config={{this.filters}}
     @onChange={{this.handleFilterChange}}
@@ -69,7 +122,7 @@
           /></F.Checkbox>
       </Filters.Filter>
       <Filters.Filter
-        @name="type"
+        @name="serviceType"
         @batch={{true}}
         @isMultiSelect={{true}}
         as |F|
@@ -116,21 +169,50 @@
   </L.FilterBar>
   <L.ServiceListItem
     @service={{this.serviceListItem}}
-    @onClick={{this.dummy}}
+    @onClick={{if this.isListItemInteractive this.dummy}}
   />
-  <L.EmptyAppState as |AS|>
-    <AS.Header
-      @title="Looks like there is nothing here amigo"
-      @icon="alert-circle"
+  {{#if this.isGenericEmptyState}}
+    <L.EmptyGeneric>
+      <div>
+        <iframe
+          title="empty-state"
+          src="https://giphy.com/embed/g01ZnwAUvutuK8GIQn"
+          width="480"
+          height="270"
+          frameBorder="0"
+          class="giphy-embed"
+          allowFullScreen
+        ></iframe><p><a
+            href="https://giphy.com/gifs/high-quality-highqualitygifs-g01ZnwAUvutuK8GIQn"
+          >via GIPHY</a></p>
+      </div>
+    </L.EmptyGeneric>
+  {{else}}
+    <L.EmptyAppState as |AS|>
+      <AS.Header
+        @title="Looks like there is nothing here amigo"
+        @icon="alert-circle"
+      />
+      <AS.Body
+        @text="There's nothing more to say, but I wanted this to have body"
+      />
+    </L.EmptyAppState>
+  {{/if}}
+  {{#if this.isRouteBased}}
+    <L.Pagination
+      @pageSizes={{array 5 10 20 30}}
+      @currentPageSize={{this.size}}
+      @prevCursor={{this.model.prevCursor}}
+      @nextCursor={{this.model.nextCursor}}
     />
-    <AS.Body
-      @text="There's nothing more to say, but I wanted this to have body"
+  {{else}}
+    <L.Pagination
+      @pageSizes={{array 5 10 20 30}}
+      @currentPageSize={{this.size}}
+      @prevCursor={{this.model.prevCursor}}
+      @nextCursor={{this.model.nextCursor}}
+      @onPageChange={{this.updatePage}}
+      @onPageSizeChange={{this.updatePageSize}}
     />
-  </L.EmptyAppState>
-  <L.Pagination
-    @pageSizes={{array 5 10 20 30}}
-    @currentPageSize={{5}}
-    @nextCursor="2fdasf"
-    @prevCursor="fdafsdaf"
-  />
+  {{/if}}
 </Cut::List>

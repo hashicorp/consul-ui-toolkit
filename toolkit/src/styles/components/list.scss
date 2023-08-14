@@ -35,4 +35,13 @@
       grid-column: 3/4;
     }
   }
+
+  .cut-list--empty {
+    margin-top: 4rem;
+
+    .cut-list-empty-generic {
+      display: flex;
+      justify-content: center;
+    }
+  }
 }

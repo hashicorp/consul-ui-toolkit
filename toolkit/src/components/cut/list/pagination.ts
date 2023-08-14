@@ -4,8 +4,6 @@
 
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
-import { FilterConfig } from '../filter-bar';
 import { inject as service } from '@ember/service';
 import RouterService from '@ember/routing/router-service';
 

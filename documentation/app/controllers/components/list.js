@@ -9,8 +9,11 @@ import {
   SERVICE_GATEWAY_TYPE,
 } from '@hashicorp/consul-ui-toolkit/utils/service-list-item';
 import { tracked } from '@glimmer/tracking';
+import { inject as service } from '@ember/service';
 
 export default class ListController extends Controller {
+  @service router;
+
   get serviceListItem() {
     return {
       name: 'Service (Ingress Gateway)',
@@ -76,6 +79,19 @@ export default class ListController extends Controller {
 
   @tracked search = '';
   @tracked count = 0;
+  @tracked isRouteBased = true;
+  @tracked hasItems = true;
+  @tracked isGenericEmptyState = false;
+  @tracked isListItemInteractive = false;
+
+  filterKeys = [
+    'clusterId',
+    'status',
+    'source',
+    'serviceType',
+    'search',
+    'sort',
+  ];
 
   get filteredClusters() {
     const value = this.search?.toLowerCase();
@@ -88,10 +104,45 @@ export default class ListController extends Controller {
     }
   }
 
+  get size() {
+    const pageSize = this.router.currentRoute?.queryParams?.pageSize;
+    return pageSize ? parseInt(pageSize, 10) : 10;
+  }
+
+  get items() {
+    return this.hasItems ? new Array(8).map(() => this.filteredClusters) : [];
+  }
+
   @action
   handleFilterChange(config) {
     this.filters = config;
     this.count = Math.floor(Math.random() * 50);
+
+    const queryParams = structuredClone(this.router.currentRoute.queryParams);
+
+    this.filterKeys.forEach((key) => (queryParams[key] = undefined));
+
+    const filterObj = Object.keys(this.filters.filters || {}).reduce(
+      (prev, key) => {
+        if (Array.isArray(this.filters.filters[key])) {
+          prev[key] = this.filters.filters[key].map((item) => item.value);
+        } else {
+          prev[key] = this.filters.filters[key].value;
+        }
+        return prev;
+      },
+      {}
+    );
+    if (this.filters?.search?.value) {
+      filterObj.search = this.filters.search.value;
+    }
+    if (this.filters?.sort?.value) {
+      filterObj.sort = this.filters.sort.value;
+    }
+
+    this.router.transitionTo({
+      queryParams: Object.assign({}, queryParams, filterObj),
+    });
   }
 
   @action
@@ -102,5 +153,25 @@ export default class ListController extends Controller {
   @action
   dummy() {
     console.log(...arguments);
+  }
+
+  @action
+  updatePage(page) {
+    console.log('Updating page from the controller');
+    this.router.transitionTo({
+      queryParams: Object.assign({}, this.router.currentRoute?.queryParams, {
+        page: page === 'prev' ? this.model.prevCursor : this.model.nextCursor,
+      }),
+    });
+  }
+
+  @action
+  updatePageSize(pageSize) {
+    console.log('Updating page size from the controller');
+    this.router.transitionTo({
+      queryParams: Object.assign({}, this.router.currentRoute?.queryParams, {
+        pageSize,
+      }),
+    });
   }
 }
