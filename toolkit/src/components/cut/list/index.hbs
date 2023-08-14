@@ -28,7 +28,12 @@
           {{/each}}
         </ul>
       {{else}}
-        {{yield (hash Empty=(component 'cut/list/contents/empty'))}}
+        {{yield
+          (hash
+            EmptyGeneric=(component 'cut/list/contents/empty')
+            EmptyAppState=(component 'hds/application-state')
+          )
+        }}
       {{/if}}
     </div>
   </div>

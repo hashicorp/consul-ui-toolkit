@@ -1,20 +1,3 @@
-{{!-- 
-  <Cut::Pagination
-    @pageSizes={{array 5 20 60}}
-    @currentPageSize={{this.pageSize}}
-    @nextToken={{this.nextToken}}
-    @previousToken={{this.prevToken}}
-    @route={{this.route}}
-    @queryParams={{this.queryParams}}
-    @onPageSizeChange
-  />
-
-  TODO:
-  1. Hook up auto query function
-  2. Hook up page size change 
- --}}
-{{log (not @prevCursor)}}
-
 <div class='cut-list-pagination' ...attributes>
   {{#if @onPageChange}}
     <Hds::Pagination::Compact
@@ -30,19 +13,18 @@
       @showLabels={{true}}
       @queryFunction={{this.queryFunction}}
       @route={{or @route this.router.currentRouteName}}
-      @model={{@model}}
       @isDisabledPrev={{not @prevCursor}}
       @isDisabledNext={{not @nextCursor}}
     />
   {{/if}}
 
-  {{#if (and @pageSizes @currentPageSize @onPageSizeChange)}}
+  {{#if (and @pageSizes @currentPageSize)}}
     <Hds::Pagination::SizeSelector
       class='cut-list-pagination_size-selector'
       @pageSizes={{@pageSizes}}
       @label='Items per page'
       @selectedSize={{@currentPageSize}}
-      @onChange={{@onPageSizeChange}}
+      @onChange={{this.onPageSizeChange}}
     />
   {{/if}}
 </div>

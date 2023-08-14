@@ -8,10 +8,8 @@
   @github="https://github.com/hashicorp/consul-ui-toolkit/tree/main/toolkit/src/components/cut/filter-bar"
   @status="development"
 >
-  A Filter Bar is used to allow the user to filter, search and sort a list of
-  results. The Filter Bar does not manage the list of results itself, but
-  manages the configuration of the filters and calls a function whenever they
-  are updated by the user interacting with the Filter Bar.
+  The List component is used to display list views, including their content,
+  filter bar, empty states and pagination.
 </PageHeader>
 
 <Cut::List @items={{array 1 2 3 4 5 6}} as |L|>
@@ -120,12 +118,19 @@
     @service={{this.serviceListItem}}
     @onClick={{this.dummy}}
   />
+  <L.EmptyAppState as |AS|>
+    <AS.Header
+      @title="Looks like there is nothing here amigo"
+      @icon="alert-circle"
+    />
+    <AS.Body
+      @text="There's nothing more to say, but I wanted this to have body"
+    />
+  </L.EmptyAppState>
   <L.Pagination
-    @onPageChange={{this.dummy}}
     @pageSizes={{array 5 10 20 30}}
     @currentPageSize={{5}}
     @nextCursor="2fdasf"
     @prevCursor="fdafsdaf"
-    @onPageSizeChange={{this.dummy}}
   />
 </Cut::List>
