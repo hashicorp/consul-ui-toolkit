@@ -68,6 +68,7 @@
 <Cut::List @items={{this.items}} as |L|>
   <L.FilterBar
     @config={{this.filters}}
+    @count={{this.items.length}}
     @onChange={{this.handleFilterChange}}
     as |FB|
   >
