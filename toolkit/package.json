@@ -48,6 +48,7 @@
     "@babel/plugin-proposal-optional-catch-binding": "^7.18.6",
     "@babel/plugin-proposal-unicode-property-regex": "^7.18.6",
     "@babel/plugin-syntax-decorators": "^7.17.0",
+    "@babel/plugin-transform-typescript": "^7.22.10",
     "@babel/preset-typescript": "^7.21.0",
     "@embroider/addon-dev": "^3.0.0",
     "@hashicorp/design-system-components": "2.8.1",

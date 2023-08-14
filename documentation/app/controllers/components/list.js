@@ -101,6 +101,6 @@ export default class ListController extends Controller {
 
   @action
   dummy() {
-    console.log('clicked');
+    console.log(...arguments);
   }
 }
