@@ -15,7 +15,11 @@
 </PageHeader>
 
 <Cut::List @items={{array 1 2 3 4 5 6}} as |L|>
-  <L.FilterBar as |FB|>
+  <L.FilterBar
+    @config={{this.filters}}
+    @onChange={{this.handleFilterChange}}
+    as |FB|
+  >
     <FB.Filter
       @name="clusterID"
       @listPosition="bottom-left"
@@ -87,7 +91,12 @@
         <F.Checkbox @value="permissive-mtls" @name="Permissive" />
         <F.Checkbox @value="strict-mtls" @name="Strict" />
       </Filters.Filter>
-      <Filters.Filter as |F|>
+      <Filters.Filter
+        @name="source"
+        @batch={{true}}
+        @isMultiSelect={{true}}
+        as |F|
+      >
         <F.ToggleButton @text="Source" />
         <F.Description @text="Registration" />
         <F.Checkbox @value="consul" @name="Consul" />
@@ -107,17 +116,14 @@
       <S.Checkmark @value="sameness" @name="Sameness group" />
     </FB.Sort>
   </L.FilterBar>
-  <L.ListItem as |LI|>
-    <LI.Content>List item with button</LI.Content>
-    <LI.ActionDropdown as |A|>
-      <A.ToggleIcon
-        @icon="more-horizontal"
-        @text="Menu"
-        @hasChevron={{false}}
-      />
-      <A.Interactive @icon="edit" @text="Edit" />
-      <A.Interactive @icon="trash" @text="Delete" @color="critical" />
-    </LI.ActionDropdown>
-  </L.ListItem>
-  <L.Pagination />
+  <L.ServiceListItem
+    @service={{this.serviceListItem}}
+    @onClick={{this.dummy}}
+  />
+  <L.Pagination
+    @onPageChange={{this.dummy}}
+    @pageSizes={{array 5 10 20 30}}
+    @currentPageSize={{5}}
+    @onPageSizeChange={{this.dummy}}
+  />
 </Cut::List>

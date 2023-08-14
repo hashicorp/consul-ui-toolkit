@@ -2,52 +2,38 @@
   Copyright (c) HashiCorp, Inc.
 }}
 
+{{! 
+  Only pass in the items, pass config and actions directly into the filterbar
+  Have pagination handle setting up the route stuff if it's passed into the component/
+ }}
 <div class='cut-list' ...attributes>
-  {{yield
-    (hash
-      FilterBar=(component
-        'cut/filter-bar' onChange=this.onPageChange config=this.config
-      )
-    )
-  }}
-  <div class='cut-list-contents'>
-    {{#if (gt @items.length 0)}}
-      <ul>
-        {{#each @items as |item|}}
-          {{yield
-            (hash
-              item=item
-              Generic=(component 'cut/list/contents/generic')
-              ListItem=(component 'cut/list-item')
-              ServiceListItem=(component 'cut/list-item/service')
-              ServiceInstanceListItem=(component
-                'cut/list-item/service-instance'
+  <div class='cut-list--group'>
+
+    {{yield (hash FilterBar=(component 'cut/filter-bar'))}}
+    <div class='cut-list-contents'>
+      {{#if (gt @items.length 0)}}
+        <ul class='cut-list-items'>
+          {{#each @items as |item|}}
+            {{yield
+              (hash
+                item=item
+                Generic=(component 'cut/list/contents/generic')
+                ListItem=(component 'cut/list-item')
+                ServiceListItem=(component 'cut/list-item/service')
+                ServiceInstanceListItem=(component
+                  'cut/list-item/service-instance'
+                )
               )
-            )
-          }}
-        {{/each}}
-      </ul>
-    {{else}}
-      {{yield
-        (hash
-          isFiltered=this.isFiltered
-          config=this.config
-          Empty=(component 'cut/list/contents/empty')
-        )
-      }}
-    {{/if}}
+            }}
+          {{/each}}
+        </ul>
+      {{else}}
+        {{yield (hash Empty=(component 'cut/list/contents/empty'))}}
+      {{/if}}
+    </div>
   </div>
 
   {{#if (gt @items.length 0)}}
-    {{yield
-      (hash
-        Pagination=(component
-          'hds/pagination/compact'
-          class='cut-list-pagination'
-          showLabels=true
-          onPageChange=this.onPageChange
-        )
-      )
-    }}
+    {{yield (hash Pagination=(component 'cut/list/pagination'))}}
   {{/if}}
 </div>
