@@ -1,0 +1,23 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
+{{#let @radio as |Radio|}}
+  <Radio
+    checked={{this.isChecked}}
+    {{on
+      'click'
+      (fn
+        @toggle
+        (hash filterName=@filterName text=@name value=@value isRequired=true)
+      )
+    }}
+    ...attributes
+  >
+    {{#if (has-block)}}
+      {{yield}}
+    {{else}}
+      {{@name}}
+    {{/if}}
+  </Radio>
+{{/let}}

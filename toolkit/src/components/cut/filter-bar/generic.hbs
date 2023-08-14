@@ -1,0 +1,15 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
+<div class='cut-filter-bar-generic'>
+  {{yield
+    (hash
+      toggle=@toggle
+      softToggle=@softToggle
+      applyFilter=@applyFilter
+      config=@config
+      localConfig=@localConfig
+    )
+  }}
+</div>

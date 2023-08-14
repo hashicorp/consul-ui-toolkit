@@ -1,0 +1,57 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
+.cut-filter-bar {
+  width: 100%;
+
+  .hds-dropdown__content {
+    max-height: 360px;
+  }
+
+  .cut-filter-bar-filters {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    .cut-filter-bar-search {
+      width: 196px;
+      height: 36px;
+    }
+
+    .cut-filter-bar-filtergroup {
+      gap: 1rem;
+      display: flex;
+    }
+
+    .cut-filter-bar-apply-filter-button {
+      button {
+        border-radius: 5px;
+        margin-left: 0;
+      }
+    }
+  }
+
+  .cut-filter-bar-results {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 8px;
+    row-gap: 12px;
+    margin: 12px 0;
+    font-size: var(--token-typography-body-200-font-size);
+
+    p.cut-filter-bar-results-count {
+      margin: 0;
+      flex-shrink: 0;
+      color: var(--token-color-foreground-faint);
+    }
+
+    p.cut-filter-bar-applied-filter-label {
+      margin: 0 0 0 8px;
+      font-size: var(--token-typography-body-200-font-size);
+      font-weight: var(--token-typography-font-weight-medium);
+      color: var(--token-color-foreground-faint);
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
+{{#let @checkbox as |Checkbox|}}
+  <Checkbox
+    checked={{this.isChecked}}
+    {{on
+      'click'
+      (fn
+        @toggle
+        (hash
+          filterName=@filterName
+          text=@name
+          value=@value
+          isMultiSelect=@isMultiSelect
+        )
+      )
+    }}
+    ...attributes
+  >
+    {{#if (has-block)}}
+      {{yield}}
+    {{else}}
+      {{@name}}
+    {{/if}}
+  </Checkbox>
+{{/let}}

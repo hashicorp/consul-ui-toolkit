@@ -1,0 +1,162 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
+{{#if @dropdown}}
+  {{#let @dropdown this.filterCount as |Dropdown filterCount|}}
+    <Dropdown
+      @listPosition={{if @listPosition @listPosition 'bottom-right'}}
+      @onClose={{fn @clearPendingFilter @name}}
+      ...attributes
+      as |DD|
+    >
+      {{yield
+        (hash
+          ToggleButton=(component
+            DD.ToggleButton color='secondary' count=this.filterCount
+          )
+          Checkbox=(component
+            'cut/filter-bar/filter/checkbox'
+            checkbox=DD.Checkbox
+            filterName=@name
+            localConfig=@localConfig
+            toggle=this.toggle
+            applyFilter=@applyFilter
+            localConfig=@localConfig
+            isChecked=@isChecked
+            isMultiSelect=@isMultiSelect
+          )
+          Checkmark=(component
+            'cut/filter-bar/filter/checkmark'
+            checkmark=DD.Checkmark
+            filterName=@name
+            localConfig=@localConfig
+            toggle=this.toggle
+            applyFilter=@applyFilter
+            localConfig=@localConfig
+            isChecked=@isChecked
+            isMultiSelect=@isMultiSelect
+          )
+          Radio=(component
+            'cut/filter-bar/filter/radio'
+            radio=DD.Radio
+            filterName=@name
+            localConfig=@localConfig
+            toggle=this.toggle
+            applyFilter=@applyFilter
+            localConfig=@localConfig
+            isChecked=@isChecked
+            isMultiSelect=@isMultiSelect
+          )
+          Generic=(component
+            'cut/filter-bar/filter/generic'
+            generic=DD.Generic
+            toggle=this.toggle
+            applyFilter=@applyFilter
+            config=@config
+            localConfig=@localConfig
+          )
+          FilterInput=(component
+            'cut/filter-bar/filter/filter-input' components=DD
+          )
+          CopyItem=DD.CopyItem
+          Description=DD.Description
+          Interactive=DD.Interactive
+          Separator=DD.Separator
+          Title=DD.Title
+        )
+      }}
+      {{#if @batch}}
+        <DD.Footer
+          @hasDivider={{true}}
+          class='cut-filter-bar-apply-filter-button'
+        >
+          <Hds::Button
+            @type='button'
+            @text='Apply'
+            @color='primary'
+            @isFullWidth={{true}}
+            {{on 'click' (fn @applyFilter @name)}}
+          />
+        </DD.Footer>
+      {{/if}}
+    </Dropdown>
+  {{/let}}
+{{else}}
+  <Hds::Dropdown
+    @listPosition={{if @listPosition @listPosition 'bottom-right'}}
+    @onClose={{fn @clearPendingFilter @name}}
+    ...attributes
+    as |DD|
+  >
+    {{yield
+      (hash
+        ToggleButton=(component
+          DD.ToggleButton color='secondary' count=this.filterCount
+        )
+        Checkbox=(component
+          'cut/filter-bar/filter/checkbox'
+          checkbox=DD.Checkbox
+          filterName=@name
+          localConfig=@localConfig
+          toggle=this.toggle
+          applyFilter=@applyFilter
+          localConfig=@localConfig
+          isChecked=@isChecked
+          isMultiSelect=@isMultiSelect
+        )
+        Checkmark=(component
+          'cut/filter-bar/filter/checkmark'
+          checkmark=DD.Checkmark
+          filterName=@name
+          localConfig=@localConfig
+          toggle=this.toggle
+          applyFilter=@applyFilter
+          isChecked=@isChecked
+          isMultiSelect=@isMultiSelect
+        )
+        Radio=(component
+          'cut/filter-bar/filter/radio'
+          radio=DD.Radio
+          filterName=@name
+          localConfig=@localConfig
+          toggle=this.toggle
+          applyFilter=@applyFilter
+          isChecked=@isChecked
+          isMultiSelect=@isMultiSelect
+        )
+        Generic=(component
+          'cut/filter-bar/filter/generic'
+          generic=DD.Generic
+          toggle=this.toggle
+          applyFilter=@applyFilter
+          config=@config
+          localConfig=@localConfig
+        )
+        FilterInput=(component
+          'cut/filter-bar/filter/filter-input' components=DD
+        )
+        CopyItem=DD.CopyItem
+        Description=DD.Description
+        Interactive=DD.Interactive
+        Separator=DD.Separator
+        Title=DD.Title
+      )
+    }}
+
+    {{#if @batch}}
+      <DD.Footer
+        @hasDivider={{true}}
+        class='cut-filter-bar-apply-filter-button'
+      >
+        <Hds::Button
+          @type='button'
+          @text='Apply'
+          @color='primary'
+          @isFullWidth={{true}}
+          {{on 'click' (fn @applyFilter @name)}}
+        />
+      </DD.Footer>
+    {{/if}}
+  </Hds::Dropdown>
+{{/if}}

@@ -2101,7 +2101,7 @@
   resolved "https://registry.yarnpkg.com/@handlebars/parser/-/parser-2.0.0.tgz#5e8b7298f31ff8f7b260e6b7363c7e9ceed7d9c5"
   integrity sha512-EP9uEDZv/L5Qh9IWuMUGJRfwhXJ4h1dqKTT4/3+tY0eu7sPis7xh23j61SYUnNF4vqCQvvUXpDo9Bh/+q1zASA==
 
-"@hashicorp/design-system-components@^2.8.1":
+"@hashicorp/design-system-components@2.8.1":
   version "2.8.1"
   resolved "https://registry.yarnpkg.com/@hashicorp/design-system-components/-/design-system-components-2.8.1.tgz#6ee13624d7d5fa99472902df1fcd67e49d8cf648"
   integrity sha512-c0xROXrwf38kpCQlbDmNPyU3TD1pY2BYUDMkpB8UXGPNum7ZeIeOmAAJN3t5hsxPh3gNXpStcbK4gtqmK9jhoA==
@@ -2142,11 +2142,11 @@
     ember-cli-htmlbars "^6.2.0"
 
 "@hashicorp/ember-flight-icons@^3.0.8":
-  version "3.0.8"
-  resolved "https://registry.yarnpkg.com/@hashicorp/ember-flight-icons/-/ember-flight-icons-3.0.8.tgz#c58f525ffaa4a62bc0e28b601f7b677093bc3856"
-  integrity sha512-5Pn9Blfp3LM7LdlrSTm3S4tdYIPfHl6d/1MPumWpDxxyknWvtDi3+Ymujh++PcIflKAse0bzIgrTcN/Efu24/w==
+  version "3.0.9"
+  resolved "https://registry.yarnpkg.com/@hashicorp/ember-flight-icons/-/ember-flight-icons-3.0.9.tgz#9c56b3624c06489c06712fc6f190aa88b7f0d809"
+  integrity sha512-5PxiwRIaXO15zOMc9OhwnB7e0rHlV9GwPqmkK9NkaDKlmL3ESrKaGHirH9xwR6SJE+DJF0BZ9CRT7FDn+zMhGQ==
   dependencies:
-    "@hashicorp/flight-icons" "^2.16.0"
+    "@hashicorp/flight-icons" "^2.17.0"
     ember-auto-import "^2.6.3"
     ember-cli-babel "^7.26.11"
     ember-cli-htmlbars "^6.2.0"
@@ -2156,10 +2156,10 @@
   resolved "https://registry.yarnpkg.com/@hashicorp/flight-icons/-/flight-icons-2.14.0.tgz#8d5ab67f170a317240f2f026966ffa714684e975"
   integrity sha512-sKWr0rHwfEXN1ADNU64A30RtuPxeYp1iP/X0NyHXdPBrLIMa9AYceJ2g+alhECbKIKNpkrpMqWpM3f/me8FYdQ==
 
-"@hashicorp/flight-icons@^2.16.0":
-  version "2.16.0"
-  resolved "https://registry.yarnpkg.com/@hashicorp/flight-icons/-/flight-icons-2.16.0.tgz#9e0a619b933b3f4a7e7defea36b7e86249526471"
-  integrity sha512-1aOa7Yfl9KWP+sF7HJyzgxxQRM2wFQG/ehzPH+wMEC0u43yy9Vl+vCTanjS4Df30l8/cKzzbcUiJIncwe2mmXA==
+"@hashicorp/flight-icons@^2.17.0":
+  version "2.17.0"
+  resolved "https://registry.yarnpkg.com/@hashicorp/flight-icons/-/flight-icons-2.17.0.tgz#789e5dedb0b100f49173ca219ee19b2481de827c"
+  integrity sha512-1S+M/c8Qrzhqj3igM3bw3MkLT2mDABLzwkjZPgsIC0kneaW2k0rlHios9/+XUtLanQElqSVTxMuygnokZjhXjw==
 
 "@humanwhocodes/config-array@^0.5.0":
   version "0.5.0"
@@ -2838,6 +2838,11 @@
   resolved "https://registry.yarnpkg.com/@types/ua-parser-js/-/ua-parser-js-0.7.36.tgz#9bd0b47f26b5a3151be21ba4ce9f5fa457c5f190"
   integrity sha512-N1rW+njavs70y2cApeIw1vLMYXRwfBy+7trgavGuuTfOd7j1Yh7QTRc/yqsPl6ncokt72ZXuxEU0PiCp9bSwNQ==
 
+"@types/ungap__structured-clone@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@types/ungap__structured-clone/-/ungap__structured-clone-0.3.0.tgz#39ef89de1f04bb1920ed99e549b885331295c47d"
+  integrity sha512-eBWREUhVUGPze+bUW22AgUr05k8u+vETzuYdLYSvWqGTUe0KOf+zVnOB1qER5wMcw8V6D9Ar4DfJmVvD1yu0kQ==
+
 "@typescript-eslint/eslint-plugin@^5.2.0":
   version "5.56.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-5.56.0.tgz#e4fbb4d6dd8dab3e733485c1a44a02189ae75364"
@@ -2921,6 +2926,11 @@
   dependencies:
     "@typescript-eslint/types" "5.56.0"
     eslint-visitor-keys "^3.3.0"
+
+"@ungap/structured-clone@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@ungap/structured-clone/-/structured-clone-1.2.0.tgz#756641adb587851b5ccb3e095daf27ae581c8406"
+  integrity sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==
 
 "@webassemblyjs/ast@1.11.1":
   version "1.11.1"

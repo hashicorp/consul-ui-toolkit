@@ -1,0 +1,15 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+{{#let @generic as |Generic|}}
+  <Generic>
+    {{yield
+      (hash
+        toggle=@toggle
+        applyFilter=@applyFilter
+        config=@config
+        localConfig=@localConfig
+      )
+    }}
+  </Generic>
+{{/let}}

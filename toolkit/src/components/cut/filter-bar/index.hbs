@@ -1,0 +1,121 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
+<div class='cut-filter-bar' aria-label='Filter bar'>
+  <div class='cut-filter-bar-filters'>
+    <div class='cut-filter-bar-filtergroup'>
+
+      {{yield
+        (hash
+          FilterGroup=(component
+            'cut/filter-bar/filter-group'
+            toggle=this.toggleFilterValue
+            softToggle=this.softToggleFilterValue
+            applyFilter=this.applyFilter
+            onSearchInput=this.onSearchInput
+            onSearchKeyup=this.onSearchKeyup
+            clearPendingFilter=this.clearPendingFilter
+            isChecked=this.isChecked
+            config=@config
+            localConfig=this.localConfig
+          )
+          Filter=(component
+            'cut/filter-bar/filter'
+            toggle=this.toggleFilterValue
+            softToggle=this.softToggleFilterValue
+            applyFilter=this.applyFilter
+            clearPendingFilter=this.clearPendingFilter
+            isChecked=this.isChecked
+            config=@config
+            localConfig=this.localConfig
+          )
+          Generic=(component
+            'cut/filter-bar/generic'
+            toggle=this.toggleFilterValue
+            softToggle=this.softToggleFilterValue
+            applyFilter=this.applyFilter
+            clearPendingFilter=this.clearPendingFilter
+            isChecked=this.isChecked
+            config=@config
+            localConfig=this.localConfig
+          )
+          Search=(component
+            'cut/filter-bar/search'
+            onSearchInput=this.onSearchInput
+            onSearchKeyup=this.onSearchKeyup
+          )
+        )
+      }}
+    </div>
+
+    {{yield
+      (hash
+        SortGroup=(component
+          'cut/filter-bar/sort-group'
+          toggle=this.toggleFilterValue
+          softToggle=this.softToggleFilterValue
+          applyFilter=this.applyFilter
+          clearPendingFilter=this.clearPendingFilter
+          onSearchInput=this.onSearchInput
+          onSearchKeyup=this.onSearchKeyup
+          isChecked=this.isChecked
+          config=@config
+          localConfig=this.localConfig
+          onSortChange=this.onSortChange
+        )
+        Sort=(component
+          'cut/filter-bar/sort'
+          config=this.localConfig
+          onSortChange=this.onSortChange
+        )
+      )
+    }}
+  </div>
+
+  <div class='cut-filter-bar-results'>
+    {{#let (if @count @count 0) as |count|}}
+      <p class='cut-filter-bar-results-count'>Showing
+        {{pluralize count 'result'}}{{if
+          @totalCount
+          (concat ' of ' @totalCount)
+        }}</p>
+    {{/let}}
+
+    {{#each this.appliedFilters as |filter|}}
+      <p class='cut-filter-bar-applied-filter-label'>{{titlecase
+          filter.name
+        }}:</p>
+
+      {{#each filter.value as |filterValue|}}
+        {{#if filter.isRequired}}
+          <Hds::Tag @text={{titlecase filterValue.text}} />
+        {{else}}
+          <Hds::Tag
+            @text={{titlecase filterValue.text}}
+            @onDismiss={{fn
+              this.toggleFilterValue
+              (hash
+                filterName=filter.name
+                text=filterValue.text
+                value=filterValue.value
+                isMultiSelect=filter.isMultiSelect
+              )
+            }}
+          />
+        {{/if}}
+      {{/each}}
+    {{/each}}
+
+    {{#if this.shouldShowClearFiltersButton}}
+      <Hds::Button
+        @text='Clear filters'
+        @color='tertiary'
+        @icon='x'
+        @type='button'
+        @size='small'
+        {{on 'click' this.clearFilters}}
+      />
+    {{/if}}
+  </div>
+</div>

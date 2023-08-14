@@ -1,0 +1,20 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
+{{#let @checkmark as |Checkmark|}}
+  <Checkmark
+    @selected={{this.isChecked}}
+    {{on
+      'click'
+      (fn @toggle (hash filterName=@filterName text=@name value=@value))
+    }}
+    ...attributes
+  >
+    {{#if (has-block)}}
+      {{yield}}
+    {{else}}
+      {{@name}}
+    {{/if}}
+  </Checkmark>
+{{/let}}

@@ -1,0 +1,30 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
+<Hds::SegmentedGroup
+  class='cut-filter-bar-filter-group'
+  ...attributes
+  as |Group|
+>
+  {{yield
+    (hash
+      Filter=(component
+        'cut/filter-bar/filter'
+        dropdown=Group.Dropdown
+        toggle=@toggle
+        softToggle=@softToggle
+        applyFilter=@applyFilter
+        clearPendingFilter=@clearPendingFilter
+        isChecked=@isChecked
+        config=@config
+        localConfig=@localConfig
+      )
+      Search=(component
+        'cut/filter-bar/search'
+        onSearchInput=@onSearchInput
+        onSearchKeyup=@onSearchKeyup
+      )
+    )
+  }}
+</Hds::SegmentedGroup>
