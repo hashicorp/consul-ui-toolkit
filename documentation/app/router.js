@@ -24,5 +24,6 @@ Router.map(function () {
     this.route('service-list-item');
     this.route('service-instance-list-item');
     this.route('filter-bar');
+    this.route('list');
   });
 });

@@ -1,0 +1,34 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
+<div class='cut-list-pagination' ...attributes>
+  {{#if @onPageChange}}
+    <Hds::Pagination::Compact
+      class='cut-list-pagination_page-selector'
+      @showLabels={{true}}
+      @isDisabledPrev={{not @prevCursor}}
+      @isDisabledNext={{not @nextCursor}}
+      @onPageChange={{@onPageChange}}
+    />
+  {{else}}
+    <Hds::Pagination::Compact
+      class='cut-list-pagination_page-selector'
+      @showLabels={{true}}
+      @queryFunction={{this.queryFunction}}
+      @route={{or @route this.router.currentRouteName}}
+      @isDisabledPrev={{not @prevCursor}}
+      @isDisabledNext={{not @nextCursor}}
+    />
+  {{/if}}
+
+  {{#if (and @pageSizes @currentPageSize)}}
+    <Hds::Pagination::SizeSelector
+      class='cut-list-pagination_size-selector'
+      @pageSizes={{@pageSizes}}
+      @label='Items per page'
+      @selectedSize={{@currentPageSize}}
+      @onChange={{this.onPageSizeChange}}
+    />
+  {{/if}}
+</div>
