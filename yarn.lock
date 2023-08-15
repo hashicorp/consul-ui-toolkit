@@ -2046,15 +2046,15 @@
   resolved "https://registry.yarnpkg.com/@handlebars/parser/-/parser-2.0.0.tgz#5e8b7298f31ff8f7b260e6b7363c7e9ceed7d9c5"
   integrity sha512-EP9uEDZv/L5Qh9IWuMUGJRfwhXJ4h1dqKTT4/3+tY0eu7sPis7xh23j61SYUnNF4vqCQvvUXpDo9Bh/+q1zASA==
 
-"@hashicorp/design-system-components@^2.9.0":
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/@hashicorp/design-system-components/-/design-system-components-2.9.0.tgz#ae0c3516e31b0c35fbae622337d1a9edfe23c06c"
-  integrity sha512-L7tmPngRkxHQPg4Rt0dBjRubIWYFWm38753itxbeujlaVgh8Dp1oo30QLtQrLqiKhPf5m81rNxRybs+uPgNMGw==
+"@hashicorp/design-system-components@^2.10.0":
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/@hashicorp/design-system-components/-/design-system-components-2.10.0.tgz#d91feafd916bfd119880e10005b0dc740e92ec38"
+  integrity sha512-HSj36aKXY+cBgIkq9o2lU917T2PPXr+zveKELgH9w3UUtcG5tRcugros2rO7ouOxjcebYfc89M7BrUkg1MMLxw==
   dependencies:
     "@ember/render-modifiers" "^2.0.5"
     "@ember/test-waiters" "^3.0.2"
     "@hashicorp/design-system-tokens" "^1.7.0"
-    "@hashicorp/ember-flight-icons" "^3.0.9"
+    "@hashicorp/ember-flight-icons" "^3.1.0"
     dialog-polyfill "^0.5.6"
     ember-a11y-refocus "^3.0.2"
     ember-auto-import "^2.6.3"
@@ -2088,10 +2088,10 @@
     ember-cli-babel "^7.26.11"
     ember-cli-htmlbars "^6.2.0"
 
-"@hashicorp/ember-flight-icons@^3.0.9":
-  version "3.0.9"
-  resolved "https://registry.yarnpkg.com/@hashicorp/ember-flight-icons/-/ember-flight-icons-3.0.9.tgz#9c56b3624c06489c06712fc6f190aa88b7f0d809"
-  integrity sha512-5PxiwRIaXO15zOMc9OhwnB7e0rHlV9GwPqmkK9NkaDKlmL3ESrKaGHirH9xwR6SJE+DJF0BZ9CRT7FDn+zMhGQ==
+"@hashicorp/ember-flight-icons@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@hashicorp/ember-flight-icons/-/ember-flight-icons-3.1.0.tgz#d470bd1139814ec8a479752540e3d01882f1906f"
+  integrity sha512-FuIbPHnOqleVFlCrkVXa3Su3uX/hfxb5ndCBAiwrWkYQyNkpjxamFC+ZEOUbbC3y5gk2Vmo4rbtx37p8rWjSiw==
   dependencies:
     "@hashicorp/flight-icons" "^2.17.0"
     ember-auto-import "^2.6.3"

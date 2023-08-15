@@ -30,7 +30,7 @@
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
     "@hashicorp/consul-ui-toolkit": "^0.1.0",
-    "@hashicorp/design-system-components": "^2.9.0",
+    "@hashicorp/design-system-components": "^2.10.0",
     "@hashicorp/ember-flight-icons": "^3.0.6",
     "@types/qunit": "latest",
     "@typescript-eslint/eslint-plugin": "^5.2.0",
