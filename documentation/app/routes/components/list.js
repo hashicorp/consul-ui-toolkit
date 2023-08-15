@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
 import Route from '@ember/routing/route';
 import { v4 as uuidv4 } from 'uuid';
 
