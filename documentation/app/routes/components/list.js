@@ -33,9 +33,7 @@ export default class ListRoute extends Route {
     },
   };
 
-  model(queryParams) {
-    console.log(queryParams);
-
+  model() {
     return {
       nextCursor: uuidv4(),
       prevCursor: uuidv4(),
