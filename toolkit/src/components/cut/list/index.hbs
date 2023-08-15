@@ -2,13 +2,27 @@
   Copyright (c) HashiCorp, Inc.
 }}
 
-{{! 
-  Only pass in the items, pass config and actions directly into the filterbar
-  Have pagination handle setting up the route stuff if it's passed into the component/
- }}
+{{!-- 
+    `Cut::List` provides a simple layout for a common list UI across Consul apps. It exposes an optional FilterBar,
+    a block for your list item specification, empty states, and an optional pagination component.
+    
+    ```
+    <Cut::List @items={{this.items}} as |L|>
+     <L.FilterBar ... />
+     <L.ListItem ... />
+     <L.EmptyAppState ... />
+     <L.Pagination ... />
+    </Cut::List>
+    ```
+
+    interface ListArgs {
+      Args: {
+        items: unknown[];
+      };
+    }
+ --}}
 <div class='cut-list' ...attributes>
   <div class='cut-list--group'>
-
     {{yield (hash FilterBar=(component 'cut/filter-bar'))}}
     <div class='cut-list-contents'>
       {{#if (gt @items.length 0)}}
@@ -32,9 +46,7 @@
           {{yield
             (hash
               EmptyGeneric=(component 'cut/list/contents/empty')
-              EmptyAppState=(component
-                'hds/application-state' class='cut-list--empty'
-              )
+              EmptyAppState=(component 'hds/application-state')
             )
           }}
         </div>
