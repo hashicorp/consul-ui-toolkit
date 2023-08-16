@@ -1,5 +1,27 @@
 # @hashicorp/consul-ui-toolkit
 
+## 1.0.0
+
+### Major Changes
+
+- 2fb974b: Rename list-item Label, Label2 to Section, SecondSection
+
+### Minor Changes
+
+- cbbeadf: Add Cut::FilterBar component
+- d21d187: Add Service list item and Service instance list item
+- 6f5a757: Add Cut::List component
+
+### Patch Changes
+
+- ee20fd3: Update service instance list item type styling
+- 4aebe3a: Upgrade @hashicorp/design-system-component -> 2.10.0 and ember-cli-clipboard -> 1.0.0
+- a6657d1: Upgrade @hashicorp/design-system-components.
+- 2fb974b: fix: update copy-block cursor to be pointer
+- e453db1: Update Service List Item types. Same overall type, just formatting changed.
+- 9b9d230: Upgrade HDS
+- 3c0d182: Upgrade @hashicorp/design-system-components -> 2.7.1
+
 ## 0.1.0
 
 ### Minor Changes
