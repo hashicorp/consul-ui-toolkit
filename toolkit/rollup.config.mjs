@@ -20,7 +20,10 @@ export default {
   plugins: [
     // These are the modules that users should be able to import from your
     // addon. Anything not listed here may get optimized away.
-    addon.publicEntrypoints(['**/*.ts']),
+    addon.publicEntrypoints([
+      '**/*.ts',
+      'styles/@hashicorp/consul-ui-toolkit.scss',
+    ]),
 
     // These are the modules that should get reexported into the traditional
     // "app" tree. Things in here should also be in publicEntrypoints above, but
@@ -31,6 +34,14 @@ export default {
     // `dependencies` and `peerDependencies` as well as standard Ember-provided
     // package names.
     addon.dependencies(),
+    scss({
+      fileName: 'styles/consul-ui-toolkit.css',
+      failOnError: true,
+      includePaths: [
+        '../node_modules/@hashicorp/design-system-tokens/dist/products/css',
+        '../node_modules/@hashicorp/design-system-components/app/styles',
+      ],
+    }),
 
     // This babel config should *not* apply presets or compile away ES modules.
     // It exists only to provide development niceties for you, like automatic
@@ -47,14 +58,9 @@ export default {
     // Ensure that standalone .hbs files are properly integrated as Javascript.
     addon.hbs(),
 
-    scss({
-      output: './build/css/style.css',
-      failOnError: true,
-    }),
-
     // addons are allowed to contain imports of .css files, which we want rollup
     // to leave alone and keep in the published output.
-    addon.keepAssets(['**/*.scss']),
+    addon.keepAssets(['**/*.css', '**/*.d.ts']),
 
     // Remove leftover build artifacts when starting a new build.
     addon.clean(),

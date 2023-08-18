@@ -1,8 +1,9 @@
 /**
  * Copyright (c) HashiCorp, Inc.
  */
-@import "@hashicorp/design-system-components";
-@import "@hashicorp/consul-ui-toolkit";
+@use "consul-ui-toolkit";
+@use "@hashicorp/design-system-components";
+
 @import "./components/list-item";
 @import "./components/component-api";
 @import "./components/page-header";

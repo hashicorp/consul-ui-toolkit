@@ -9,7 +9,6 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
     sassOptions: {
-      extension: 'scss',
       precision: 4,
       includePaths: [
         '../node_modules/@hashicorp/design-system-tokens/dist/products/css',
