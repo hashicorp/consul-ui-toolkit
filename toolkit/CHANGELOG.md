@@ -1,5 +1,11 @@
 # @hashicorp/consul-ui-toolkit
 
+## 1.0.1
+
+### Patch Changes
+
+- 8e9dd2c: Fix the compilation of scss in the toolkit and upgrade typescript
+
 ## 1.0.0
 
 ### Major Changes
