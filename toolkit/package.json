@@ -53,6 +53,7 @@
     "@embroider/addon-dev": "^3.0.0",
     "@hashicorp/design-system-components": "^2.10.0",
     "@rollup/plugin-babel": "^5.3.0",
+    "@tsconfig/ember": "^3.0.0",
     "@types/ember": "^4.0.3",
     "@types/ungap__structured-clone": "^0.3.0",
     "@typescript-eslint/eslint-plugin": "^5.2.0",
@@ -72,7 +73,7 @@
     "rollup-plugin-scss": "^4.0.0",
     "rollup-plugin-ts": "3.2.0",
     "sass": "^1.60.0",
-    "typescript": "^4.7.4"
+    "typescript": "^5.1.6"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
