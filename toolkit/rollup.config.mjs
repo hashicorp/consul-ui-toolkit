@@ -36,6 +36,7 @@ export default {
     addon.dependencies(),
     scss({
       fileName: 'styles/consul-ui-toolkit.css',
+      outputStyle: 'compressed',
       failOnError: true,
       includePaths: [
         '../node_modules/@hashicorp/design-system-tokens/dist/products/css',
@@ -60,7 +61,7 @@ export default {
 
     // addons are allowed to contain imports of .css files, which we want rollup
     // to leave alone and keep in the published output.
-    addon.keepAssets(['**/*.css', '**/*.d.ts']),
+    addon.keepAssets(['**/*.css', '**/*/d.ts']),
 
     // Remove leftover build artifacts when starting a new build.
     addon.clean(),
