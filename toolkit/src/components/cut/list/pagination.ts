@@ -6,20 +6,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import RouterService from '@ember/routing/router-service';
-
-interface PaginationArgs {
-  Args: {
-    nextCursor?: string;
-    prevCursor?: string;
-    pageSizes?: number[];
-    currentPageSize?: number;
-    queryFunction?: (page: string) => {
-      [key: string]: string | number | unknown;
-    };
-    onPageChange?: (page: string) => void;
-    onPageSizeChange?: (size: number) => void;
-  };
-}
+import { PaginationSignature } from 'src/types';
 
 /**
  * `Cut::List::Pagination` provides a wrapper around the `Hds::Pagination::Compact` and `Hds::Pagination::SizeSelector` components.
@@ -52,7 +39,7 @@ interface PaginationArgs {
  * when interacting with the page selectors and the size selectors. You can pass in a `onPageChange` action to have it call a function insteand.
  * The same goes for the size selector, but the argument is `onPageSizeChange`.
  */
-export default class PaginationComponent extends Component<PaginationArgs> {
+export default class PaginationComponent extends Component<PaginationSignature> {
   @service declare readonly router: RouterService;
 
   get queryFunction(): (page: string) => {

@@ -4,50 +4,12 @@
 
 import Component from '@glimmer/component';
 import {
-  ExternalSource,
-  HealthCheck,
   NORMALIZED_GATEWAY_LABELS,
   SERVICE_GATEWAY_TYPE,
-  SERVICE_KIND,
 } from '../../../../utils/service-list-item';
+import { ServiceListItemSignature } from '../types';
 
-export interface CutService {
-  name: string | undefined;
-  metadata: {
-    healthCheck: {
-      instance?: HealthCheck;
-    };
-    kind?: SERVICE_KIND;
-    instanceCount?: number;
-    isImported?: boolean;
-    isPermissiveMTls?: boolean;
-    connectedWithGateway?: boolean;
-    connectedWithProxy?: boolean;
-    samenessGroup?: string;
-    externalSource?: ExternalSource;
-    tags: string[];
-    upstreamCount?: number;
-    linkedServiceCount?: number;
-  };
-}
-
-interface ComponentSignature {
-  Args: {
-    // List item args;
-    href?: string;
-    isHrefExternal?: boolean;
-    route?: string;
-    isRouteExternal?: boolean;
-    query?: object;
-    replace?: string;
-    onClick(): void;
-
-    // Service args
-    service: CutService;
-  };
-}
-
-export default class ServiceListItemComponent extends Component<ComponentSignature> {
+export default class ServiceListItemComponent extends Component<ServiceListItemSignature> {
   ServiceGatewayType = SERVICE_GATEWAY_TYPE;
   NormalizedGatewayLabels = NORMALIZED_GATEWAY_LABELS;
 

@@ -5,20 +5,9 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import { ListItemSignature } from './types';
 
-export interface ComponentSignature {
-  Args: {
-    href?: string;
-    isHrefExternal?: boolean;
-    route?: string;
-    isRouteExternal?: boolean;
-    query?: object;
-    replace?: string;
-    onClick(): void;
-  };
-}
-
-export default class ListItemComponent extends Component<ComponentSignature> {
+export default class ListItemComponent extends Component<ListItemSignature> {
   get route() {
     const { onClick, route, href } = this.args;
 

@@ -16,6 +16,7 @@
     "addon-main.cjs",
     "dist"
   ],
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup --config",
     "cleanup:local": "yalc installations clean @hashicorp/consul-ui-toolkit",
@@ -87,6 +88,7 @@
     "main": "addon-main.cjs",
     "app-js": {
       "./components/cut/copy-block/index.js": "./dist/_app_/components/cut/copy-block/index.js",
+      "./components/cut/copy-block/types.js": "./dist/_app_/components/cut/copy-block/types.js",
       "./components/cut/filter-bar/filter-group.js": "./dist/_app_/components/cut/filter-bar/filter-group.js",
       "./components/cut/filter-bar/filter/checkbox.js": "./dist/_app_/components/cut/filter-bar/filter/checkbox.js",
       "./components/cut/filter-bar/filter/checkmark.js": "./dist/_app_/components/cut/filter-bar/filter/checkmark.js",
@@ -100,6 +102,7 @@
       "./components/cut/filter-bar/sort-group.js": "./dist/_app_/components/cut/filter-bar/sort-group.js",
       "./components/cut/filter-bar/sort/checkmark.js": "./dist/_app_/components/cut/filter-bar/sort/checkmark.js",
       "./components/cut/filter-bar/sort/index.js": "./dist/_app_/components/cut/filter-bar/sort/index.js",
+      "./components/cut/filter-bar/types.js": "./dist/_app_/components/cut/filter-bar/types.js",
       "./components/cut/list-item/action-generic.js": "./dist/_app_/components/cut/list-item/action-generic.js",
       "./components/cut/list-item/content.js": "./dist/_app_/components/cut/list-item/content.js",
       "./components/cut/list-item/index.js": "./dist/_app_/components/cut/list-item/index.js",
@@ -109,16 +112,21 @@
       "./components/cut/list-item/service-instance/index.js": "./dist/_app_/components/cut/list-item/service-instance/index.js",
       "./components/cut/list-item/service/index.js": "./dist/_app_/components/cut/list-item/service/index.js",
       "./components/cut/list-item/template/index.js": "./dist/_app_/components/cut/list-item/template/index.js",
+      "./components/cut/list-item/types.js": "./dist/_app_/components/cut/list-item/types.js",
       "./components/cut/list/contents/empty.js": "./dist/_app_/components/cut/list/contents/empty.js",
       "./components/cut/list/contents/generic.js": "./dist/_app_/components/cut/list/contents/generic.js",
       "./components/cut/list/index.js": "./dist/_app_/components/cut/list/index.js",
       "./components/cut/list/pagination.js": "./dist/_app_/components/cut/list/pagination.js",
+      "./components/cut/list/types.js": "./dist/_app_/components/cut/list/types.js",
       "./components/cut/metadata/external-source/index.js": "./dist/_app_/components/cut/metadata/external-source/index.js",
       "./components/cut/metadata/health-check-badge-set/index.js": "./dist/_app_/components/cut/metadata/health-check-badge-set/index.js",
       "./components/cut/metadata/in-service-mesh/index.js": "./dist/_app_/components/cut/metadata/in-service-mesh/index.js",
       "./components/cut/metadata/tags/index.js": "./dist/_app_/components/cut/metadata/tags/index.js",
+      "./components/cut/metadata/types.js": "./dist/_app_/components/cut/metadata/types.js",
       "./components/cut/text-with-icon/index.js": "./dist/_app_/components/cut/text-with-icon/index.js",
+      "./components/cut/text-with-icon/types.js": "./dist/_app_/components/cut/text-with-icon/types.js",
       "./helpers/titlecase.js": "./dist/_app_/helpers/titlecase.js",
+      "./utils/index.js": "./dist/_app_/utils/index.js",
       "./utils/service-list-item.js": "./dist/_app_/utils/service-list-item.js"
     }
   },

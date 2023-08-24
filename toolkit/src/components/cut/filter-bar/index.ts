@@ -6,59 +6,15 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import structuredClone from '@ungap/structured-clone';
-
-export interface ComponentSignature {
-  Args: {
-    config: FilterConfig;
-    count?: number;
-    totalCount?: number;
-    onChange: (config: FilterConfig) => void;
-  };
-}
-
-export interface FilterConfig {
-  search?: Search;
-  filters?: Filters;
-  sort?: Sort;
-}
-
-interface Sort {
-  value?: string;
-}
-
-interface Search {
-  value?: string;
-}
-
-export interface Filter {
-  text: string;
-  value: unknown;
-  isRequired?: boolean;
-}
-
-export interface Filters {
-  [name: string]: Filter | Filter[] | undefined;
-}
-
-export interface AppliedFilter {
-  name: string;
-  value: Filter[];
-  isMultiSelect?: boolean;
-  isRequired?: boolean;
-}
-
-export type HTMLElementEvent<T extends HTMLElement> = Event & {
-  target: T;
-  currentTarget: T;
-};
-
-export interface ToggleArgs {
-  filterName: string;
-  value: unknown;
-  text: string;
-  isMultiSelect?: boolean;
-  isRequired?: boolean;
-}
+import {
+  AppliedFilter,
+  Filter,
+  FilterBarSignature,
+  FilterConfig,
+  Filters,
+  HTMLElementEvent,
+  ToggleArgs,
+} from 'src/types';
 
 /**
  * `Cut::FilterBar` provides the UI building blocks for building a FilterBar while also managing state for you.
@@ -89,7 +45,7 @@ export interface ToggleArgs {
  * in the `localConfig` but not yet in the `config`. Once you apply the pending changes, they will be applied to the
  * `config` and the `onChange` function will be called.
  */
-export default class FilterBarComponent extends Component<ComponentSignature> {
+export default class FilterBarComponent extends Component<FilterBarSignature> {
   @tracked pendingFilterChange: Filters = {};
 
   get localConfig(): FilterConfig {
@@ -244,7 +200,9 @@ export default class FilterBarComponent extends Component<ComponentSignature> {
     const config = structuredClone(this.args.config);
 
     // apply the filter from filterChanges
-    if (Object.hasOwn(this.pendingFilterChange || {}, name)) {
+    if (
+      Object.prototype.hasOwnProperty.call(this.pendingFilterChange || {}, name)
+    ) {
       config.filters = Object.assign({}, config.filters, {
         [name]: this.pendingFilterChange?.[name],
       });
