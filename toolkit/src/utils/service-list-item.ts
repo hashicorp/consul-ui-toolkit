@@ -2,17 +2,6 @@
  * Copyright (c) HashiCorp, Inc.
  */
 
-export type ExternalSource =
-  | 'kubernetes'
-  | 'terraform'
-  | 'nomad'
-  | 'consul'
-  | 'consul-api-gateway'
-  | 'vault'
-  | 'aws'
-  | 'aws-iam'
-  | 'lambda';
-
 export enum EXTERNAL_SOURCE_ICON_MAPPING {
   kubernetes = 'kubernetes-color',
   terraform = 'terraform-color',
@@ -37,12 +26,6 @@ export enum EXTERNAL_SOURCE_LABELS {
   lambda = 'AWS Lambda',
 }
 
-export interface HealthCheck {
-  success: number | undefined;
-  warning: number | undefined;
-  critical: number | undefined;
-}
-
 export const CUT_SERVICE_LIST_ITEM_TYPE = {
   Service: 'service',
   ServiceInstance: 'service-instance',
@@ -61,9 +44,3 @@ export const SERVICE_GATEWAY_TYPE = {
   IngressGateway: 'ingress-gateway',
   TerminatingGateway: 'terminating-gateway',
 };
-
-export type SERVICE_KIND =
-  | 'api-gateway'
-  | 'mesh-gateway'
-  | 'ingress-gateway'
-  | 'terminating-gateway';

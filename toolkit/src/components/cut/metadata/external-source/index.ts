@@ -6,16 +6,10 @@ import Component from '@glimmer/component';
 import {
   EXTERNAL_SOURCE_ICON_MAPPING,
   EXTERNAL_SOURCE_LABELS,
-  ExternalSource,
 } from '../../../../utils/service-list-item';
+import { MetadataExternalSourceSignature } from 'src/types';
 
-interface ComponentSignature {
-  Args: {
-    externalSource: ExternalSource;
-  };
-}
-
-export default class MetadataExternalSourceComponent extends Component<ComponentSignature> {
+export default class MetadataExternalSourceComponent extends Component<MetadataExternalSourceSignature> {
   get externalSourceIcon() {
     const { externalSource } = this.args;
 

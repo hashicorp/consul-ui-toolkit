@@ -3,24 +3,9 @@
  */
 
 import Component from '@glimmer/component';
-import { FilterConfig, ToggleArgs } from '..';
+import { FilterBarCheckboxSignature } from 'src/types';
 
-interface FilterBarCheckbox {
-  Args: {
-    filterName: string;
-    name: string;
-    value: unknown;
-    localConfig: FilterConfig;
-    toggle: (toggle: ToggleArgs) => void;
-    isChecked: (
-      localConfig: FilterConfig,
-      name: string,
-      value: unknown
-    ) => boolean;
-  };
-}
-
-export default class CheckmarkComponent extends Component<FilterBarCheckbox> {
+export default class CheckmarkComponent extends Component<FilterBarCheckboxSignature> {
   get isChecked() {
     return this.args.isChecked(
       this.args.localConfig,

@@ -6,16 +6,9 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { timeout } from 'ember-concurrency';
 import { dropTask } from 'ember-concurrency-decorators';
+import { CopyBlockSignature } from 'src/types';
 
-export interface ComponentSignature {
-  Args: {
-    clipboardText: string;
-    timeout?: number;
-    onSuccess(): void;
-  };
-}
-
-export default class CopyBlockComponent extends Component<ComponentSignature> {
+export default class CopyBlockComponent extends Component<CopyBlockSignature> {
   @tracked isSuccessfullyCopied = false;
 
   get timeout() {

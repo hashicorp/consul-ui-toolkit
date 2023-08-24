@@ -3,16 +3,7 @@
  */
 
 import Component from '@glimmer/component';
-
-export interface DivSignature {
-  Element: HTMLDivElement;
-  Args: {
-    icon: string;
-    text: string;
-    connection?: string | undefined;
-    iconColor?: string | undefined;
-  };
-}
+import { TextWithIconSignature } from 'src/types';
 
 // eslint-disable-next-line ember/no-empty-glimmer-component-classes
-export default class TextWithIconComponent extends Component<DivSignature> {}
+export default class TextWithIconComponent extends Component<TextWithIconSignature> {}

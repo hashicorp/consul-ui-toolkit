@@ -3,17 +3,9 @@
  */
 
 import Component from '@glimmer/component';
+import { MetadataHealthCheckBadgeSetSignature } from 'src/types';
 
-interface ComponentSignature {
-  Args: {
-    type: string;
-    successCount?: number;
-    criticalCount?: number;
-    warningCount?: number;
-  };
-}
-
-export default class MetadataHealthCheckBadgeSetComponent extends Component<ComponentSignature> {
+export default class MetadataHealthCheckBadgeSetComponent extends Component<MetadataHealthCheckBadgeSetSignature> {
   get total() {
     return (
       (this.args.successCount || 0) +

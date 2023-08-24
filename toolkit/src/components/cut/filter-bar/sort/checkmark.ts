@@ -4,17 +4,9 @@
  */
 
 import Component from '@glimmer/component';
-import { FilterConfig } from '..';
+import { SortCheckmarkSignature } from 'src/types';
 
-interface SortCheckmarkInterface {
-  checkmark: unknown;
-  config: FilterConfig;
-  value: string;
-  name: string;
-  onSortChange: (value: string, text: string) => void;
-}
-
-export default class SortCheckmarkComponent extends Component<SortCheckmarkInterface> {
+export default class SortCheckmarkComponent extends Component<SortCheckmarkSignature> {
   get isSelected(): boolean {
     return this.args.config?.sort?.value === this.args.value;
   }
