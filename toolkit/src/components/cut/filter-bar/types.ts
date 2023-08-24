@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
 export interface FilterBarSignature {
   Args: {
     config: FilterConfig;

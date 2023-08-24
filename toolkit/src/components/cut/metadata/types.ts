@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
 import { ExternalSource } from 'src/types';
 
 export interface MetadataHealthCheckBadgeSetSignature {

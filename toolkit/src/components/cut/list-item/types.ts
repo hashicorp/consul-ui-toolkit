@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
 export interface ListItemSignature {
   Args: {
     href?: string;

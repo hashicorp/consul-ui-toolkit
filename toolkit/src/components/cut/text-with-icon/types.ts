@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
 export interface TextWithIconSignature {
   Element: HTMLDivElement;
   Args: {

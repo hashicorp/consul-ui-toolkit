@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
 export type * from '../components/cut/list-item/types';
 export type * from '../components/cut/filter-bar/types';
 export type * from '../components/cut/list/types';
