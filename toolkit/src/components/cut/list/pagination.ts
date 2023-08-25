@@ -52,7 +52,8 @@ export default class PaginationComponent extends Component<PaginationSignature> 
 
       return (page) =>
         Object.assign({}, queryParams, {
-          page: page === 'prev' ? this.args.prevCursor : this.args.nextCursor,
+          previousPage: page === 'prev' ? this.args.prevCursor : undefined,
+          nextPage: page === 'next' ? this.args.nextCursor : undefined,
         });
     }
   }
@@ -67,7 +68,7 @@ export default class PaginationComponent extends Component<PaginationSignature> 
         pageSize: size,
       });
 
-      this.router.transitionTo({
+      this.router.transitionTo(this.router.currentRouteName, {
         queryParams: newParams,
       });
     }
