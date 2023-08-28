@@ -15,7 +15,13 @@ import {
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 
-async function setupTest(config) {
+async function setupTest({ config, name, count, totalCount } = {}) {
+  this.set('name', name);
+
+  this.set('count', count);
+
+  this.set('totalCount', totalCount);
+
   this.set(
     'config',
     config || {
@@ -44,7 +50,7 @@ async function setupTest(config) {
   this.onChange = onChange;
 
   await render(hbs`
-    <Cut::FilterBar @config={{this.config}} @onChange={{this.onChange}} as |FB|>
+    <Cut::FilterBar @config={{this.config}} @name={{this.name}} @count={{this.count}} @totalCount={{this.totalCount}} @onChange={{this.onChange}} as |FB|>
       <FB.Search placeholder="Search for services" data-test-search />
       <FB.FilterGroup as |Filters|>
         <Filters.Filter
@@ -159,19 +165,21 @@ module('Integration | Component | cut/filter-bar', function (hooks) {
 
   test("clear filters doesn't show when there are only required filters", async function (assert) {
     await setupTest.call(this, {
-      search: {
-        value: '',
-      },
-      filters: {
-        juice: {
-          text: 'Orange',
-          value: 'oj',
-          isRequired: true,
+      config: {
+        search: {
+          value: '',
         },
-      },
-      sort: {
-        text: 'critical to healthy',
-        value: 'health',
+        filters: {
+          juice: {
+            text: 'Orange',
+            value: 'oj',
+            isRequired: true,
+          },
+        },
+        sort: {
+          text: 'critical to healthy',
+          value: 'health',
+        },
       },
     });
 
@@ -317,6 +325,44 @@ module('Integration | Component | cut/filter-bar', function (hooks) {
       },
       'Sort is updated to be instance count'
     );
+  });
+
+  test('shows a default results text if no count is passed in', async function (assert) {
+    await setupTest.call(this);
+
+    assert.dom('[data-test-filter-bar-results]').hasText('Showing all results');
+  });
+
+  test('shows a default results text with the name if the name is passed in with no count', async function (assert) {
+    await setupTest.call(this, { name: 'nacho' });
+
+    assert.dom('[data-test-filter-bar-results]').hasText('Showing all nachos');
+  });
+
+  test('shows a result count with a default text for the name if you pass in a count but no name', async function (assert) {
+    await setupTest.call(this, { count: 3 });
+
+    assert.dom('[data-test-filter-bar-results]').hasText('Showing 3 results');
+  });
+
+  test('shows a result count with a default text for the name if you pass in a count but no name', async function (assert) {
+    await setupTest.call(this, { count: 3 });
+
+    assert.dom('[data-test-filter-bar-results]').hasText('Showing 3 results');
+  });
+
+  test('shows a result count with a name if you pass in a count and a name', async function (assert) {
+    await setupTest.call(this, { count: 1, name: 'song' });
+
+    assert.dom('[data-test-filter-bar-results]').hasText('Showing 1 song');
+  });
+
+  test('shows a result count with a total if you pass in a total and a count', async function (assert) {
+    await setupTest.call(this, { count: 5, totalCount: 10, name: 'song' });
+
+    assert
+      .dom('[data-test-filter-bar-results]')
+      .hasText('Showing 5 songs of 10');
   });
 
   test('search updates the search values', async function (assert) {

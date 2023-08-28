@@ -105,6 +105,10 @@ export default class FilterBarComponent extends Component<FilterBarSignature> {
     );
   }
 
+  get hasCount(): boolean {
+    return typeof this.args.count === 'number';
+  }
+
   isChecked(localConfig: FilterConfig, filter: string, value: unknown) {
     if (Array.isArray(localConfig?.filters?.[filter])) {
       return !!(localConfig?.filters?.[filter] as Filter[]).find(

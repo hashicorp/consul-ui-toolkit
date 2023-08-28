@@ -74,13 +74,18 @@
   </div>
 
   <div class='cut-filter-bar-results'>
-    {{#let (if @count @count 0) as |count|}}
-      <p class='cut-filter-bar-results-count'>Showing
-        {{pluralize count 'result'}}{{if
+    <p class='cut-filter-bar-results-count' data-test-filter-bar-results>
+      {{#if this.hasCount}}
+        Showing
+        {{pluralize @count (if @name @name 'result')}}{{if
           @totalCount
           (concat ' of ' @totalCount)
-        }}</p>
-    {{/let}}
+        }}
+      {{else}}
+        Showing all
+        {{if @name (pluralize @name) 'results'}}
+      {{/if}}
+    </p>
 
     {{#each this.appliedFilters as |filter|}}
       <p class='cut-filter-bar-applied-filter-label'>{{titlecase
