@@ -345,12 +345,6 @@ module('Integration | Component | cut/filter-bar', function (hooks) {
     assert.dom('[data-test-filter-bar-results]').hasText('Showing 3 results');
   });
 
-  test('shows a result count with a default text for the name if you pass in a count but no name', async function (assert) {
-    await setupTest.call(this, { count: 3 });
-
-    assert.dom('[data-test-filter-bar-results]').hasText('Showing 3 results');
-  });
-
   test('shows a result count with a name if you pass in a count and a name', async function (assert) {
     await setupTest.call(this, { count: 1, name: 'song' });
 
