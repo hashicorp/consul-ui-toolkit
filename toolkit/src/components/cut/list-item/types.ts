@@ -10,6 +10,8 @@ export interface ListItemSignature {
     isRouteExternal?: boolean;
     query?: object;
     replace?: string;
+    model?: string | unknown;
+    models?: string[] | unknown[];
     onClick(): void;
   };
 }
@@ -23,6 +25,8 @@ export interface ServiceInstanceListItemSignature {
     isRouteExternal?: boolean;
     query?: object;
     replace?: string;
+    model?: string | unknown;
+    models?: string[] | unknown[];
     onClick(): void;
 
     // Service args
@@ -39,6 +43,8 @@ export interface ServiceListItemSignature {
     isRouteExternal?: boolean;
     query?: object;
     replace?: string;
+    model?: string | unknown;
+    models?: string[] | unknown[];
     onClick(): void;
 
     // Service args
