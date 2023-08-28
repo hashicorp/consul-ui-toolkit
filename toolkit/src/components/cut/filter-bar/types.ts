@@ -5,6 +5,7 @@
 export interface FilterBarSignature {
   Args: {
     config: FilterConfig;
+    name?: string;
     count?: number;
     totalCount?: number;
     onChange: (config: FilterConfig) => void;
