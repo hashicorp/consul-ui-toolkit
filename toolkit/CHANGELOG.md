@@ -1,5 +1,23 @@
 # @hashicorp/consul-ui-toolkit
 
+## 2.0.0
+
+### Major Changes
+
+- 63f6893: Update pagination pagesize handler to always specify the current route when transitioning
+  Update pagination routing to set separate query params for next or prev page
+- 2c5af5f: Update where types are declared and how they are exported
+
+### Minor Changes
+
+- edad51f: Add @name argument to Cut::FilterBar and update default result text
+
+### Patch Changes
+
+- 93f689e: Pass through models, model on list-item to the HDS::Interactive component
+- 9c6df91: Add cut-link class for link overrides
+- 6fd15c9: Update default `Cut::FilterBar` results text when no count is passed in.
+
 ## 1.0.1
 
 ### Patch Changes
