@@ -7,8 +7,10 @@
   ...attributes
 >
   {{#if (or @route @href @onClick)}}
+    {{! cut-link is a class that is used in the structure override classes to avoid applying 
+      extra styles to the link from structure. (https://github.com/hashicorp/structure/blob/d00c8bf39c22b5490a4c6fa8bae951b934432dfb/packages/pds-ember/app/styles/pds/_overrides.scss) }}
     <Hds::Interactive
-      class='cut-list-item__content-container active'
+      class='cut-link cut-list-item__content-container active'
       @href={{this.href}}
       @isRouteExternal={{@isRouteExternal}}
       @route={{this.route}}
