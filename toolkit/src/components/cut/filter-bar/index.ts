@@ -110,7 +110,6 @@ export default class FilterBarComponent extends Component<FilterBarSignature> {
   }
 
   get isFiltering(): boolean {
-    console.log(this.args.config);
     return Object.keys(this.args.config?.filters || {}).length > 0;
   }
 
