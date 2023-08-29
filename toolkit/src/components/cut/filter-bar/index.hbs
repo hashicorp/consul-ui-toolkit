@@ -81,6 +81,8 @@
           @totalCount
           (concat ' of ' @totalCount)
         }}
+      {{else if this.isFiltering}}
+        Filters applied:
       {{else}}
         Showing all
         {{if @name (pluralize @name) 'results'}}
