@@ -327,32 +327,43 @@ module('Integration | Component | cut/filter-bar', function (hooks) {
     );
   });
 
-  test('shows a default results text if no count is passed in', async function (assert) {
-    await setupTest.call(this);
+  test('shows a default results text if no count is passed in and no filters are selected', async function (assert) {
+    await setupTest.call(this, { config: {} });
 
     assert.dom('[data-test-filter-bar-results]').hasText('Showing all results');
   });
 
   test('shows a default results text with the name if the name is passed in with no count', async function (assert) {
-    await setupTest.call(this, { name: 'nacho' });
+    await setupTest.call(this, { config: {}, name: 'nacho' });
 
     assert.dom('[data-test-filter-bar-results]').hasText('Showing all nachos');
   });
 
+  test('shows a default filters applied text when there are filters applied and no count is passed in', async function (assert) {
+    await setupTest.call(this, { name: 'nacho' });
+
+    assert.dom('[data-test-filter-bar-results]').hasText('Filters applied:');
+  });
+
   test('shows a result count with a default text for the name if you pass in a count but no name', async function (assert) {
-    await setupTest.call(this, { count: 3 });
+    await setupTest.call(this, { config: {}, count: 3 });
 
     assert.dom('[data-test-filter-bar-results]').hasText('Showing 3 results');
   });
 
   test('shows a result count with a name if you pass in a count and a name', async function (assert) {
-    await setupTest.call(this, { count: 1, name: 'song' });
+    await setupTest.call(this, { config: {}, count: 1, name: 'song' });
 
     assert.dom('[data-test-filter-bar-results]').hasText('Showing 1 song');
   });
 
   test('shows a result count with a total if you pass in a total and a count', async function (assert) {
-    await setupTest.call(this, { count: 5, totalCount: 10, name: 'song' });
+    await setupTest.call(this, {
+      config: {},
+      count: 5,
+      totalCount: 10,
+      name: 'song',
+    });
 
     assert
       .dom('[data-test-filter-bar-results]')
