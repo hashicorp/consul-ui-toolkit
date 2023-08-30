@@ -21,22 +21,26 @@
 - `cd documentation`
 - `yarn test` – Runs the test suite on the current Ember version
 - `yarn test:watch` – Runs the test suite in "watch mode"
-- 
-## Testing in dependent projects 
+
+## Testing in dependent projects
 
 ### Publishing toolkit locally
+
 - from root `publish:local:toolkit`
 - or `cd toolkit` and `yarn publish:local` – Publishing `@hashocorp/consul-ui-toolkit` to local `.yalc` store
 - from the dependent project `yalc link @hashocorp/consul-ui-toolkit`
+  - in HCP you will need to run `yalc link @hashicorp/consul-ui-toolkit` in both the `hcp` folder and the `engines/consul` folder
 
 ### Remove toolkit package from local .yalc store
+
 - from root `cleanup:local:toolkit`
 - or `cd toolkit` and `yarn cleanup:local` – Removing `@hashocorp/consul-ui-toolkit` from local `.yalc` store
-- 
+- Run `yalc remove @hashicorp/consul-ui-toolkit` or `yalc remove --all` to remove the symlinks in any dependent project that currently has a `yalc link` set up.
+
 ## Running the test application
 
-- `cd documentation`
-- `yarn start`
+- Run `yarn prepare` after any changes to the toolkit to build it to be consumed by the documentation app.
+- Run `yarn start:documentation` to start the documentations apps server
 - Visit the test application at [http://localhost:4200](http://localhost:4200).
 
 ## Adding changelog entries
