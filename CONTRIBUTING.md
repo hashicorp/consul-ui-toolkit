@@ -21,7 +21,6 @@
 - `cd documentation`
 - `yarn test` – Runs the test suite on the current Ember version
 - `yarn test:watch` – Runs the test suite in "watch mode"
--
 
 ## Testing in dependent projects
 
@@ -41,7 +40,7 @@
 ## Running the test application
 
 - Run `yarn prepare` after any changes to the toolkit to build it to be consumed by the documentation app.
-- RUn `yarn start:documentation` to start the documentations apps server
+- Run `yarn start:documentation` to start the documentations apps server
 - Visit the test application at [http://localhost:4200](http://localhost:4200).
 
 ## Adding changelog entries
