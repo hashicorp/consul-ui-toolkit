@@ -15,7 +15,7 @@
       @icon='x'
       @text="Critical"
       @size="small"
-      data-test-health-check-critical-service-parent
+      data-test-service-health-check-critical
     />
   {{else if this.statusIsWarning}}
     <Hds::Badge
@@ -23,7 +23,7 @@
       @icon='alert-triangle'
       @text="Warning"
       @size="small"
-      data-test-health-check-warning-service-parent
+      data-test-service-health-check-warning
     />
   {{else}}
     <Hds::Badge
@@ -31,7 +31,7 @@
       @icon='check'
       @text="Healthy"
       @size="small"
-      data-test-health-check-success-service-parent
+      data-test-service-health-check-healthy
     />
   {{/if}}
 </Hds::TooltipButton>

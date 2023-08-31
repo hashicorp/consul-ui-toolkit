@@ -11,26 +11,23 @@ export default create({
   title: text(`${listItemSelector} [data-test-service-name]`),
   metadata: {
     healthCheck: {
-      allHealthy: isVisible(
-        `${listItemSelector} [data-test-health-check-all-healthy]`
-      ),
-      success: {
+      healthy: {
         renders: isPresent(
-          `${listItemSelector} [data-test-health-check-success]`
+          `${listItemSelector} [data-test-service-health-check-healthy]`
         ),
-        text: text(`${listItemSelector} [data-test-health-check-success]`),
+        text: text(`${listItemSelector} [data-test-service-health-check-healthy]`),
       },
       critical: {
         renders: isPresent(
-          `${listItemSelector} [data-test-health-check-critical]`
+          `${listItemSelector} [data-test-service-health-check-critical]`
         ),
-        text: text(`${listItemSelector} [data-test-health-check-critical]`),
+        text: text(`${listItemSelector} [data-test-service-health-check-critical]`),
       },
       warning: {
         renders: isPresent(
-          `${listItemSelector} [data-test-health-check-warning]`
+          `${listItemSelector} [data-test-service-health-check-warning]`
         ),
-        text: text(`${listItemSelector} [data-test-health-check-warning]`),
+        text: text(`${listItemSelector} [data-test-service-health-check-warning]`),
       },
     },
     kind: {

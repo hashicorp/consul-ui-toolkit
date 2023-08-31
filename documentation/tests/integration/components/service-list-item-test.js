@@ -51,34 +51,18 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
     assert.true(cutService.renders, 'renders component');
     assert.deepEqual(cutService.title, 'Service 1', 'service name is set');
     assert.false(
-      cutService.metadata.healthCheck.allHealthy,
-      'no all healthy badge if some warning or critical present'
-    );
-    assert.false(
-      cutService.metadata.healthCheck.success.renders,
-      'no success healthcheck if some warning or critical present'
+      cutService.metadata.healthCheck.healthy.renders,
+      'healthy status badge does not render if there are warning or critical healthchecks'
     );
     assert.true(
       cutService.metadata.healthCheck.critical.renders,
-      'renders critical'
+      'renders critical status badge'
     );
-    assert.true(
-      cutService.metadata.healthCheck.critical.text.includes(
-        `${critical}/${healthCheckTotal}`
-      ),
-      'renders correct number of critical checks'
+    assert.false(
+      cutService.metadata.healthCheck.warning.renders,
+      'warning status badge does not render if there are critical healthchecks'
     );
 
-    assert.true(
-      cutService.metadata.healthCheck.warning.renders,
-      'renders warning'
-    );
-    assert.true(
-      cutService.metadata.healthCheck.warning.text.includes(
-        `${warning}/${healthCheckTotal}`
-      ),
-      'renders correct number of warning checks'
-    );
     assert.true(cutService.metadata.kind.renders, 'renders kind name');
     assert.true(
       cutService.metadata.kind.text
@@ -161,10 +145,10 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
     assert.true(cutService.renders, 'renders');
     assert.deepEqual(cutService.title, 'Service 1', 'service name is set');
     assert.true(
-      cutService.metadata.healthCheck.allHealthy,
-      'present All Healthy badge cause no critical and warning checks'
+      cutService.metadata.healthCheck.healthy.renders,
+      'renders healthy status badge'
     );
-    assert.false(cutService.metadata.healthCheck.success.renders, 'success');
+    debugger;
     assert.false(cutService.metadata.healthCheck.critical.renders, 'critical');
     assert.false(cutService.metadata.healthCheck.warning.renders, 'warning');
     assert.false(cutService.metadata.kind.renders, 'kind');
