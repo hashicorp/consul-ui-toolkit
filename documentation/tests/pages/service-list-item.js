@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { create, isPresent, isVisible, text } from 'ember-cli-page-object';
+import { create, isPresent, text } from 'ember-cli-page-object';
 
 const listItemSelector = '[data-test-service-list-item]';
 export default create({
@@ -15,19 +15,25 @@ export default create({
         renders: isPresent(
           `${listItemSelector} [data-test-service-health-check-healthy]`
         ),
-        text: text(`${listItemSelector} [data-test-service-health-check-healthy]`),
+        text: text(
+          `${listItemSelector} [data-test-service-health-check-healthy]`
+        ),
       },
       critical: {
         renders: isPresent(
           `${listItemSelector} [data-test-service-health-check-critical]`
         ),
-        text: text(`${listItemSelector} [data-test-service-health-check-critical]`),
+        text: text(
+          `${listItemSelector} [data-test-service-health-check-critical]`
+        ),
       },
       warning: {
         renders: isPresent(
           `${listItemSelector} [data-test-service-health-check-warning]`
         ),
-        text: text(`${listItemSelector} [data-test-service-health-check-warning]`),
+        text: text(
+          `${listItemSelector} [data-test-service-health-check-warning]`
+        ),
       },
     },
     kind: {

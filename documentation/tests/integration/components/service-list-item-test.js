@@ -41,8 +41,6 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
       },
     };
     this.set('service', service);
-    let { success, critical, warning } = service.metadata.healthCheck.instance;
-    let healthCheckTotal = critical + success + warning;
 
     await render(
       hbs`
@@ -148,7 +146,7 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
       cutService.metadata.healthCheck.healthy.renders,
       'renders healthy status badge'
     );
-    debugger;
+
     assert.false(cutService.metadata.healthCheck.critical.renders, 'critical');
     assert.false(cutService.metadata.healthCheck.warning.renders, 'warning');
     assert.false(cutService.metadata.kind.renders, 'kind');
