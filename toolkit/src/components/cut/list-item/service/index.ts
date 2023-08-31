@@ -13,17 +13,6 @@ export default class ServiceListItemComponent extends Component<ServiceListItemS
   ServiceGatewayType = SERVICE_GATEWAY_TYPE;
   NormalizedGatewayLabels = NORMALIZED_GATEWAY_LABELS;
 
-  get tooltipText() {
-    const { healthCheck } = this.args.service.metadata;
-
-    if (healthCheck!.instance!.critical! > 0) {
-      return '1 or more instances is critical';
-    } else if (healthCheck!.instance!.warning! > 0) {
-      return '1 or more instances has a warning';
-    }
-    return 'All instances are healthy';
-  }
-
   get isIngressGateway() {
     return (
       this.args.service.metadata.kind === this.ServiceGatewayType.IngressGateway
