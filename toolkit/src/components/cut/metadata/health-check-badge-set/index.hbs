@@ -7,7 +7,10 @@
     <Hds::Badge
       @color='critical'
       @icon='x'
-      @text={{concat @criticalCount '/' this.total ' ' @type ' checks'}}
+      @text={{if (eq @type 'service-parent') 
+        'Critical'
+        (concat @criticalCount '/' this.total ' ' @type ' checks')
+      }}
       @size="small"
       data-test-health-check-critical={{@type}}
     />
@@ -17,7 +20,10 @@
     <Hds::Badge
       @color='warning'
       @icon='alert-triangle'
-      @text={{concat @warningCount '/' this.total ' ' @type ' checks'}}
+      @text={{if (eq @type 'service-parent') 
+        'Warning'
+        (concat @warningCount '/' this.total ' ' @type ' checks')
+      }}
       @size="small"
       data-test-health-check-warning={{@type}}
     />
@@ -27,7 +33,10 @@
     <Hds::Badge
       @color='success'
       @icon='check'
-      @text={{concat @successCount '/' this.total ' ' @type ' checks'}}
+      @text={{if (eq @type 'service-parent') 
+        'Healthy'
+        (concat @successCount '/' this.total ' ' @type ' checks')
+      }}
       @size="small"
       data-test-health-check-success={{@type}}
     />

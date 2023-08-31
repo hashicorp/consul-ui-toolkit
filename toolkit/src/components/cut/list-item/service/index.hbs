@@ -20,24 +20,16 @@
       <T.Section as |SC|>
         <SC.Title data-test-service-name>{{@service.name}}</SC.Title>
         <SC.Metadata>
-          {{#if this.isAllHealthy}}
-            <Hds::Badge
-              @color='success'
-              @icon='check'
-              @text='Healthy'
-              @size='small'
-              data-test-health-check-all-healthy
-            />
-          {{else}}
-            <!--Instance health check-->
-            {{#if @service.metadata.healthCheck.instance}}
+            <!--Overall service health check-->
+          {{#if @service.metadata.healthCheck.instance}}
+            <Hds::TooltipButton @text={{this.tooltipText}} @placement="bottom">
               <Cut::Metadata::HealthCheckBadgeSet
                 @successCount={{@service.metadata.healthCheck.instance.success}}
                 @warningCount={{@service.metadata.healthCheck.instance.warning}}
                 @criticalCount={{@service.metadata.healthCheck.instance.critical}}
-                @type='instance'
+                @type='service-parent'
               />
-            {{/if}}
+            </Hds::TooltipButton>
           {{/if}}
           {{#if @service.metadata.kind}}
             <Cut::TextWithIcon
