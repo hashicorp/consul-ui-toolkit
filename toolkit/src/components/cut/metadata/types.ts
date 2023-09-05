@@ -13,6 +13,14 @@ export interface MetadataHealthCheckBadgeSetSignature {
   };
 }
 
+export interface MetadataServiceHealthBadgeSignature {
+  Args: {
+    successCount?: number;
+    criticalCount?: number;
+    warningCount?: number;
+  };
+}
+
 export interface MetadataExternalSourceSignature {
   Args: {
     externalSource: ExternalSource;

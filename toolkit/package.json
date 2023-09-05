@@ -122,6 +122,7 @@
       "./components/cut/metadata/external-source/index.js": "./dist/_app_/components/cut/metadata/external-source/index.js",
       "./components/cut/metadata/health-check-badge-set/index.js": "./dist/_app_/components/cut/metadata/health-check-badge-set/index.js",
       "./components/cut/metadata/in-service-mesh/index.js": "./dist/_app_/components/cut/metadata/in-service-mesh/index.js",
+      "./components/cut/metadata/service-health-badge/index.js": "./dist/_app_/components/cut/metadata/service-health-badge/index.js",
       "./components/cut/metadata/tags/index.js": "./dist/_app_/components/cut/metadata/tags/index.js",
       "./components/cut/metadata/types.js": "./dist/_app_/components/cut/metadata/types.js",
       "./components/cut/text-with-icon/index.js": "./dist/_app_/components/cut/text-with-icon/index.js",

@@ -27,14 +27,14 @@
 ### Publishing toolkit locally
 
 - from root `publish:local:toolkit`
-- or `cd toolkit` and `yarn publish:local` – Publishing `@hashocorp/consul-ui-toolkit` to local `.yalc` store
-- from the dependent project `yalc link @hashocorp/consul-ui-toolkit`
+- or `cd toolkit` and `yarn publish:local` – Publishing `@hashicorp/consul-ui-toolkit` to local `.yalc` store
+- from the dependent project `yalc link @hashicorp/consul-ui-toolkit`
   - in HCP you will need to run `yalc link @hashicorp/consul-ui-toolkit` in both the `hcp` folder and the `engines/consul` folder
 
 ### Remove toolkit package from local .yalc store
 
 - from root `cleanup:local:toolkit`
-- or `cd toolkit` and `yarn cleanup:local` – Removing `@hashocorp/consul-ui-toolkit` from local `.yalc` store
+- or `cd toolkit` and `yarn cleanup:local` – Removing `@hashicorp/consul-ui-toolkit` from local `.yalc` store
 - Run `yalc remove @hashicorp/consul-ui-toolkit` or `yalc remove --all` to remove the symlinks in any dependent project that currently has a `yalc link` set up.
 
 ## Running the test application

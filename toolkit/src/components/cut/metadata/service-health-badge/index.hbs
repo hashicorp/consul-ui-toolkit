@@ -1,0 +1,37 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
+<Hds::TooltipButton 
+  @text={{if 
+    this.statusIsCritical '1 or more instances is critical'
+    (if this.statusIsWarning '1 or more instances has a warning'
+    'All instances are healthy')
+  }} 
+  @placement="bottom-start">
+  {{#if this.statusIsCritical}}
+    <Hds::Badge
+      @color='critical'
+      @icon='x'
+      @text="Critical"
+      @size="small"
+      data-test-service-health-check-critical
+    />
+  {{else if this.statusIsWarning}}
+    <Hds::Badge
+      @color='warning'
+      @icon='alert-triangle'
+      @text="Warning"
+      @size="small"
+      data-test-service-health-check-warning
+    />
+  {{else}}
+    <Hds::Badge
+      @color='success'
+      @icon='check'
+      @text="Healthy"
+      @size="small"
+      data-test-service-health-check-healthy
+    />
+  {{/if}}
+</Hds::TooltipButton>

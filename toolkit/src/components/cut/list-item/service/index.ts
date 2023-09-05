@@ -13,14 +13,6 @@ export default class ServiceListItemComponent extends Component<ServiceListItemS
   ServiceGatewayType = SERVICE_GATEWAY_TYPE;
   NormalizedGatewayLabels = NORMALIZED_GATEWAY_LABELS;
 
-  get isAllHealthy() {
-    const { healthCheck } = this.args.service.metadata;
-
-    return healthCheck.instance
-      ? !healthCheck.instance.critical && !healthCheck.instance.warning
-      : true;
-  }
-
   get isIngressGateway() {
     return (
       this.args.service.metadata.kind === this.ServiceGatewayType.IngressGateway
