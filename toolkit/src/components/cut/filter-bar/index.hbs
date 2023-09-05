@@ -5,7 +5,6 @@
 <div class='cut-filter-bar' aria-label='Filter bar'>
   <div class='cut-filter-bar-filters'>
     <div class='cut-filter-bar-filtergroup'>
-
       {{yield
         (hash
           FilterGroup=(component
@@ -42,6 +41,7 @@
           )
           Search=(component
             'cut/filter-bar/search'
+            search=@config.search.value
             onSearchInput=this.onSearchInput
             onSearchKeyup=this.onSearchKeyup
           )

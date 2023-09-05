@@ -410,4 +410,20 @@ module('Integration | Component | cut/filter-bar', function (hooks) {
       'Search is updated with the new search value'
     );
   });
+
+  test('if search is set by the config it should prepulate the input', async function (assert) {
+    await setupTest.call(this, {
+      config: {
+        search: { value: 'orange' },
+      },
+    });
+
+    assert.dom('[data-test-search]').hasValue('orange');
+  });
+
+  test('if search is not set by the config it should not prepulate the input', async function (assert) {
+    await setupTest.call(this);
+
+    assert.dom('[data-test-search]').hasNoValue();
+  });
 });
