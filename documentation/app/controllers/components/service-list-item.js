@@ -79,6 +79,7 @@ export default class ServiceListItem extends Controller {
             critical: 0,
           },
         },
+        kind: 'typical',
         instanceCount: 8,
         isImported: true,
         samenessGroup: 'group-1',
