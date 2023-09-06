@@ -1,5 +1,17 @@
 # @hashicorp/consul-ui-toolkit
 
+## 2.1.0
+
+### Minor Changes
+
+- a101b25: Service list item now displays an overall service health status
+
+### Patch Changes
+
+- 5ee2994: Upgrade @hashicorp/design-system-components to 2.11.0
+- bbff69e: Update `<Cut::FilterBar::Search />` to use search as a value on the search input
+- e191fb8: Update SERVICE_KIND to include all service kinds
+
 ## 2.0.0
 
 ### Major Changes
