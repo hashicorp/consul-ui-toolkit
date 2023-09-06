@@ -106,6 +106,10 @@ export type ExternalSource =
   | 'lambda';
 
 export type SERVICE_KIND =
+  | ''
+  | 'typical'
+  | 'destination'
+  | 'connect-proxy'
   | 'api-gateway'
   | 'mesh-gateway'
   | 'ingress-gateway'

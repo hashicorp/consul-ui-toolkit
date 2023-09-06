@@ -125,6 +125,40 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
       'renders tags values to metadata'
     );
   });
+
+  test('it does render the kind if it does not find a kindName', async function (assert) {
+    const service = {
+      name: 'Service 1',
+      metadata: {
+        healthCheck: {
+          instance: {
+            success: 4,
+            critical: 2,
+            warning: 1,
+          },
+        },
+        kind: 'typical',
+        instanceCount: 7,
+        linkedServiceCount: 4,
+        upstreamCount: 4,
+        isImported: true,
+        isPermissiveMTls: true,
+        samenessGroup: 'sameness-group-1',
+        connectedWithGateway: true,
+        externalSource: 'vault',
+        tags: ['tag', 'service'],
+      },
+    };
+    this.set('service', service);
+
+    await render(
+      hbs`
+        <Cut::ListItem::Service @service={{this.service}}/>`
+    );
+
+    assert.false(cutService.metadata.kind.renders, 'kind');
+  });
+
   test('it renders Cut::ListItem::Service without metadata', async function (assert) {
     const service = {
       name: 'Service 1',

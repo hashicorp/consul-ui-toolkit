@@ -28,6 +28,15 @@ export default class ServiceListItemComponent extends Component<ServiceListItemS
 
   get kindName() {
     const { kind } = this.args.service.metadata;
-    return kind ? this.NormalizedGatewayLabels[kind] : undefined;
+    return kind &&
+      Object.prototype.hasOwnProperty.call(this.NormalizedGatewayLabels, kind)
+      ? this.NormalizedGatewayLabels[
+          kind as
+            | 'api-gateway'
+            | 'mesh-gateway'
+            | 'ingress-gateway'
+            | 'terminating-gateway'
+        ]
+      : undefined;
   }
 }

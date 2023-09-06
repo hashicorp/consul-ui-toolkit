@@ -25,7 +25,7 @@
             @warningCount={{@service.metadata.healthCheck.instance.warning}}
             @criticalCount={{@service.metadata.healthCheck.instance.critical}}
           />
-          {{#if @service.metadata.kind}}
+          {{#if this.kindName}}
             <Cut::TextWithIcon
               @icon='gateway'
               @text={{this.kindName}}
