@@ -127,9 +127,7 @@
       "./components/cut/metadata/types.js": "./dist/_app_/components/cut/metadata/types.js",
       "./components/cut/text-with-icon/index.js": "./dist/_app_/components/cut/text-with-icon/index.js",
       "./components/cut/text-with-icon/types.js": "./dist/_app_/components/cut/text-with-icon/types.js",
-      "./helpers/titlecase.js": "./dist/_app_/helpers/titlecase.js",
-      "./utils/index.js": "./dist/_app_/utils/index.js",
-      "./utils/service-list-item.js": "./dist/_app_/utils/service-list-item.js"
+      "./helpers/titlecase.js": "./dist/_app_/helpers/titlecase.js"
     }
   },
   "exports": {
