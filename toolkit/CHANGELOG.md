@@ -1,5 +1,11 @@
 # @hashicorp/consul-ui-toolkit
 
+## 2.1.1
+
+### Patch Changes
+
+- 7e5cb06: Remove utils reexport which was causing embroider errors
+
 ## 2.1.0
 
 ### Minor Changes
