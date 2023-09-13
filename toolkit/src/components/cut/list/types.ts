@@ -8,6 +8,9 @@ export interface PaginationSignature {
     prevCursor?: string;
     pageSizes?: number[];
     currentPageSize?: number;
+    model?: string | unknown;
+    models?: string[] | unknown[];
+    replace?: boolean;
     queryFunction?: (page: string) => {
       [key: string]: string | number | unknown;
     };

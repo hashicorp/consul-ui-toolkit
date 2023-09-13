@@ -8,8 +8,8 @@ export interface ListItemSignature {
     isHrefExternal?: boolean;
     route?: string;
     isRouteExternal?: boolean;
-    query?: object;
-    replace?: string;
+    query?: unknown;
+    replace?: boolean;
     model?: string | unknown;
     models?: string[] | unknown[];
     onClick(): void;
@@ -23,8 +23,8 @@ export interface ServiceInstanceListItemSignature {
     isHrefExternal?: boolean;
     route?: string;
     isRouteExternal?: boolean;
-    query?: object;
-    replace?: string;
+    query?: unknown;
+    replace?: boolean;
     model?: string | unknown;
     models?: string[] | unknown[];
     onClick(): void;
@@ -41,8 +41,8 @@ export interface ServiceListItemSignature {
     isHrefExternal?: boolean;
     route?: string;
     isRouteExternal?: boolean;
-    query?: object;
-    replace?: string;
+    query?: unknown;
+    replace?: boolean;
     model?: string | unknown;
     models?: string[] | unknown[];
     onClick(): void;
