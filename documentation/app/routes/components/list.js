@@ -7,7 +7,10 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default class ListRoute extends Route {
   queryParams = {
-    page: {
+    nextPage: {
+      refreshModel: true,
+    },
+    previousPage: {
       refreshModel: true,
     },
     pageSize: {
