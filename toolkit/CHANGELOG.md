@@ -1,5 +1,17 @@
 # @hashicorp/consul-ui-toolkit
 
+## 2.2.0
+
+### Minor Changes
+
+- 19cecc9: Add model/models/replace to `Cut::List::Pagination`
+  Update type for replace & query
+
+### Patch Changes
+
+- 89c40db: Update filter-bar results text to show searching text if only search is applied
+- 9b8499b: Upgrade @hashicorp/design-system-componens -> 2.12.1
+
 ## 2.1.1
 
 ### Patch Changes
