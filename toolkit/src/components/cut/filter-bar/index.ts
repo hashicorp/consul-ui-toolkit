@@ -113,6 +113,10 @@ export default class FilterBarComponent extends Component<FilterBarSignature> {
     return Object.keys(this.args.config?.filters || {}).length > 0;
   }
 
+  get isSearching(): boolean {
+    return !!this.args.config?.search?.value;
+  }
+
   isChecked(localConfig: FilterConfig, filter: string, value: unknown) {
     if (Array.isArray(localConfig?.filters?.[filter])) {
       return !!(localConfig?.filters?.[filter] as Filter[]).find(

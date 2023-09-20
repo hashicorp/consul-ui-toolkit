@@ -345,6 +345,48 @@ module('Integration | Component | cut/filter-bar', function (hooks) {
     assert.dom('[data-test-filter-bar-results]').hasText('Filters applied:');
   });
 
+  test('shows filters applied text when there are filters applied and search is applied and no count is passed in', async function (assert) {
+    await setupTest.call(this, {
+      name: 'nacho',
+      config: {
+        search: { value: 'boom' },
+        filters: {
+          status: [
+            {
+              text: 'Running',
+              value: 'running',
+            },
+          ],
+        },
+      },
+    });
+
+    assert.dom('[data-test-filter-bar-results]').hasText('Filters applied:');
+  });
+
+  test('shows default searching text when there are no filters applied and search is applied no count is passed in', async function (assert) {
+    await setupTest.call(this, {
+      config: {
+        search: { value: 'bloom' },
+      },
+    });
+
+    assert.dom('[data-test-filter-bar-results]').hasText('Searching');
+  });
+
+  test('shows searching text with the name when there are no filters applied and search is applied no count is passed in and the name is set', async function (assert) {
+    await setupTest.call(this, {
+      name: 'Service Instance',
+      config: {
+        search: { value: 'bloom' },
+      },
+    });
+
+    assert
+      .dom('[data-test-filter-bar-results]')
+      .hasText('Searching Service Instances');
+  });
+
   test('shows a result count with a default text for the name if you pass in a count but no name', async function (assert) {
     await setupTest.call(this, { config: {}, count: 3 });
 
