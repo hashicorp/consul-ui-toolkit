@@ -2046,15 +2046,15 @@
   resolved "https://registry.yarnpkg.com/@handlebars/parser/-/parser-2.0.0.tgz#5e8b7298f31ff8f7b260e6b7363c7e9ceed7d9c5"
   integrity sha512-EP9uEDZv/L5Qh9IWuMUGJRfwhXJ4h1dqKTT4/3+tY0eu7sPis7xh23j61SYUnNF4vqCQvvUXpDo9Bh/+q1zASA==
 
-"@hashicorp/design-system-components@^2.11.0":
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/@hashicorp/design-system-components/-/design-system-components-2.11.0.tgz#d7b77a484f9c4a316d33921e76dd00dd8bbcfdf0"
-  integrity sha512-7yDJQEDEfzW8tNVRHbqes90lzIhEm+UuEsne1oBxM0SjzVX6+mvDT7WO+LO2j0wSPmsAcVbnmlOuNxkueUMZwQ==
+"@hashicorp/design-system-components@^2.12.1":
+  version "2.12.1"
+  resolved "https://registry.yarnpkg.com/@hashicorp/design-system-components/-/design-system-components-2.12.1.tgz#6bfd22826da24293d68b4db2d2cb6568f29de750"
+  integrity sha512-tEoakHCzhiCrdjPQN2jwfZwJkKvMS8mp0v4pJpmBFXR83+IoX64dB3gYsYFiSuAOOQOEBBCe1/O1wQFVTXeHdA==
   dependencies:
     "@ember/render-modifiers" "^2.0.5"
     "@ember/test-waiters" "^3.0.2"
-    "@hashicorp/design-system-tokens" "^1.7.0"
-    "@hashicorp/ember-flight-icons" "^3.1.1"
+    "@hashicorp/design-system-tokens" "^1.8.0"
+    "@hashicorp/ember-flight-icons" "^3.1.2"
     dialog-polyfill "^0.5.6"
     ember-a11y-refocus "^3.0.2"
     ember-auto-import "^2.6.3"
@@ -2072,25 +2072,25 @@
     sass "^1.62.1"
     tippy.js "^6.3.7"
 
-"@hashicorp/design-system-tokens@^1.7.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@hashicorp/design-system-tokens/-/design-system-tokens-1.7.0.tgz#13fb242f641712729b8ce10d83da38ce1ef8b249"
-  integrity sha512-BXlmpEnvJ3sI/4AamqPvuDRLx/OP/B1VdpYYK0MVgsXpojdL4yboMKJfCDcwlInvC+5tINu6LacLSGPYkXc1sg==
+"@hashicorp/design-system-tokens@^1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@hashicorp/design-system-tokens/-/design-system-tokens-1.8.0.tgz#8734bc46fbdaf72b694927ba7352694d0da3e8e1"
+  integrity sha512-miRHSodtBJ0mkBkRpppW857U79lk2vIwNTv7bPmIbX1SQJONFsWQaOXJOKGAHEAxxWpGn0M98xnqo3Eol9Y6Eg==
 
-"@hashicorp/ember-flight-icons@^3.1.1":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@hashicorp/ember-flight-icons/-/ember-flight-icons-3.1.1.tgz#c38f02d1eb3f754753658f20d99548026d22e71a"
-  integrity sha512-Fy3CP/ZRgYYHwPKqXELNPnJ5fkCzhuGWx/DSE4PhVORRE8+QPSXx8zNcaitpzaKVHafcBPMVYcAVRc/2Ecsklw==
+"@hashicorp/ember-flight-icons@^3.1.2":
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/@hashicorp/ember-flight-icons/-/ember-flight-icons-3.1.2.tgz#39982cae2d1ba6a25cd3f8aa336cae674b2c463c"
+  integrity sha512-aroJ4xd/+6/HTTJnK7KCGNh77Eei8aDpQquEeqBkTT+TK5+C8y043J8joTUAOXq1brIaOwGtd9WuWPpJbb/Csw==
   dependencies:
-    "@hashicorp/flight-icons" "^2.18.0"
+    "@hashicorp/flight-icons" "^2.19.0"
     ember-auto-import "^2.6.3"
     ember-cli-babel "^7.26.11"
     ember-cli-htmlbars "^6.2.0"
 
-"@hashicorp/flight-icons@^2.18.0":
-  version "2.18.0"
-  resolved "https://registry.yarnpkg.com/@hashicorp/flight-icons/-/flight-icons-2.18.0.tgz#73fe35e9c4b96495176795eb3f5207a81467b9ba"
-  integrity sha512-uYZ+lVP0buxl1HKO59YX2+ivBwecwNZUF5/bf1oAsUjD+vStM6W+NFrs32uwA+fbyCZ6Zz/dC7MdatuidPezAg==
+"@hashicorp/flight-icons@^2.19.0":
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/@hashicorp/flight-icons/-/flight-icons-2.19.0.tgz#4088574887232bb50a3c1d6e5044456c90b88e40"
+  integrity sha512-FzEHAOLSQMS5yJorF5H3xP4BKfpIUFRnQgkFl6i1RmvwpOJQgeoz9w/QqWvjh+H/DhFomeC6OxHGgD6rZL7phw==
 
 "@humanwhocodes/config-array@^0.5.0":
   version "0.5.0"
