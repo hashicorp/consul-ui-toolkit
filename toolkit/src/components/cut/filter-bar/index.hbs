@@ -83,6 +83,8 @@
         }}
       {{else if this.isFiltering}}
         Filters applied:
+      {{else if this.isSearching}}
+        Searching{{if @name (concat ' ' (pluralize @name))}}
       {{else}}
         Showing all
         {{if @name (pluralize @name) 'results'}}
