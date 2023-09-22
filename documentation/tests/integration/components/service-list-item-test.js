@@ -38,6 +38,9 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
         connectedWithGateway: true,
         externalSource: 'vault',
         tags: ['tag', 'service'],
+        clusterId: 'self-managed-cluster',
+        partition: 'partition',
+        namespace: 'namespace',
       },
     };
     this.set('service', service);
@@ -47,7 +50,13 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
         <Cut::ListItem::Service @service={{this.service}}/>`
     );
     assert.true(cutService.renders, 'renders component');
-    assert.deepEqual(cutService.title, 'Service 1', 'service name is set');
+    assert.true(cutService.title.includes('Service 1'), 'service name is set');
+
+    assert.true(cutService.clusterPath.renders, 'renders cluster path');
+    assert.true(cutService.clusterPath.text.includes('self-managed-cluster'), 'cluster ID is set');
+    assert.true(cutService.clusterPath.text.includes('partition'), 'partition is set');
+    assert.true(cutService.clusterPath.text.includes('namespace'), 'namespace is set');
+
     assert.false(
       cutService.metadata.healthCheck.healthy.renders,
       'healthy status badge does not render if there are warning or critical healthchecks'
@@ -175,7 +184,9 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
         <Cut::ListItem::Service @service={{this.service}}/>`
     );
     assert.true(cutService.renders, 'renders');
-    assert.deepEqual(cutService.title, 'Service 1', 'service name is set');
+    assert.true(cutService.title.includes('Service 1'), 'service name is set');
+    assert.false(cutService.clusterPath.renders, 'does not render cluster path');
+
     assert.true(
       cutService.metadata.healthCheck.healthy.renders,
       'renders healthy status badge'

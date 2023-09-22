@@ -2,7 +2,8 @@
   Copyright (c) HashiCorp, Inc.
 }}
 
-<div class='cut-service-cluster-path'>
+{{#if (and (and @clusterId @partition) @namespace)}}
+<div class="cut-service-cluster-path" data-test-service-cluster-path>
   <span class="hds-link-inline__icon hds-link-inline__icon--leading">
     <FlightIcon @name="server-cluster" @size="16" @stretched={{true}} />
   </span>
@@ -29,5 +30,5 @@
     <FlightIcon @name="folder-users" @size="16" @stretched={{true}} />
   </span>
   {{@namespace}}
-
 </div>
+{{/if}}
