@@ -53,9 +53,18 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
     assert.true(cutService.title.includes('Service 1'), 'service name is set');
 
     assert.true(cutService.clusterPath.renders, 'renders cluster path');
-    assert.true(cutService.clusterPath.text.includes('self-managed-cluster'), 'cluster ID is set');
-    assert.true(cutService.clusterPath.text.includes('partition'), 'partition is set');
-    assert.true(cutService.clusterPath.text.includes('namespace'), 'namespace is set');
+    assert.true(
+      cutService.clusterPath.text.includes('self-managed-cluster'),
+      'cluster ID is set'
+    );
+    assert.true(
+      cutService.clusterPath.text.includes('partition'),
+      'partition is set'
+    );
+    assert.true(
+      cutService.clusterPath.text.includes('namespace'),
+      'namespace is set'
+    );
 
     assert.false(
       cutService.metadata.healthCheck.healthy.renders,
@@ -170,8 +179,10 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
     assert.true(cutService.renders, 'renders component');
     assert.true(cutService.title.includes('Service 1'), 'service name is set');
 
-    debugger;
-    assert.false(cutService.clusterPath.renders, 'does not render cluster path');
+    assert.false(
+      cutService.clusterPath.renders,
+      'does not render cluster path'
+    );
   });
 
   test('it does render the kind if it does not find a kindName', async function (assert) {
@@ -224,7 +235,10 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
     );
     assert.true(cutService.renders, 'renders');
     assert.true(cutService.title.includes('Service 1'), 'service name is set');
-    assert.false(cutService.clusterPath.renders, 'does not render cluster path');
+    assert.false(
+      cutService.clusterPath.renders,
+      'does not render cluster path'
+    );
 
     assert.true(
       cutService.metadata.healthCheck.healthy.renders,

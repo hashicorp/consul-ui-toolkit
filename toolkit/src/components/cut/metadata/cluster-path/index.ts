@@ -10,4 +10,5 @@ interface Args {
   namespace: string;
 }
 
+// eslint-disable-next-line ember/no-empty-glimmer-component-classes
 export default class MetadataClusterPathComponent extends Component<Args> {}
