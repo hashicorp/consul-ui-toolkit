@@ -135,6 +135,45 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
     );
   });
 
+  test('it does not render cluster path if specified ', async function (assert) {
+    const service = {
+      name: 'Service 1',
+      metadata: {
+        healthCheck: {
+          instance: {
+            success: 4,
+            critical: 2,
+            warning: 1,
+          },
+        },
+        kind: 'mesh-gateway',
+        instanceCount: 7,
+        linkedServiceCount: 4,
+        upstreamCount: 4,
+        isImported: true,
+        isPermissiveMTls: true,
+        samenessGroup: 'sameness-group-1',
+        connectedWithGateway: true,
+        externalSource: 'vault',
+        tags: ['tag', 'service'],
+        clusterId: 'self-managed-cluster',
+        partition: 'partition',
+        namespace: 'namespace',
+      },
+    };
+    this.set('service', service);
+
+    await render(
+      hbs`
+        <Cut::ListItem::Service @service={{this.service}} @hideClusterPath={{true}}/>`
+    );
+    assert.true(cutService.renders, 'renders component');
+    assert.true(cutService.title.includes('Service 1'), 'service name is set');
+
+    debugger;
+    assert.false(cutService.clusterPath.renders, 'does not render cluster path');
+  });
+
   test('it does render the kind if it does not find a kindName', async function (assert) {
     const service = {
       name: 'Service 1',

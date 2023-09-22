@@ -20,11 +20,13 @@
       <T.Section as |SC|>
         <SC.Title data-test-service-name>
           {{@service.name}}
-          <Cut::Metadata::ClusterPath
-            @clusterId={{@service.metadata.clusterId}}
-            @partition={{@service.metadata.partition}}
-            @namespace={{@service.metadata.namespace}}
-          />
+          {{#unless @hideClusterPath}}
+            <Cut::Metadata::ClusterPath
+              @clusterId={{@service.metadata.clusterId}}
+              @partition={{@service.metadata.partition}}
+              @namespace={{@service.metadata.namespace}}
+            />
+          {{/unless}}
         </SC.Title>
         <SC.Metadata>
           <Cut::Metadata::ServiceHealthBadge
