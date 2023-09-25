@@ -176,9 +176,9 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
     );
     assert.true(cutService.renders, 'renders');
     assert.deepEqual(cutService.title, 'Service 1', 'service name is set');
-    assert.true(
+    assert.false(
       cutService.metadata.healthCheck.healthy.renders,
-      'renders healthy status badge'
+      'does not render healthy status badge'
     );
 
     assert.false(cutService.metadata.healthCheck.critical.renders, 'critical');
@@ -234,6 +234,19 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
     assert.false(
       cutService.metadata.linkedServiceCount.renders,
       'does not render linked service count'
+    );
+
+    assert.false(
+      cutService.metadata.healthCheck.healthy.renders,
+      'It does not render a health status'
+    );
+    assert.false(
+      cutService.metadata.healthCheck.warning.renders,
+      'It does not render a health status'
+    );
+    assert.false(
+      cutService.metadata.healthCheck.critical.renders,
+      'It does not render a health status'
     );
   });
   test('it renders linked service count instead of instance count/upstream count for kind terminating-gateway', async function (assert) {
