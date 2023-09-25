@@ -10,6 +10,10 @@ export default create({
   scope: listItemSelector,
   renders: isPresent(),
   title: text(`[data-test-service-name]`),
+  clusterPath: {
+    renders: isPresent(`[data-test-service-cluster-path]`),
+    text: text(`[data-test-service-cluster-path]`),
+  },
   metadata: {
     healthCheck: {
       healthy: {
