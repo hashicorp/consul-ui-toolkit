@@ -38,6 +38,9 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
         connectedWithGateway: true,
         externalSource: 'vault',
         tags: ['tag', 'service'],
+        clusterId: 'self-managed-cluster',
+        partition: 'partition',
+        namespace: 'namespace',
       },
     };
     this.set('service', service);
@@ -47,7 +50,22 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
         <Cut::ListItem::Service @service={{this.service}}/>`
     );
     assert.true(cutService.renders, 'renders component');
-    assert.deepEqual(cutService.title, 'Service 1', 'service name is set');
+    assert.true(cutService.title.includes('Service 1'), 'service name is set');
+
+    assert.true(cutService.clusterPath.renders, 'renders cluster path');
+    assert.true(
+      cutService.clusterPath.text.includes('self-managed-cluster'),
+      'cluster ID is set'
+    );
+    assert.true(
+      cutService.clusterPath.text.includes('partition'),
+      'partition is set'
+    );
+    assert.true(
+      cutService.clusterPath.text.includes('namespace'),
+      'namespace is set'
+    );
+
     assert.false(
       cutService.metadata.healthCheck.healthy.renders,
       'healthy status badge does not render if there are warning or critical healthchecks'
@@ -126,6 +144,47 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
     );
   });
 
+  test('it does not render cluster path if specified ', async function (assert) {
+    const service = {
+      name: 'Service 1',
+      metadata: {
+        healthCheck: {
+          instance: {
+            success: 4,
+            critical: 2,
+            warning: 1,
+          },
+        },
+        kind: 'mesh-gateway',
+        instanceCount: 7,
+        linkedServiceCount: 4,
+        upstreamCount: 4,
+        isImported: true,
+        isPermissiveMTls: true,
+        samenessGroup: 'sameness-group-1',
+        connectedWithGateway: true,
+        externalSource: 'vault',
+        tags: ['tag', 'service'],
+        clusterId: 'self-managed-cluster',
+        partition: 'partition',
+        namespace: 'namespace',
+      },
+    };
+    this.set('service', service);
+
+    await render(
+      hbs`
+        <Cut::ListItem::Service @service={{this.service}} @hideClusterPath={{true}}/>`
+    );
+    assert.true(cutService.renders, 'renders component');
+    assert.true(cutService.title.includes('Service 1'), 'service name is set');
+
+    assert.false(
+      cutService.clusterPath.renders,
+      'does not render cluster path'
+    );
+  });
+
   test('it does render the kind if it does not find a kindName', async function (assert) {
     const service = {
       name: 'Service 1',
@@ -175,7 +234,12 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
         <Cut::ListItem::Service @service={{this.service}}/>`
     );
     assert.true(cutService.renders, 'renders');
-    assert.deepEqual(cutService.title, 'Service 1', 'service name is set');
+    assert.true(cutService.title.includes('Service 1'), 'service name is set');
+    assert.false(
+      cutService.clusterPath.renders,
+      'does not render cluster path'
+    );
+
     assert.true(
       cutService.metadata.healthCheck.healthy.renders,
       'renders healthy status badge'

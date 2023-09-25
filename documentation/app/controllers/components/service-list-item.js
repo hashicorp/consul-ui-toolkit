@@ -28,6 +28,9 @@ export default class ServiceListItem extends Controller {
         kind: SERVICE_GATEWAY_TYPE.IngressGateway,
         upstreamCount: 5,
         tags: ['monitor', 'array', 'monitor'],
+        clusterId: 'self-managed-cluster',
+        partition: 'partition',
+        namespace: 'namespace',
       },
     };
   }
@@ -46,6 +49,9 @@ export default class ServiceListItem extends Controller {
         externalSource: 'consul',
         instanceCount: 3,
         tags: ['consul', 'array', 'monitor'],
+        clusterId: 'self-managed-cluster',
+        partition: 'partition',
+        namespace: 'namespace',
       },
     };
   }
@@ -64,6 +70,9 @@ export default class ServiceListItem extends Controller {
         kind: SERVICE_GATEWAY_TYPE.TerminatingGateway,
         linkedServiceCount: 6,
         externalSource: 'vault',
+        clusterId: 'self-managed-cluster',
+        partition: 'partition',
+        namespace: 'namespace',
       },
     };
   }
@@ -84,6 +93,9 @@ export default class ServiceListItem extends Controller {
         isImported: true,
         samenessGroup: 'group-1',
         isPermissiveMTls: true,
+        clusterId: 'self-managed-cluster',
+        partition: 'partition',
+        namespace: 'namespace',
       },
     };
   }

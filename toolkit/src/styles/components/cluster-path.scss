@@ -1,0 +1,17 @@
+/**
+* Copyright (c) HashiCorp, Inc.
+*/
+
+.cluster-path-separator {
+  color: var(--token-color-palette-neutral-300);
+}
+
+.cut-service-cluster-path {
+  color: var(--token-color-foreground-faint);
+  font-size: var(--token-typography-body-200-font-size);
+  font-weight: var(--token-typography-font-weight-regular);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding-left: 4px;
+}

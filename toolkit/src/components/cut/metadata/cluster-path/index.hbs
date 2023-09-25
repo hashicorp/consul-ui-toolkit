@@ -1,0 +1,34 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+}}
+
+{{#if (and (and @clusterId @partition) @namespace)}}
+<div class="cut-service-cluster-path" data-test-service-cluster-path>
+  <span class="hds-link-inline__icon hds-link-inline__icon--leading">
+    <FlightIcon @name="server-cluster" @size="16" @stretched={{true}} />
+  </span>
+  {{@clusterId}}
+
+  <span
+    class="hds-link-inline__icon hds-link-inline__icon--leading cluster-path-separator"
+  >
+    <FlightIcon @name="chevron-right" @size="16" @stretched={{true}} />
+  </span>
+
+  <span class="hds-link-inline__icon hds-link-inline__icon--leading">
+    <FlightIcon @name="users" @size="16" @stretched={{true}} />
+  </span>
+  {{@partition}}
+
+  <span
+    class="hds-link-inline__icon hds-link-inline__icon--leading cluster-path-separator"
+  >
+    <FlightIcon @name="chevron-right" @size="16" @stretched={{true}} />
+  </span>
+
+  <span class="hds-link-inline__icon hds-link-inline__icon--leading">
+    <FlightIcon @name="folder-users" @size="16" @stretched={{true}} />
+  </span>
+  {{@namespace}}
+</div>
+{{/if}}

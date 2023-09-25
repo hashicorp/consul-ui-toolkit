@@ -9,6 +9,10 @@ const listItemSelector = '[data-test-service-list-item]';
 export default create({
   renders: isPresent(listItemSelector),
   title: text(`${listItemSelector} [data-test-service-name]`),
+  clusterPath: {
+    renders: isPresent(`${listItemSelector} [data-test-service-cluster-path]`),
+    text: text(`${listItemSelector} [data-test-service-cluster-path]`),
+  },
   metadata: {
     healthCheck: {
       healthy: {

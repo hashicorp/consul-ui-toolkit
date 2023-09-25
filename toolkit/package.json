@@ -119,6 +119,7 @@
       "./components/cut/list/index.js": "./dist/_app_/components/cut/list/index.js",
       "./components/cut/list/pagination.js": "./dist/_app_/components/cut/list/pagination.js",
       "./components/cut/list/types.js": "./dist/_app_/components/cut/list/types.js",
+      "./components/cut/metadata/cluster-path/index.js": "./dist/_app_/components/cut/metadata/cluster-path/index.js",
       "./components/cut/metadata/external-source/index.js": "./dist/_app_/components/cut/metadata/external-source/index.js",
       "./components/cut/metadata/health-check-badge-set/index.js": "./dist/_app_/components/cut/metadata/health-check-badge-set/index.js",
       "./components/cut/metadata/in-service-mesh/index.js": "./dist/_app_/components/cut/metadata/in-service-mesh/index.js",

@@ -30,6 +30,9 @@ export default class ListController extends Controller {
         kind: SERVICE_GATEWAY_TYPE.IngressGateway,
         upstreamCount: 5,
         tags: ['monitor', 'array', 'monitor'],
+        clusterId: 'self-managed-cluster',
+        partition: 'partition',
+        namespace: 'namespace',
       },
     };
   }

@@ -49,6 +49,7 @@ export interface ServiceListItemSignature {
 
     // Service args
     service: CutService;
+    hideClusterPath?: boolean;
   };
 }
 
