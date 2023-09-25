@@ -70,6 +70,17 @@
               @text='permissive mTLS'
               data-test-permissive-mtls
             />
+          {{else if
+            (and
+              (eq @service.metadata.isPermissiveMTls false)
+              (not (eq @service.metadata.isPermissiveMTls undefined))
+            )
+          }}
+            <Cut::TextWithIcon
+              @icon='lock'
+              @text='strict mTLS'
+              data-test-strict-mtls
+            />
           {{/if}}
           <Cut::Metadata::InServiceMesh
             @connectedWithGateway={{@service.metadata.connectedWithGateway}}

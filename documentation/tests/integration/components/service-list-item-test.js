@@ -115,6 +115,10 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
       cutService.metadata.isPermissiveMTls,
       'renders permissive mtls'
     );
+    assert.false(
+      cutService.metadata.isStrictMTls,
+      'does not render strict mtls'
+    );
     assert.true(cutService.metadata.isImported, 'renders imported');
     assert.true(
       cutService.metadata.samenessGroup.renders,
@@ -240,9 +244,9 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
       'does not render cluster path'
     );
 
-    assert.true(
+    assert.false(
       cutService.metadata.healthCheck.healthy.renders,
-      'renders healthy status badge'
+      'does not render healthy status badge'
     );
 
     assert.false(cutService.metadata.healthCheck.critical.renders, 'critical');
@@ -255,7 +259,14 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
     );
     assert.false(cutService.metadata.upstreamCount.renders, 'upstream count');
     assert.false(cutService.metadata.inMeshGateway.renders, 'mesh data');
-    assert.false(cutService.metadata.isPermissiveMTls, 'permissive mTLS');
+    assert.false(
+      cutService.metadata.isPermissiveMTls,
+      'permissive mTLS does not render'
+    );
+    assert.false(
+      cutService.metadata.isStrictMTls,
+      'strict mTLS does not render'
+    );
     assert.false(cutService.metadata.isImported, 'imported');
     assert.false(cutService.metadata.samenessGroup.renders, 'sameness group');
     assert.false(
@@ -299,6 +310,19 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
       cutService.metadata.linkedServiceCount.renders,
       'does not render linked service count'
     );
+
+    assert.false(
+      cutService.metadata.healthCheck.healthy.renders,
+      'It does not render a health status'
+    );
+    assert.false(
+      cutService.metadata.healthCheck.warning.renders,
+      'It does not render a health status'
+    );
+    assert.false(
+      cutService.metadata.healthCheck.critical.renders,
+      'It does not render a health status'
+    );
   });
   test('it renders linked service count instead of instance count/upstream count for kind terminating-gateway', async function (assert) {
     const service = {
@@ -312,6 +336,7 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
         // adding intentionally to check if it will be rendered
         instanceCount: 3,
         upstreamCount: 5,
+        isPermissiveMTls: false,
       },
     };
     this.set('service', service);
@@ -335,5 +360,12 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
       cutService.metadata.instanceCount.renders,
       'does not render instance count'
     );
+
+    assert.false(
+      cutService.metadata.isPermissiveMTls,
+      'permissive mTLS does not render'
+    );
+
+    assert.true(cutService.metadata.isStrictMTls, 'strict mTLS renders');
   });
 });

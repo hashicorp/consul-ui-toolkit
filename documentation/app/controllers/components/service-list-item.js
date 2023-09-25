@@ -49,6 +49,7 @@ export default class ServiceListItem extends Controller {
         externalSource: 'consul',
         instanceCount: 3,
         tags: ['consul', 'array', 'monitor'],
+        isPermissiveMTls: false,
         clusterId: 'self-managed-cluster',
         partition: 'partition',
         namespace: 'namespace',

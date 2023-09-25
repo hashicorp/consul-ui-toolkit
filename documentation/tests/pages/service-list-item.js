@@ -7,80 +7,62 @@ import { create, isPresent, text } from 'ember-cli-page-object';
 
 const listItemSelector = '[data-test-service-list-item]';
 export default create({
-  renders: isPresent(listItemSelector),
-  title: text(`${listItemSelector} [data-test-service-name]`),
+  scope: listItemSelector,
+  renders: isPresent(),
+  title: text(`[data-test-service-name]`),
   clusterPath: {
-    renders: isPresent(`${listItemSelector} [data-test-service-cluster-path]`),
-    text: text(`${listItemSelector} [data-test-service-cluster-path]`),
+    renders: isPresent(`[data-test-service-cluster-path]`),
+    text: text(`[data-test-service-cluster-path]`),
   },
   metadata: {
     healthCheck: {
       healthy: {
-        renders: isPresent(
-          `${listItemSelector} [data-test-service-health-check-healthy]`
-        ),
-        text: text(
-          `${listItemSelector} [data-test-service-health-check-healthy]`
-        ),
+        renders: isPresent(`[data-test-service-health-check-healthy]`),
+        text: text(`[data-test-service-health-check-healthy]`),
       },
       critical: {
-        renders: isPresent(
-          `${listItemSelector} [data-test-service-health-check-critical]`
-        ),
-        text: text(
-          `${listItemSelector} [data-test-service-health-check-critical]`
-        ),
+        renders: isPresent(`[data-test-service-health-check-critical]`),
+        text: text(`[data-test-service-health-check-critical]`),
       },
       warning: {
-        renders: isPresent(
-          `${listItemSelector} [data-test-service-health-check-warning]`
-        ),
-        text: text(
-          `${listItemSelector} [data-test-service-health-check-warning]`
-        ),
+        renders: isPresent(`[data-test-service-health-check-warning]`),
+        text: text(`[data-test-service-health-check-warning]`),
       },
     },
     kind: {
-      renders: isPresent(`${listItemSelector} [data-test-service-kind]`),
-      text: text(`${listItemSelector} [data-test-service-kind]`),
+      renders: isPresent(`[data-test-service-kind]`),
+      text: text(`[data-test-service-kind]`),
     },
     instanceCount: {
-      renders: isPresent(
-        `${listItemSelector} [data-test-associated-instance-count]`
-      ),
-      text: text(`${listItemSelector} [data-test-associated-instance-count]`),
+      renders: isPresent(`[data-test-associated-instance-count]`),
+      text: text(`[data-test-associated-instance-count]`),
     },
     linkedServiceCount: {
-      renders: isPresent(
-        `${listItemSelector} [data-test-associated-service-count]`
-      ),
-      text: text(`${listItemSelector} [data-test-associated-service-count]`),
+      renders: isPresent(`[data-test-associated-service-count]`),
+      text: text(`[data-test-associated-service-count]`),
     },
     upstreamCount: {
-      renders: isPresent(
-        `${listItemSelector} [data-test-associated-upstream-count]`
-      ),
-      text: text(`${listItemSelector} [data-test-associated-upstream-count]`),
+      renders: isPresent(`[data-test-associated-upstream-count]`),
+      text: text(`[data-test-associated-upstream-count]`),
     },
     inMeshGateway: {
-      renders: isPresent(`${listItemSelector} [data-test-mesh]`),
-      text: text(`${listItemSelector} [data-test-mesh]`),
+      renders: isPresent(`[data-test-mesh]`),
+      text: text(`[data-test-mesh]`),
     },
-    isPermissiveMTls: isPresent(
-      `${listItemSelector} [data-test-permissive-mtls]`
-    ),
+    isPermissiveMTls: isPresent(`[data-test-permissive-mtls]`),
+    isStrictMTls: isPresent(`[data-test-strict-mtls]`),
     samenessGroup: {
-      renders: isPresent(`${listItemSelector} [data-test-sameness-group]`),
-      text: text(`${listItemSelector} [data-test-sameness-group]`),
+      renders: isPresent(`[data-test-sameness-group]`),
+      text: text(`[data-test-sameness-group]`),
     },
-    isImported: isPresent(`${listItemSelector} [data-test-imported]`),
+    isImported: isPresent(`[data-test-imported]`),
     externalSource: {
-      renders: isPresent(`${listItemSelector} [data-test-external-source]`),
-      text: text(`${listItemSelector} [data-test-external-source]`),
+      renders: isPresent(`[data-test-external-source]`),
+      text: text(`[data-test-external-source]`),
     },
     tags: {
-      renders: isPresent(`${listItemSelector} [data-test-tags]`),
-      text: text(`${listItemSelector} [data-test-tags]`),
+      renders: isPresent(`[data-test-tags]`),
+      text: text(`[data-test-tags]`),
     },
   },
 });

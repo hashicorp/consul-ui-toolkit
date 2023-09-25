@@ -2,10 +2,13 @@
   Copyright (c) HashiCorp, Inc.
 }}
 
-<div class="cut-text-with-icon" ...attributes>
-  <FlightIcon @name={{@icon}} @size="16" @color={{@iconColor}}/>
+<div
+  class='cut-text-with-icon hds-typography-body-100 hds-font-weight-regular'
+  ...attributes
+>
+  <FlightIcon @name={{@icon}} @color={{@iconColor}} />
   <div>{{@text}}</div>
   {{#if @connection}}
-    <div class="cut-text-with-icon__connection">{{@connection}}</div>
+    <div class='cut-text-with-icon__connection'>{{@connection}}</div>
   {{/if}}
 </div>

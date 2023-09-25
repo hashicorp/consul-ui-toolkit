@@ -6,6 +6,11 @@
   display: flex;
   align-items: center;
   gap: 4px;
+
+  > .flight-icon {
+    height: 12px;
+    width: 12px;
+  }
 }
 
 .cut-text-with-icon__connection {

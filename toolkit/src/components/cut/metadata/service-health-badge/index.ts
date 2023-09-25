@@ -6,13 +6,19 @@ import Component from '@glimmer/component';
 import { MetadataServiceHealthBadgeSignature } from '../types';
 
 export default class MetadataServiceHealthBadgeComponent extends Component<MetadataServiceHealthBadgeSignature> {
-  get statusIsCritical() {
-    const { criticalCount } = this.args;
-    return criticalCount && criticalCount > 0;
+  get hasStatus(): boolean {
+    const { criticalCount, warningCount, successCount } = this.args;
+
+    return !!criticalCount || !!warningCount || !!successCount;
   }
 
-  get statusIsWarning() {
+  get statusIsCritical(): boolean {
+    const { criticalCount } = this.args;
+    return !!criticalCount && criticalCount > 0;
+  }
+
+  get statusIsWarning(): boolean {
     const { warningCount } = this.args;
-    return warningCount && warningCount > 0 && !this.statusIsCritical;
+    return !!warningCount && warningCount > 0 && !this.statusIsCritical;
   }
 }
