@@ -1,5 +1,15 @@
 # @hashicorp/consul-ui-toolkit
 
+## 2.3.0
+
+### Minor Changes
+
+- abd5443: Service list item now includes cluster ID, partition, and namespace info
+
+### Patch Changes
+
+- 9193963: Update list-item-template styling and add strict mtls badge to list item metadata
+
 ## 2.2.0
 
 ### Minor Changes
