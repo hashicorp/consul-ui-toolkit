@@ -46,6 +46,7 @@ export default class ServiceListItem extends Controller {
         externalSource: 'consul',
         instanceCount: 3,
         tags: ['consul', 'array', 'monitor'],
+        isPermissiveMTls: false,
       },
     };
   }
