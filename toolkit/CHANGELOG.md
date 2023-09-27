@@ -1,5 +1,11 @@
 # @hashicorp/consul-ui-toolkit
 
+## 2.3.1
+
+### Patch Changes
+
+- 3dacfed: Add text property to FilterBar.Sort type definition
+
 ## 2.3.0
 
 ### Minor Changes
