@@ -96,6 +96,7 @@ export interface FilterConfig {
 
 export interface Sort {
   value?: string;
+  text?: string;
 }
 
 export interface Search {
