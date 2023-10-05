@@ -371,7 +371,9 @@ module('Integration | Component | cut/filter-bar', function (hooks) {
       },
     });
 
-    assert.dom('[data-test-filter-bar-results]').hasText('Searching');
+    assert
+      .dom('[data-test-filter-bar-results]')
+      .hasText('Showing results for bloom');
   });
 
   test('shows searching text with the name when there are no filters applied and search is applied no count is passed in and the name is set', async function (assert) {
@@ -384,7 +386,7 @@ module('Integration | Component | cut/filter-bar', function (hooks) {
 
     assert
       .dom('[data-test-filter-bar-results]')
-      .hasText('Searching Service Instances');
+      .hasText('Showing results for bloom');
   });
 
   test('shows a result count with a default text for the name if you pass in a count but no name', async function (assert) {
