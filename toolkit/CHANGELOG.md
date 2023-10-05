@@ -1,5 +1,11 @@
 # @hashicorp/consul-ui-toolkit
 
+## 2.3.2
+
+### Patch Changes
+
+- f4df22e: Update FilterBar results text on search to include searched text
+
 ## 2.3.1
 
 ### Patch Changes
