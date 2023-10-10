@@ -7,6 +7,9 @@
     <SG.TextInput
       @type='search'
       @value={{@search}}
+      @width={{@width}}
+      @isInvalid={{@isInvalid}}
+      @isLoading={{@isLoading}}
       placeholder='Search'
       aria-label='Search'
       {{on 'keyup' @onSearchKeyup}}
@@ -18,6 +21,9 @@
   <Hds::Form::TextInput::Base
     @type='search'
     @value={{@search}}
+    @width={{or @width '196px'}}
+    @isInvalid={{@isInvalid}}
+    @isLoading={{@isLoading}}
     placeholder='Search'
     aria-label='Search'
     class='cut-filter-bar-search'
