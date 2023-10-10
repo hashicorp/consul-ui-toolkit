@@ -1,5 +1,11 @@
 # @hashicorp/consul-ui-toolkit
 
+## 2.3.3
+
+### Patch Changes
+
+- 829f1ae: Upgrade @hashicorp/design-system-components to 2.13.0
+
 ## 2.3.2
 
 ### Patch Changes
