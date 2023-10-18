@@ -1,5 +1,11 @@
 # @hashicorp/consul-ui-toolkit
 
+## 2.4.0
+
+### Minor Changes
+
+- d86e674: Update FilterBar::Search to take width, isInvalid, isLoading
+
 ## 2.3.3
 
 ### Patch Changes
