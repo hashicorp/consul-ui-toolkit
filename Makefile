@@ -1,3 +1,3 @@
 .PHONY: build
 build:
-	@yarn prepare 
+	@yarn prepare
