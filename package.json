@@ -17,7 +17,8 @@
     "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
     "start:addon": "yarn workspace @hashicorp/consul-ui-toolkit run start",
     "start:documentation": "yarn workspace documentation run start",
-    "test": "yarn workspaces run test"
+    "test": "yarn workspaces run test",
+    "watch:toolkit": "watchman-make -p '**/toolkit/src/**' -t build"
   },
   "devDependencies": {
     "concurrently": "^7.2.1",
