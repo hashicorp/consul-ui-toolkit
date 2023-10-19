@@ -39,7 +39,7 @@
 
 ## Running the test application
 
-- Run `yarn watch:toolkit` - This will automatically detect changes in the toolkit and build it to be consumed by the documentation app.
+- Run `yarn watch:toolkit` - This will automatically re-build the toolkit to be consumed by the documentation app when toolkit file changes are detected via [fb-watchman](https://facebook.github.io/watchman).
 - In a separate terminal, run `yarn start:documentation` to start the documentations apps server
 - Visit the test application at [http://localhost:4200](http://localhost:4200).
 
