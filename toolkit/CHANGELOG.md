@@ -1,5 +1,11 @@
 # @hashicorp/consul-ui-toolkit
 
+## 3.0.0
+
+### Major Changes
+
+- 5178670: Upgrade @hashicorp/design-system-components to 3.0.2 and set as peerDependency
+
 ## 2.4.0
 
 ### Minor Changes
