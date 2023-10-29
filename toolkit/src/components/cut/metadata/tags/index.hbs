@@ -3,5 +3,5 @@
 }}
 
 {{#if @tags}}
-  <Cut::TextWithIcon @icon="tag" @text={{join ', ' (union (or @tags (array)))}} data-test-tags/>
+  <Cut::TextWithIcon @icon="tag" @text={{ (join ', ' (union (or @tags (array)))) }} data-test-tags/>
 {{/if}}

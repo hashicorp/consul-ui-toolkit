@@ -77,7 +77,7 @@
     <p class='cut-filter-bar-results-count' data-test-filter-bar-results>
       {{#if this.hasCount}}
         Showing
-        {{pluralize @count (if @name @name 'result')}}{{if
+        {{ (pluralize @count (if @name @name 'result')) }}{{if
           @totalCount
           (concat ' of ' @totalCount)
         }}
@@ -92,16 +92,16 @@
     </p>
 
     {{#each this.appliedFilters as |filter|}}
-      <p class='cut-filter-bar-applied-filter-label'>{{titlecase
+      <p class='cut-filter-bar-applied-filter-label'>{{ (titlecase
           filter.name
-        }}:</p>
+        ) }}:</p>
 
       {{#each filter.value as |filterValue|}}
         {{#if filter.isRequired}}
-          <Hds::Tag @text={{titlecase filterValue.text}} />
+          <Hds::Tag @text={{ (titlecase filterValue.text) }} />
         {{else}}
           <Hds::Tag
-            @text={{titlecase filterValue.text}}
+            @text={{ (titlecase filterValue.text) }}
             @onDismiss={{fn
               this.toggleFilterValue
               (hash

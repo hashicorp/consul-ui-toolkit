@@ -7,8 +7,8 @@
     <Hds::Pagination::Compact
       class='cut-list-pagination_page-selector'
       @showLabels={{true}}
-      @isDisabledPrev={{not @prevCursor}}
-      @isDisabledNext={{not @nextCursor}}
+      @isDisabledPrev={{ (not @prevCursor) }}
+      @isDisabledNext={{ (not @nextCursor) }}
       @onPageChange={{@onPageChange}}
     />
   {{else}}
@@ -16,12 +16,12 @@
       class='cut-list-pagination_page-selector'
       @showLabels={{true}}
       @queryFunction={{this.queryFunction}}
-      @route={{or @route this.router.currentRouteName}}
+      @route={{ (or @route this.router.currentRouteName) }}
       @model={{@model}}
       @models={{@models}}
       @replace={{@replace}}
-      @isDisabledPrev={{not @prevCursor}}
-      @isDisabledNext={{not @nextCursor}}
+      @isDisabledPrev={{ (not @prevCursor) }}
+      @isDisabledNext={{ (not @nextCursor) }}
     />
   {{/if}}
 

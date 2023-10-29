@@ -7,7 +7,7 @@
   <div class='cut-copy-block__copy-button'>
     <CopyButton
       @text={{@clipboardText}}
-      @onSuccess={{perform this.copied}}
+      @onSuccess={{ (perform this.copied) }}
       class={{if
         this.isSuccessfullyCopied
         'cut-copy-block__copy-button--checked'

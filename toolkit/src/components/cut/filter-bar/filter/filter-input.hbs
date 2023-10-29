@@ -5,11 +5,11 @@
 {{#let @components as |Components|}}
   <Components.Header @hasDivider={{true}}>
     <Hds::Form::TextInput::Base
-      @type={{or @type 'search'}}
+      @type={{ (or @type 'search') }}
       @value={{@value}}
       style='margin: 8px 0;'
-      placeholder={{or @placeholder 'Search'}}
-      aria-label={{or @placeholder 'Search'}}
+      placeholder={{ (or @placeholder 'Search') }}
+      aria-label={{ (or @placeholder 'Search') }}
       {{on 'input' @onInput}}
     />
   </Components.Header>
@@ -21,7 +21,7 @@
       >
         <span>{{@label}}</span>
         {{#if @count}}
-          <span>{{or @count 0}}</span>
+          <span>{{ (or @count 0) }}</span>
         {{/if}}
       </span>
     </Components.Generic>
