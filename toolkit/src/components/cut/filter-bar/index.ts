@@ -191,7 +191,7 @@ export default class FilterBarComponent extends Component<FilterBarSignature> {
   }
 
   /**
-   * @function softToggleFilterValue
+   * @function toggleFilterValue
    * @param toggle ToggleArgs
    *
    * toggleFilterValue toggles filters and applies the change immediately. This will call the softToggleValue
@@ -297,6 +297,12 @@ export default class FilterBarComponent extends Component<FilterBarSignature> {
     if (value === '') {
       this.onSearch('');
     }
+  }
+
+  @action
+  onSubmit(event: HTMLElementEvent<HTMLFormElement>) {
+    event.preventDefault();
+    this.args.onChange(this.args.config);
   }
 
   @action

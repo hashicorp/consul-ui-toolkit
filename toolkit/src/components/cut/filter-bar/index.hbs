@@ -2,7 +2,7 @@
   Copyright (c) HashiCorp, Inc.
 }}
 
-<div class='cut-filter-bar' aria-label='Filter bar'>
+<form class='cut-filter-bar' name='Filter bar' {{on 'submit' this.onSubmit}} ...attributes>
   <div class='cut-filter-bar-filters'>
     <div class='cut-filter-bar-filtergroup'>
       {{yield
@@ -127,4 +127,4 @@
       />
     {{/if}}
   </div>
-</div>
+</form>
