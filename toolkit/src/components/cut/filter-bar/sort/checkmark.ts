@@ -4,7 +4,7 @@
  */
 
 import Component from '@glimmer/component';
-import { SortCheckmarkSignature } from 'src/types';
+import type { SortCheckmarkSignature } from 'src/types';
 
 export default class SortCheckmarkComponent extends Component<SortCheckmarkSignature> {
   get isSelected(): boolean {

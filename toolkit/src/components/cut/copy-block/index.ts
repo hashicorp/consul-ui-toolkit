@@ -6,7 +6,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { timeout } from 'ember-concurrency';
 import { dropTask } from 'ember-concurrency-decorators';
-import { CopyBlockSignature } from 'src/types';
+import type { CopyBlockSignature } from 'src/types';
 
 export default class CopyBlockComponent extends Component<CopyBlockSignature> {
   @tracked isSuccessfullyCopied = false;

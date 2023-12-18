@@ -3,7 +3,7 @@
  */
 
 import Component from '@glimmer/component';
-import { MetadataServiceHealthBadgeSignature } from '../types';
+import type { MetadataServiceHealthBadgeSignature } from '../types';
 
 export default class MetadataServiceHealthBadgeComponent extends Component<MetadataServiceHealthBadgeSignature> {
   get hasStatus(): boolean {

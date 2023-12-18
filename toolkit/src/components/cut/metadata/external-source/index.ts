@@ -7,7 +7,7 @@ import {
   EXTERNAL_SOURCE_ICON_MAPPING,
   EXTERNAL_SOURCE_LABELS,
 } from '../../../../utils/service-list-item';
-import { MetadataExternalSourceSignature } from 'src/types';
+import type { MetadataExternalSourceSignature } from 'src/types';
 
 export default class MetadataExternalSourceComponent extends Component<MetadataExternalSourceSignature> {
   get externalSourceIcon() {

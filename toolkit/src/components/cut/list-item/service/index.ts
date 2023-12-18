@@ -7,7 +7,7 @@ import {
   NORMALIZED_GATEWAY_LABELS,
   SERVICE_GATEWAY_TYPE,
 } from '../../../../utils/service-list-item';
-import { ServiceListItemSignature } from '../types';
+import type { ServiceListItemSignature } from '../types';
 
 export default class ServiceListItemComponent extends Component<ServiceListItemSignature> {
   ServiceGatewayType = SERVICE_GATEWAY_TYPE;

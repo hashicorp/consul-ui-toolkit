@@ -5,7 +5,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
-import { ListItemSignature } from './types';
+import type { ListItemSignature } from './types';
 
 export default class ListItemComponent extends Component<ListItemSignature> {
   get route() {

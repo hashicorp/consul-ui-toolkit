@@ -3,7 +3,7 @@
  */
 
 import Component from '@glimmer/component';
-import { ServiceInstanceListItemSignature } from '../types';
+import type { ServiceInstanceListItemSignature } from '../types';
 
 export default class ServiceInstanceListItemComponent extends Component<ServiceInstanceListItemSignature> {
   get isAllHealthy() {
