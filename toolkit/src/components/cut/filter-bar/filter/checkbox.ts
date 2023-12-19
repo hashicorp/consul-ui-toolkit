@@ -3,7 +3,7 @@
  */
 
 import Component from '@glimmer/component';
-import { FilterBarCheckboxSignature } from 'src/types';
+import type { FilterBarCheckboxSignature } from 'src/types';
 
 export default class CheckboxComponent extends Component<FilterBarCheckboxSignature> {
   get isChecked() {

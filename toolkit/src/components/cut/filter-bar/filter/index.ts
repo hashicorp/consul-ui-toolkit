@@ -3,7 +3,7 @@
  */
 
 import Component from '@glimmer/component';
-import { FilterSignature, ToggleArgs } from 'src/types';
+import type { FilterSignature, ToggleArgs } from 'src/types';
 
 /**
  * `Cut::FilterBar::Filter` is a wrapper of the HDS::Dropdown component that exposes wrapped dropdown list items

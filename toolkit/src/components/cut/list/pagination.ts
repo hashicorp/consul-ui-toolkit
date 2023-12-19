@@ -6,7 +6,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import RouterService from '@ember/routing/router-service';
-import { PaginationSignature } from 'src/types';
+import type { PaginationSignature } from 'src/types';
 
 /**
  * `Cut::List::Pagination` provides a wrapper around the `Hds::Pagination::Compact` and `Hds::Pagination::SizeSelector` components.

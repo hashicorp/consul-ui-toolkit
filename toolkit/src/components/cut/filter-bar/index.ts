@@ -6,7 +6,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import structuredClone from '@ungap/structured-clone';
-import {
+import type {
   AppliedFilter,
   Filter,
   FilterBarSignature,
