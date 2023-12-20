@@ -88,6 +88,5 @@
   },
   "ember": {
     "edition": "octane"
-  },
-  "dependencies": {}
+  }
 }
