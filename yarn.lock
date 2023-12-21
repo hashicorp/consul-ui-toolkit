@@ -4170,7 +4170,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:^6.15.0"
     "@ungap/structured-clone": "npm:^1.2.0"
     concurrently: "npm:^8.2.2"
-    ember-cli-clipboard: "npm:^1.0.0"
+    ember-cli-clipboard: "npm:^1.1.0"
     ember-composable-helpers: "npm:^5.0.0"
     ember-concurrency: "npm:^3.1.1"
     ember-concurrency-decorators: "npm:^2.0.3"
@@ -4180,13 +4180,13 @@ __metadata:
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-ember: "npm:^11.12.0"
     eslint-plugin-node: "npm:^11.1.0"
-    eslint-plugin-prettier: "npm:^5.1.0"
+    eslint-plugin-prettier: "npm:^5.1.1"
     prettier: "npm:^3.1.1"
     rollup: "npm:^3.29.4"
     rollup-plugin-copy: "npm:^3.5.0"
     rollup-plugin-scss: "npm:^4.0.0"
     rollup-plugin-ts: "npm:3.4.5"
-    sass: "npm:^1.60.0"
+    sass: "npm:^1.69.5"
     typescript: "npm:^5.3.3"
   peerDependencies:
     "@hashicorp/design-system-components": ^3.0.2
@@ -5209,7 +5209,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/qunit@npm:latest":
+"@types/qunit@npm:^2.19.9":
   version: 2.19.9
   resolution: "@types/qunit@npm:2.19.9"
   checksum: 1419e1e4a6cd7c0b65d15b607abacb5725f4bcbc4c3b0bce6785efc3d7284364035163bbb363872e4313a351c19e601b509a11a598599668faa9c5d7d545405b
@@ -8747,28 +8747,28 @@ __metadata:
     "@hashicorp/consul-ui-toolkit": "npm:^3.0.0"
     "@hashicorp/design-system-components": "npm:^3.3.0"
     "@hashicorp/ember-flight-icons": "npm:^4.0.4"
-    "@types/qunit": "npm:latest"
+    "@types/qunit": "npm:^2.19.9"
     "@typescript-eslint/eslint-plugin": "npm:^6.15.0"
     "@typescript-eslint/parser": "npm:^6.15.0"
     broccoli-asset-rev: "npm:^3.0.0"
     concurrently: "npm:^8.2.2"
-    ember-auto-import: "npm:^2.7.0"
+    ember-auto-import: "npm:^2.7.1"
     ember-cli: "npm:~5.5.0"
     ember-cli-app-version: "npm:^6.0.1"
     ember-cli-babel: "npm:^8.2.0"
     ember-cli-clean-css: "npm:^3.0.0"
-    ember-cli-clipboard: "npm:^1.0.0"
+    ember-cli-clipboard: "npm:^1.1.0"
     ember-cli-dependency-checker: "npm:^3.3.2"
     ember-cli-htmlbars: "npm:^6.3.0"
     ember-cli-inject-live-reload: "npm:^2.1.0"
-    ember-cli-page-object: "npm:^2.1.0"
+    ember-cli-page-object: "npm:^2.1.3"
     ember-cli-sass: "npm:^11.0.1"
     ember-cli-sri: "npm:^2.1.1"
     ember-cli-terser: "npm:^4.0.2"
     ember-data: "npm:~5.3.0"
     ember-disable-prototype-extensions: "npm:^1.1.3"
     ember-fetch: "npm:^8.1.2"
-    ember-focus-trap: "npm:^1.0.1"
+    ember-focus-trap: "npm:^1.1.0"
     ember-load-initializers: "npm:^2.1.2"
     ember-modifier: "npm:^4.1.0"
     ember-page-title: "npm:^8.1.0"
@@ -8780,25 +8780,25 @@ __metadata:
     ember-template-lint: "npm:^5.13.0"
     ember-truth-helpers: "npm:^4.0.3"
     ember-try: "npm:^3.0.0"
-    ember-url-hash-polyfill: "npm:^1.0.8"
+    ember-url-hash-polyfill: "npm:^1.0.11"
     eslint: "npm:^8.56.0"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-ember: "npm:^11.12.0"
-    eslint-plugin-n: "npm:^16.4.0"
-    eslint-plugin-prettier: "npm:^5.1.0"
+    eslint-plugin-n: "npm:^16.5.0"
+    eslint-plugin-prettier: "npm:^5.1.1"
     eslint-plugin-qunit: "npm:^8.0.1"
     loader.js: "npm:^4.7.0"
     prettier: "npm:^3.1.1"
     qunit: "npm:^2.20.0"
     qunit-dom: "npm:^3.0.0"
-    sass: "npm:^1.60.0"
+    sass: "npm:^1.69.5"
     sinon: "npm:17.0.1"
     stylelint: "npm:^16.0.2"
     stylelint-config-standard: "npm:^35.0.0"
     stylelint-prettier: "npm:^5.0.0"
     tracked-built-ins: "npm:^3.3.0"
     typescript: "npm:^5.3.3"
-    uuid: "npm:^9.0.0"
+    uuid: "npm:^9.0.1"
     webpack: "npm:^5.89.0"
   languageName: unknown
   linkType: soft
@@ -9022,7 +9022,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-auto-import@npm:^2.7.0":
+"ember-auto-import@npm:^2.7.1":
   version: 2.7.1
   resolution: "ember-auto-import@npm:2.7.1"
   dependencies:
@@ -9197,18 +9197,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-clipboard@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "ember-cli-clipboard@npm:1.0.0"
+"ember-cli-clipboard@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "ember-cli-clipboard@npm:1.1.0"
   dependencies:
+    "@embroider/macros": "npm:^1.10.0"
     clipboard: "npm:^2.0.11"
     ember-arg-types: "npm:^1.0.0"
     ember-auto-import: "npm:^2.4.2"
     ember-cli-babel: "npm:^7.26.11"
     ember-cli-htmlbars: "npm:^6.1.0"
-    ember-modifier: "npm:^3.2.7"
+    ember-modifier: "npm:^3.2.7 || ^4.1.0"
     prop-types: "npm:^15.8.1"
-  checksum: f5a99f32e978cba0b17daeedfa27b66223ddd511158fc21ee428d2296d6438c756e12825717f7c15ab040e75038ca213514156f967417a674f8301cecb9cd15f
+  checksum: c22b089f1bb3820e1a16f8b92979ba3f3af661d322035af33824ff7d0645d8bb42adc4b60729f6f9b8ef34e198d44cec0b814c96af7c34274deecf7bf4ad2566
   languageName: node
   linkType: hard
 
@@ -9371,7 +9372,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-page-object@npm:^2.1.0":
+"ember-cli-page-object@npm:^2.1.3":
   version: 2.1.3
   resolution: "ember-cli-page-object@npm:2.1.3"
   dependencies:
@@ -9550,7 +9551,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-typescript@npm:^5.0.0, ember-cli-typescript@npm:^5.1.1":
+"ember-cli-typescript@npm:^5.0.0, ember-cli-typescript@npm:^5.1.1, ember-cli-typescript@npm:^5.2.1":
   version: 5.2.1
   resolution: "ember-cli-typescript@npm:5.2.1"
   dependencies:
@@ -9704,7 +9705,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-compatibility-helpers@npm:^1.1.2, ember-compatibility-helpers@npm:^1.2.0, ember-compatibility-helpers@npm:^1.2.1, ember-compatibility-helpers@npm:^1.2.5":
+"ember-compatibility-helpers@npm:^1.1.2, ember-compatibility-helpers@npm:^1.2.0, ember-compatibility-helpers@npm:^1.2.1":
   version: 1.2.6
   resolution: "ember-compatibility-helpers@npm:1.2.6"
   dependencies:
@@ -9839,16 +9840,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-focus-trap@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "ember-focus-trap@npm:1.0.1"
-  dependencies:
-    "@embroider/addon-shim": "npm:^1.0.0"
-    focus-trap: "npm:^6.7.1"
-  checksum: b6bdd891415094cd3d6b7c4eb8a3fea40cdb1c873abbf8474836ead26e88ac42222bd8839c18ac1606344032640f09c18c2282e97af2cf7ed656885c4c534d84
-  languageName: node
-  linkType: hard
-
 "ember-focus-trap@npm:^1.1.0":
   version: 1.1.0
   resolution: "ember-focus-trap@npm:1.1.0"
@@ -9931,7 +9922,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-modifier@npm:^2.1.2 || ^3.1.0 || ^4.0.0, ember-modifier@npm:^3.2.7 || ^4.0.0, ember-modifier@npm:^4.1.0":
+"ember-modifier@npm:^2.1.2 || ^3.1.0 || ^4.0.0, ember-modifier@npm:^3.2.7 || ^4.0.0, ember-modifier@npm:^3.2.7 || ^4.1.0, ember-modifier@npm:^4.1.0":
   version: 4.1.0
   resolution: "ember-modifier@npm:4.1.0"
   dependencies:
@@ -9944,19 +9935,6 @@ __metadata:
     ember-source:
       optional: true
   checksum: 35d36b418fd99d5ad7ccca61a81271a71cf842d4a8c83c6464b11ee1d80b31ed4a5d1e6eaa017929b70ee434de0b11c4855f9d715394fea9987d56246b728905
-  languageName: node
-  linkType: hard
-
-"ember-modifier@npm:^3.2.7":
-  version: 3.2.7
-  resolution: "ember-modifier@npm:3.2.7"
-  dependencies:
-    ember-cli-babel: "npm:^7.26.6"
-    ember-cli-normalize-entity-name: "npm:^1.0.0"
-    ember-cli-string-utils: "npm:^1.1.0"
-    ember-cli-typescript: "npm:^5.0.0"
-    ember-compatibility-helpers: "npm:^1.2.5"
-  checksum: cc8270e7725ae8ca93ab33d0fa8ae8c60ab0785cac88933fd3452a64868301e0d0475d6691ce6ac9c0195378af244729f2fbf1a2d6cfdf57dec6a9df11511046
   languageName: node
   linkType: hard
 
@@ -10304,15 +10282,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-url-hash-polyfill@npm:^1.0.8":
-  version: 1.0.8
-  resolution: "ember-url-hash-polyfill@npm:1.0.8"
+"ember-url-hash-polyfill@npm:^1.0.11":
+  version: 1.0.11
+  resolution: "ember-url-hash-polyfill@npm:1.0.11"
   dependencies:
-    ember-cli-babel: "npm:^7.26.6"
-    ember-cli-htmlbars: "npm:^5.7.1"
-    ember-cli-typescript: "npm:^4.2.1"
+    ember-cli-babel: "npm:^7.26.11"
+    ember-cli-htmlbars: "npm:^6.2.0"
+    ember-cli-typescript: "npm:^5.2.1"
     ember-test-waiters: "npm:^2.1.3"
-  checksum: 477c644c737e0c40bb557f44a6798e4e5ee109df1b16f6c8cd6102c1c34d8ae1fe8ed2ff3770a8d20825e2a63e5d02d426dd33418632197a51482259e3ba275a
+    webpack: "npm:5"
+  checksum: 557837d11bd331845f7cfd7ff4ee81b2124f3b4f618749cb3f9e18c3a9d51d0748fb8a007e12a20176c9629037a4d53a2214a701fdbdad74d6d691da43dc4e3b
   languageName: node
   linkType: hard
 
@@ -10675,7 +10654,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-n@npm:^16.4.0":
+"eslint-plugin-n@npm:^16.5.0":
   version: 16.5.0
   resolution: "eslint-plugin-n@npm:16.5.0"
   dependencies:
@@ -10711,9 +10690,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prettier@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "eslint-plugin-prettier@npm:5.1.0"
+"eslint-plugin-prettier@npm:^5.1.1":
+  version: 5.1.1
+  resolution: "eslint-plugin-prettier@npm:5.1.1"
   dependencies:
     prettier-linter-helpers: "npm:^1.0.0"
     synckit: "npm:^0.8.5"
@@ -10727,7 +10706,7 @@ __metadata:
       optional: true
     eslint-config-prettier:
       optional: true
-  checksum: 76b9a6cc5fa8dcc0d5d8aac5e7b717c08c736d2f158ba63709d94526d3152761d36963f930f9c64a29270a107519eca24b41e82b67cc43f0291d43db4a975fd1
+  checksum: cb9fb797e3b872864d9bd4a6154cc0aeccdd9b3d7add510b2077f6d5149fb4b681abd180dacb5dafda603defb6089824a7c6f97faf1f099dba4f4e77f86c46c3
   languageName: node
   linkType: hard
 
@@ -17305,19 +17284,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.60.0":
-  version: 1.60.0
-  resolution: "sass@npm:1.60.0"
-  dependencies:
-    chokidar: "npm:>=3.0.0 <4.0.0"
-    immutable: "npm:^4.0.0"
-    source-map-js: "npm:>=0.6.2 <2.0.0"
-  bin:
-    sass: sass.js
-  checksum: 372fbf68865086a8efd1ea6b67128f5d3eca6e28ac8501c1aeb40143efbfcf753c8ef0a2407ddb91309976919bf25fd853a84c49c4de65bbc1ae836a0511c0b5
-  languageName: node
-  linkType: hard
-
 "sass@npm:^1.69.5":
   version: 1.69.5
   resolution: "sass@npm:1.69.5"
@@ -19319,12 +19285,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uuid@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "uuid@npm:9.0.0"
+"uuid@npm:^9.0.1":
+  version: 9.0.1
+  resolution: "uuid@npm:9.0.1"
   bin:
     uuid: dist/bin/uuid
-  checksum: 8867e438990d1d33ac61093e2e4e3477a2148b844e4fa9e3c2360fa4399292429c4b6ec64537eb1659c97b2d10db349c673ad58b50e2824a11e0d3630de3c056
+  checksum: 1607dd32ac7fc22f2d8f77051e6a64845c9bce5cd3dd8aa0070c074ec73e666a1f63c7b4e0f4bf2bc8b9d59dc85a15e17807446d9d2b17c8485fbc2147b27f9b
   languageName: node
   linkType: hard
 
@@ -19511,7 +19477,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack@npm:^5.88.2, webpack@npm:^5.89.0":
+"webpack@npm:5, webpack@npm:^5.88.2, webpack@npm:^5.89.0":
   version: 5.89.0
   resolution: "webpack@npm:5.89.0"
   dependencies:
