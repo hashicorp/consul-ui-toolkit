@@ -3756,13 +3756,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/test-setup@npm:^1.8.3":
-  version: 1.8.3
-  resolution: "@embroider/test-setup@npm:1.8.3"
+"@embroider/test-setup@npm:^3.0.3":
+  version: 3.0.3
+  resolution: "@embroider/test-setup@npm:3.0.3"
   dependencies:
     lodash: "npm:^4.17.21"
     resolve: "npm:^1.20.0"
-  checksum: 9ed9d2b20796bc9fe7f97bb3cc844aaf6b59faca7897cc7214250e2227e1c5deafa9185c598454958733ac83cf39c0e255447465e2b29a9bcccf857bec75bcf9
+  peerDependencies:
+    "@embroider/compat": ^3.3.0
+    "@embroider/core": ^3.4.0
+    "@embroider/webpack": ^3.2.1
+  peerDependenciesMeta:
+    "@embroider/compat":
+      optional: true
+    "@embroider/core":
+      optional: true
+    "@embroider/webpack":
+      optional: true
+  checksum: e8d2fba4626444e5fef8633642ff996e16952d6860e5ec8d4e7c60bd1bc16e6b82a759e3e8eba4000478d9a5ecbbac7795a261dea0747ad9c5aa784f2162f463
   languageName: node
   linkType: hard
 
@@ -6889,7 +6900,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"broccoli-funnel@npm:^3.0.3, broccoli-funnel@npm:^3.0.5, broccoli-funnel@npm:^3.0.8":
+"broccoli-funnel@npm:^3.0.5, broccoli-funnel@npm:^3.0.8":
   version: 3.0.8
   resolution: "broccoli-funnel@npm:3.0.8"
   dependencies:
@@ -8748,7 +8759,7 @@ __metadata:
     "@ember/optional-features": "npm:^2.0.0"
     "@ember/string": "npm:^3.1.1"
     "@ember/test-helpers": "npm:^3.2.1"
-    "@embroider/test-setup": "npm:^1.8.3"
+    "@embroider/test-setup": "npm:^3.0.3"
     "@glimmer/component": "npm:^1.1.2"
     "@glimmer/tracking": "npm:^1.1.2"
     "@hashicorp/consul-ui-toolkit": "npm:^3.0.0"
@@ -8785,8 +8796,8 @@ __metadata:
     ember-source: "npm:~5.5.0"
     ember-source-channel-url: "npm:^3.0.0"
     ember-template-lint: "npm:^5.13.0"
-    ember-truth-helpers: "npm:^3.1.1"
-    ember-try: "npm:^2.0.0"
+    ember-truth-helpers: "npm:^4.0.3"
+    ember-try: "npm:^3.0.0"
     ember-url-hash-polyfill: "npm:^1.0.8"
     eslint: "npm:^8.56.0"
     eslint-config-prettier: "npm:^9.1.0"
@@ -8797,14 +8808,14 @@ __metadata:
     loader.js: "npm:^4.7.0"
     prettier: "npm:^3.1.1"
     qunit: "npm:^2.20.0"
-    qunit-dom: "npm:^2.0.0"
+    qunit-dom: "npm:^3.0.0"
     sass: "npm:^1.60.0"
     sinon: "npm:9.0.1"
     stylelint: "npm:^15.11.0"
     stylelint-config-standard: "npm:^34.0.0"
     stylelint-prettier: "npm:^4.1.0"
     tracked-built-ins: "npm:^3.3.0"
-    typescript: "npm:^4.7.4"
+    typescript: "npm:^5.3.3"
     uuid: "npm:^9.0.0"
     webpack: "npm:^5.89.0"
   languageName: unknown
@@ -9902,6 +9913,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ember-functions-as-helper-polyfill@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "ember-functions-as-helper-polyfill@npm:2.1.2"
+  dependencies:
+    ember-cli-babel: "npm:^7.26.11"
+    ember-cli-typescript: "npm:^5.0.0"
+    ember-cli-version-checker: "npm:^5.1.2"
+  peerDependencies:
+    ember-source: ^3.25.0 || >=4.0.0
+  checksum: 95bce2ce5fe1990cdbac4bdbb4fb19ccf6cf0f986796894f26d387a5a766f990ca94a9230dd5dd4ab19117ebc842906e788b6b2151f6652726c1a4120ea4ea5c
+  languageName: node
+  linkType: hard
+
 "ember-get-config@npm:^2.1.1":
   version: 2.1.1
   resolution: "ember-get-config@npm:2.1.1"
@@ -10288,6 +10312,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ember-truth-helpers@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "ember-truth-helpers@npm:4.0.3"
+  dependencies:
+    "@embroider/addon-shim": "npm:^1.8.6"
+    ember-functions-as-helper-polyfill: "npm:^2.1.2"
+  peerDependencies:
+    ember-source: ">=3.28.0"
+  checksum: c7746d472fd589e491ac7b2c895e91b5686c1677d0fb858ddf01e5fe452cd9c7bd78a91eda5fe979a65b43de3a4cfa8e1bf2027450bc496cb927c6339b2fb7a1
+  languageName: node
+  linkType: hard
+
 "ember-try-config@npm:^4.0.0":
   version: 4.0.0
   resolution: "ember-try-config@npm:4.0.0"
@@ -10301,9 +10337,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-try@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "ember-try@npm:2.0.0"
+"ember-try@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "ember-try@npm:3.0.0"
   dependencies:
     chalk: "npm:^4.1.2"
     cli-table3: "npm:^0.6.0"
@@ -10311,11 +10347,12 @@ __metadata:
     debug: "npm:^4.3.2"
     ember-try-config: "npm:^4.0.0"
     execa: "npm:^4.1.0"
-    fs-extra: "npm:^9.0.1"
+    fs-extra: "npm:^6.0.1"
     resolve: "npm:^1.20.0"
     rimraf: "npm:^3.0.2"
+    semver: "npm:^7.5.4"
     walk-sync: "npm:^2.2.0"
-  checksum: dfc43ee19cd8f36f47876533667ebc4b959f05c094a7ff0d7eeeef969513be558b2da6ec09c296dee00d210b389954b54d20483a8d84eb573a7cb7ea96ca36d9
+  checksum: b394adef30a1e9b89763089597dccd0e09940a36fdd18086a12dcda3cb9b434372a334548d3f0ffb21c330e1d1c9a626e0c254924cee3b8b735e8c0a42cb62b4
   languageName: node
   linkType: hard
 
@@ -11831,6 +11868,17 @@ __metadata:
     jsonfile: "npm:^4.0.0"
     universalify: "npm:^0.1.0"
   checksum: c67598fb6060101787b0389186db2fdcd8f706dc5dda450cac4f1d171f9a6118f390e7cf9af752fe1c3056ce554380a68fa7ed6a162199dc48087c74e0f96484
+  languageName: node
+  linkType: hard
+
+"fs-extra@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "fs-extra@npm:6.0.1"
+  dependencies:
+    graceful-fs: "npm:^4.1.2"
+    jsonfile: "npm:^4.0.0"
+    universalify: "npm:^0.1.0"
+  checksum: 553145c864b620f6d421104203231fe25adfbeaf6dfb44bd494fbb73cafa7efaa90393aa020ee94ee300a2a17f01c6cd75903ef4be342f43090dfa5082c9309e
   languageName: node
   linkType: hard
 
@@ -16402,15 +16450,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qunit-dom@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "qunit-dom@npm:2.0.0"
-  dependencies:
-    broccoli-funnel: "npm:^3.0.3"
-    broccoli-merge-trees: "npm:^4.2.0"
-    ember-cli-babel: "npm:^7.23.0"
-    ember-cli-version-checker: "npm:^5.1.1"
-  checksum: fbefc649c4da185721b40d40878fb08af10a89d3e5650c660a0ddd75e8599ea6126353e5988d501e88d959978f1f7e4f7fc763c5e384354d966a1e74d72e0a66
+"qunit-dom@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "qunit-dom@npm:3.0.0"
+  checksum: 852557a784991110959adf82292de9fe3a5d03e6cbd163a8c6b35a9cf14a0c4e4d708665cca53bf609a72316108e85569091817688c2917b811a06923ccacc50
   languageName: node
   linkType: hard
 
@@ -19155,16 +19198,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.7.4":
-  version: 4.9.5
-  resolution: "typescript@npm:4.9.5"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 5f6cad2e728a8a063521328e612d7876e12f0d8a8390d3b3aaa452a6a65e24e9ac8ea22beb72a924fd96ea0a49ea63bb4e251fb922b12eedfb7f7a26475e5c56
-  languageName: node
-  linkType: hard
-
 "typescript@npm:^5.3.3":
   version: 5.3.3
   resolution: "typescript@npm:5.3.3"
@@ -19172,16 +19205,6 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: e33cef99d82573624fc0f854a2980322714986bc35b9cb4d1ce736ed182aeab78e2cb32b385efa493b2a976ef52c53e20d6c6918312353a91850e2b76f1ea44f
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@npm%3A^4.7.4#optional!builtin<compat/typescript>":
-  version: 4.9.5
-  resolution: "typescript@patch:typescript@npm%3A4.9.5#optional!builtin<compat/typescript>::version=4.9.5&hash=289587"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: e3333f887c6829dfe0ab6c1dbe0dd1e3e2aeb56c66460cb85c5440c566f900c833d370ca34eb47558c0c69e78ced4bfe09b8f4f98b6de7afed9b84b8d1dd06a1
   languageName: node
   linkType: hard
 
