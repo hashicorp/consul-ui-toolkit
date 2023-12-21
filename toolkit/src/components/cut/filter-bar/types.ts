@@ -34,7 +34,7 @@ export interface FilterSignature {
     isChecked: (
       localConfig: FilterConfig,
       name: string,
-      value: unknown
+      value: unknown,
     ) => boolean;
     isMultiSelect?: boolean;
     batch?: boolean;
@@ -53,7 +53,7 @@ export interface FilterBarCheckboxSignature {
     isChecked: (
       localConfig: FilterConfig,
       name: string,
-      value: unknown
+      value: unknown,
     ) => boolean;
   };
 }
@@ -68,7 +68,7 @@ export interface FilterBarCheckboxSignature {
     isChecked: (
       localConfig: FilterConfig,
       name: string,
-      value: unknown
+      value: unknown,
     ) => boolean;
   };
 }
@@ -83,7 +83,7 @@ export interface FilterBarCheckboxSignature {
     isChecked: (
       localConfig: FilterConfig,
       name: string,
-      value: unknown
+      value: unknown,
     ) => boolean;
   };
 }

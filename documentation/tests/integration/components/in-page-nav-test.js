@@ -27,7 +27,7 @@ module('Integration | Component | InPageNav', function (hooks) {
       .dom('.doc-InPageNav-link:nth-child(1)')
       .hasClass(
         'doc-InPageNav-link--depth-1',
-        'There should be the level 1 depth class'
+        'There should be the level 1 depth class',
       );
 
     assert
@@ -35,14 +35,14 @@ module('Integration | Component | InPageNav', function (hooks) {
       .hasAttribute(
         'href',
         '#test-one',
-        'Should have the #test-one href value'
+        'Should have the #test-one href value',
       );
 
     assert
       .dom('.doc-InPageNav-link:nth-child(2)')
       .hasClass(
         'doc-InPageNav-link--depth-2',
-        'There should be the level 2 depth class'
+        'There should be the level 2 depth class',
       );
 
     assert
@@ -50,14 +50,14 @@ module('Integration | Component | InPageNav', function (hooks) {
       .hasAttribute(
         'href',
         '#',
-        "It should have a '#' href value when @section is not passed in"
+        "It should have a '#' href value when @section is not passed in",
       );
 
     assert
       .dom('.doc-InPageNav-link:nth-child(4)')
       .hasClass(
         'doc-InPageNav-link--depth-1',
-        'There should be the level 1 depth class when depth is not passed in'
+        'There should be the level 1 depth class when depth is not passed in',
       );
   });
 });

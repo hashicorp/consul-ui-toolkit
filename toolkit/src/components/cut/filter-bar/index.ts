@@ -124,7 +124,7 @@ export default class FilterBarComponent extends Component<FilterBarSignature> {
   isChecked(localConfig: FilterConfig, filter: string, value: unknown) {
     if (Array.isArray(localConfig?.filters?.[filter])) {
       return !!(localConfig?.filters?.[filter] as Filter[]).find(
-        (filter: Filter) => filter.value === value
+        (filter: Filter) => filter.value === value,
       );
     } else {
       return (localConfig?.filters?.[filter] as Filter)?.value === value;
@@ -155,7 +155,7 @@ export default class FilterBarComponent extends Component<FilterBarSignature> {
     if (isMultiSelect) {
       if (Array.isArray(filterChange[filterName])) {
         const valueIndex = (filterChange[filterName] as Filter[]).findIndex(
-          (filter: Filter) => filter.value === value
+          (filter: Filter) => filter.value === value,
         );
 
         if (valueIndex !== -1 && !isRequired) {
@@ -186,7 +186,7 @@ export default class FilterBarComponent extends Component<FilterBarSignature> {
     this.pendingFilterChange = Object.assign(
       {},
       this.pendingFilterChange,
-      filterChange
+      filterChange,
     );
   }
 
@@ -264,10 +264,10 @@ export default class FilterBarComponent extends Component<FilterBarSignature> {
       (key: string) => {
         return Array.isArray(config.filters?.[key])
           ? !!(config.filters?.[key] as Filter[])?.find(
-              (filter: Filter) => filter.isRequired
+              (filter: Filter) => filter.isRequired,
             )
           : (config.filters?.[key] as Filter)?.isRequired;
-      }
+      },
     );
 
     const filtersToKeep: Filters = {};

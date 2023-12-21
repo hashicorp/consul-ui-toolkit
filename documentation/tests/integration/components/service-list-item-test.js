@@ -47,7 +47,7 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
 
     await render(
       hbs`
-        <Cut::ListItem::Service @service={{this.service}}/>`
+        <Cut::ListItem::Service @service={{this.service}}/>`,
     );
     assert.true(cutService.renders, 'renders component');
     assert.true(cutService.title.includes('Service 1'), 'service name is set');
@@ -55,28 +55,28 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
     assert.true(cutService.clusterPath.renders, 'renders cluster path');
     assert.true(
       cutService.clusterPath.text.includes('self-managed-cluster'),
-      'cluster ID is set'
+      'cluster ID is set',
     );
     assert.true(
       cutService.clusterPath.text.includes('partition'),
-      'partition is set'
+      'partition is set',
     );
     assert.true(
       cutService.clusterPath.text.includes('namespace'),
-      'namespace is set'
+      'namespace is set',
     );
 
     assert.false(
       cutService.metadata.healthCheck.healthy.renders,
-      'healthy status badge does not render if there are warning or critical healthchecks'
+      'healthy status badge does not render if there are warning or critical healthchecks',
     );
     assert.true(
       cutService.metadata.healthCheck.critical.renders,
-      'renders critical status badge'
+      'renders critical status badge',
     );
     assert.false(
       cutService.metadata.healthCheck.warning.renders,
-      'warning status badge does not render if there are critical healthchecks'
+      'warning status badge does not render if there are critical healthchecks',
     );
 
     assert.true(cutService.metadata.kind.renders, 'renders kind name');
@@ -84,67 +84,67 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
       cutService.metadata.kind.text
         .toLowerCase()
         .includes(service.metadata.kind.split('-')[0]),
-      'renders kind'
+      'renders kind',
     );
     assert.true(
       cutService.metadata.instanceCount.renders,
-      'renders instance count'
+      'renders instance count',
     );
     assert.true(
       cutService.metadata.instanceCount.text.includes(
-        service.metadata.instanceCount
+        service.metadata.instanceCount,
       ),
-      'renders number of instances'
+      'renders number of instances',
     );
 
     assert.false(
       cutService.metadata.linkedServiceCount.renders,
-      'does not render linked service count'
+      'does not render linked service count',
     );
 
     assert.false(
       cutService.metadata.upstreamCount.renders,
-      'does not render upstream count'
+      'does not render upstream count',
     );
 
     assert.true(
       cutService.metadata.inMeshGateway.renders,
-      'renders mesh message'
+      'renders mesh message',
     );
     assert.true(
       cutService.metadata.isPermissiveMTls,
-      'renders permissive mtls'
+      'renders permissive mtls',
     );
     assert.false(
       cutService.metadata.isStrictMTls,
-      'does not render strict mtls'
+      'does not render strict mtls',
     );
     assert.true(cutService.metadata.isImported, 'renders imported');
     assert.true(
       cutService.metadata.samenessGroup.renders,
-      'renders sameness group'
+      'renders sameness group',
     );
     assert.true(
       cutService.metadata.samenessGroup.text.includes(
-        service.metadata.samenessGroup
+        service.metadata.samenessGroup,
       ),
-      'renders sameness group text'
+      'renders sameness group text',
     );
     assert.true(
       cutService.metadata.externalSource.renders,
-      'renders external source'
+      'renders external source',
     );
 
     assert.true(
       cutService.metadata.externalSource.text
         .toLowerCase()
         .includes(service.metadata.externalSource),
-      'includes external source value in metadata'
+      'includes external source value in metadata',
     );
     assert.true(cutService.metadata.tags.renders, 'renders tags');
     assert.true(
       cutService.metadata.tags.text.includes(service.metadata.tags.join(', ')),
-      'renders tags values to metadata'
+      'renders tags values to metadata',
     );
   });
 
@@ -178,14 +178,14 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
 
     await render(
       hbs`
-        <Cut::ListItem::Service @service={{this.service}} @hideClusterPath={{true}}/>`
+        <Cut::ListItem::Service @service={{this.service}} @hideClusterPath={{true}}/>`,
     );
     assert.true(cutService.renders, 'renders component');
     assert.true(cutService.title.includes('Service 1'), 'service name is set');
 
     assert.false(
       cutService.clusterPath.renders,
-      'does not render cluster path'
+      'does not render cluster path',
     );
   });
 
@@ -216,7 +216,7 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
 
     await render(
       hbs`
-        <Cut::ListItem::Service @service={{this.service}}/>`
+        <Cut::ListItem::Service @service={{this.service}}/>`,
     );
 
     assert.false(cutService.metadata.kind.renders, 'kind');
@@ -235,18 +235,18 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
 
     await render(
       hbs`
-        <Cut::ListItem::Service @service={{this.service}}/>`
+        <Cut::ListItem::Service @service={{this.service}}/>`,
     );
     assert.true(cutService.renders, 'renders');
     assert.true(cutService.title.includes('Service 1'), 'service name is set');
     assert.false(
       cutService.clusterPath.renders,
-      'does not render cluster path'
+      'does not render cluster path',
     );
 
     assert.false(
       cutService.metadata.healthCheck.healthy.renders,
-      'does not render healthy status badge'
+      'does not render healthy status badge',
     );
 
     assert.false(cutService.metadata.healthCheck.critical.renders, 'critical');
@@ -255,23 +255,23 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
     assert.false(cutService.metadata.instanceCount.renders, 'instance count');
     assert.false(
       cutService.metadata.linkedServiceCount.renders,
-      'linked service count'
+      'linked service count',
     );
     assert.false(cutService.metadata.upstreamCount.renders, 'upstream count');
     assert.false(cutService.metadata.inMeshGateway.renders, 'mesh data');
     assert.false(
       cutService.metadata.isPermissiveMTls,
-      'permissive mTLS does not render'
+      'permissive mTLS does not render',
     );
     assert.false(
       cutService.metadata.isStrictMTls,
-      'strict mTLS does not render'
+      'strict mTLS does not render',
     );
     assert.false(cutService.metadata.isImported, 'imported');
     assert.false(cutService.metadata.samenessGroup.renders, 'sameness group');
     assert.false(
       cutService.metadata.externalSource.renders,
-      'does not render external source'
+      'does not render external source',
     );
     assert.false(cutService.metadata.tags.renders, 'does not render tags');
   });
@@ -293,35 +293,35 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
 
     await render(
       hbs`
-        <Cut::ListItem::Service @service={{this.service}}/>`
+        <Cut::ListItem::Service @service={{this.service}}/>`,
     );
 
     assert.true(
       cutService.metadata.upstreamCount.renders,
-      'renders upstream count'
+      'renders upstream count',
     );
 
     assert.false(
       cutService.metadata.instanceCount.renders,
-      'does not render instance count'
+      'does not render instance count',
     );
 
     assert.false(
       cutService.metadata.linkedServiceCount.renders,
-      'does not render linked service count'
+      'does not render linked service count',
     );
 
     assert.false(
       cutService.metadata.healthCheck.healthy.renders,
-      'It does not render a health status'
+      'It does not render a health status',
     );
     assert.false(
       cutService.metadata.healthCheck.warning.renders,
-      'It does not render a health status'
+      'It does not render a health status',
     );
     assert.false(
       cutService.metadata.healthCheck.critical.renders,
-      'It does not render a health status'
+      'It does not render a health status',
     );
   });
   test('it renders linked service count instead of instance count/upstream count for kind terminating-gateway', async function (assert) {
@@ -343,27 +343,27 @@ module('Integration | Component | cut/list-item/service', function (hooks) {
 
     await render(
       hbs`
-        <Cut::ListItem::Service @service={{this.service}}/>`
+        <Cut::ListItem::Service @service={{this.service}}/>`,
     );
 
     assert.true(
       cutService.metadata.linkedServiceCount.renders,
-      'renders linked service count'
+      'renders linked service count',
     );
 
     assert.false(
       cutService.metadata.upstreamCount.renders,
-      'does not render upstream count'
+      'does not render upstream count',
     );
 
     assert.false(
       cutService.metadata.instanceCount.renders,
-      'does not render instance count'
+      'does not render instance count',
     );
 
     assert.false(
       cutService.metadata.isPermissiveMTls,
-      'permissive mTLS does not render'
+      'permissive mTLS does not render',
     );
 
     assert.true(cutService.metadata.isStrictMTls, 'strict mTLS renders');

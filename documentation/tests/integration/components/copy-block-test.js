@@ -34,7 +34,7 @@ module('Integration | Component | CopyBlock', function (hooks) {
     this.onSuccess = onSuccess;
 
     await render(
-      hbs`<Cut::CopyBlock @onSuccess={{this.onSuccess}} id="test-copy-block"/>`
+      hbs`<Cut::CopyBlock @onSuccess={{this.onSuccess}} id="test-copy-block"/>`,
     );
     await triggerEvent('#test-copy-block', 'mouseover');
     assert
