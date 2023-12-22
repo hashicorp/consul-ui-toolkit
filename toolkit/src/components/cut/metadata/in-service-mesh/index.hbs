@@ -3,14 +3,14 @@
 }}
 
 {{#if (and @connectedWithGateway @connectedWithProxy)}}
-  <!-- TODO: add translate(CC-5314) -->
+  {{!-- TODO: add translate(CC-5314) --}}
   <Cut::TextWithIcon @icon="mesh" @text='in service mesh with proxy and gateway' data-test-mesh />
 
 {{else if @connectedWithProxy}}
-  <!-- TODO: add translate(CC-5314) -->
+  {{!-- TODO: add translate(CC-5314) --}}
   <Cut::TextWithIcon @icon="mesh" @text='in service mesh with proxy' data-test-mesh />
 
 {{else if @connectedWithGateway}}
-  <!-- TODO: add translate(CC-5314) -->
+  {{!-- TODO: add translate(CC-5314) --}}
   <Cut::TextWithIcon @icon="mesh" @text='in service mesh with gateway' data-test-mesh />
 {{/if}}
