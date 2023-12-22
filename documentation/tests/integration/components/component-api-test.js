@@ -19,14 +19,14 @@ module('Integration | Component | ComponentApi', function (hooks) {
       </ComponentApi>
     `);
 
-    assert.dom('.doc-componentApi-name dd').hasText('text');
-    assert.dom('.doc-componentApi-type dd').hasText('string');
+    assert.dom('.doc-component-api-name dd').hasText('text');
+    assert.dom('.doc-component-api-type dd').hasText('string');
     assert
-      .dom('.doc-componentApi-description dd')
+      .dom('.doc-component-api-description dd')
       .hasText('The text that serves as the description');
 
-    assert.dom('.doc-componentApi-values').doesNotExist();
-    assert.dom('.doc-componentApi-default').doesNotExist();
+    assert.dom('.doc-component-api-values').doesNotExist();
+    assert.dom('.doc-component-api-default').doesNotExist();
   });
 
   test('it renders the default when provided if there are no values', async function (assert) {
@@ -38,7 +38,7 @@ module('Integration | Component | ComponentApi', function (hooks) {
       />
     `);
 
-    assert.dom('.doc-componentApi-default dd').hasText('foo');
+    assert.dom('.doc-component-api-default dd').hasText('foo');
 
     await render(hbs`
       <ComponentApi
@@ -49,10 +49,10 @@ module('Integration | Component | ComponentApi', function (hooks) {
       />
     `);
 
-    assert.dom('.doc-componentApi-default dd').doesNotExist();
-    assert.dom('.doc-componentApi-values dd').exists();
+    assert.dom('.doc-component-api-default dd').doesNotExist();
+    assert.dom('.doc-component-api-values dd').exists();
 
-    const values = await findAll('.doc-componentApi-values > dd > .hds-badge');
+    const values = await findAll('.doc-component-api-values > dd > .hds-badge');
 
     assert.strictEqual(values.length, 4);
     assert.dom(values[0]).hasText('success');

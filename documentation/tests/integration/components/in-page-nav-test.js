@@ -20,18 +20,18 @@ module('Integration | Component | InPageNav', function (hooks) {
       </InPageNav>,
     `);
 
-    const links = findAll('.doc-InPageNav-link');
+    const links = findAll('.doc-in-page-nav-link');
 
     assert.strictEqual(links.length, 4, 'There should be 4 links on the page');
     assert
-      .dom('.doc-InPageNav-link:nth-child(1)')
+      .dom('.doc-in-page-nav-link:nth-child(1)')
       .hasClass(
-        'doc-InPageNav-link--depth-1',
+        'doc-in-page-nav-link-depth-1',
         'There should be the level 1 depth class',
       );
 
     assert
-      .dom('.doc-InPageNav-link:nth-child(1) > a')
+      .dom('.doc-in-page-nav-link:nth-child(1) > a')
       .hasAttribute(
         'href',
         '#test-one',
@@ -39,14 +39,14 @@ module('Integration | Component | InPageNav', function (hooks) {
       );
 
     assert
-      .dom('.doc-InPageNav-link:nth-child(2)')
+      .dom('.doc-in-page-nav-link:nth-child(2)')
       .hasClass(
-        'doc-InPageNav-link--depth-2',
+        'doc-in-page-nav-link-depth-2',
         'There should be the level 2 depth class',
       );
 
     assert
-      .dom('.doc-InPageNav-link:nth-child(3) > a')
+      .dom('.doc-in-page-nav-link:nth-child(3) > a')
       .hasAttribute(
         'href',
         '#',
@@ -54,9 +54,9 @@ module('Integration | Component | InPageNav', function (hooks) {
       );
 
     assert
-      .dom('.doc-InPageNav-link:nth-child(4)')
+      .dom('.doc-in-page-nav-link:nth-child(4)')
       .hasClass(
-        'doc-InPageNav-link--depth-1',
+        'doc-in-page-nav-link-depth-1',
         'There should be the level 1 depth class when depth is not passed in',
       );
   });

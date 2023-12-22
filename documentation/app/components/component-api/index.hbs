@@ -2,14 +2,14 @@
   Copyright (c) HashiCorp, Inc.
 }}
 
-<dl class="doc-componentApi">
-  <div class="doc-componentApi-name">
+<dl class="doc-component-api">
+  <div class="doc-component-api-name">
     <dt>Name</dt>
     <dd><Hds::Badge @text={{@name}} @type="inverted" /></dd>
   </div>
 
-  <div class="doc-componentApi-type-required-group">
-    <div class="doc-componentApi-type">
+  <div class="doc-component-api-type-required-group">
+    <div class="doc-component-api-type">
       {{#if @type}}
         <dt>Type</dt>
         <dd class="hds-font-family-mono-code">{{@type}}</dd>
@@ -17,19 +17,19 @@
     </div>
 
     {{#if @isRequired}}
-      <Hds::Badge @text="Required" class="doc-componentApi-required" />
+      <Hds::Badge @text="Required" class="doc-component-api-required" />
     {{/if}}
   </div>
 
   {{#if (and @default (not @values))}}
-    <div class="doc-componentApi-default">
+    <div class="doc-component-api-default">
       <dt>Default</dt>
       <dd><Hds::Badge @text={{@default}} @type="inverted" /></dd>
     </div>
   {{/if}}
 
   {{#if @values}}
-    <div class="doc-componentApi-values">
+    <div class="doc-component-api-values">
       <dt>Values</dt>
       <dd>
         {{#each @values as |value|}}
@@ -43,7 +43,7 @@
   {{/if}}
 
   {{#if (has-block)}}
-    <div class="doc-componentApi-description">
+    <div class="doc-component-api-description">
       <dt>Description</dt>
       <dd>{{yield}}</dd>
     </div>

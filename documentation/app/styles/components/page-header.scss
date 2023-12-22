@@ -2,11 +2,11 @@
  * Copyright (c) HashiCorp, Inc.
  */
 
-.doc-PageHeader {
+.doc-page-header {
   max-width: 1080px;
   width: 100%;
 
-  .doc-PageHeader-title {
+  .doc-page-header-title {
     display: flex;
     gap: 1rem;
     align-items: center;
@@ -18,16 +18,16 @@
     }
   }
 
-  .doc-PageHeader-badge {
+  .doc-page-header-badge {
     flex-grow: 1;
   }
 
-  .doc-PageHeader-links {
+  .doc-page-header-links {
     display: flex;
     gap: 13px;
   }
 
-  .doc-PageHeader-description {
+  .doc-page-header-description {
     max-width: 880px;
     margin-top: 0;
     color: var(--token-color-foreground-faint);

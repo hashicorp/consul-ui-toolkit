@@ -2,7 +2,7 @@
  * Copyright (c) HashiCorp, Inc.
  */
 
-.doc-componentApi {
+.doc-component-api {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "name type";
@@ -15,7 +15,6 @@
   width: 100%;
 
   dt {
-    font-weight: var(--token-typography-display-100-font-size);
     font-weight: var(--token-typography-font-weight-semibold);
     margin-bottom: 0.5rem;
   }
@@ -24,29 +23,29 @@
     margin-left: 0;
   }
 
-  .doc-componentApi-name {
+  .doc-component-api-name {
     grid-area: name;
   }
 
-  .doc-componentApi-type-required-group {
+  .doc-component-api-type-required-group {
     grid-area: type;
     display: flex;
     justify-content: space-between;
   }
 
-  .doc-componentApi-required {
+  .doc-component-api-required {
     align-self: start;
   }
 
-  .doc-componentApi-default {
+  .doc-component-api-default {
     grid-column: 1/4;
   }
 
-  .doc-componentApi-values {
+  .doc-component-api-values {
     grid-column: 1/4;
   }
 
-  .doc-componentApi-description {
+  .doc-component-api-description {
     grid-column: 1/4;
   }
 }
