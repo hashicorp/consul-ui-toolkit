@@ -6,7 +6,7 @@
   {{#let @dropdown this.filterCount as |Dropdown filterCount|}}
     <Dropdown
       @listPosition={{if @listPosition @listPosition 'bottom-right'}}
-      @onClose={{fn @clearPendingFilter @name}}
+      @onClose={{(fn @clearPendingFilter @name)}}
       ...attributes
       as |DD|
     >
@@ -85,7 +85,7 @@
 {{else}}
   <Hds::Dropdown
     @listPosition={{if @listPosition @listPosition 'bottom-right'}}
-    @onClose={{fn @clearPendingFilter @name}}
+    @onClose={{(fn @clearPendingFilter @name)}}
     ...attributes
     as |DD|
   >

@@ -77,24 +77,19 @@
     <p class='cut-filter-bar-results-count' data-test-filter-bar-results>
       {{#if this.hasCount}}
         Showing
-        {{pluralize @count (if @name @name 'result')}}{{if
-          @totalCount
-          (concat ' of ' @totalCount)
-        }}
+        {{(pluralize @count (if @name @name 'result'))}}{{(if @totalCount (concat ' of ' @totalCount))}}
       {{else if this.isFiltering}}
         Filters applied:
       {{else if (and this.isSearching this.appliedSearch)}}
         Showing results for {{this.appliedSearch}}
       {{else}}
         Showing all
-        {{if @name (pluralize @name) 'results'}}
+        {{(if @name (pluralize @name) 'results')}}
       {{/if}}
     </p>
 
     {{#each this.appliedFilters as |filter|}}
-      <p class='cut-filter-bar-applied-filter-label'>{{titlecase
-          filter.name
-        }}:</p>
+      <p class='cut-filter-bar-applied-filter-label'>{{(titlecase filter.name)}}:</p>
 
       {{#each filter.value as |filterValue|}}
         {{#if filter.isRequired}}
