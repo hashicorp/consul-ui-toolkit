@@ -36,7 +36,7 @@ jobs:
           node-version: 18.x
           cache: yarn
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - name: Lint
         run: yarn lint
       - name: Run Tests
@@ -53,8 +53,10 @@ jobs:
         with:
           node-version: 18.x
           cache: yarn
+      - name: Remove lockfile
+        run: rm yarn.lock
       - name: Install Dependencies
-        run: yarn install --no-lockfile
+        run: yarn install
       - name: Run Tests
         run: yarn test
 
@@ -84,7 +86,7 @@ jobs:
           node-version: 18.x
           cache: yarn
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - name: Run Tests
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
         working-directory: documentation
