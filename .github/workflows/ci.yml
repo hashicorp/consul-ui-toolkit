@@ -37,6 +37,8 @@ jobs:
           cache: yarn
       - name: Install Dependencies
         run: yarn install --immutable
+      - name: Prepare Toolkit
+        run: yarn prepare
       - name: Lint
         run: yarn lint
       - name: Run Tests
@@ -57,6 +59,8 @@ jobs:
         run: rm yarn.lock
       - name: Install Dependencies
         run: yarn install
+      - name: Prepare Toolkit
+        run: yarn prepare
       - name: Run Tests
         run: yarn test
 
@@ -87,6 +91,8 @@ jobs:
           cache: yarn
       - name: Install Dependencies
         run: yarn install --immutable
+      - name: Prepare Toolkit
+        run: yarn prepare
       - name: Run Tests
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
         working-directory: documentation
