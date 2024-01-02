@@ -58,7 +58,7 @@ jobs:
       - name: Remove lockfile
         run: rm yarn.lock
       - name: Install Dependencies
-        run: yarn install
+        run: YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install
       - name: Prepare Toolkit
         run: yarn prepare
       - name: Run Tests
