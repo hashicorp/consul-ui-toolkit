@@ -96,3 +96,5 @@ jobs:
       - name: Run Tests
         run: yarn ember try:one ${{ matrix.try-scenario }}
         working-directory: documentation
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
