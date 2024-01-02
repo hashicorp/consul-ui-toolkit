@@ -10,6 +10,13 @@ const { embroiderSafe, embroiderOptimized } = require('@embroider/test-setup');
 module.exports = async function () {
   return {
     useYarn: true,
+    // ember-try uses --no-lockfile by default, which is incompatible with Yarn 4
+    // They are considering moving away from this option.
+    // https://github.com/ember-cli/ember-try/issues/741
+    // https://github.com/ember-cli/ember-try/issues/597
+    buildManagerOptions() {
+      return [''];
+    },
     scenarios: [
       {
         name: 'ember-lts-3.28',

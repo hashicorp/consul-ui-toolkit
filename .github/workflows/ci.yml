@@ -94,5 +94,5 @@ jobs:
       - name: Prepare Toolkit
         run: yarn prepare
       - name: Run Tests
-        run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
+        run: yarn ember try:one ${{ matrix.try-scenario }}
         working-directory: documentation
