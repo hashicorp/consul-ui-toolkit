@@ -15,7 +15,13 @@ import {
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 
-async function setupTest({ config, name, count, totalCount, isMultiSelect } = {}) {
+async function setupTest({
+  config,
+  name,
+  count,
+  totalCount,
+  isMultiSelect,
+} = {}) {
   this.set('name', name);
 
   this.set('count', count);
