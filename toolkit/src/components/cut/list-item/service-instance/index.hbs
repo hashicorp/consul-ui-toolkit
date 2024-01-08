@@ -15,7 +15,7 @@
   data-test-service-instance-list-item
   as |L|
 >
-  <L.Content as |C|>
+  <L.Content>
     <Cut::ListItem::Template as |T|>
       <T.Section as |SC|>
         <SC.Title data-test-service-name>{{@service.name}}</SC.Title>
@@ -29,7 +29,7 @@
               data-test-health-check-all-healthy
             />
           {{else}}
-            <!--Service health check-->
+            {{!--Service health check--}}
             {{#if @service.metadata.healthCheck.service}}
               <Cut::Metadata::HealthCheckBadgeSet
                 @successCount={{@service.metadata.healthCheck.service.success}}
@@ -38,7 +38,7 @@
                 @type='service'
               />
             {{/if}}
-            <!--Node health check-->
+            {{!--Node health check--}}
             {{#if @service.metadata.healthCheck.node}}
               <Cut::Metadata::HealthCheckBadgeSet
                 @successCount={{@service.metadata.healthCheck.node.success}}

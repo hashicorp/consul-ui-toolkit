@@ -49,7 +49,7 @@ module('Integration | Component | cut/list-item', function (hooks) {
 
   test('it should render a <a> link with custom "target" and "rel" attributes if they are passed as attributes', async function (assert) {
     await render(
-      hbs`<Cut::ListItem id="test-list-item" @href="#" target="test-target" rel="test-rel" />`
+      hbs`<Cut::ListItem id="test-list-item" @href="#" target="test-target" rel="test-rel" />`,
     );
     assert.dom('#test-list-item .active').hasAttribute('target', 'test-target');
     assert.dom('#test-list-item .active').hasAttribute('rel', 'test-rel');
@@ -57,7 +57,7 @@ module('Integration | Component | cut/list-item', function (hooks) {
 
   test('it should render a <a> link withhout "target" and "rel" attributes if @isHrefExternal is false', async function (assert) {
     await render(
-      hbs`<Cut::ListItem id="test-list-item" @href="#" @isHrefExternal={{false}} />`
+      hbs`<Cut::ListItem id="test-list-item" @href="#" @isHrefExternal={{false}} />`,
     );
     assert.dom('#test-list-item .active').doesNotHaveAttribute('target');
     assert.dom('#test-list-item .active').doesNotHaveAttribute('rel');
@@ -65,7 +65,7 @@ module('Integration | Component | cut/list-item', function (hooks) {
 
   test('it should spread all the attributes passed to the <li> element', async function (assert) {
     await render(
-      hbs`<Cut::ListItem id="test-list-item" class="my-class" data-test1 data-test2="test" />`
+      hbs`<Cut::ListItem id="test-list-item" class="my-class" data-test1 data-test2="test" />`,
     );
     assert.dom('li#test-list-item').hasClass('my-class');
     assert.dom('li#test-list-item').hasAttribute('data-test1');
@@ -74,7 +74,7 @@ module('Integration | Component | cut/list-item', function (hooks) {
 
   test('it should yield the content of the List item element', async function (assert) {
     await render(
-      hbs`<Cut::ListItem id="test-list-item" as |L|><L.Content id="test-content">test</L.Content></Cut::ListItem>`
+      hbs`<Cut::ListItem id="test-list-item" as |L|><L.Content id="test-content">test</L.Content></Cut::ListItem>`,
     );
     assert.dom('#test-list-item #test-content').exists();
     assert.dom('#test-list-item #test-content').hasText('test');
@@ -82,7 +82,7 @@ module('Integration | Component | cut/list-item', function (hooks) {
 
   test('it should yield the action(button) of the List item element', async function (assert) {
     await render(
-      hbs`<Cut::ListItem id="test-list-item" as |L|><L.ActionButton @text="test" id="test-button"/></Cut::ListItem>`
+      hbs`<Cut::ListItem id="test-list-item" as |L|><L.ActionButton @text="test" id="test-button"/></Cut::ListItem>`,
     );
     assert.dom('#test-list-item #test-button').exists();
     assert.dom('#test-list-item #test-button').hasText('test');
@@ -94,7 +94,7 @@ module('Integration | Component | cut/list-item', function (hooks) {
             <L.ActionGeneric>
                <pre>test</pre>
             </L.ActionGeneric>
-          </Cut::ListItem>`
+          </Cut::ListItem>`,
     );
     assert.dom('#test-list-item pre').exists();
     assert.dom('#test-list-item pre').hasText('test');
@@ -104,14 +104,14 @@ module('Integration | Component | cut/list-item', function (hooks) {
     await render(
       hbs`<Cut::ListItem id="test-list-item" as |L|>
             <L.ActionDropdown id="test-dropdown"/>
-          </Cut::ListItem>`
+          </Cut::ListItem>`,
     );
     assert.dom('#test-list-item #test-dropdown').exists();
   });
 
   test('it should render Cut::ListItem::Template and has a element class', async function (assert) {
     await render(
-      hbs`<Cut::ListItem::Template id="test-list-item-template"></Cut::ListItem::Template>`
+      hbs`<Cut::ListItem::Template id="test-list-item-template"></Cut::ListItem::Template>`,
     );
     assert
       .dom('div#test-list-item-template')
@@ -123,7 +123,7 @@ module('Integration | Component | cut/list-item', function (hooks) {
       hbs`
         <Cut::ListItem::Template id="test-list-item-template" as |T|>
           <T.Section id="test-list-item-template-label"></T.Section>
-        </Cut::ListItem::Template>`
+        </Cut::ListItem::Template>`,
     );
     assert
       .dom('#test-list-item-template #test-list-item-template-label')
@@ -135,7 +135,7 @@ module('Integration | Component | cut/list-item', function (hooks) {
       hbs`
         <Cut::ListItem::Template id="test-list-item-template" as |T|>
           <T.Icon @name="network"></T.Icon>
-        </Cut::ListItem::Template>`
+        </Cut::ListItem::Template>`,
     );
     assert.dom('#test-list-item-template svg').exists();
   });
@@ -145,7 +145,7 @@ module('Integration | Component | cut/list-item', function (hooks) {
       hbs`
         <Cut::ListItem::Template id="test-list-item-template" as |T|>
           <T.Badge id="test-list-item-template-badge" @text="test"></T.Badge>
-        </Cut::ListItem::Template>`
+        </Cut::ListItem::Template>`,
     );
     assert
       .dom('#test-list-item-template #test-list-item-template-badge')
@@ -160,7 +160,7 @@ module('Integration | Component | cut/list-item', function (hooks) {
       hbs`
         <Cut::ListItem::Section id="test-list-item-section" as |L|>
           <L.Title id="test-list-item-section-title">test</L.Title>
-        </Cut::ListItem::Section>`
+        </Cut::ListItem::Section>`,
     );
     assert
       .dom('#test-list-item-section #test-list-item-section-title')
@@ -175,7 +175,7 @@ module('Integration | Component | cut/list-item', function (hooks) {
       hbs`
         <Cut::ListItem::Section id="test-list-item-section" as |L|>
           <L.Metadata id="test-list-item-section-metadata">test</L.Metadata>
-        </Cut::ListItem::Section>`
+        </Cut::ListItem::Section>`,
     );
     assert
       .dom('#test-list-item-section #test-list-item-section-metadata')

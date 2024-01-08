@@ -3,12 +3,11 @@
  */
 @use "consul-ui-toolkit";
 @use "@hashicorp/design-system-components";
-
 @import "./components/list-item";
 @import "./components/component-api";
 @import "./components/page-header";
-@import "./components/preview-block.scss";
-@import "./components/in-page-nav.scss";
+@import "./components/preview-block";
+@import "./components/in-page-nav";
 @import "./pages/list";
 @import "./pages/list-item";
 @import "./pages/list-item-template";
@@ -28,7 +27,7 @@ html {
   line-height: var(--token-typography-display-200-line-height);
   font-family: var(--token-typography-font-stack-text);
   color: var(--token-color-foreground-strong);
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
   text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -94,11 +93,7 @@ li {
 .application {
   display: grid;
   height: 100vh;
-  grid-template-columns: 280px auto;
-  grid-template-areas:
-    "nav container"
-    "nav footer";
-  grid-template-rows: 1fr auto;
+  grid-template: "nav container" 1fr "nav footer" auto / 280px auto;
 
   > .hds-side-nav {
     grid-area: nav;
@@ -112,7 +107,7 @@ li {
     grid-area: container;
     display: flex;
     flex-direction: column;
-    padding: 2.5rem 2.5rem;
+    padding: 2.5rem;
     align-items: start;
     max-width: 1162px;
 
@@ -120,6 +115,7 @@ li {
       width: 100%;
     }
 
+    /* stylelint-disable selector-class-pattern -- Using hds classes */
     .content,
     .hds-tabs__panel {
       margin-top: 2rem;
@@ -128,6 +124,7 @@ li {
         margin-top: 0;
       }
     }
+    /* stylelint-enable selector-class-pattern */
 
     .hds-alert {
       margin-bottom: 2.5rem;
@@ -161,11 +158,11 @@ li {
     }
   }
 
-  .doc-Page {
+  .doc-page {
     display: flex;
     justify-content: space-between;
 
-    .doc-Page-content {
+    .doc-page-content {
       max-width: 800px;
       flex-grow: 1;
 

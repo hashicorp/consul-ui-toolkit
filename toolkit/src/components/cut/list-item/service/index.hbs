@@ -15,7 +15,7 @@
   data-test-service-list-item
   as |L|
 >
-  <L.Content as |C|>
+  <L.Content>
     <Cut::ListItem::Template as |T|>
       <T.Section as |SC|>
         <SC.Title data-test-service-name>
@@ -43,28 +43,28 @@
           {{/if}}
           {{#if this.isIngressGateway}}
             {{#if (not-eq @service.metadata.upstreamCount undefined)}}
-              <!-- TODO: add translate with pluralize(CC-5314)-->
+              {{!-- TODO: add translate with pluralize(CC-5314)--}}
               <span
                 data-test-associated-upstream-count
               >{{@service.metadata.upstreamCount}} upstreams</span>
             {{/if}}
           {{else if this.isTerminatingGateway}}
             {{#if (not-eq @service.metadata.linkedServiceCount undefined)}}
-              <!-- TODO: add translate with pluralize (CC-5314) -->
+              {{!-- TODO: add translate with pluralize (CC-5314) --}}
               <span
                 data-test-associated-service-count
               >{{@service.metadata.linkedServiceCount}} linked services</span>
             {{/if}}
           {{else}}
             {{#if (not-eq @service.metadata.instanceCount undefined)}}
-              <!-- TODO: add translate with pluralize(CC-5314) -->
+              {{!-- TODO: add translate with pluralize(CC-5314) --}}
               <span
                 data-test-associated-instance-count
               >{{@service.metadata.instanceCount}} instances</span>
             {{/if}}
           {{/if}}
           {{#if @service.metadata.isPermissiveMTls}}
-            <!-- TODO: add translate(CC-5314) -->
+            {{!-- TODO: add translate(CC-5314) --}}
             <Cut::TextWithIcon
               @icon='unlock'
               @text='permissive mTLS'
@@ -94,7 +94,7 @@
             />
           {{/if}}
           {{#if @service.metadata.isImported}}
-            <!-- TODO: add translate(CC-5314) -->
+            {{!-- TODO: add translate(CC-5314) --}}
             <Cut::TextWithIcon
               @icon='upload'
               @text='Imported'

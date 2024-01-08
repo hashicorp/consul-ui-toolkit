@@ -12,57 +12,57 @@ export default create({
   metadata: {
     healthCheck: {
       allHealthy: isVisible(
-        `${listItemSelector} [data-test-health-check-all-healthy]`
+        `${listItemSelector} [data-test-health-check-all-healthy]`,
       ),
       node: {
         success: {
           renders: isPresent(
-            `${listItemSelector} [data-test-health-check-success="node"]`
+            `${listItemSelector} [data-test-health-check-success="node"]`,
           ),
           text: text(
-            `${listItemSelector} [data-test-health-check-success="node"]`
+            `${listItemSelector} [data-test-health-check-success="node"]`,
           ),
         },
         critical: {
           renders: isPresent(
-            `${listItemSelector} [data-test-health-check-critical="node"]`
+            `${listItemSelector} [data-test-health-check-critical="node"]`,
           ),
           text: text(
-            `${listItemSelector} [data-test-health-check-critical="node"]`
+            `${listItemSelector} [data-test-health-check-critical="node"]`,
           ),
         },
         warning: {
           renders: isPresent(
-            `${listItemSelector} [data-test-health-check-warning="node"]`
+            `${listItemSelector} [data-test-health-check-warning="node"]`,
           ),
           text: text(
-            `${listItemSelector} [data-test-health-check-warning="node"]`
+            `${listItemSelector} [data-test-health-check-warning="node"]`,
           ),
         },
       },
       service: {
         success: {
           renders: isPresent(
-            `${listItemSelector} [data-test-health-check-success="service"]`
+            `${listItemSelector} [data-test-health-check-success="service"]`,
           ),
           text: text(
-            `${listItemSelector} [data-test-health-check-success="service"]`
+            `${listItemSelector} [data-test-health-check-success="service"]`,
           ),
         },
         critical: {
           renders: isPresent(
-            `${listItemSelector} [data-test-health-check-critical="service"]`
+            `${listItemSelector} [data-test-health-check-critical="service"]`,
           ),
           text: text(
-            `${listItemSelector} [data-test-health-check-critical="service"]`
+            `${listItemSelector} [data-test-health-check-critical="service"]`,
           ),
         },
         warning: {
           renders: isPresent(
-            `${listItemSelector} [data-test-health-check-warning="service"]`
+            `${listItemSelector} [data-test-health-check-warning="service"]`,
           ),
           text: text(
-            `${listItemSelector} [data-test-health-check-warning="service"]`
+            `${listItemSelector} [data-test-health-check-warning="service"]`,
           ),
         },
       },

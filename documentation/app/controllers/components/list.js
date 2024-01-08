@@ -134,7 +134,7 @@ export default class ListController extends Controller {
         }
         return prev;
       },
-      {}
+      {},
     );
     if (this.filters?.search?.value) {
       filterObj.search = this.filters.search.value;

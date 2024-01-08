@@ -22,6 +22,6 @@ jobs:
           ref: ${{github.event.pull_request.head.sha}}
           fetch-depth: 0
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - name: Check if changeset is required and present
         run: yarn changeset status --since origin/main

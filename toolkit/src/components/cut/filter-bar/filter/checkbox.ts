@@ -10,7 +10,7 @@ export default class CheckboxComponent extends Component<FilterBarCheckboxSignat
     return this.args.isChecked(
       this.args.localConfig,
       this.args.filterName,
-      this.args.value
+      this.args.value,
     );
   }
 }

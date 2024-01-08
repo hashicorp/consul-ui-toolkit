@@ -43,7 +43,7 @@ async function setupTest({ config, name, count, totalCount } = {}) {
         text: 'critical to healthy',
         value: 'health',
       },
-    }
+    },
   );
 
   const onChange = sinon.spy();
@@ -125,7 +125,7 @@ module('Integration | Component | cut/filter-bar', function (hooks) {
     assert.strictEqual(
       tagButtons.length,
       2,
-      'There should only be 2 tag dismiss buttons'
+      'There should only be 2 tag dismiss buttons',
     );
 
     await click(tagButtons[0]);
@@ -148,7 +148,7 @@ module('Integration | Component | cut/filter-bar', function (hooks) {
     });
     assert.notOk(
       newConfig[0].filters.status.find((filter) => filter.value === 'running'),
-      'The running status should be removed'
+      'The running status should be removed',
     );
 
     await click('.cut-filter-bar-results > button');
@@ -184,7 +184,7 @@ module('Integration | Component | cut/filter-bar', function (hooks) {
     });
 
     const tags = this.element.querySelectorAll(
-      '.cut-filter-bar-results .hds-tag'
+      '.cut-filter-bar-results .hds-tag',
     );
 
     assert.strictEqual(tags.length, 1);
@@ -201,14 +201,14 @@ module('Integration | Component | cut/filter-bar', function (hooks) {
 
     assert.notOk(
       onChange.calledOnce,
-      'Batch filters only trigger an update after clicking the apply button'
+      'Batch filters only trigger an update after clicking the apply button',
     );
 
     await click('.cut-filter-bar-apply-filter-button button');
 
     assert.ok(
       onChange.calledOnce,
-      'Batch filter is applied after clicking the apply button'
+      'Batch filter is applied after clicking the apply button',
     );
 
     let newConfig = onChange.getCall(0).args;
@@ -240,7 +240,7 @@ module('Integration | Component | cut/filter-bar', function (hooks) {
 
     assert.notOk(
       this.element.querySelector('.cut-filter-bar-apply-filter-button button'),
-      'There should be no apply button on non-batch filters'
+      'There should be no apply button on non-batch filters',
     );
 
     await click('[data-test-consul-value]');
@@ -272,7 +272,7 @@ module('Integration | Component | cut/filter-bar', function (hooks) {
           isRequired: false,
         },
       },
-      'Type filter is updated with Consul'
+      'Type filter is updated with Consul',
     );
 
     await click('[data-test-nomad-value]');
@@ -304,7 +304,7 @@ module('Integration | Component | cut/filter-bar', function (hooks) {
           isRequired: false,
         },
       },
-      'Type filter is updated to be Nomad'
+      'Type filter is updated to be Nomad',
     );
   });
 
@@ -323,7 +323,7 @@ module('Integration | Component | cut/filter-bar', function (hooks) {
         value: 'instances',
         text: 'Instance count',
       },
-      'Sort is updated to be instance count'
+      'Sort is updated to be instance count',
     );
   });
 
@@ -421,13 +421,13 @@ module('Integration | Component | cut/filter-bar', function (hooks) {
 
     assert.notOk(
       onChange.calledOnce,
-      "Search waits to triggers a change until you submit it with 'Enter'"
+      "Search waits to triggers a change until you submit it with 'Enter'",
     );
 
     await triggerKeyEvent('[data-test-search]', 'keyup', 'Enter');
     assert.ok(
       onChange.calledOnce,
-      "Search triggers a change when you submit it with 'Enter'"
+      "Search triggers a change when you submit it with 'Enter'",
     );
 
     let newConfig = onChange.getCall(0).args;
@@ -436,13 +436,13 @@ module('Integration | Component | cut/filter-bar', function (hooks) {
       {
         value: 'wassup',
       },
-      'Search is updated with the new search value'
+      'Search is updated with the new search value',
     );
 
     await fillIn('[data-test-search]', '');
     assert.ok(
       onChange.calledTwice,
-      'Search triggers a change when the value is returned to empty'
+      'Search triggers a change when the value is returned to empty',
     );
 
     newConfig = onChange.getCall(1).args;
@@ -451,7 +451,7 @@ module('Integration | Component | cut/filter-bar', function (hooks) {
       {
         value: '',
       },
-      'Search is updated with the new search value'
+      'Search is updated with the new search value',
     );
   });
 

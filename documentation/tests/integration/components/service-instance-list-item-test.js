@@ -56,117 +56,117 @@ module(
 
       await render(
         hbs`
-            <Cut::ListItem::ServiceInstance @service={{this.service}}/>`
+            <Cut::ListItem::ServiceInstance @service={{this.service}}/>`,
       );
       assert.true(cutServiceInstance.renders, 'renders component');
       assert.deepEqual(
         cutServiceInstance.title,
         'Service 1',
-        'service name is set'
+        'service name is set',
       );
       assert.false(
         cutServiceInstance.metadata.healthCheck.allHealthy,
-        'no all healthy badge if some warning or critical in node/service present'
+        'no all healthy badge if some warning or critical in node/service present',
       );
 
       // service checks
       assert.false(
         cutServiceInstance.metadata.healthCheck.service.success.renders,
-        'no success service healthcheck if some warning or critical present'
+        'no success service healthcheck if some warning or critical present',
       );
       assert.true(
         cutServiceInstance.metadata.healthCheck.service.critical.renders,
-        'renders service critical'
+        'renders service critical',
       );
       assert.true(
         cutServiceInstance.metadata.healthCheck.service.critical.text.includes(
-          `${serviceHealthCheck.critical}/${serviceHealthCheckTotal}`
+          `${serviceHealthCheck.critical}/${serviceHealthCheckTotal}`,
         ),
-        'renders correct number of critical service checks'
+        'renders correct number of critical service checks',
       );
 
       assert.true(
         cutServiceInstance.metadata.healthCheck.service.warning.renders,
-        'renders service warning'
+        'renders service warning',
       );
       assert.true(
         cutServiceInstance.metadata.healthCheck.service.warning.text.includes(
-          `${serviceHealthCheck.warning}/${serviceHealthCheckTotal}`
+          `${serviceHealthCheck.warning}/${serviceHealthCheckTotal}`,
         ),
-        'renders correct number of warning service checks'
+        'renders correct number of warning service checks',
       );
 
       // node checks
       assert.false(
         cutServiceInstance.metadata.healthCheck.node.success.renders,
-        'no success node healthcheck if some warning or critical present'
+        'no success node healthcheck if some warning or critical present',
       );
       assert.true(
         cutServiceInstance.metadata.healthCheck.node.critical.renders,
-        'renders node critical'
+        'renders node critical',
       );
       assert.true(
         cutServiceInstance.metadata.healthCheck.node.critical.text.includes(
-          `${nodeHealthCheck.critical}/${nodeHealthCheckTotal}`
+          `${nodeHealthCheck.critical}/${nodeHealthCheckTotal}`,
         ),
-        'renders correct number of critical node checks'
+        'renders correct number of critical node checks',
       );
 
       assert.true(
         cutServiceInstance.metadata.healthCheck.node.warning.renders,
-        'renders node warning'
+        'renders node warning',
       );
       assert.true(
         cutServiceInstance.metadata.healthCheck.node.warning.text.includes(
-          `${nodeHealthCheck.warning}/${nodeHealthCheckTotal}`
+          `${nodeHealthCheck.warning}/${nodeHealthCheckTotal}`,
         ),
-        'renders correct number of warning node checks'
+        'renders correct number of warning node checks',
       );
 
       assert.true(
         cutServiceInstance.metadata.inMeshGateway.renders,
-        'renders mesh message'
+        'renders mesh message',
       );
       assert.true(
         cutServiceInstance.metadata.externalSource.renders,
-        'renders external source'
+        'renders external source',
       );
 
       assert.true(
         cutServiceInstance.metadata.externalSource.text
           .toLowerCase()
           .includes(service.metadata.externalSource),
-        'includes external source value in metadata'
+        'includes external source value in metadata',
       );
       assert.true(
         cutServiceInstance.metadata.node.renders,
-        'renders node name'
+        'renders node name',
       );
       assert.true(
         cutServiceInstance.metadata.node.text.includes(service.metadata.node),
-        'renders node name text'
+        'renders node name text',
       );
 
       assert.true(
         cutServiceInstance.metadata.servicePortAddress.renders,
-        'renders service port address'
+        'renders service port address',
       );
       assert.true(
         cutServiceInstance.metadata.servicePortAddress.text.includes(
-          service.metadata.servicePortAddress
+          service.metadata.servicePortAddress,
         ),
-        'renders service port address text'
+        'renders service port address text',
       );
       assert.false(
         cutServiceInstance.metadata.serviceSocketPath.renders,
-        'does not render service socket path if service port address presented'
+        'does not render service socket path if service port address presented',
       );
       assert.true(cutServiceInstance.metadata.tags.renders, 'renders tags');
       assert.true(
         cutServiceInstance.metadata.tags.text.includes(
-          service.metadata.tags.join(', ')
+          service.metadata.tags.join(', '),
         ),
-        'renders tags values to metadata'
+        'renders tags values to metadata',
       );
     });
 
@@ -184,66 +184,66 @@ module(
 
       await render(
         hbs`
-            <Cut::ListItem::ServiceInstance @service={{this.service}}/>`
+            <Cut::ListItem::ServiceInstance @service={{this.service}}/>`,
       );
       assert.true(cutServiceInstance.renders, 'renders');
       assert.deepEqual(
         cutServiceInstance.title,
         'Service 1',
-        'service name is set'
+        'service name is set',
       );
       assert.true(
         cutServiceInstance.metadata.healthCheck.allHealthy,
-        'present All Healthy badge cause no critical and warning checks'
+        'present All Healthy badge cause no critical and warning checks',
       );
       assert.false(
         cutServiceInstance.metadata.healthCheck.service.success.renders,
-        'does not render service success'
+        'does not render service success',
       );
       assert.false(
         cutServiceInstance.metadata.healthCheck.service.critical.renders,
-        'does not render service critical'
+        'does not render service critical',
       );
       assert.false(
         cutServiceInstance.metadata.healthCheck.service.warning.renders,
-        'does not render service warning'
+        'does not render service warning',
       );
 
       assert.false(
         cutServiceInstance.metadata.healthCheck.node.success.renders,
-        'does not render node success'
+        'does not render node success',
       );
       assert.false(
         cutServiceInstance.metadata.healthCheck.node.critical.renders,
-        'does not render node critical'
+        'does not render node critical',
       );
       assert.false(
         cutServiceInstance.metadata.healthCheck.node.warning.renders,
-        'does not render node warning'
+        'does not render node warning',
       );
       assert.false(
         cutServiceInstance.metadata.tags.renders,
-        'does not render tags'
+        'does not render tags',
       );
       assert.false(
         cutServiceInstance.metadata.node.renders,
-        'does not render node name'
+        'does not render node name',
       );
       assert.false(
         cutServiceInstance.metadata.serviceSocketPath.renders,
-        'does not render service socket'
+        'does not render service socket',
       );
       assert.false(
         cutServiceInstance.metadata.servicePortAddress.renders,
-        'does not render service port address'
+        'does not render service port address',
       );
       assert.false(
         cutServiceInstance.metadata.externalSource.renders,
-        'does not render external source'
+        'does not render external source',
       );
       assert.false(
         cutServiceInstance.metadata.inMeshGateway.renders,
-        'does not render mesh gateway label'
+        'does not render mesh gateway label',
       );
     });
 
@@ -269,41 +269,41 @@ module(
 
       await render(
         hbs`
-            <Cut::ListItem::ServiceInstance @service={{this.service}}/>`
+            <Cut::ListItem::ServiceInstance @service={{this.service}}/>`,
       );
       assert.true(
         cutServiceInstance.metadata.healthCheck.allHealthy,
-        'renders all healthy badge'
+        'renders all healthy badge',
       );
 
       // service checks
       assert.false(
         cutServiceInstance.metadata.healthCheck.service.success.renders,
-        'does not render service success'
+        'does not render service success',
       );
 
       assert.false(
         cutServiceInstance.metadata.healthCheck.service.warning.renders,
-        'does not render service warning'
+        'does not render service warning',
       );
       assert.false(
         cutServiceInstance.metadata.healthCheck.service.critical.renders,
-        'does not render service critical'
+        'does not render service critical',
       );
 
       // node checks
       assert.false(
         cutServiceInstance.metadata.healthCheck.node.success.renders,
-        'does not render node success'
+        'does not render node success',
       );
 
       assert.false(
         cutServiceInstance.metadata.healthCheck.node.warning.renders,
-        'does not render node warning'
+        'does not render node warning',
       );
       assert.false(
         cutServiceInstance.metadata.healthCheck.node.critical.renders,
-        'does not render node critical'
+        'does not render node critical',
       );
     });
 
@@ -336,48 +336,48 @@ module(
 
       await render(
         hbs`
-            <Cut::ListItem::ServiceInstance @service={{this.service}}/>`
+            <Cut::ListItem::ServiceInstance @service={{this.service}}/>`,
       );
 
       assert.false(
         cutServiceInstance.metadata.healthCheck.allHealthy,
-        'does not render all healthy badge'
+        'does not render all healthy badge',
       );
 
       // service checks
       assert.true(
         cutServiceInstance.metadata.healthCheck.service.success.renders,
-        'render service success'
+        'render service success',
       );
 
       assert.true(
         cutServiceInstance.metadata.healthCheck.service.success.text.includes(
-          `${service.metadata.healthCheck.service.success}/${serviceHealthChecksTotal}`
+          `${service.metadata.healthCheck.service.success}/${serviceHealthChecksTotal}`,
         ),
-        'render service success badge with count details'
+        'render service success badge with count details',
       );
 
       assert.false(
         cutServiceInstance.metadata.healthCheck.service.warning.renders,
-        'does not render service warning'
+        'does not render service warning',
       );
       assert.false(
         cutServiceInstance.metadata.healthCheck.service.critical.renders,
-        'does not render service critical'
+        'does not render service critical',
       );
 
       // node checks
       assert.false(
         cutServiceInstance.metadata.healthCheck.node.success.renders,
-        'does not render node success'
+        'does not render node success',
       );
       assert.false(
         cutServiceInstance.metadata.healthCheck.node.warning.renders,
-        'does not render node critical'
+        'does not render node critical',
       );
       assert.true(
         cutServiceInstance.metadata.healthCheck.node.critical.renders,
-        'renders node critical'
+        'renders node critical',
       );
     });
 
@@ -396,25 +396,25 @@ module(
 
       await render(
         hbs`
-            <Cut::ListItem::ServiceInstance @service={{this.service}}/>`
+            <Cut::ListItem::ServiceInstance @service={{this.service}}/>`,
       );
 
       assert.true(
         cutServiceInstance.metadata.serviceSocketPath.renders,
-        'renders service socket path'
+        'renders service socket path',
       );
 
       assert.true(
         cutServiceInstance.metadata.serviceSocketPath.text.includes(
-          service.metadata.serviceSocketPath
+          service.metadata.serviceSocketPath,
         ),
-        'renders service socket path text in metadata'
+        'renders service socket path text in metadata',
       );
 
       assert.false(
         cutServiceInstance.metadata.servicePortAddress.renders,
-        'does not render service port address'
+        'does not render service port address',
       );
     });
-  }
+  },
 );

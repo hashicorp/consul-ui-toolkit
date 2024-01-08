@@ -4,11 +4,11 @@
 
 {{page-title @title}}
 
-<header class="doc-PageHeader">
-  <div class="doc-PageHeader-title">
+<header class="doc-page-header">
+  <div class="doc-page-header-title">
     <h1>{{@title}}</h1>
     {{#if this.badge}}
-      <div class="doc-PageHeader-badge">
+      <div class="doc-page-header-badge">
         <Hds::Badge
           @text={{this.badge.text}}
           @color={{this.badge.color}}
@@ -17,7 +17,7 @@
       </div>
     {{/if}}
     {{#if (or @figma @github)}}
-      <div class="doc-PageHeader-links">
+      <div class="doc-page-header-links">
         {{#if @figma}}
           <Hds::Link::Standalone
             @icon="figma-color"
@@ -37,7 +37,7 @@
     {{/if}}
   </div>
   {{! yield the description max width 880}}
-  <p class="doc-PageHeader-description">
+  <p class="doc-page-header-description">
     {{yield}}
   </p>
 </header>

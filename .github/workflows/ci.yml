@@ -33,10 +33,12 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@e33196f7422957bea03ed53f6fbb155025ffc7b8 # v3.7.0
         with:
-          node-version: 16.x
+          node-version: 18.x
           cache: yarn
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
+      - name: Prepare Toolkit
+        run: yarn prepare
       - name: Lint
         run: yarn lint
       - name: Run Tests
@@ -51,10 +53,14 @@ jobs:
 
       - uses: actions/setup-node@e33196f7422957bea03ed53f6fbb155025ffc7b8 # v3.7.0
         with:
-          node-version: 16.x
+          node-version: 18.x
           cache: yarn
+      - name: Remove lockfile
+        run: rm yarn.lock
       - name: Install Dependencies
-        run: yarn install --no-lockfile
+        run: YARN_ENABLE_IMMUTABLE_INSTALLS=false yarn install
+      - name: Prepare Toolkit
+        run: yarn prepare
       - name: Run Tests
         run: yarn test
 
@@ -81,10 +87,14 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@e33196f7422957bea03ed53f6fbb155025ffc7b8 # v3.7.0
         with:
-          node-version: 16.x
+          node-version: 18.x
           cache: yarn
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
+      - name: Prepare Toolkit
+        run: yarn prepare
       - name: Run Tests
-        run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
+        run: yarn ember try:one ${{ matrix.try-scenario }}
         working-directory: documentation
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false

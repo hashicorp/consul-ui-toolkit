@@ -14,7 +14,7 @@ export default class ListItemComponent extends Component<ListItemSignature> {
     if (route !== undefined) {
       assert(
         `Cut::ListItem" could have applied either @route, @href or @onClick.`,
-        onClick === undefined && href === undefined
+        onClick === undefined && href === undefined,
       );
     }
 
@@ -27,7 +27,7 @@ export default class ListItemComponent extends Component<ListItemSignature> {
     if (href !== undefined) {
       assert(
         `Cut::ListItem" could have applied either @href, @route or @onClick.`,
-        onClick === undefined && route === undefined
+        onClick === undefined && route === undefined,
       );
     }
     return href;
