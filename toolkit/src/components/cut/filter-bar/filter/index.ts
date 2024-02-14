@@ -28,7 +28,7 @@ export default class FilterComponent extends Component<FilterSignature> {
   }
 
   get filterCount(): string | undefined {
-    if (!this.args.config?.filters) {
+    if (!this.args.config?.filters || !this.args.isMultiSelect) {
       return undefined;
     }
 

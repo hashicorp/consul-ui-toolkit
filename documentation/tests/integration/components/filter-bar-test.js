@@ -15,12 +15,20 @@ import {
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 
-async function setupTest({ config, name, count, totalCount } = {}) {
+async function setupTest({
+  config,
+  name,
+  count,
+  totalCount,
+  isMultiSelect,
+} = {}) {
   this.set('name', name);
 
   this.set('count', count);
 
   this.set('totalCount', totalCount);
+
+  this.set('isMultiSelect', isMultiSelect ?? true);
 
   this.set(
     'config',
@@ -56,7 +64,7 @@ async function setupTest({ config, name, count, totalCount } = {}) {
         <Filters.Filter
           @name="status"
           @batch={{true}}
-          @isMultiSelect={{true}}
+          @isMultiSelect={{this.isMultiSelect}}
           as |F|
         >
           <F.ToggleButton @text="Status" data-test-status-filter />
@@ -469,5 +477,45 @@ module('Integration | Component | cut/filter-bar', function (hooks) {
     await setupTest.call(this);
 
     assert.dom('[data-test-search]').hasNoValue();
+  });
+
+  test('it renders the number of active filters in the dropdown toggle when isMultiSelect is true', async function (assert) {
+    await setupTest.call(this);
+
+    assert
+      .dom('[data-test-status-filter] .hds-badge-count')
+      .hasText('2', 'There are two active filters');
+  });
+
+  test('it does not render the number of active filters in the dropdown toggle when isMultiSelect is false', async function (assert) {
+    await setupTest.call(this, {
+      isMultiSelect: false,
+      config: {
+        search: {
+          value: '',
+        },
+        filters: {
+          status: [
+            {
+              text: 'Warning',
+              value: 'warning',
+            },
+          ],
+          juice: {
+            text: 'Orange',
+            value: 'oj',
+            isRequired: true,
+          },
+        },
+        sort: {
+          text: 'critical to healthy',
+          value: 'health',
+        },
+      },
+    });
+
+    assert
+      .dom('[data-test-status-filter] .hds-badge-count')
+      .doesNotExist('It does not render the badge count');
   });
 });
