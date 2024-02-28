@@ -18,7 +18,7 @@
       </Hds::SideNav::Header>
     </:header>
     <:body>
-      <Hds::SideNav::List as |S|>
+      <Hds::SideNav::List class="hds-side-nav-hide-when-minimized" as |S|>
         <S.Link @icon="dashboard" @text="Overview" @route="index" />
 
         <S.Title>Components</S.Title>
@@ -40,46 +40,47 @@
       </Hds::SideNav::List>
     </:body>
   </Hds::SideNav>
-
-  <main class="line-numbers">
-    {{outlet}}
-  </main>
-  <footer>
-    <nav>
-      <ul>
-        <li><a
-            href="https://github.com/hashicorp/consul-ui-toolkit"
-            target="_blank"
-            rel="noopener noreferrer"
-          >GitHub</a></li>
-        <li><a
-            href="https://github.com/hashicorp/consul-ui-toolkit/blob/main/contributing.md"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Contribute</a></li>
-        <li><a
-            href="https://github.com/hashicorp/consul-ui-toolkit/blob/main/LICENSE"
-            target="_blank"
-            rel="noopener noreferrer"
-          >License</a></li>
-        <li><a
-            href="https://www.hashicorp.com/security"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Security</a></li>
-        <li><a
-            href="https://www.hashicorp.com/privacy"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Privacy</a></li>
-      </ul>
-      <a
-        href="https://www.hashicorp.com/products/consul"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <img src="/images/consul-logo-with-text.svg" alt="HashiCorp Consul" />
-      </a>
-    </nav>
-  </footer>
+  <div class="main-container">
+    <main class="line-numbers">
+      {{outlet}}
+    </main>
+    <footer>
+      <nav>
+        <ul>
+          <li><a
+              href="https://github.com/hashicorp/consul-ui-toolkit"
+              target="_blank"
+              rel="noopener noreferrer"
+            >GitHub</a></li>
+          <li><a
+              href="https://github.com/hashicorp/consul-ui-toolkit/blob/main/contributing.md"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Contribute</a></li>
+          <li><a
+              href="https://github.com/hashicorp/consul-ui-toolkit/blob/main/LICENSE"
+              target="_blank"
+              rel="noopener noreferrer"
+            >License</a></li>
+          <li><a
+              href="https://www.hashicorp.com/security"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Security</a></li>
+          <li><a
+              href="https://www.hashicorp.com/privacy"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Privacy</a></li>
+        </ul>
+        <a
+          href="https://www.hashicorp.com/products/consul"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src="/images/consul-logo-with-text.svg" alt="HashiCorp Consul" />
+        </a>
+      </nav>
+    </footer>
+  </div>
 </div>
