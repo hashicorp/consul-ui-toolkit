@@ -94,6 +94,14 @@ li {
   display: flex;
   min-height: 100vh;
 
+  /* stylelint-disable selector-class-pattern -- Using hds classes */
+  .hds-side-nav--is-minimized {
+    .hds-side-nav__wrapper-body {
+      overflow-y: hidden;
+    }
+  }
+  /* stylelint-enable selector-class-pattern */
+
   > .main-container {
     display: grid;
     grid-template-rows: auto 60px;
