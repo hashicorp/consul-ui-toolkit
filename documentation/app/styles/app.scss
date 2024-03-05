@@ -91,68 +91,70 @@ li {
 }
 
 .application {
-  display: grid;
-  height: 100vh;
-  grid-template: "nav container" 1fr "nav footer" auto / 280px auto;
+  display: flex;
+  min-height: 100vh;
 
-  > .hds-side-nav {
-    grid-area: nav;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 280px;
-  }
-
-  > main {
-    grid-area: container;
-    display: flex;
-    flex-direction: column;
-    padding: 2.5rem;
-    align-items: start;
-    max-width: 1162px;
-
-    > .hds-tabs {
-      width: 100%;
+  /* stylelint-disable selector-class-pattern -- Using hds classes */
+  .hds-side-nav--is-minimized {
+    .hds-side-nav__wrapper-body {
+      overflow-y: hidden;
     }
+  }
+  /* stylelint-enable selector-class-pattern */
 
-    /* stylelint-disable selector-class-pattern -- Using hds classes */
-    .content,
-    .hds-tabs__panel {
-      margin-top: 2rem;
+  > .main-container {
+    display: grid;
+    grid-template-rows: auto 60px;
+    width: 100%;
 
-      h2:first-of-type {
-        margin-top: 0;
+    > main {
+      display: flex;
+      flex-direction: column;
+      padding: 2.5rem;
+      align-items: start;
+      max-width: 1162px;
+
+      > .hds-tabs {
+        width: 100%;
+      }
+
+      /* stylelint-disable selector-class-pattern -- Using hds classes */
+      .content,
+      .hds-tabs__panel {
+        margin-top: 2rem;
+
+        h2:first-of-type {
+          margin-top: 0;
+        }
+      }
+      /* stylelint-enable selector-class-pattern */
+
+      .hds-alert {
+        margin-bottom: 2.5rem;
       }
     }
-    /* stylelint-enable selector-class-pattern */
 
-    .hds-alert {
-      margin-bottom: 2.5rem;
-    }
-  }
-
-  > footer {
-    grid-area: footer;
-
-    > nav {
-      display: flex;
-      padding: 1rem 2.5rem;
-      height: 60px;
-      width: 100%;
-      justify-content: space-between;
-      align-items: center;
-
-      > ul {
+    > footer {
+      > nav {
         display: flex;
-        flex-direction: row;
-        gap: 1rem;
-        padding: 0;
-        list-style: none;
+        padding: 1rem 2.5rem;
+        height: 60px;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
 
-        a {
-          color: var(--token-color-foreground-faint);
-          font-size: var(--token-typography-display-100-font-size);
-          text-decoration: none;
+        > ul {
+          display: flex;
+          flex-direction: row;
+          gap: 1rem;
+          padding: 0;
+          list-style: none;
+
+          a {
+            color: var(--token-color-foreground-faint);
+            font-size: var(--token-typography-display-100-font-size);
+            text-decoration: none;
+          }
         }
       }
     }
