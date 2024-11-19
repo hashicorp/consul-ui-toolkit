@@ -168,7 +168,9 @@ export default class FilterBarComponent extends Component<FilterBarSignature> {
           });
         }
       } else {
-        (filterChange[filterName] as Filter[]) = [{ text, value, isRequired }];
+        (filterChange[filterName] as unknown as Filter[]) = [
+          { text, value, isRequired },
+        ];
       }
     } else if (typeof value === 'object') {
       filterChange[filterName] = { text, value, isRequired };
