@@ -12,9 +12,10 @@ import type {
   FilterBarSignature,
   FilterConfig,
   Filters,
-  HTMLElementEvent,
   ToggleArgs,
-} from 'src/types';
+} from './filter-bar-types';
+
+import type { HTMLElementEvent } from '../../types/index';
 
 /**
  * `Cut::FilterBar` provides the UI building blocks for building a FilterBar while also managing state for you.

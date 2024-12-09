@@ -6,7 +6,7 @@ import Component from '@glimmer/component';
 import {
   EXTERNAL_SOURCE_ICON_MAPPING,
   EXTERNAL_SOURCE_LABELS,
-} from '../../../../utils/service-list-item';
+} from '../../../utils/service-list-item';
 import type { MetadataExternalSourceSignature } from 'src/types';
 
 export default class MetadataExternalSourceComponent extends Component<MetadataExternalSourceSignature> {
