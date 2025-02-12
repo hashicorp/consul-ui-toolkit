@@ -103,9 +103,17 @@ module('Integration | Component | cut/list-item', function (hooks) {
   test('it should yield the action(dropdown) of the List item element', async function (assert) {
     await render(
       hbs`<Cut::ListItem id="test-list-item" as |L|>
-            <L.ActionDropdown id="test-dropdown"/>
+            <L.ActionDropdown id="test-dropdown" as |dd|>
+              <dd.ToggleIcon
+                @icon="more-horizontal"
+                @text="Menu"
+                @hasChevron={{false}}
+              />
+              <dd.Interactive @icon="edit" @text="Edit" />
+            </L.ActionDropdown>
           </Cut::ListItem>`,
     );
+
     assert.dom('#test-list-item #test-dropdown').exists();
   });
 

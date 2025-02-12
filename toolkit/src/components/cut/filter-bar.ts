@@ -12,9 +12,10 @@ import type {
   FilterBarSignature,
   FilterConfig,
   Filters,
-  HTMLElementEvent,
   ToggleArgs,
-} from 'src/types';
+} from './filter-bar-types';
+
+import type { HTMLElementEvent } from '../../types/index';
 
 /**
  * `Cut::FilterBar` provides the UI building blocks for building a FilterBar while also managing state for you.
@@ -168,7 +169,9 @@ export default class FilterBarComponent extends Component<FilterBarSignature> {
           });
         }
       } else {
-        (filterChange[filterName] as Filter[]) = [{ text, value, isRequired }];
+        (filterChange[filterName] as unknown as Filter[]) = [
+          { text, value, isRequired },
+        ];
       }
     } else if (typeof value === 'object') {
       filterChange[filterName] = { text, value, isRequired };

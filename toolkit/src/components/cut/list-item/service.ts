@@ -6,8 +6,8 @@ import Component from '@glimmer/component';
 import {
   NORMALIZED_GATEWAY_LABELS,
   SERVICE_GATEWAY_TYPE,
-} from '../../../../utils/service-list-item';
-import type { ServiceListItemSignature } from '../types';
+} from '../../../utils/service-list-item';
+import type { ServiceListItemSignature } from '../list-item-types';
 
 export default class ServiceListItemComponent extends Component<ServiceListItemSignature> {
   ServiceGatewayType = SERVICE_GATEWAY_TYPE;
