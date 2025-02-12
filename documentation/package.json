@@ -35,7 +35,7 @@
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
     "@hashicorp/consul-ui-toolkit": "workspace:*",
-    "@hashicorp/design-system-components": "^4.14.0",
+    "@hashicorp/design-system-components": "^4.15.0",
     "@types/qunit": "^2.19.9",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",

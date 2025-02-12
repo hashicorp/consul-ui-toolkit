@@ -2733,7 +2733,7 @@ __metadata:
     "@ungap/structured-clone": "npm:^1.2.0"
     concurrently: "npm:^8.2.2"
     ember-cli-clipboard: "npm:^1.1.0"
-    ember-concurrency: "npm:^3.1.1"
+    ember-concurrency: "npm:^4.0.2"
     ember-inflector: "npm:^4.0.2"
     ember-template-lint: "npm:^5.13.0"
     eslint: "npm:^8.56.0"
@@ -2749,12 +2749,12 @@ __metadata:
     sass: "npm:^1.69.5"
     typescript: "npm:5.4.5"
   peerDependencies:
-    "@hashicorp/design-system-components": ^4.14.0
+    "@hashicorp/design-system-components": ^4.15.0
     ember-source: ^3.28.0 || ^4.0.0 || >=5.0.0
   languageName: unknown
   linkType: soft
 
-"@hashicorp/design-system-components@npm:^4.14.0":
+"@hashicorp/design-system-components@npm:^4.15.0":
   version: 4.16.0
   resolution: "@hashicorp/design-system-components@npm:4.16.0"
   dependencies:
@@ -7256,7 +7256,7 @@ __metadata:
     "@glimmer/component": "npm:^1.1.2"
     "@glimmer/tracking": "npm:^1.1.2"
     "@hashicorp/consul-ui-toolkit": "workspace:*"
-    "@hashicorp/design-system-components": "npm:^4.14.0"
+    "@hashicorp/design-system-components": "npm:^4.15.0"
     "@types/qunit": "npm:^2.19.9"
     "@typescript-eslint/eslint-plugin": "npm:^6.15.0"
     "@typescript-eslint/parser": "npm:^6.15.0"
@@ -8058,23 +8058,6 @@ __metadata:
     ember-cli-babel: "npm:^7.26.3"
     resolve: "npm:^1.10.0"
   checksum: 10c0/c9f7027f558a208f5a2f94028ffa708c34f036f78d9b045e5363d3029cc83face85067f1bdc0d989913f7bafe9ec432fa311cd619e8f059eb46481bb97981500
-  languageName: node
-  linkType: hard
-
-"ember-concurrency@npm:^3.1.1":
-  version: 3.1.1
-  resolution: "ember-concurrency@npm:3.1.1"
-  dependencies:
-    "@babel/helper-plugin-utils": "npm:^7.12.13"
-    "@babel/types": "npm:^7.12.13"
-    "@glimmer/tracking": "npm:^1.1.2"
-    ember-cli-babel: "npm:^7.26.11"
-    ember-cli-babel-plugin-helpers: "npm:^1.1.1"
-    ember-cli-htmlbars: "npm:^6.2.0"
-    ember-compatibility-helpers: "npm:^1.2.0"
-  peerDependencies:
-    ember-source: ^3.28.0 || ^4.0.0 || >=5.0.0
-  checksum: 10c0/8c4ed76851ee89988bc033cb2476937a6e1efb63a2a729291c8657bd923e0be3289571c4e2e2868b160ea1539b4adacc95eceb754bfa4ebef896501dd93dbfd5
   languageName: node
   linkType: hard
 
